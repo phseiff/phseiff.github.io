@@ -1,6 +1,6 @@
 (function(e) {
-    // var t = "https://github.com/phseiff/github-cards/";
-    var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
+    var t = "https://github.com/phseiff/github-cards/response.html";
+    // var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");
     var n, d, l, c;
