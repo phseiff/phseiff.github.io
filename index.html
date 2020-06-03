@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel=icon" href="images/icon.png">
+    <title>phseiff's Blog</title>
+
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="materialize-css/css/materialize.css" media="screen,projection"/>
+    <! link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.3/gh-fork-ribbon.min.css" />
+    <! link type="text/css" rel="stylesheet" href="github-profile-widget/style.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+
+    <! style definitions>
+
+    <style>
+
+        /* the styling for the "my projects" and "some essays"-subtitles */
+
+        .h2class {
+            color: orange; /* I'm not sure if this should be black (white in darkmode) or orange yet */
+        }
+
+        /* zoom */
+
+        .zoom {
+            transition: transform .2s;
+            position: relative;
+            margin-left: 10px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            padding-right: 10px;
+        }
+
+        .zoom:hover {
+            transform: scale(1.0); /* Not working yet */
+            /* position: absolute; */
+        }
+
+        /* github banner */
+
+        #forkongithub a {
+            background: -background-color;
+            color: orange;
+            text-decoration: none;
+            font-family: arial, sans-serif;
+            text-align: center;
+            font-weight: bold;
+            padding: 5px 40px;
+            font-size: 1rem;
+            line-height: 2rem;
+            position: absolute;
+            transition: 0.5s;
+        }
+
+        #forkongithub a:hover {
+            background: orange;
+            color: black;
+        }
+
+        #forkongithub a::before {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            height: 1px;
+            background: orange;
+        }
+
+        #forkongithub a::after {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            height: 1px;
+            background: orange;
+        }
+
+        #forkongithub a:hover::before {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            height: 1px;
+            background: black;
+        }
+
+        #forkongithub a:hover::after {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            height: 1px;
+            background: black;
+            top: auto;
+        }
+
+        #forkongithub a::after {
+            bottom: 1px;
+            top: auto;
+        }
+
+        @media screen and (min-width:800px) {
+            #forkongithub {
+                position: absolute;
+                display: block;
+                top: 0;
+                right: 0;
+                width: 100%;
+                overflow: hidden;
+                height: 300px;
+                z-index: 9999;
+            }
+            #forkongithub a {
+                width: 300px;
+                position: absolute;
+                top: 60px;
+                right: -60px;
+                transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+            }
+        }
+
+    </style>
+    <main>
+
+
+        <! Visit me on Github - Banner >
+
+        <span id="forkongithub"><a href="https://github.com/phseiff">Visit me on GitHub</a></span>
+
+
+        <! Header >
+
+        <div class="container">
+
+            <div class="header" style="margin: 15px">
+                <div class="row valign-wrapper" color="orange">
+                    <div class="col s2">
+                        <img src="images/icon.png" alt="" class="circle responsive-img orange">
+                    </div>
+                    <div class="col s10" color="orange">
+                        <div class=header" style="color: orange"><h1> phseiff.github.io </h1></div> <! #995c00>
+                    </div>
+                </div>
+            </div>
+
+        <! About>
+
+        Hello! My name is phseiff, and I'm an avid hobby developer, manga-binge-reader, flexetarian, programmer, writer and denglish-speaker. This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
+        Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span>
+
+        <! Projects >
+
+            <div class="h2class"><h2> my projects </h2></div> <hr>
+
+            Nothing here yet!<p>
+
+        <! div class="container">
+            <div class="row" hidden>
+                <div class="col s12 m7 x14">
+
+                    <div class="col-content">
+                        <div class="zoom">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="images/crosspy-icon.png">
+                                    <span class="card-title">crossppy</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>Crossplatform python framework for writing apps that run on android, windows, max and linux.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+            <! /div>
+            <! div class="col s12 m7 x14">
+
+                    <div class="col-content">
+                        <div class="zoom">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="images/crosspy-icon.png">
+                                    <span class="card-title">crossppy</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>Crossplatform python framework for writing apps that run on android, windows, max and linux.</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="#">This is a link</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        <! /div>
+
+        <! Essays>
+
+            <div class="h2class"><h2> some essays </h2></div> <hr>
+
+            Nothing here yet!<p>
+
+            <div class="row" hidden>
+                <div class="col m7">
+
+                    <div class="zoom">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/crosspy-icon.png">
+                                <span class="card-title">crossppy</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Crossplatform python framework for writing apps that run on android, windows, max and linux.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="zoom">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="images/crosspy-icon.png">
+                                <span class="card-title">crossppy</span>
+                            </div>
+                            <div class="card-content">
+                                <p>Crossplatform python framework for writing apps that run on android, windows, max and linux.</p>
+                            </div>
+                            <div class="card-action">
+                                <a href="#">This is a link</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <! Footer>
+
+    <footer>
+        <div class="page-footer">
+            <div class="container" color="orange">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Impressum & Contact</h5>
+                        <p class="grey-text text-lighten-4">Visit me on GitHub or or contact me if you want to raise an issue with my projects!</p>
+                        <p class="grey-text text-lighten-4">Created with ❤️ by phseiff</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Contact</h5>
+                        <div class="github-card" data-github="phseiff" data-width="400" data-height="150" data-theme="default"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright" width="100%">
+                <! div class="container">
+                    © 2020 Copyright phseiff. All Rights Reserved
+                <! /div>
+            </div>
+        </div>
+    </footer>
+
+
+    <! dark reader darkmode >
+
+    <script type="text/javascript" src="darkreader/darkreader.js"></script>
+    <script>
+        DarkReader.setFetchMethod(window.fetch)
+        DarkReader.auto({
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+    </script>
+
+    <! materialize >
+    <script type="text/javascript" src="materialize-css/js/materialize.min.js"></script>
+    <script src="github-cards/jsdelivr/widget.js"></script>
+</body>
+</html>
