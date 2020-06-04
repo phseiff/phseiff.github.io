@@ -499,7 +499,7 @@
             return e.replace(/</g, "&lt;").replace(/>/g, "&gt;")
         }
     })(document);
-    (function(e, r, t, a, n, i, s) {
+    /* (function(e, r, t, a, n, i, s) { Why do some random people add google analytics to their open source stuff?!
         e["GoogleAnalyticsObject"] = n;
         e[n] = e[n] || function() {
             (e[n].q = e[n].q || []).push(arguments)
@@ -508,7 +508,7 @@
         i.async = 1;
         i.src = a;
         s.parentNode.insertBefore(i, s)
-    })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+    })(window, document, "script", "//igzguz", "ga"); */
     ga("create", "UA-21475122-2", "auto");
     var t = qs.user;
     if (qs.repo) t += "/" + qs.repo;
