@@ -1,5 +1,5 @@
 (function(e) {
-    var t = "github-cards/response.html";
+    var t = "response.html";
     // var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");

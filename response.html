@@ -222,26 +222,26 @@
     <div class="header">
         <a class="avatar" href = {login}>
             <img src="{avatar_url}&s=48">
-            <strong> phseiff </strong>
+            <strong> {name} </strong>
             <span>@{login}</span>
         </a>
         <a class="button" href="https://github.com/">Follow</a>
     </div>
     <ul class="status">
         <li>
-            <a href="https://github.com/phseiff?tab=repositories">
+            <a href="https: //github.com/{login}?tab=repositories">
                 <strong>{public_repos}</strong>
                 Repos
             </a>
         </li>
         <li>
-            <a href="https://gist.github.com/phseiff">
+            <a href="https://gist.github.com/{login}">
                 <strong>{public_gists}</strong>
                 Gists
             </a>
         </li>
         <li>
-            <a href="https://github.com/phseiff/followers">
+            <a href="https://github.com/{login}/followers">
                 <strong>{followers}</strong>
                 Followers
             </a>
@@ -251,16 +251,16 @@
 </script>
 <script id="repo-card" type="text/template">
     <div class="header">
-        <a class="avatar" href="https://github.com/phseiff">
+        <a class="avatar" href="https://github.com/{login}">
             <img src="{avatar_url}&s=48">
         </a>
         <strong class="name">
-            <a href="https://github.com/{full_name}">phseiff</a>
+            <a href="https://github.com/{full_name}">{name}</a>
             <sup class="language">{language}</sup>
         </strong>
         <span>
             {action}
-            <a href="https://github.com/phseiff">phseiff</a>
+            <a href="https://github.com/{login}">{login}</a>
         </span>
         <a class="button" href="https://github.com/{full_name}">
             Star
