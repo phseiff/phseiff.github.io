@@ -1,5 +1,5 @@
 (function(e) {
-    var t = "response.html";
+    var t = "github-cards/response.html";
     // var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");
@@ -55,16 +55,16 @@
         a = a || n;
         if (!a) {
             var s = g(r, "theme") || c || "default";
-            a = t + "cards/" + s + ".html"
+            // a = t + "cards/" + s + ".html"
         }
         var f = g(r, "user");
-        var u = g(r, "repo");
+        // var u = g(r, "repo");
         var v = g(r, "github");
         if (v) {
             v = v.split("/");
             if (v.length && !f) {
                 f = v[0];
-                u = u || v[1]
+                // u = u || v[1]
             }
         }
         if (!f) {
@@ -73,15 +73,16 @@
         i += 1;
         var o = g(r, "width");
         var m = g(r, "height");
-        var b = g(r, "target");
-        var w = g(r, "client-id") || d;
-        var p = g(r, "client-secret") || l;
+        // var b = g(r, "target");
+        // var w = g(r, "client-id") || d;
+        // var p = g(r, "client-secret") || l;
         var A = "ghcard-" + f + "-" + i;
         var y = e.createElement("iframe");
         y.setAttribute("id", A);
         y.setAttribute("frameborder", 0);
         y.setAttribute("scrolling", 0);
         y.setAttribute("allowtransparency", true);
+        /*
         var E = a + "?user=" + f + "&identity=" + A;
         if (u) {
             E += "&repo=" + u
@@ -91,7 +92,8 @@
         }
         if (w && p) {
             E += "&client_id=" + w + "&client_secret=" + p
-        }
+        } */
+        var E = "github-cards/response.html";
         y.src = E;
         y.width = o || Math.min(r.parentNode.clientWidth || 400, 400);
         if (m) {
