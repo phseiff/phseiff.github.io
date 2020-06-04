@@ -71,17 +71,18 @@
             return
         }
         i += 1;
-        var o = g(r, "width");
         var m = g(r, "height");
-        // var b = g(r, "target");
-        // var w = g(r, "client-id") || d;
-        // var p = g(r, "client-secret") || l;
+        /* var o = g(r, "width");
+        var b = g(r, "target");
+        var w = g(r, "client-id") || d;
+        var p = g(r, "client-secret") || l; */
         var A = "ghcard-" + f + "-" + i;
         var y = e.createElement("iframe");
         y.setAttribute("id", A);
         y.setAttribute("frameborder", 0);
         y.setAttribute("scrolling", 0);
         y.setAttribute("allowtransparency", true);
+
         /*
         var E = a + "?user=" + f + "&identity=" + A;
         if (u) {
@@ -92,7 +93,8 @@
         }
         if (w && p) {
             E += "&client_id=" + w + "&client_secret=" + p
-        } */
+        }
+        console.log("E:", E); */
         var E = "github-cards/response.html";
         y.src = E;
         y.width = o || Math.min(r.parentNode.clientWidth || 400, 400);
