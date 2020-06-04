@@ -1,5 +1,5 @@
 (function(e) {
-    var t = "https://github.com/phseiff/github-cards/response.html";
+    var t = "github-cards/response.html";
     // var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");
@@ -19,6 +19,7 @@
             c = f
         }
     }
+    console.log("t:", t);
 
     function u(t) {
         if (e.querySelectorAll) {
@@ -31,10 +32,12 @@
                 a.push(i[r])
             }
         }
+        console.log("u(t) = a:", a);
         return a
     }
 
     function g(e, t) {
+        console.log("g(e, t):", e.getAttribute("data-" + t));
         return e.getAttribute("data-" + t)
     }
 
@@ -94,6 +97,8 @@
         if (m) {
             y.height = m
         }
+        console.log("E:", E);
+        console.log("y:", y);
         h(y);
         r.parentNode.replaceChild(y, r);
         return y
