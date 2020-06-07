@@ -1,3 +1,13 @@
+The javascript file in this directory (darkreader/darkreader.js) is part of the
+DarkReader codebase, which can be found here (https://github.com/darkreader/darkreader),
+specifically the part intended for embedding it in websites, which can be found
+here (https://www.jsdelivr.com/package/npm/darkreader).
+
+This part of said software, of which only the file darkreader.js is used here,
+is licensed under the following license:
+
+----- The license of the used dark reader parts is beneath this line -------
+
 MIT License
 
 Copyright (c) 2019 Alexander Shutau

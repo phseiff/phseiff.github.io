@@ -1,3 +1,11 @@
+The css and javascript in this directory (namely materialize-css/css/materialize.css,
+materialize-css/js/materialize.js, materialize-css/js/materialize.min.js) are
+slightly modified parts of the code provided by MaterializeCSS (codebase:
+https://github.com/Dogfalo/materialize; homepage: https://materializecss.com/)
+and thus licensed under the following license:
+
+----- The license of the used MaterializeCSS parts is beneath this line -------
+
 The MIT License (MIT)
 
 Copyright (c) 2014-2018 Materialize

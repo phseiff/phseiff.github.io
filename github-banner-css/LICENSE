@@ -1,3 +1,7 @@
+The CSS in this directory (github-banner-css/banner.css) was created using the github ribbon generator provided under http://codepo8.github.io/css-fork-on-github-ribbon/. The source code of said generator can be found under https://github.com/codepo8/css-fork-on-github-ribbon. The license of the software said ribbon generator reads as follows:
+
+----- The license of the ribbon generator is beneath this line -------
+
 Software License Agreement (BSD License)
 Copyright (c) 2013, Christian Heilmann.
 All rights reserved.

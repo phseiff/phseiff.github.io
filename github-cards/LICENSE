@@ -1,3 +1,7 @@
+The files in this directory (namely github-cards/response.html and github-cards/widget.js) are modified parts of this (https://github.com/lepture/github-cards) project and thus use the following license:
+
+----- The license of the used github-cards parts is beneath this line -------
+
 Copyright (c) 2013 - 2014, Hsiaoming Yang
 
 All rights reserved.
