@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="google-fonts/icon">
     <link type="text/css" rel="stylesheet" href="materialize-css/css/materialize.css" media="screen,projection"/>
-    <! meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
@@ -40,6 +40,22 @@
             /* position: absolute; */
         }
 
+        /* Hide the desktop title/show the mobile title on mobile. */
+        .desktop_title {
+            display: none;
+        }
+        .mobile_title {
+            display: inital;
+        }
+        @media screen and (min-width:800px) {
+            .desktop_title {
+                display: initial;
+            }
+            .mobile_title {
+                display: none;
+            }
+        }
+
     </style>
     <main>
 
@@ -50,18 +66,25 @@
 
 
         <! Header >
-
         <div class="container">
 
-            <div class="header" style="margin: 15px">
-                <div class="row valign-wrapper" color="orange">
-                    <div class="col s2">
-                        <img src="images/icon.png" alt="" class="circle responsive-img orange">
-                    </div>
-                    <div class="col s10" color="orange">
-                        <div class=header" style="color: orange"><h1> phseiff.github.io </h1></div> <! #995c00>
+            <div class="desktop_title"> <! desktop version >
+                <div class="header" style="margin: 15px">
+                    <div class="row valign-wrapper" color="orange">
+                        <div class="col s2">
+                            <img src="images/icon.png" alt="" class="circle responsive-img orange">
+                        </div>
+                        <div class="col s10" color="orange">
+                            <div class=header" style="color: orange"><h1> phseiff.github.io </h1></div> <! #995c00>
+                        </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mobile_title"> <! mobile version >
+                <img src="images/title.png" width="100%">
+                <! img src="images/icon.png" alt="" class="circle responsive-img orange">
+                <! div class=header" style="color: orange">
             </div>
 
         <! About>
