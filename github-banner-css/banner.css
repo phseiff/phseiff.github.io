@@ -78,7 +78,7 @@
         display: block;
         top: 0;
         right: 0;
-        width: 100%;
+        width: 300px; /* <- This fixed the overlapping issue. */
         overflow: hidden;
         height: 300px;
         z-index: 9999;
