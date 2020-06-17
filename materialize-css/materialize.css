@@ -2368,7 +2368,8 @@ svg:not(:root) {
  * 1. Change the font styles in all browsers (opinionated).
  * 2. Remove the margin in Firefox and Safari.
  */
-button,
+
+
 input,
 optgroup,
 select,
@@ -2588,7 +2589,7 @@ html {
           box-sizing: inherit;
 }
 
-button,
+/* button */
 input,
 optgroup,
 select,
@@ -9129,4 +9130,10 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+/* to allow us to switch off uppercase in buttons. */
+
+.no-uppercase {
+  text-transform: none;
 }

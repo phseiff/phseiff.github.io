@@ -6,10 +6,11 @@
     <title>phseiff's Blog</title>
 
     <link rel="stylesheet" href="google-fonts/icon">
-    <link type="text/css" rel="stylesheet" href="materialize-css/css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize-css/materialize.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <! color scheme >
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="orange">
     <meta name="msapplication-navbutton-color" content="orange">
     <meta name="apple-mobile-web-app-status-bar-style" content="orange">
@@ -58,6 +59,46 @@
             .mobile_title {
                 display: none;
             }
+        }
+
+        /* The cookie bar */
+
+        .cookie_bar {
+            background-color: #ef9c04;
+            position: -webkit-sticky;
+            position: sticky;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -5px 5px grey;
+            color: white;
+        }
+        @media (prefers-color-scheme: dark) {
+            .cookie_bar {
+                box-shadow: 0 -5px 5px black
+            }
+        }
+        .cookie-bar-flex-box {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 10px;
+        }
+        @media all and (max-width: 500px) {
+            .cookie-bar-flex-box {
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+        }
+        .cookie-bar-left {
+            flex-grow: 1;
+        }
+        .cookie-bar-right {
+            width: fit-content;
+            margin-left: 20px;
+            min-width: 120px;
         }
 
     </style>
@@ -147,6 +188,78 @@
             </div>
 
         </div>
+
+        <! cookie bar >
+        <div class="cookie_bar" id="cookie-bar-field" hidden>
+            <!-- ToDo: Maybe wait until user scrolled a bit before showing this? -->
+            <div class="container">
+                <div class="cookie-bar-flex-box">
+                    <script>
+                        let clicky_site_ids = [];
+                        let clicky_script = 0;
+
+                        // Scroll down:
+                        function scroll_down() {
+                            document.getElementById("privacy-policy").scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                                inline: "nearest"
+                            })
+                        }
+                        // Allow us to set and unset cookie consent:
+                        function revoke_consent () {
+                            document.getElementById("cookie-bar-field").style.display = "block";
+                            document.getElementById("privacy-policy").style.display = "initial";
+                            document.getElementById("privacy-policy-accepted").style.display = "none";
+                            document.cookie = "cookie-consent=; path=/;";
+                        }
+                        function give_consent() {
+                            document.getElementById("cookie-bar-field").style.display = "none";
+                            document.getElementById("privacy-policy").style.display = "none";
+                            document.getElementById("privacy-policy-accepted").style.display = "initial";
+                            document.cookie = "cookie-consent=true; path=/;";
+                            clicky_script = document.createElement('script');
+                            clicky_script.onload = function() {};
+                            clicky_script.src = "//static.getclicky.com/js";
+                            document.head.appendChild(clicky_script);
+                    }
+                        // In case the the user consented to the cookie, we won't show the cookie bar again:
+                        function getCookie(cname) {
+                            // Taken from https://www.w3schools.com/js/js_cookies.asp.
+                            const name = cname + "=";
+                            const decodedCookie = decodeURIComponent(document.cookie);
+                            const ca = decodedCookie.split(';');
+                            for(let i = 0; i <ca.length; i++) {
+                                let c = ca[i];
+                                while (c.charAt(0) === ' ') {
+                                    c = c.substring(1);
+                                }
+                                if (c.indexOf(name) === 0) {
+                                    return c.substring(name.length, c.length);
+                                }
+                            }
+                            return "";
+                        }
+                    </script>
+                    <div class="cookie-bar-left">
+                        <!-- I'd like to use a Cookie to analyse my traffic. Is that okay with you? -->
+                        Would you mind to take a cookie to help me analyse my traffic?
+
+                        <p> <small>
+                            <!-- The cookie only contains the data it takes to anonymously count how many visits I have and from which countries. -->
+                            I'd only count how many visits I have, when and from which countries, and use a cookie to ensure you aren't counted twice, completely anonymous.
+                        </small>
+                        <small><a href="javascript:scroll_down();">
+                            learn more
+                            <!-- Maybe use feature discovery instead of the pages bottom for this? -->
+                        </a></small>
+                    </div>
+                    <div class="cookie-bar-right">
+                        <a class="waves-effect waves-light btn no-uppercase" style="background-color: #be601a" href="javascript:give_consent()"> That's fine!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <! Footer>
@@ -154,14 +267,31 @@
     <footer>
         <div class="page-footer">
             <div class="container" color="orange">
+                <! hr id="cookie-bar-line">
                 <div class="row">
+                    <div class="col l6 s12" id="privacy-policy">
+                        <h5 class="white-text">Privacy Policy</h5>
+                        <p class="grey-text text-lighten-4">If you agree to it, I use a service called <a href="https://clicky.com/101259912">clicky</a>, who is completely GDPR-conform (unlike Google Analytics),
+                        to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
+                        get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
+                    </div>
+                    <div class="col l6 s12" id="privacy-policy-accepted" hidden>
+                        <h5 class="white-text">Privacy Policy</h5>
+                        <p class="grey-text text-lighten-4">I use a service called <a href="https://clicky.com">clicky</a>, who is completely GDPR-conform (unlike Google Analytics),
+                            to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
+                            get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
+                        <p class="grey-text text-lighten-4">
+                            I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
+                            And I really appreciate you let me count (on) your visits :D</p>
+                        <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke cookie-consent 💔</a>
+                    </div>
                     <div class="col l6 s12">
                         <h5 class="white-text">Impressum & Contact</h5>
                         <p class="grey-text text-lighten-4">Visit me on GitHub or or contact me if you want to raise an issue with my projects!</p>
                         <p class="grey-text text-lighten-4">Created with ❤️ by phseiff</p>
                     </div>
-                    <div class="col l4 offset-l2 s12">
-                        <h5 class="white-text">Contact</h5>
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Contact</h5> <!  @ GitHub (maybe add to this title? >
                         <div class="github-card" data-github="phseiff" data-width="400" data-height="150" data-theme="default"></div>
                     </div>
                 </div>
@@ -188,7 +318,17 @@
     </script>
 
     <! materialize >
-    <script type="text/javascript" src="materialize-css/js/materialize.min.js"></script>
+    <script type="text/javascript" src="materialize-css/materialize.min.js"></script>
     <script src="github-cards/widget.js"></script>
+
+    <script>
+        // realise we already consented to cookie use!
+        if (getCookie("cookie-consent") === "true") {
+            give_consent()
+        }
+        else {
+            revoke_consent()
+        }
+    </script>
 </body>
 </html>

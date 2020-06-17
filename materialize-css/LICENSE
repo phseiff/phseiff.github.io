@@ -1,5 +1,5 @@
-The css and javascript in this directory (namely materialize-css/css/materialize.css,
-materialize-css/js/materialize.js, materialize-css/js/materialize.min.js) are
+The css and javascript in this directory (namely materialize-css/materialize.css,
+materialize-css/js/materialize.js, materialize-css/materialize.min.js) are
 slightly modified parts of the code provided by MaterializeCSS (codebase:
 https://github.com/Dogfalo/materialize; homepage: https://materializecss.com/)
 and thus licensed under the following license:
