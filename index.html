@@ -211,13 +211,13 @@
                             document.getElementById("cookie-bar-field").style.display = "block";
                             document.getElementById("privacy-policy").style.display = "initial";
                             document.getElementById("privacy-policy-accepted").style.display = "none";
-                            document.cookie = "cookie-consent=; path=/; samSite=Lax";
+                            document.cookie = "cookie-consent=; path=/; sameSite=strict";
                         }
                         function give_consent() {
                             document.getElementById("cookie-bar-field").style.display = "none";
                             document.getElementById("privacy-policy").style.display = "none";
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
-                            document.cookie = "cookie-consent=true; path=/; sameSite=Lax";
+                            document.cookie = "cookie-consent=true; path=/; sameSite=strict";
                             clicky_site_ids.push(101259912);
                             clicky_script = document.createElement('script');
                             clicky_script.onload = function() {};
