@@ -5,7 +5,7 @@
     <! link rel=icon" href="https://phseiff.github.io/images/icon_head.png">
     <title>phseiff's Blog</title>
 
-    <link rel="stylesheet" href="google-fonts/icon">
+    <link rel="stylesheet" type="application/octet-stream" href="google-fonts/icon">
     <link type="text/css" rel="stylesheet" href="materialize-css/materialize.css" media="screen,projection"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
@@ -195,7 +195,7 @@
             <div class="container">
                 <div class="cookie-bar-flex-box">
                     <script>
-                        let clicky_site_ids = [];
+                        var clicky_site_ids = [];
                         let clicky_script = 0;
 
                         // Scroll down:
@@ -211,13 +211,13 @@
                             document.getElementById("cookie-bar-field").style.display = "block";
                             document.getElementById("privacy-policy").style.display = "initial";
                             document.getElementById("privacy-policy-accepted").style.display = "none";
-                            document.cookie = "cookie-consent=; path=/;";
+                            document.cookie = "cookie-consent=; path=/; samSite=Lax";
                         }
                         function give_consent() {
                             document.getElementById("cookie-bar-field").style.display = "none";
                             document.getElementById("privacy-policy").style.display = "none";
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
-                            document.cookie = "cookie-consent=true; path=/;";
+                            document.cookie = "cookie-consent=true; path=/; sameSite=Lax";
                             clicky_site_ids.push(101259912);
                             clicky_script = document.createElement('script');
                             clicky_script.onload = function() {};
