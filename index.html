@@ -218,6 +218,7 @@
                             document.getElementById("privacy-policy").style.display = "none";
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
                             document.cookie = "cookie-consent=true; path=/;";
+                            clicky_site_ids.push(101259912);
                             clicky_script = document.createElement('script');
                             clicky_script.onload = function() {};
                             clicky_script.src = "//static.getclicky.com/js";
@@ -283,7 +284,7 @@
                         <p class="grey-text text-lighten-4">
                             I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
                             And I really appreciate you let me count (on) your visits :D</p>
-                        <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke cookie-consent 💔</a>
+                        <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
                     <div class="col l6 s12">
                         <h5 class="white-text">Impressum & Contact</h5>
