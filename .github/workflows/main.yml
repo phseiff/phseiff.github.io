@@ -10,13 +10,9 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BASE_BRANCH: master # The branch the action should deploy from.
