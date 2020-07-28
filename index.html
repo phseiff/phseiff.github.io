@@ -117,7 +117,7 @@
                 <div class="header" style="margin: 15px">
                     <div class="row valign-wrapper" color="orange">
                         <div class="col s2">
-                            <img src="images/icon.png" alt="" class="circle responsive-img orange">
+                            <img src="images/icon.jpeg" alt="" class="circle responsive-img orange">
                         </div>
                         <div class="col s10" color="orange">
                             <div class=header" style="color: orange"><h1> phseiff.github.io </h1></div> <! #995c00>
@@ -189,6 +189,9 @@
 
         </div>
 
+        <! the essays content >
+        <embed type="text/html" src="github-essays/essays/test.html">
+
         <! cookie bar >
         <div class="cookie_bar" id="cookie-bar-field" hidden>
             <!-- ToDo: Maybe wait until user scrolled a bit before showing this? -->
@@ -219,6 +222,7 @@
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
                             document.cookie = "cookie-consent=true; path=/; sameSite=strict";
                             clicky_site_ids.push(101259912);
+                            console.log(clicky_site_ids);
                             clicky_script = document.createElement('script');
                             clicky_script.onload = function() {};
                             clicky_script.src = "//static.getclicky.com/js";
@@ -273,7 +277,7 @@
                     <div class="col l6 s12" id="privacy-policy">
                         <h5 class="white-text">Privacy Policy</h5>
                         <p class="grey-text text-lighten-4">If you agree to it, I use a service called <a href="https://clicky.com/101259912">clicky</a>, who is completely GDPR-conform (unlike Google Analytics),
-                        to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
+                        to count my visitors. I get to see how many people from which country visited me when and for how long, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
                         get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
                     </div>
                     <div class="col l6 s12" id="privacy-policy-accepted" hidden>
@@ -298,16 +302,18 @@
                 </div>
             </div>
             <div class="footer-copyright" width="100%">
-                <! div class="container">
-                    © 2020 Copyright phseiff. All Rights Reserved
-                <! /div>
+                <div class="container">
+                    © 2020 Copyright phseiff. All Rights Reserved <! 🇯🇵 🇰🇷 🇩🇪 🇨🇳 🇺🇸 🇫🇷 🇪🇸 🇮🇹 🇷🇺 🇬🇧 >
+                </div>
             </div>
         </div>
     </footer>
 
+    <! github cards>
+    <script src="github-cards/widget.js"></script>
 
-    <! dark reader darkmode >
 
+    <! dark reader dark mode >
     <script type="text/javascript" src="darkreader/darkreader.js"></script>
     <script>
         DarkReader.setFetchMethod(window.fetch);
@@ -320,7 +326,6 @@
 
     <! materialize >
     <script type="text/javascript" src="materialize-css/materialize.min.js"></script>
-    <script src="github-cards/widget.js"></script>
 
     <script>
         // realise we already consented to cookie use!
@@ -331,5 +336,32 @@
             revoke_consent()
         }
     </script>
+
+<!-- test>
+
+<script>
+    function httpGet(theUrl)
+    {
+        if (window.XMLHttpRequest)
+        {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else
+        {// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                console.log(xmlhttp.responseText);
+                return xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", theUrl, false );
+        xmlhttp.send();
+    }
+    console.log(httpGet("http://phseiff.com/github-cards/widget.js"));
+</script -->
 </body>
 </html>
