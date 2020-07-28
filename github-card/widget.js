@@ -1,6 +1,6 @@
 (function(e) {
-    var t = "github-cards/response.html";
-    // var t = "//cdn.jsdelivr.net/github-cards/1.0.2/";
+    var t = "github-card/response.html";
+    // var t = "//cdn.jsdelivr.net/github-card/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");
     var n, d, l, c;
@@ -95,7 +95,7 @@
             E += "&client_id=" + w + "&client_secret=" + p
         }
         console.log("E:", E); */
-        var E = "github-cards/response.html";
+        var E = "github-card/response.html";
         y.src = E;
         y.width = o || Math.min(r.parentNode.clientWidth || 400, 400);
         if (m) {
