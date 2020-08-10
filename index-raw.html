@@ -5,8 +5,11 @@
     <! link rel=icon" href="https://phseiff.github.io/images/icon_head.png">
     <title>phseiff.com</title>
 
-    <link rel="stylesheet" type="application/octet-stream" href="google-fonts/icon">
+    <!-- ToDo: Make the upper one work: -->
+    <! link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="mastodon-follow-button/button.css"/>
     <link type="text/css" rel="stylesheet" href="materialize-css/materialize.css" media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="google-fonts/icons.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <! color scheme >
@@ -17,6 +20,18 @@
 </head>
 
 <body>
+
+    <script>
+        // Scroll down:
+        function scroll_to(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest"
+            })
+        }
+    </script>
+
     <! style definitions>
 
     <link type="text/css" rel="stylesheet" href="github-banner-css/banner.css">
@@ -113,7 +128,7 @@
         <div class="container">
 
             <div class="desktop_title"> <! desktop version >
-                <div class="header" style="margin: 15px">
+                <div class="header" style="margin: 15px" id="phseiff-header">
                     <div class="row valign-wrapper" color="orange">
                         <div class="col s2">
                             <img src="images/icon.jpeg" alt="" class="circle responsive-img orange">
@@ -187,10 +202,7 @@
             </div>
 
         <span id="embedded_essays">
-            
-            <iframe id="LICENSE" type="text/html" style="width: 100%; height: 1000vh; top:0; left:0" height="pixels" src="https://phseiff.com/phseiff-essays/LICENSE.html" frameborder="0" allowfullscreen position: absolute></iframe>
-            <iframe id="test" type="text/html" style="width: 100%; height: 1000vh; top:0; left:0" height="pixels" src="https://phseiff.com/phseiff-essays/test.html" frameborder="0" allowfullscreen position: absolute></iframe>
-
+            <! the essays content >
         </span>
         <script>
             /* Ensure this is hidden when we are using javascript. */
@@ -210,14 +222,6 @@
                         var clicky_site_ids = [];
                         let clicky_script = 0;
 
-                        // Scroll down:
-                        function scroll_down() {
-                            document.getElementById("privacy-policy").scrollIntoView({
-                                behavior: "smooth",
-                                block: "start",
-                                inline: "nearest"
-                            })
-                        }
                         // Allow us to set and unset cookie consent:
                         function revoke_consent () {
                             document.getElementById("cookie-bar-field").style.display = "block";
@@ -263,7 +267,7 @@
                             <!-- The cookie only contains the data it takes to anonymously count how many visits I have and from which countries. -->
                             I'd only count how many visits I have, when and from which countries, and use a cookie to ensure you aren't counted twice, completely anonymous.
                         </small>
-                        <small><a href="javascript:scroll_down();">
+                        <small><a href="#privacy-policy">
                             learn more
                             <!-- Maybe use feature discovery instead of the pages bottom for this? -->
                         </a></small>
@@ -277,14 +281,14 @@
     </main>
 
     <! Footer>
-    <footer>
+    <footer id="phseiff-footer">
         <div class="page-footer">
             <div class="container" color="orange">
                 <! hr id="cookie-bar-line">
                 <div class="row">
                     <div class="col l6 s12" id="privacy-policy">
                         <h5 class="white-text">Privacy Policy</h5>
-                        <p class="grey-text text-lighten-4">If you agree to it, I use a service called <a href="https://clicky.com/101259912">clicky</a>, who is completely GDPR-conform (unlike Google Analytics),
+                        <p class="grey-text text-lighten-4">If you agree to it, I use a service called <a href="https://clicky.com/101259912">clicky</a>, which is completely GDPR-conform (unlike Google Analytics),
                         to count my visitors. I get to see how many people from which country visited me when and for how long, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
                         get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
                     </div>
@@ -294,13 +298,19 @@
                             to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
                             get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
                         <p class="grey-text text-lighten-4">
-                            I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
+                            I generally care a lot about privacy, which is why <strike>I don't load any resources from google</strike> or other resources using google analytics into my page, and why I don't collect your private data.
                             And I really appreciate you let me count (on) your visits :D</p>
                         <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
                     <div class="col l6 s12">
                         <h5 class="white-text">Impressum & Contact</h5>
-                        <p class="grey-text text-lighten-4">Visit me on GitHub or or contact me if you want to raise an issue with my projects!</p>
+                        <p class="grey-text text-lighten-4">Visit me on <a rel="me" href="https://toot.phseiff.com/@phseiff">Mastodon</a>
+                            or or contact me on <a href="https://github.com/phseiff">GitHub</a> if you want to raise an issue with my projects!
+                            You can also directly
+                            <a class="mstdn" target="popup" href="https://toot.phseiff.com/users/phseiff/remote_follow">
+                                follow
+                            </a>
+                            me on Mastodon from this webpage!
                         <p class="grey-text text-lighten-4">Created with ❤️ by phseiff</p>
                     </div>
                     <div class="col l6 s12">
@@ -345,31 +355,62 @@
         }
     </script>
 
-<!-- test>
 
-<script>
-    function httpGet(theUrl)
-    {
-        if (window.XMLHttpRequest)
-        {// code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp=new XMLHttpRequest();
-        }
-        else
-        {// code for IE6, IE5
-            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange=function()
-        {
-            if (xmlhttp.readyState==4 && xmlhttp.status==200)
-            {
-                console.log(xmlhttp.responseText);
-                return xmlhttp.responseText;
+    <! Action Buttons >
+    <div style="position: fixed; bottom: 20px; right: 5px">
+        <ul>
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
+                <a class="btn-floating yellow" href="#phseiff-header">
+                    <i class="material-icons">keyboard_arrow_up</i>
+                </a>
+            </li>
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
+                <a class="btn-floating yellow" href="#phseiff-footer">
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <! Scroll smoothly>
+    <script>
+
+        // Ensure every page-intern link uses this:
+        var links = document.getElementsByTagName('a');
+        for(var i = 0; i < links.length; i++) {
+            var thisLink = links[i];
+            var source = thisLink.getAttribute('href');
+            if (source.charAt(0) === '#') {
+                thisLink.setAttribute("href", "javascript:scroll_to(\"" + source.substring(1, source.length) + "\")");
             }
         }
-        xmlhttp.open("GET", theUrl, false );
-        xmlhttp.send();
-    }
-    console.log(httpGet("http://phseiff.com/github-cards/widget.js"));
-</script -->
+    </script>
+
+    <!-- test>
+
+    <script>
+        function httpGet(theUrl)
+        {
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    console.log(xmlhttp.responseText);
+                    return xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET", theUrl, false );
+            xmlhttp.send();
+        }
+        console.log(httpGet("http://phseiff.com/github-cards/widget.js"));
+    </script -->
 </body>
 </html>
