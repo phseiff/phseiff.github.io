@@ -1,0 +1,9 @@
+This folder (google-fonts) contains the google fonts as they can be accessed via the internet. The files contain
+the content of
+* https://fonts.googleapis.com/icon?family=Material+Icons (went into icon)
+* https://fonts.gstatic.com/s/materialicons/v52/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf (went into font.ttf)
+as they where the 13th June 2020.
+
+The license and ownership of the files "icon" and "font.ttf" thus equals the license of the licenses and ownership of
+the content of the urls "https://fonts.googleapis.com/icon?family=Material+Icons" and
+"https://fonts.gstatic.com/s/materialicons/v52/flUhRq6tzZclQEJ-Vdg-IuiaDsNZ.ttf" as they where the 13th June 2020.
