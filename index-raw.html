@@ -7,7 +7,8 @@
 
     <!-- ToDo: Make the upper one work: -->
     <! link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="mastodon-follow-button/button.css"/>
+    <link type="text/css" rel="stylesheet" href="follow-buttons/mstdn-button.css"/>
+    <link type="text/css" rel="stylesheet" href="follow-buttons/twitter-button.css"/>
     <link type="text/css" rel="stylesheet" href="materialize-css/materialize.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="google-fonts/icons.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -302,6 +303,7 @@
                             get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
                         <p class="grey-text text-lighten-4">
                             I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
+                            I'd also like to mention that the twitter-follow-button as well as the mastodon-follow-button don't load any data from their respective sites until they are clicked.
                             And I really appreciate you let me count (on) your visits :D</p>
                         <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
@@ -313,7 +315,11 @@
                             <a class="mstdn" target="popup" href="https://toot.phseiff.com/users/phseiff/remote_follow">
                                 follow
                             </a>
-                            me on Mastodon from this webpage!
+                            me on Mastodon from this webpage, or
+                            <a class ="twitter-follow" target="popup" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A63344%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=phseiff&tw_p=followbutton">
+                                follow
+                            </a>
+                            me on twitter!
                         <p class="grey-text text-lighten-4">Created with ❤️ by phseiff</p>
                     </div>
                     <div class="col l6 s12">
