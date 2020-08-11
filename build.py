@@ -26,4 +26,4 @@ with open("index.html", "w+") as f:
 # * Einen Workflow einrichten, der automatisch zu gh-pages pusht und dort build.py ausführt, wann immer gepusht wird.
 # * Beide Repos verbinden, so dass pushs in phseiff-essays auch diese Action in phseiff.github.io triggern.
 # * Online loggen, um log einfacher zu sehen.
-# * Ein to top- und einen to buttom-button unten an seite kleben.
+# * Ein to top- und einen to bottom-button unten an seite kleben.
