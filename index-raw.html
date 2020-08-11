@@ -221,6 +221,7 @@
                     <script>
                         var clicky_site_ids = [];
                         let clicky_script = 0;
+                        var consent_given = false;
 
                         // Allow us to set and unset cookie consent:
                         function revoke_consent () {
@@ -228,6 +229,7 @@
                             document.getElementById("privacy-policy").style.display = "initial";
                             document.getElementById("privacy-policy-accepted").style.display = "none";
                             document.cookie = "cookie-consent=; path=/; sameSite=strict";
+                            consent_given = false;
                         }
                         function give_consent() {
                             document.getElementById("cookie-bar-field").style.display = "none";
@@ -240,6 +242,7 @@
                             clicky_script.onload = function() {};
                             clicky_script.src = "//static.getclicky.com/js";
                             document.head.appendChild(clicky_script);
+                            consent_given = true;
                     }
                         // In case the the user consented to the cookie, we won't show the cookie bar again:
                         function getCookie(cname) {
@@ -298,7 +301,7 @@
                             to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
                             get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
                         <p class="grey-text text-lighten-4">
-                            I generally care a lot about privacy, which is why <strike>I don't load any resources from google</strike> or other resources using google analytics into my page, and why I don't collect your private data.
+                            I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
                             And I really appreciate you let me count (on) your visits :D</p>
                         <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
@@ -357,20 +360,51 @@
 
 
     <! Action Buttons >
-    <div style="position: fixed; bottom: 20px; right: 5px">
+    <div style="position: fixed; top: 5px; right: 5px">
         <ul>
-            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top" id="phseiff-back-to-top-button">
                 <a class="btn-floating yellow" href="#phseiff-header">
                     <i class="material-icons">keyboard_arrow_up</i>
                 </a>
             </li>
-            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
+        </ul>
+    </div>
+    <div style="position: fixed; bottom: 5px; right: 5px">
+        <ul>
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top" id="phseiff-back-to-bottom-button">
                 <a class="btn-floating yellow" href="#phseiff-footer">
                     <i class="material-icons">keyboard_arrow_down</i>
                 </a>
             </li>
         </ul>
     </div>
+
+    <! Hide scroll up/down buttons when to close to top/bottom, and hide down-button when near footer or when
+       the cookie bar is shown.>
+    <script>
+        document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
+        if (consent_given === false)
+            document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
+        window.onscroll = function()
+        {
+            let pageOffset = document.documentElement.scrollTop || document.body.scrollTop;
+            if(pageOffset >= 1000)
+            {
+                document.getElementById('phseiff-back-to-top-button').style.visibility="visible";
+            }else
+            {
+                document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
+            }
+            if (document.documentElement.scrollHeight - document.documentElement.scrollTop
+                >= document.documentElement.clientHeight + 1000 && consent_given)
+            {
+                document.getElementById('phseiff-back-to-bottom-button').style.visibility="visible";
+            }else
+            {
+                document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
+            }
+        }
+    </script>
 
     <! Scroll smoothly>
     <script>
