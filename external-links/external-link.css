@@ -1,28 +1,6 @@
 .external-link{
-    display:inline-block;
-    padding:0px 10px 0px 30px;
-    border-radius: 2px;
-    /*
-    color:white;
-    text-decoration:none;
-    font-size:16px; */
-    background-image: url('/external-links/external-link.svg');
-    background-size:16px;
+    background-image:url(/external-links/external-link.svg);
+    background-position:center right;
     background-repeat:no-repeat;
-    background-position:top 50% left 8px;
-    transition:all 0.5s;
-}
-.external-link:hover{
-    background-color:#bf7402;
-}
-/*.mstdn::before{
-  content:"@";
-}*/
-.external-link > span{
-    color:white;
-    font-size:12px;
-    padding-left:3px;
-}
-.external-link > span:before{
-    content:"@";
+    padding-right:13px
 }
