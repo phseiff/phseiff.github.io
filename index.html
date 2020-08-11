@@ -394,7 +394,7 @@
         document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
         if (consent_given === false)
             document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
-        window.onscroll = function()
+        function update_scroll_buttons()
         {
             let pageOffset = document.documentElement.scrollTop || document.body.scrollTop;
             if(pageOffset >= 1000)
@@ -413,6 +413,8 @@
                 document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
             }
         }
+        window.onscroll = update_scroll_buttons;
+        window.onload = update_scroll_buttons;
     </script>
 
     <! Scroll smoothly>
