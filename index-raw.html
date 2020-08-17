@@ -24,12 +24,13 @@
     <script>
         // Scroll down:
         function scroll_to(id) {
-            open_essay(id);
-            document.getElementById(id).scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-                inline: "nearest"
-            });
+            if (~open_essay(id)) {
+                document.getElementById(id).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
+            }
         }
     </script>
 
@@ -234,7 +235,10 @@
                     opened_essay = document.getElementById(essay_name);
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
+                    scroll_to("phseiff-header");
+                    return true;
                 }
+                return false;
             }
             function close_essay() { // Close the given essay.
                 opened_essay.style.display = "none";
