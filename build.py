@@ -10,7 +10,7 @@ with open("index-raw.html", "r") as f:
             + '<iframe class="embedded-essay" id="'
             + essay.replace("/", "_") + '" '
             + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)"'
-            + ' type="text/html" style="width: 100%; height: 1000vh; src="https://phseiff.com/phseiff-essays/'
+            + ' type="text/html" style="width: 100%; height: 1000vh" src="https://phseiff.com/phseiff-essays/'
             + essay + '.html" frameborder="0" allowfullscreen></iframe>\n'
         )
     content = content.replace("<! the essays content >", essay_content)
