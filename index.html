@@ -5,8 +5,6 @@
     <! link rel=icon" href="https://phseiff.github.io/images/icon_head.png">
     <title>phseiff.com</title>
 
-    <!-- ToDo: Make the upper one work: -->
-    <! link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="follow-buttons/mstdn-button.css"/>
     <link type="text/css" rel="stylesheet" href="follow-buttons/twitter-button.css"/>
     <link type="text/css" rel="stylesheet" href="external-links/external-link.css"/>
@@ -26,11 +24,12 @@
     <script>
         // Scroll down:
         function scroll_to(id) {
+            open_essay(id);
             document.getElementById(id).scrollIntoView({
                 behavior: "smooth",
                 block: "start",
                 inline: "nearest"
-            })
+            });
         }
     </script>
 
@@ -153,6 +152,8 @@
         Hello! My name is phseiff, and I'm an avid hobby developer, manga-binge-reader, flexetarian, programmer, writer and denglish-speaker. This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
         Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span>
 
+            <span id="embedded-essays-if-js-is-enabled"></span>
+
         <! Projects >
 
             <div class="desktop_title">
@@ -203,16 +204,45 @@
                 <! further cards >
             </div>
 
-        <span id="embedded_essays">
-            
-            <iframe id="LICENSE" type="text/html" style="width: 100%; height: 1000vh; top:0; left:0" height="pixels" src="https://phseiff.com/phseiff-essays/LICENSE.html" frameborder="0" allowfullscreen position: absolute></iframe>
-            <iframe id="test" type="text/html" style="width: 100%; height: 1000vh; top:0; left:0" height="pixels" src="https://phseiff.com/phseiff-essays/test.html" frameborder="0" allowfullscreen position: absolute></iframe>
+        <! Actually Embedded essays>
+        <span id="wrapper-for-embedded-essays">
+            <span id="puffer-for-embedded-essays" style="height: 10000px"></span>
+            <span id="embedded_essays">
+                
+            <iframe class="embedded-essay" id="LICENSE" onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+'px';})(this)" type="text/html" style="width: 100%; height: 1000vh; src="https://phseiff.com/phseiff-essays/LICENSE.html" frameborder="0" allowfullscreen></iframe>
+            <iframe class="embedded-essay" id="test" onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+'px';})(this)" type="text/html" style="width: 100%; height: 1000vh; src="https://phseiff.com/phseiff-essays/test.html" frameborder="0" allowfullscreen></iframe>
 
+            </span>
         </span>
         <script>
-            /* Ensure this is hidden when we are using javascript. */
-            let embedded_essays = document.getElementById("embedded_essays")
-            embedded_essays.style.cssText = "display: none;"
+            /* Ensure the original container with the spacing on the top is hidden when we are using javascript. */
+            let wrapper_for_embedded_essays = document.getElementById("wrapper-for-embedded-essays");
+            wrapper_for_embedded_essays.style.cssText = "display: none;";
+            /* Make every object within the inner container invisible. */
+            let embedded_essays = document.getElementById("embedded_essays");
+            for (i=0; i<embedded_essays.children.length; i++) {
+                embedded_essays.children[i].style.display = "none";
+            }
+            /* Move the inner container to the front (above the content chooser). */
+            new_container_for_essays = document.getElementById("embedded-essays-if-js-is-enabled");
+            new_container_for_essays.appendChild(embedded_essays);
+
+            /* Function to open essay. */
+            var opened_essay = undefined;
+            function open_essay(essay_name) { // Open the given essay.
+                let essay_element_to_open = document.getElementById(essay_name);
+                if (essay_element_to_open.parentElement.id === "embedded_essays") {
+                    if (opened_essay)
+                        opened_essay.style.display = "none";
+                    opened_essay = document.getElementById(essay_name);
+                    opened_essay.style.display = "inline";
+                }
+            }
+            function close_essay() { // Close the given essay.
+                opened_essay.style.display = "none";
+                opened_essay = undefined;
+                scroll_to("phseiff-header");
+            }
         </script>
 
         </div>
