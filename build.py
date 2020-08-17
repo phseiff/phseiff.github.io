@@ -7,11 +7,11 @@ with open("index-raw.html", "r") as f:
     for essay in essay_list:
         essay_content += (
             " " * 4 * 3
-            + '<iframe id="'
-            + essay.replace("/", "_")
-            + '" type="text/html" style="width: 100%; height: 1000vh; top:0; left:0"'
-            + ' height="pixels" src="https://phseiff.com/phseiff-essays/'
-            + essay + '.html" frameborder="0" allowfullscreen position: absolute></iframe>\n'
+            + '<iframe class="embedded-essay" id="'
+            + essay.replace("/", "_") + '" '
+            + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)"'
+            + ' type="text/html" style="width: 100%; height: 1000vh; src="https://phseiff.com/phseiff-essays/'
+            + essay + '.html" frameborder="0" allowfullscreen></iframe>\n'
         )
     content = content.replace("<! the essays content >", essay_content)
 
