@@ -1,4 +1,7 @@
 import requests
+import time
+
+time.sleep(20)
 
 with open("index-raw.html", "r") as f:
     content = f.read()
@@ -10,7 +13,7 @@ with open("index-raw.html", "r") as f:
             + '<span class="embedded-essay" id="'
             + essay.replace("/", "_") + '" '
             # + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)" '
-            + '><div width="100%" height="200px"></div>'
+            + '><div style="width: 100%; height: 200px"></div>'
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
                 'href="https://phseiff.com#LICENSE"'
