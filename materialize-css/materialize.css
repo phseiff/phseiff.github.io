@@ -2598,14 +2598,14 @@ textarea {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
 }
 
-ul:not(.browser-default) {
+/* ul:not(.browser-default) {
   padding-left: 0;
   list-style-type: none;
 }
 
 ul:not(.browser-default) > li {
   list-style-type: none;
-}
+} */
 
 a {
   color: #039be5;
