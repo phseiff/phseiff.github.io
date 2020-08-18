@@ -8086,9 +8086,13 @@ main {
 }
 
 /* to allow us to switch off uppercase in buttons. */
-:not(gist) .no-uppercase {
+.no-uppercase {
   text-transform: none;
 }
 
-.gist ul {}
-.gist li {}
+.gist ul {
+  all: initial;
+}
+.gist li {
+  all: initial;
+}

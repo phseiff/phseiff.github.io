@@ -17,7 +17,7 @@ with open("index-raw.html", "r") as f:
             + '>'
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
-                'href="https://phseiff.com#LICENSE"'
+                'href="#LICENSE"'
             )
             + '<span style="height: 300px"></span></span>\n'
         )
