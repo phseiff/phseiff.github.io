@@ -252,6 +252,12 @@
                 scroll_to("phseiff-header");
                 document.getElementById("phseiff-close-essay-button").style.display = "none";
             }
+
+            // Go to section specified in url
+            var parser = document.createElement('a');
+            parser.href = "http://example.com:3000/pathname/?search=test#hash";
+            if (parser.hash)
+                open_essay(parser.hash)
         </script>
 
         </div>
@@ -395,6 +401,7 @@
 
     <! materialize >
     <script type="text/javascript" src="materialize-css/materialize.min.js"></script>
+    <script type="text/javascript" src="share-buttons/mastodon.js"></script>
 
     <script>
         // realise we already consented to cookie use!
