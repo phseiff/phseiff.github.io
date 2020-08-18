@@ -2,7 +2,7 @@ import requests
 
 with open("index-raw.html", "r") as f:
     content = f.read()
-    essay_list = requests.get(url="phseiff.com/phseiff-essays/essay_list.txt").text.split("\n")
+    essay_list = requests.get(url="https://phseiff.com/phseiff-essays/essay_list.txt").text.split("\n")
     essay_content = "\n"
     for essay in essay_list:
         essay_content += (
