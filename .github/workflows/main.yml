@@ -13,9 +13,17 @@ jobs:
         run: |
           pip3 install Mastodon.py;
           python3 build.py ${{ secrets.MASTODON_ACCESS_TOKEN }}
+
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: .
+
+      - name: Repository Dispatch
+      uses: peter-evans/repository-dispatch@v1
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        repository: phseiff/phseiff.github.io
+        event-type: build-website
