@@ -1,5 +1,7 @@
 import requests
 import time
+import sys
+from mastodon import Mastodon
 
 time.sleep(20)
 
@@ -26,8 +28,24 @@ with open("index-raw.html", "r") as f:
 with open("index.html", "w+") as f:
     f.write(content)
 
+# Mastodon:
+
+new_essays = list()
+for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
+    # ToDo: Find a wa to determine if our essay is new by storing essays in a file after they where first embedded
+    #  into the rss feed. Oh, and before doing that, write the rss-feed-to-html-content-overview-parser!
+    mastodon = Mastodon(
+        access_token=sys.argv[1],
+        api_base_url='https://toot.phseiff.com'
+    )
+    mastodon.status_post(
+        essay_content_as_markdown,
+        spoiler_text='Small automated update using #mastodonpy: My new essay "' + essay_title
+        + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' or in this toot!'
+    )
+
+
 # ToDo:
-#  * Einen Workflow einrichten, der automatisch zu gh-pages pusht und dort build.py ausführt, wann immer gepusht wird.
 #  * Beide Repos verbinden, so dass pushs in phseiff-essays auch diese Action in phseiff.github.io triggern.
 #  * Online loggen, um log einfacher zu sehen.
-#  * Ein to top- und einen to bottom-button unten an seite kleben.
+
