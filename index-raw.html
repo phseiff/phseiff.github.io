@@ -259,7 +259,6 @@
                 console.log("new hash: " + hash);
                 if (hash) open_essay(hash);
             }
-            update_on_hash_change();
             window.addEventListener("hashchange", update_on_hash_change, false);
         </script>
 
@@ -487,6 +486,7 @@
                 thisLink.setAttribute("href", "javascript:scroll_to(\"" + source.substring(1, source.length) + "\")");
             }
         }
+        update_on_hash_change();
     </script>
 
     <!-- test>
