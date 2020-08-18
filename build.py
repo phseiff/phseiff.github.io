@@ -10,7 +10,7 @@ with open("index-raw.html", "r") as f:
             + '<span class="embedded-essay" id="'
             + essay.replace("/", "_") + '" '
             # + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)" '
-            + '><p></span>'
+            + '><div width="100%" height="200px"></div>'
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
                 'href="https://phseiff.com#LICENSE"'
