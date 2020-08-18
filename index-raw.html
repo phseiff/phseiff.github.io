@@ -256,6 +256,7 @@
             // Go to section specified in url
             function update_on_hash_change() {
                 var hash = window.location.hash;
+                console.log("new hash: " + hash);
                 if (hash) open_essay(hash);
             }
             update_on_hash_change();
