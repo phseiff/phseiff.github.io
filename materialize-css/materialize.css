@@ -9481,3 +9481,6 @@ main {
 .gist li {
   all: initial;
 }
+.gist p {
+  all: initial;
+}
