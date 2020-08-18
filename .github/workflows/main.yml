@@ -11,7 +11,8 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          python3 build.py
+          pip3 install Mastodon.py
+          python3 build.py ${{ MASTODON_ACCESS_TOKEN }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
