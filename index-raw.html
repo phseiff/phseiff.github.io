@@ -260,6 +260,7 @@
                 if (parser.hash)
                     open_essay(parser.hash)
             }
+            update_on_hash_change();
             window.addEventListener("hashchange", update_on_hash_change, false);
         </script>
 
