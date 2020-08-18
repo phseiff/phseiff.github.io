@@ -235,7 +235,11 @@
                     opened_essay = document.getElementById(essay_name);
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
-                    scroll_to(essay_name);
+                document.getElementById(essay_name).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
                     return true;
                 }
                 return false;
