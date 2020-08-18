@@ -8090,3 +8090,6 @@ main {
 :not(.gist *).no-uppercase {
   text-transform: none;
 }
+
+.gist ul {}
+.gist li {}
