@@ -5119,7 +5119,7 @@ small {
   margin-right: 24px;
   -webkit-transition: color .3s ease;
   transition: color .3s ease;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating):hover {
