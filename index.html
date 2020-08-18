@@ -568,11 +568,8 @@ you, feel free to hit me up on it and I'll look into it.</p>
 
             // Go to section specified in url
             function update_on_hash_change() {
-                var parser = document.createElement('a');
-                parser.href = window.location.url;
-                console.log("new url:" + parser.href)
-                if (parser.hash)
-                    open_essay(parser.hash)
+                var hash = window.location.hash;
+                if (hash) open_essay(hash);
             }
             update_on_hash_change();
             window.addEventListener("hashchange", update_on_hash_change, false);
