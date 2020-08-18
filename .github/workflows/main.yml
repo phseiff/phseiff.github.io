@@ -4,6 +4,10 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: JasonEtco/smee-action@v2
+        with:
+          channel: ${{ secrets.DEBUG_CHANNEL }}
+
       - name: Checkout 🛎️
         uses: actions/checkout@v2
         with:
@@ -20,10 +24,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: .
-
-      - name: Repository Dispatch
-      uses: peter-evans/repository-dispatch@v1
-      with:
-        token: ${{ secrets.REPO_ACCESS_TOKEN }}
-        repository: phseiff/phseiff.github.io
-        event-type: build-website
