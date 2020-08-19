@@ -1,4 +1,4 @@
-.rss-follow{
+.twitter-follow{
     display:inline-block;
     padding:0px 10px 0px 30px;
     border-radius: 2px;
@@ -13,17 +13,17 @@
     background-position:top 50% left 8px;
     transition:all 0.5s;
 }
-.rss-follow:hover{
+.twitter-follow:hover{
     background-color:#bf7402;
 }
 /*.mstdn::before{
   content:"@";
 }*/
-.rss-follow > span{
+.twitter-follow > span{
     color:white;
     font-size:12px;
     padding-left:3px;
 }
-.rss-follow > span:before{
+.twitter-follow > span:before{
     content:"@";
 }
