@@ -7,6 +7,8 @@
 
     <link type="text/css" rel="stylesheet" href="follow-buttons/mstdn-button.css"/>
     <link type="text/css" rel="stylesheet" href="follow-buttons/twitter-button.css"/>
+    <link type="text/css" rel="stylesheet" href="follow-buttons/rss-button.css"/>
+
     <link type="text/css" rel="stylesheet" href="external-links/external-link.css"/>
     <link type="text/css" rel="stylesheet" href="materialize-css/materialize.css" media="screen,projection"/>
     <link type="text/css" rel="stylesheet" href="google-fonts/icons.css"/>
@@ -349,7 +351,7 @@
                             <a class ="twitter-follow" target="popup" href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Flocalhost%3A63344%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=phseiff&tw_p=followbutton">
                                 follow
                             </a>
-                            me on twitter!
+                            me on twitter, as well as follow my <a class="rss-follow" href="https://phseiff.com/phseiff-essays/feed.rss">rss-feed</a> to get regular updates on my essays!
                         <p class="grey-text text-lighten-4">Created with ❤️ by phseiff</p>
                     </div>
                     <div class="col l6 s12">
@@ -415,9 +417,14 @@
             </li>
         </ul>
     </div>
-    <div style="position: fixed; bottom: 5px; right: 5px">
+    <div style="position: fixed; bottom: 5px; right: 5px" id="phseiff-back-to-bottom-button">
         <ul>
-            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top" id="phseiff-back-to-bottom-button">
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
+                <a class="btn-floating" style="background-color: #f26522" href="https://phseiff.com/phseiff-essays/feed.rss">
+                    <i class="material-icons">rss_feed</i>
+                </a>
+            </li>
+            <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
                 <a class="btn-floating orange" href="#phseiff-footer">
                     <i class="material-icons">keyboard_arrow_down</i>
                 </a>
