@@ -35,6 +35,7 @@ def extract_item(tag, text):
     return text, text_within_tags
 
 
+essays = list()
 rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text
 essay_content = str()
 while "<item>" in rss_feed:
@@ -68,16 +69,26 @@ while "<item>" in rss_feed:
                             description=description,
                             link=link
     )
+    essay_name = link.split("#")[-1]
+    essays.append((title, essay_name, open("https://phseiff.com/phseiff-essays/" + essay_name + ".md").read()))
     print("essay content:", essay_content)
 
 content = content.replace("<! essay cards >", essay_content)
 
-# Mastodon:
+# Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
 new_essays = list()
+essays_who_where_already_tooted = requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines()
+for (a, essay_name, b) in essays:
+    if essay_name not in essays_who_where_already_tooted:
+        new_essays.append((a, essay_name, b))
+        essays_who_where_already_tooted.append(essay_name)
+with open("tooted_essays.txt", "w+") as tooted_essays_file:
+    tooted_essays_file.write("\n".join(essays_who_where_already_tooted))
+
+# Mastodon:
+
 for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
-    # ToDo: Find a way to determine if our essay is new by storing essays in a file after they where first embedded
-    #  into the rss feed. Oh, and before doing that, write the rss-feed-to-html-content-overview-parser!
     mastodon = Mastodon(
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
@@ -90,7 +101,6 @@ for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
 
 
 # ToDo:
-#  * Beide Repos verbinden, so dass pushs in phseiff-essays auch diese Action in phseiff.github.io triggern.
 #  * Online loggen, um log einfacher zu sehen.
 
 # Finally write to index.html:
