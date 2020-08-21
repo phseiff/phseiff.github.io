@@ -111,11 +111,13 @@ def frame_image(left, middle, right):
 
 new_essays = list()
 essays_who_will_be_tooted_this_time = list()
-essays_who_where_already_tooted = requests.get(
-    "https://phseiff.com/index.html"
-).text.split("<already_tooted>", 1)[-1].split("</already_tooted>", 1)[0].splitlines() if (
-    "<already_tooted>" in requests.get("https://phseiff.com/index.html").text
-) else list()
+current_website_content = requests.get("https://phseiff.com/index.html").text
+if "<already_tooted>" in current_website_content:
+    essays_who_where_already_tooted = current_website_content.split("<already_tooted>", 1)[1].split(
+        "</already_tooted>")[0].splitlines()
+else:
+    essays_who_where_already_tooted = list()
+print("essays_who_where_already_tooted:", essays_who_where_already_tooted)
 
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
