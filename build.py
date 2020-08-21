@@ -119,10 +119,10 @@ for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
         essays_who_where_already_tooted.append(essay_name)
-with open("tooted_essays.list", "w+") as f:
+with open("tooted_essays.html", "w+") as f:
     f.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
-with open("tooted_essays.list", "r") as f:
-    print("tooted_essays.list:", f.read())
+with open("tooted_essays.html", "r") as f:
+    print("tooted_essays.html:", f.read())
 
 # Finally write to index.html:
 
