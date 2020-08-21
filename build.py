@@ -1,6 +1,7 @@
 import requests
 import time
 import sys
+import os
 from mastodon import Mastodon
 
 time.sleep(20)
@@ -70,7 +71,12 @@ while "<item>" in rss_feed:
                             link=link
     )
     essay_name = link.split("#")[-1]
-    essays.append((title, essay_name, requests.get("https://phseiff.com/phseiff-essays/" + essay_name + ".md").text))
+    essays.append((
+        title,
+        essay_name,
+        requests.get("https://phseiff.com/phseiff-essays/" + essay_name + ".md").text,
+        image
+    ))
     print("essay content:", essay_content)
 
 content = content.replace("<! essay cards >", essay_content)
@@ -79,9 +85,9 @@ content = content.replace("<! essay cards >", essay_content)
 
 new_essays = list()
 essays_who_where_already_tooted = requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines()
-for (a, essay_name, b) in essays:
+for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
-        new_essays.append((a, essay_name, b))
+        new_essays.append((a, essay_name, b, c))
         essays_who_where_already_tooted.append(essay_name)
 with open("tooted_essays.txt", "w+") as tooted_essays_file:
     tooted_essays_file.write("\n".join(essays_who_where_already_tooted))
@@ -93,13 +99,22 @@ with open("index.html", "w+") as f:
 
 # Mastodon:
 
-for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
+for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
     mastodon = Mastodon(
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
     )
+    image_name = "throw_away_image____" + image.rsplit("/", 1)[-1]
+    with open(image_name, "wb").write(requests.get(image).content) as f:
+        pass
     mastodon.status_post(
-        essay_content_as_markdown,
-        spoiler_text='Small automated update using #mastodonpy: My new essay "' + essay_title
-        + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' or in this toot!'
+        'Small automated update on my essays: My new essay "' + essay_title
+        + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' !',
+        media_ids=[image_name]
     )
+    os.remove(image_name)
+    """
+    essay_content_as_markdown,
+    spoiler_text='Small automated update using #mastodonpy: My new essay "' + essay_title
+    + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' or in this toot!'
+    """
