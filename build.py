@@ -119,8 +119,8 @@ for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
         essays_who_where_already_tooted.append(essay_name)
-with open("tooted_essays.txt", "w+") as tooted_essays_file:
-    tooted_essays_file.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
+with open("tooted_essays.txt", "w+") as f:
+    f.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
 
 # Finally write to index.html:
 
