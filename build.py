@@ -120,7 +120,7 @@ for (a, essay_name, b, c) in essays:
         new_essays.append((a, essay_name, b, c))
         essays_who_where_already_tooted.append(essay_name)
 with open("tooted_essays.txt", "w+") as tooted_essays_file:
-    tooted_essays_file.write("\n".join(essays_who_where_already_tooted))
+    tooted_essays_file.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
 
 # Finally write to index.html:
 
