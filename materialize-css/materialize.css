@@ -4951,7 +4951,7 @@ small {
   transition: -webkit-box-shadow .25s;
   transition: box-shadow .25s;
   transition: box-shadow .25s, -webkit-box-shadow .25s;
-  border-radius: 200px;
+  border-radius: 45px;
 }
 
 .card .card-title {
