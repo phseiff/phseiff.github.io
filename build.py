@@ -110,19 +110,18 @@ def frame_image(left, middle, right):
 # Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
 new_essays = list()
-if requests.get("https://phseiff.com/tooted_essays.txt").text.startswith("<!DOCTYPE html>"):
-    essays_who_where_already_tooted = list()
-else:
-    essays_who_where_already_tooted = list(requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines())
+essays_who_will_be_tooted_this_time = list()
+essays_who_where_already_tooted = requests.get(
+    "https://phseiff.com/index.html"
+).text.split("<already_tooted>", 1)[-1].split("</already_tooted>", 1)[0].splitlines() if (
+    "<already_tooted>" in requests.get("https://phseiff.com/index.html").text
+) else list()
 
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
-        essays_who_where_already_tooted.append(essay_name)
-with open("tooted_essays.html", "w+") as f:
-    f.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
-with open("tooted_essays.html", "r") as f:
-    print("tooted_essays.html:", f.read())
+        essays_who_will_be_tooted_this_time.append(essay_name)
+content.replace("</already_tooted>", "\n".join(essays_who_will_be_tooted_this_time) + "</already_tooted>")
 
 # Finally write to index.html:
 
