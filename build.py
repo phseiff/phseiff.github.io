@@ -121,7 +121,7 @@ for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
         essays_who_will_be_tooted_this_time.append(essay_name)
-content.replace("</already_tooted>", "\n".join(essays_who_will_be_tooted_this_time) + "</already_tooted>")
+content = content.replace("</already_tooted>", "\n".join(essays_who_will_be_tooted_this_time) + "</already_tooted>")
 
 # Finally write to index.html:
 
