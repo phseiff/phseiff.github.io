@@ -2,6 +2,7 @@ import requests
 import time
 import sys
 import os
+from PIL import Image
 from mastodon import Mastodon
 
 time.sleep(20)
@@ -49,24 +50,26 @@ while "<item>" in rss_feed:
     _, pubDate = extract_item("pubDate", rss_item)
     _, image = extract_item("image", rss_item)
     essay_content += """
-                <div class="col x0.5">
-                    <div class="col-content">
-                        <div class="zoom">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="{image}">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">{title}</span>
-                                    {description}
-                                </div>
-                                <div class="card-action">
-                                    <a href="{link}">Read here!</a>
+                <a href="{link}" style="color: #e5e0d8;">
+                    <div class="col x0.5">
+                        <div class="col-content">
+                            <div class="zoom">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="{image}">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title">{title}</span>
+                                        {description}
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="{link}">Read here!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>""".format(
+                </a>""".format(
                             image=image,
                             title=title,
                             description=description,
@@ -83,13 +86,34 @@ while "<item>" in rss_feed:
 
 content = content.replace("<! essay cards >", essay_content)
 
+
+# fuse three image files:
+
+def frame_image(left, middle, right):
+    images = [Image.open(x) for x in [left, middle, right]]
+    images[1].thumbnail((images[0].size[1], images[0].size[1]), Image.ANTIALIAS)
+    widths, heights = zip(*(i.size for i in images))
+
+    total_width = sum(widths)
+    max_height = max(heights)
+
+    new_im = Image.new('RGB', (total_width, max_height))
+
+    x_offset = 0
+    for im in images:
+        new_im.paste(im, (x_offset, 0))
+        x_offset += im.size[0]
+
+    new_im.save(middle)
+
+
 # Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
 new_essays = list()
 if requests.get("https://phseiff.com/tooted_essays.txt").text.startswith("<!DOCTYPE html>"):
     essays_who_where_already_tooted = list()
 else:
-    essays_who_where_already_tooted = requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines()
+    essays_who_where_already_tooted = list(requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines())
 
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
@@ -110,9 +134,10 @@ for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
     )
-    image_name = "throw_away_image" + image.rsplit(".", 1)[-1]
+    image_name = "throw_away_image." + image.rsplit(".", 1)[-1]
     with open(image_name, "wb") as image_file:
         image_file.write(requests.get(image).content)
+    frame_image("images/left.png", image_name, "images/right.png")
     mastodon.status_post(
         'Small automated update on my essays: My new essay "' + essay_title
         + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' !',
