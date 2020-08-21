@@ -121,6 +121,8 @@ for (a, essay_name, b, c) in essays:
         essays_who_where_already_tooted.append(essay_name)
 with open("tooted_essays.list", "w+") as f:
     f.write("wiwi")  # ("\n".join(essays_who_where_already_tooted))
+with open("tooted_essays.list", "r") as f:
+    print("tooted_essays.list:", f.read())
 
 # Finally write to index.html:
 
