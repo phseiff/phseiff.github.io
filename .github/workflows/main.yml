@@ -15,7 +15,8 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          pip3 install Mastodon.py;
+          pip3 install Mastodon.py
+          pip3 install pillow
           python3 build.py ${{ secrets.MASTODON_ACCESS_TOKEN }}
 
       - name: Deploy 🚀
