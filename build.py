@@ -105,8 +105,8 @@ for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
         api_base_url='https://toot.phseiff.com'
     )
     image_name = "throw_away_image____" + image.rsplit("/", 1)[-1]
-    with open(image_name, "wb").write(requests.get(image).content) as f:
-        pass
+    with open(image_name, "wb") as image_file:
+        image_file.write(requests.get(image).content)
     mastodon.status_post(
         'Small automated update on my essays: My new essay "' + essay_title
         + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' !',
