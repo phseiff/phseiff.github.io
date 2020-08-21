@@ -4951,7 +4951,7 @@ small {
   transition: -webkit-box-shadow .25s;
   transition: box-shadow .25s;
   transition: box-shadow .25s, -webkit-box-shadow .25s;
-  border-radius: 20px;
+  border-radius: 200px;
 }
 
 .card .card-title {
@@ -5022,7 +5022,7 @@ small {
 }
 
 .card.horizontal .card-image img {
-  border-radius: 2px 0 0 2px;
+  border-radius: 200px 0 0 200px;
   max-width: 100%;
   width: auto;
 }
@@ -5066,7 +5066,7 @@ small {
 
 .card .card-image img {
   display: block;
-  border-radius: 2px 2px 0 0;
+  border-radius: 200px 200px 0 0;
   position: relative;
   left: 0;
   right: 0;

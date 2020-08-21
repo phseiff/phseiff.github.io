@@ -156,7 +156,7 @@
 
             Hello! My name is phseiff, and I'm an avid hobby developer, manga-binge-reader, flexetarian, programmer, writer and denglish-speaker.
  This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
-        Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span>
+        Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <!-- span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span -->
 
         <! Projects >
 
@@ -184,24 +184,26 @@
 
             <div class="row">
                 
-                <div class="col x0.5">
-                    <div class="col-content">
-                        <div class="zoom">
-                            <div class="card">
-                                <div class="card-image">
-                                    <img src="https://phseiff.com/phseiff-essays/shadows.jpeg">
-                                </div>
-                                <div class="card-content">
-                                    <span class="card-title">Why we should redeem shadows in minimalist design</span>
-                                    A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of shadows in this blogs design and as an introduction to my blog.
-                                </div>
-                                <div class="card-action">
-                                    <a href="https://phseiff.com/#minimalist-shadows">Read here!</a>
+                <a href="https://phseiff.com/#minimalist-shadows" style="color: #e5e0d8;">
+                    <div class="col x0.5">
+                        <div class="col-content">
+                            <div class="zoom">
+                                <div class="card">
+                                    <div class="card-image">
+                                        <img src="https://phseiff.com/phseiff-essays/shadows.jpeg">
+                                    </div>
+                                    <div class="card-content">
+                                        <span class="card-title">Why we should redeem shadows in minimalist design</span>
+                                        A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of shadows in this blogs design and as an introduction to my blog.
+                                    </div>
+                                    <div class="card-action">
+                                        <a href="https://phseiff.com/#minimalist-shadows">Read here!</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
         <! Actually Embedded essays>
@@ -909,7 +911,7 @@ things2 = something (partially) styled by using shadows
     <script type="text/javascript" src="darkreader/darkreader.js"></script>
     <script>
         DarkReader.setFetchMethod(window.fetch);
-        DarkReader.auto({
+        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
             brightness: 100,
             contrast: 90,
             sepia: 10
