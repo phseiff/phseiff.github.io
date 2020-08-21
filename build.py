@@ -6,6 +6,8 @@ from mastodon import Mastodon
 
 time.sleep(20)
 
+description = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
+
 with open("index-raw.html", "r") as f:
     content = f.read()
     essay_list = requests.get(url="https://phseiff.com/phseiff-essays/essay_list.txt").text.split("\n")
@@ -24,7 +26,7 @@ with open("index-raw.html", "r") as f:
             )
             + '<span style="height: 300px"></span></span>\n'
         )
-    content = content.replace("<! the essays content >", essay_content)
+    content = content.replace("<! the essays content >", essay_content).replace("{description}", description)
 
 # Parse RSS feed:
 
@@ -53,9 +55,9 @@ while "<item>" in rss_feed:
                             <div class="card">
                                 <div class="card-image">
                                     <img src="{image}">
-                                    <span class="card-title">{title}</span>
                                 </div>
                                 <div class="card-content">
+                                    <span class="card-title">{title}</span>
                                     {description}
                                 </div>
                                 <div class="card-action">
@@ -108,7 +110,7 @@ for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
     )
-    image_name = "throw_away_image____" + image.rsplit("/", 1)[-1]
+    image_name = "throw_away_image" + image.rsplit(".", 1)[-1]
     with open(image_name, "wb") as image_file:
         image_file.write(requests.get(image).content)
     mastodon.status_post(
