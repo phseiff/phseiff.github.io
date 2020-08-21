@@ -70,7 +70,7 @@ while "<item>" in rss_feed:
                             link=link
     )
     essay_name = link.split("#")[-1]
-    essays.append((title, essay_name, open("https://phseiff.com/phseiff-essays/" + essay_name + ".md").read()))
+    essays.append((title, essay_name, requests.get("https://phseiff.com/phseiff-essays/" + essay_name + ".md").text))
     print("essay content:", essay_content)
 
 content = content.replace("<! essay cards >", essay_content)
@@ -86,6 +86,11 @@ for (a, essay_name, b) in essays:
 with open("tooted_essays.txt", "w+") as tooted_essays_file:
     tooted_essays_file.write("\n".join(essays_who_where_already_tooted))
 
+# Finally write to index.html:
+
+with open("index.html", "w+") as f:
+    f.write(content)
+
 # Mastodon:
 
 for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
@@ -98,12 +103,3 @@ for (essay_title, essay_name, essay_content_as_markdown) in new_essays:
         spoiler_text='Small automated update using #mastodonpy: My new essay "' + essay_title
         + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' or in this toot!'
     )
-
-
-# ToDo:
-#  * Online loggen, um log einfacher zu sehen.
-
-# Finally write to index.html:
-
-with open("index.html", "w+") as f:
-    f.write(content)
