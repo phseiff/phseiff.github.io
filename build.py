@@ -84,7 +84,11 @@ content = content.replace("<! essay cards >", essay_content)
 # Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
 new_essays = list()
-essays_who_where_already_tooted = requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines()
+if requests.get("https://phseiff.com/tooted_essays.txt").text.startswith("<!DOCTYPE html>"):
+    essays_who_where_already_tooted = list()
+else:
+    essays_who_where_already_tooted = requests.get("https://phseiff.com/tooted_essays.txt").text.splitlines()
+
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
@@ -110,7 +114,7 @@ for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
     mastodon.status_post(
         'Small automated update on my essays: My new essay "' + essay_title
         + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' !',
-        media_ids=[image_name]
+        media_ids=[mastodon.media_post(image_name)]
     )
     os.remove(image_name)
     """
