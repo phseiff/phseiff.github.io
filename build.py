@@ -117,7 +117,6 @@ if "<already_tooted>" in current_website_content:
         "</already_tooted>")[0].splitlines()
 else:
     essays_who_where_already_tooted = list()
-print("essays_who_where_already_tooted:", essays_who_where_already_tooted)
 
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
