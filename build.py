@@ -110,7 +110,6 @@ def frame_image(left, middle, right):
 # Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
 new_essays = list()
-essays_who_will_be_tooted_this_time = list()
 current_website_content = requests.get("https://phseiff.com/index.html").text
 if "<already_tooted>" in current_website_content:
     essays_who_where_already_tooted = current_website_content.split("<already_tooted>", 1)[1].split(
@@ -121,8 +120,8 @@ else:
 for (a, essay_name, b, c) in essays:
     if essay_name not in essays_who_where_already_tooted:
         new_essays.append((a, essay_name, b, c))
-        essays_who_will_be_tooted_this_time.append(essay_name)
-content = content.replace("</already_tooted>", "\n".join(essays_who_will_be_tooted_this_time) + "</already_tooted>")
+        essays_who_where_already_tooted.append(essay_name)
+content = content.replace("</already_tooted>", "\n".join(essays_who_where_already_tooted) + "</already_tooted>")
 
 # Finally write to index.html:
 
