@@ -5022,7 +5022,7 @@ small {
 }
 
 .card.horizontal .card-image img {
-  border-radius: 200px 0 0 200px;
+  border-radius: 45px 0 0 45px;
   max-width: 100%;
   width: auto;
 }
@@ -5066,7 +5066,7 @@ small {
 
 .card .card-image img {
   display: block;
-  border-radius: 200px 200px 0 0;
+  border-radius: 45px 45px 0 0;
   position: relative;
   left: 0;
   right: 0;
