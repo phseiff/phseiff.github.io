@@ -795,10 +795,12 @@ things2 = something (partially) styled by using shadows
             }
 
             // Go to section specified in url
-            function update_on_hash_change() {
+            function update_on_hash_change(event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
                 if (hash) scroll_to(hash);
+                if (event)
+                    event.preventDefault();
             }
             window.addEventListener("hashchange", update_on_hash_change, false);
         </script>
