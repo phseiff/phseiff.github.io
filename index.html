@@ -765,7 +765,8 @@ things2 = something (partially) styled by using shadows
                 scroll_to(location);
                 if (location === "phseiff-header") location = "";
                 if (location === "phseiff-footer") location = "";
-                set_hash(location);
+                if (location !== "")
+                    set_hash(location);
             }
 
             var opened_essay = undefined;
@@ -803,7 +804,8 @@ things2 = something (partially) styled by using shadows
                 document.getElementById("forkongithub").style.display = "block";
                 opened_essay = undefined;
                 document.getElementById("phseiff-close-essay-button").style.display = "none";
-                set_location("");
+                set_hash("");
+                scroll_to("");
             }
 
             // React to hashes added to the url
