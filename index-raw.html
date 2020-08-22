@@ -133,24 +133,26 @@
         <! Header >
         <div class="container">
 
-            <div class="desktop_title"> <! desktop version >
-                <div class="header" style="margin: 15px" id="phseiff-header">
-                    <div class="row valign-wrapper" color="orange">
-                        <div class="col s2">
-                            <img src="images/icon.jpeg" alt="" class="circle responsive-img orange">
-                        </div>
-                        <div class="col s10" color="orange">
-                            <div class=header" style="color: orange"><h1> phseiff.com </h1></div> <! #995c00>
+            <span id="phseiff-header">
+                <div class="desktop_title"> <! desktop version >
+                    <div class="header" style="margin: 15px">
+                        <div class="row valign-wrapper" color="orange">
+                            <div class="col s2">
+                                <img src="images/icon.jpeg" alt="" class="circle responsive-img orange">
+                            </div>
+                            <div class="col s10" color="orange">
+                                <div class=header" style="color: orange"><h1> phseiff.com </h1></div> <! #995c00>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mobile_title"> <! mobile version >
-                <img src="images/title.png" width="100%">
-                <! img src="images/icon.png" alt="" class="circle responsive-img orange">
-                <! div class=header" style="color: orange">
-            </div>
+                <div class="mobile_title"> <! mobile version >
+                    <img src="images/title.png" width="100%">
+                    <! img src="images/icon.png" alt="" class="circle responsive-img orange">
+                    <! div class=header" style="color: orange">
+                </div>
+            </span>
 
         <! About>
 
@@ -213,13 +215,13 @@
             function set_location(location) {
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
                 console.log("new location: " + location);
-                if (
+                scroll_to(location);
+                if (!(
                     location === window.location.hash.slice(1, window.location.hash.length)
                     || (location === "phseiff-header" && window.location.hash === "#")
-                )
-                    scroll_to(location);
-                else
+                )) {
                     window.location.hash = "#" + location;
+                }
             }
 
             var opened_essay = undefined;
@@ -247,6 +249,10 @@
                     block: "start",
                     inline: "nearest"
                 });
+
+                // maybe close the essay:
+                if (id === "phseiff-header")
+                    close_essay()
             }
 
             function close_essay() { // Close the given essay.
