@@ -744,8 +744,18 @@ things2 = something (partially) styled by using shadows
             new_container_for_essays = document.getElementById("embedded-essays-if-js-is-enabled");
             new_container_for_essays.appendChild(embedded_essays);
 
+            /* Set location. */
+            function set_location(location) {
+                /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
+                if (location === window.location.hash.slice(1, window.location.hash.length))
+                    scroll_to(location);
+                else
+                    window.location.hash = "#" + location;
+            }
+
             /* Scroll somewhere. */
             function scroll_to(id) {
+                /* Call open_essay to open essay and scroll to it in case it is an essay, and otherwise scroll to it directly. */
                 if (~open_essay(id)) {
                     if (~id) id = "phseiff-header";
                     document.getElementById(id).scrollIntoView({
@@ -1001,15 +1011,15 @@ things2 = something (partially) styled by using shadows
     <! Scroll smoothly>
     <script>
 
-        /*/ Ensure every page-intern link uses this:
+        // Ensure every page-intern link uses this:
         var links = document.getElementsByTagName('a');
         for(var i = 0; i < links.length; i++) {
             var thisLink = links[i];
             var source = thisLink.getAttribute('href');
             if (source.charAt(0) === '#') {
-                thisLink.setAttribute("href", "javascript:scroll_to(\"" + source.substring(1, source.length) + "\")");
+                thisLink.setAttribute("href", "javascript:set_location(\"" + source.substring(1, source.length) + "\")");
             }
-        }*/
+        }
         update_on_hash_change();
     </script>
 
