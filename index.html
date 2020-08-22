@@ -747,7 +747,11 @@ things2 = something (partially) styled by using shadows
             /* Set location. */
             function set_location(location) {
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
-                if (location === window.location.hash.slice(1, window.location.hash.length))
+                console.log("new location: " + location);
+                if (
+                    location === window.location.hash.slice(1, window.location.hash.length)
+                    || (location === "phseiff-header" && window.location.hash === "#")
+                )
                     scroll_to(location);
                 else
                     window.location.hash = "#" + location;
@@ -758,6 +762,7 @@ things2 = something (partially) styled by using shadows
                 /* Call open_essay to open essay and scroll to it in case it is an essay, and otherwise scroll to it directly. */
                 if (~open_essay(id)) {
                     if (~id) id = "phseiff-header";
+                    console.log("scrolling to: " + id);
                     document.getElementById(id).scrollIntoView({
                         behavior: "smooth",
                         block: "start",
@@ -771,6 +776,7 @@ things2 = something (partially) styled by using shadows
             function open_essay(essay_name) { // Open the given essay.
                 let essay_element_to_open = document.getElementById(essay_name);
                 if (essay_element_to_open.parentElement.id === "embedded_essays") {
+                    console.log("opening essay: " + essay_name);
                     if (opened_essay)
                         opened_essay.style.display = "none";
                     opened_essay = document.getElementById(essay_name);
@@ -798,8 +804,8 @@ things2 = something (partially) styled by using shadows
             function update_on_hash_change(event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
-                if (hash) scroll_to(hash);
-                if (event)
+                scroll_to(hash);
+                if (event !== undefined)
                     event.preventDefault();
             }
             window.addEventListener("hashchange", update_on_hash_change, false);
