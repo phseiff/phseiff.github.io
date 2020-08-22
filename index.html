@@ -1036,7 +1036,7 @@ things2 = something (partially) styled by using shadows
                 thisLink.setAttribute("href", "javascript:set_location(\"" + source.substring(1, source.length) + "\")");
             }
         }
-        set_location(window.location.hash);
+        set_location(window.location.hash.slice(1, window.location.hash.length));
     </script>
 
     <!-- test>
