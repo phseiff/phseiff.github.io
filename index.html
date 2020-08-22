@@ -763,7 +763,7 @@ things2 = something (partially) styled by using shadows
 
             /* Scroll somewhere, and show said place if it is an essay. */
             function scroll_to(id) {
-                if (~id) id = "phseiff-header"; // <- ensure we have a valid point to scroll to
+                if (id === "") id = "phseiff-header"; // <- ensure we have a valid point to scroll to
 
                 // Show essay/ hide other essays if this is the hash of an essay:
                 let essay_element_to_open = document.getElementById(id);
