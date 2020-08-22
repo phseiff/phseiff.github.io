@@ -207,6 +207,8 @@
             new_container_for_essays = document.getElementById("embedded-essays-if-js-is-enabled");
             new_container_for_essays.appendChild(embedded_essays);
 
+
+
             /* Set location. */
             function set_location(location) {
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
@@ -220,41 +222,33 @@
                     window.location.hash = "#" + location;
             }
 
-            /* Scroll somewhere. */
-            function scroll_to(id) {
-                /* Call open_essay to open essay and scroll to it in case it is an essay, and otherwise scroll to it directly. */
-                if (~open_essay(id)) {
-                    if (~id) id = "phseiff-header";
-                    console.log("scrolling to: " + id);
-                    document.getElementById(id).scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                        inline: "nearest"
-                    });
-                }
-            }
-
-            /* Function to open essay. */
             var opened_essay = undefined;
-            function open_essay(essay_name) { // Open the given essay.
-                let essay_element_to_open = document.getElementById(essay_name);
+
+            /* Scroll somewhere, and show said place if it is an essay. */
+            function scroll_to(id) {
+                if (~id) id = "phseiff-header"; // <- ensure we have a valid point to scroll to
+
+                // Show essay/ hide other essays if this is the hash of an essay:
+                let essay_element_to_open = document.getElementById(id);
                 if (essay_element_to_open.parentElement.id === "embedded_essays") {
-                    console.log("opening essay: " + essay_name);
+                    console.log("opening essay: " + id);
                     if (opened_essay)
                         opened_essay.style.display = "none";
-                    opened_essay = document.getElementById(essay_name);
+                    opened_essay = document.getElementById(id);
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
                     document.getElementById("forkongithub").style.display = "none";
-                    document.getElementById(essay_name).scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                        inline: "nearest"
-                    });
-                    return true;
                 }
-                return false;
+
+                // Scroll to the place:
+                console.log("scrolling to: " + id);
+                document.getElementById(id).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                    inline: "nearest"
+                });
             }
+
             function close_essay() { // Close the given essay.
                 opened_essay.style.display = "none";
                 document.getElementById("forkongithub").style.display = "block";
