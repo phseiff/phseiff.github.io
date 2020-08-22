@@ -264,13 +264,14 @@
             }
 
             // Go to section specified in url
-            function update_on_hash_change(event) {
+            function update_on_hash_change(w, event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
                 if (event !== undefined)
+                    console.log("blocking standard scroll event.");
                     event.preventDefault();
             }
-            window.addEventListener("hashchange", update_on_hash_change, false);
+            window.addEventListener("hashchange", update_on_hash_change.bind(window), false);
         </script>
 
         </div>
