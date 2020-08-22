@@ -19,7 +19,7 @@
 
 #forkongithub a:hover {
     background: orange;
-    color: white;
+    color: black;
 }
 
 #forkongithub a::before {
