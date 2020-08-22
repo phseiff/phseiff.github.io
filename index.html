@@ -804,7 +804,6 @@ things2 = something (partially) styled by using shadows
             function update_on_hash_change(event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
-                scroll_to(hash);
                 if (event !== undefined)
                     event.preventDefault();
             }
