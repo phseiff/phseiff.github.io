@@ -20,7 +20,7 @@
     <meta name="msapplication-navbutton-color" content="orange">
     <meta name="apple-mobile-web-app-status-bar-style" content="orange">
 
-    <!-- Which essays we already tooted about
+    <!-- Which essays we already tooted about - don't change this, it is automatically parsed!
     <already_tooted>minimalist-shadows</already_tooted>
     -->
 </head>
@@ -748,21 +748,35 @@ things2 = something (partially) styled by using shadows
 
 
 
+            /* Set hash without scrolling. */
+            function set_hash(location) {
+                window.history.replaceState({}, "",
+                    window.location.protocol
+                    + '//' + window.location.host
+                    + window.location.pathname
+                    + "#" + location
+                );
+            }
+
             /* Set location. */
             function set_location(location) {
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
+                if (location === "phseiff-header") location = ""; // <- ensure we have set the right value in the url
                 console.log("new location: " + location);
+
                 scroll_to(location);
                 if (!(
-                    location === window.location.hash.slice(1, window.location.hash.length)
-                    || (location === "phseiff-header" && window.location.hash === "#")
-                )) {
-                    window.location.hash = "#" + location;
-                }
+                    location === window.location.hash.slice(1, window.location.hash.length) // <- don't change hash if
+                                                                                            // we already have that
+                                                                                            // hash.
+                    || (location === "phseiff-footer" && window.location.hash !== "#"
+                                                      && window.location.hash !== "#phseiff-header") // <- don't change
+                                                                                       // hash to phseiff-footer if we
+                                                                                       // are in an essay right now.
+                )) set_hash(location);
             }
 
             var opened_essay = undefined;
-
             /* Scroll somewhere, and show said place if it is an essay. */
             function scroll_to(id) {
                 if (id === "") id = "phseiff-header"; // <- ensure we have a valid point to scroll to
@@ -796,19 +810,19 @@ things2 = something (partially) styled by using shadows
                 opened_essay.style.display = "none";
                 document.getElementById("forkongithub").style.display = "block";
                 opened_essay = undefined;
-                window.location.hash = "#";
                 document.getElementById("phseiff-close-essay-button").style.display = "none";
+                set_location("");
             }
 
-            // Go to section specified in url
-            function update_on_hash_change(w, event) {
+            // React to hashes added to the url
+            function update_on_hash_change(event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
                 if (event !== undefined)
-                    console.log("blocking standard scroll event.");
+                    console.log("blocking standard scroll event:" + event);
                     event.preventDefault();
             }
-            window.addEventListener("hashchange", update_on_hash_change.bind(window), false);
+            window.addEventListener("hashchange", update_on_hash_change, true);
         </script>
 
         </div>
@@ -1028,7 +1042,7 @@ things2 = something (partially) styled by using shadows
                 thisLink.setAttribute("href", "javascript:set_location(\"" + source.substring(1, source.length) + "\")");
             }
         }
-        update_on_hash_change();
+        set_location(window.location.hash);
     </script>
 
     <!-- test>
