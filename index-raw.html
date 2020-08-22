@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <! link rel=icon" href="https://phseiff.github.io/images/icon_head.png">
-    <title>phseiff.com</title>
+    <title>phseiff - opinions & obscurities</title>
 
     <link type="text/css" rel="stylesheet" href="follow-buttons/mstdn-button.css"/>
     <link type="text/css" rel="stylesheet" href="follow-buttons/twitter-button.css"/>
@@ -27,17 +27,15 @@
 
 <body>
 
+    <! dark reader dark mode >
+    <script type="text/javascript" src="darkreader/darkreader.js"></script>
     <script>
-        // Scroll down:
-        function scroll_to(id) {
-            if (~open_essay(id)) {
-                document.getElementById(id).scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                    inline: "nearest"
-                });
-            }
-        }
+        DarkReader.setFetchMethod(window.fetch);
+        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
     </script>
 
     <! style definitions>
@@ -209,6 +207,18 @@
             new_container_for_essays = document.getElementById("embedded-essays-if-js-is-enabled");
             new_container_for_essays.appendChild(embedded_essays);
 
+            /* Scroll somewhere. */
+            function scroll_to(id) {
+                if (~open_essay(id)) {
+                    if (~id) id = "phseiff-header";
+                    document.getElementById(id).scrollIntoView({
+                        behavior: "smooth",
+                        block: "start",
+                        inline: "nearest"
+                    });
+                }
+            }
+
             /* Function to open essay. */
             var opened_essay = undefined;
             function open_essay(essay_name) { // Open the given essay.
@@ -233,7 +243,7 @@
                 opened_essay.style.display = "none";
                 document.getElementById("forkongithub").style.display = "block";
                 opened_essay = undefined;
-                scroll_to("phseiff-header");
+                window.location.hash = "#";
                 document.getElementById("phseiff-close-essay-button").style.display = "none";
             }
 
@@ -241,7 +251,7 @@
             function update_on_hash_change() {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
-                if (hash) open_essay(hash);
+                if (hash) scroll_to(hash);
             }
             window.addEventListener("hashchange", update_on_hash_change, false);
         </script>
@@ -373,18 +383,6 @@
     <! github cards>
     <script src="github-card/widget.js"></script>
 
-
-    <! dark reader dark mode >
-    <script type="text/javascript" src="darkreader/darkreader.js"></script>
-    <script>
-        DarkReader.setFetchMethod(window.fetch);
-        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
-            brightness: 100,
-            contrast: 90,
-            sepia: 10
-        });
-    </script>
-
     <! materialize >
     <script type="text/javascript" src="materialize-css/materialize.min.js"></script>
     <script type="text/javascript" src="share-buttons/mastodon.js"></script>
@@ -466,7 +464,7 @@
     <! Scroll smoothly>
     <script>
 
-        // Ensure every page-intern link uses this:
+        /*/ Ensure every page-intern link uses this:
         var links = document.getElementsByTagName('a');
         for(var i = 0; i < links.length; i++) {
             var thisLink = links[i];
@@ -474,7 +472,7 @@
             if (source.charAt(0) === '#') {
                 thisLink.setAttribute("href", "javascript:scroll_to(\"" + source.substring(1, source.length) + "\")");
             }
-        }
+        }*/
         update_on_hash_change();
     </script>
 
