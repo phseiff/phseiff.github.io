@@ -73,7 +73,7 @@ while "<item>" in rss_feed:
                             image=image,
                             title=title,
                             description=description,
-                            link=link
+                            link="#" + link.rsplit("#")[-1]
     )
     essay_name = link.split("#")[-1]
     essays.append((
