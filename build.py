@@ -49,6 +49,7 @@ while "<item>" in rss_feed:
     _, link = extract_item("link", rss_item)
     _, pubDate = extract_item("pubDate", rss_item)
     _, image = extract_item("image", rss_item)
+    _, language = extract_item("language", rss_item)
     essay_content += """
                 <a href="{link}" style="color: #e5e0d8;">
                     <div class="col x0.5">
@@ -57,6 +58,7 @@ while "<item>" in rss_feed:
                                 <div class="card">
                                     <div class="card-image">
                                         <img src="{image}">
+                                        <span class="badge">{creation_date} | {language}</span>
                                     </div>
                                     <div class="card-content">
                                         <span class="card-title">{title}</span>
@@ -73,7 +75,9 @@ while "<item>" in rss_feed:
                             image=image,
                             title=title,
                             description=description,
-                            link="#" + link.rsplit("#")[-1]
+                            link="#" + link.rsplit("#")[-1],
+                            creation_date=" ".join(pubDate.split(" ")[:4]),
+                            language="🇬🇧" if language == "en" else "🇩🇪"
     )
     essay_name = link.split("#")[-1]
     essays.append((
