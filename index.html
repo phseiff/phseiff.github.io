@@ -959,7 +959,29 @@ things2 = something (partially) styled by using shadows
         all: initial;
     }
 </style>
-</div>
+
+<!-- Ensure every child element of .gist-elements (= every element in essays) has its width translated to its class.-->
+<script>
+    function isNumeric(s) {
+        return !isNaN(s - parseFloat(s));
+    }
+
+    var elements_of_essays
+    if (document.getElementById("incest-taboo"))
+        elements_of_essays = document.documentElement.querySelectorAll(".gist#incest-taboo *");
+    else
+        elements_of_essays = document.documentElement.querySelectorAll(".gist *");
+    for (i=0; i<elements_of_essays.length; i++) {
+        console.log("!!! element found!")
+        var element_of_essay = elements_of_essays[i];
+        let potentially_new_class = element_of_essay.getAttribute("width");
+        if (potentially_new_class && !isNumeric(potentially_new_class)) {
+            element_of_essay.classList.add(potentially_new_class);
+            element_of_essay.setAttribute("width", undefined);
+            console.log("!!! " + potentially_new_class);
+        }
+    }
+</script></div>
         <!-- div class="gist-meta">
             <a href="https://gist.github.com/jatin-lab49/xyzxyzxyz/raw/xyzxyzxyz/file_name.md" style="float:right">
                 view raw
