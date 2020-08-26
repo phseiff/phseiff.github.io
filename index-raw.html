@@ -514,7 +514,7 @@
             console.log("!!! element found!")
             var element_of_essay = elements_of_essays[i];
             let potentially_new_class = element_of_essay.getAttribute("width");
-            if (potentially_new_class && isNumeric(potentially_new_class)) {
+            if (potentially_new_class && !isNumeric(potentially_new_class)) {
                 element_of_essay.class = potentially_new_class;
                 element_of_essay.setAttribute("width", undefined);
                 console.log("!!! " + potentially_new_class);
