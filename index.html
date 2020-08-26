@@ -833,7 +833,7 @@ things2 = something (partially) styled by using shadows
 <p><a href="/phseiff-essays/images/ii.png" target="_blank" rel="noopener noreferrer"><img src="/phseiff-essays/images/ii.png" alt="i" width="enlargeable-image" height="100px" style="max-width:100%;"></a> Children caused by inbreeding have a heighter chance of carrying genetical deseases.</p>
 </blockquote>
 <p>Preventing genetical deseases by means of eugenetics and deciding who is allowed to mate and who is not is not a goal of the german government and explicitely frowned on by the german constitution as well as our society for well-known historical reasons. And even if it wasn't, or when regarding countries with other values regarding this issue, genetical deseases caused by incest could be easily prevented by</p>
-<ul width="scales"><li width="scales">legally sanctionizing inbreed</li></ul>
+<ul width="scales"><li>legally sanctionizing inbreed</li></ul>
 </li>
 <li>
 <blockquote>
@@ -936,11 +936,11 @@ things2 = something (partially) styled by using shadows
 <!-- scale-shaped bullet points -->
 <style>
   .gist ul.scales {
-    list-style:none;
-    padding-left: 1em;
+      list-style:none;
+      padding-left: 1em;
   }
-  .gist li.scales {
-    &:before {
+
+  .gist ul.scales > li:before {
       content: '';
       display: inline-block;
       height: 1em;
@@ -949,11 +949,10 @@ things2 = something (partially) styled by using shadows
       background-size: contain;
       background-repeat: no-repeat;
       margin-right:0.5em;
-    }
   }
 </style>
 
-<!-- enlargable images. -->
+<!-- enlargeable images. -->
 <style>
     .gist .enlargeable-image {
         all: initial;
@@ -971,7 +970,7 @@ things2 = something (partially) styled by using shadows
         elements_of_essays = document.documentElement.querySelectorAll("span#incest-taboo *");
     else
         elements_of_essays = document.documentElement.querySelectorAll(".gist *");
-    for (i=0; i<elements_of_essays.length; i++) {
+    for (let i=0; i<elements_of_essays.length; i++) {
         console.log("!!! element found!")
         var element_of_essay = elements_of_essays[i];
         let potentially_new_class = element_of_essay.getAttribute("width");
