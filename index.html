@@ -1327,12 +1327,24 @@ things2 = something (partially) styled by using shadows
         set_location(window.location.hash.slice(1, window.location.hash.length));
     </script>
 
-    <!-- enlargable images. -->
-    <style>
-        .enlargeable-image {
-            all: initial;
+    <! Ensure every child element of .gist-elements (= every element in essays) has its width translated to its class.>
+    <script>
+        function isNumeric(s) {
+            return !isNaN(s - parseFloat(s));
         }
-    </style>
+
+        var elements_of_essays = document.documentElement.querySelectorAll(".gist *");
+        for (i=0; i<elements_of_essays.length; i++) {
+            console.log("!!! element found!")
+            var element_of_essay = elements_of_essays[i];
+            let potentially_new_class = element_of_essay.getAttribute("width");
+            if (potentially_new_class && isNumeric(potentially_new_class)) {
+                element_of_essay.class = potentially_new_class;
+                element_of_essay.setAttribute("width", undefined);
+                console.log("!!! " + potentially_new_class);
+            }
+        }
+    </script>
 
     <!-- test>
 
