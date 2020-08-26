@@ -1346,7 +1346,17 @@ things2 = something (partially) styled by using shadows
             }
         }
         set_location(window.location.hash.slice(1, window.location.hash.length));
-    </script>x
+    </script>
+
+    <! Ensure dark reader is executed again after we updated the essays using javascript. >
+    <script>
+        DarkReader.setFetchMethod(window.fetch);
+        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+    </script>
 
     <!-- test>
 
