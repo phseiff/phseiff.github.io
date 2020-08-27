@@ -1028,28 +1028,43 @@ things2 = something (partially) styled by using shadows
 </style>
 
 <!-- code to display images as enlarged versions of themselves. -->
-<div class="dimScreen" style="display: none;" onclick="close_enlarged_image_view()"></div>
+<div id="dimScreen" style="display: none;" onclick="close_enlarged_image_view()">
+    <img id="enlargedImage" src="">
+</div>
 <style>
-    .dimScreen {
-        position:fixed;
+    #dimScreen {
+        position: fixed;
         padding: 0;
         margin: 0;
 
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
 
         width: 100%;
         height: 100%;
-        background:rgba(0, 0, 0,0.5);
+        background:rgba(0, 0, 0, 0.5);
 
         filter: blur(4px);
         z-index: 100001;
+    }
+    #enlargedImage {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        overflow: hidden;
     }
 </style>
 
 <script>
     function close_enlarged_image_view() {
         document.getElementsByClassName("dimScreen")[0].setAttribute("style", "display: none;");
+    }
+    function open_enlarged_image_view(image_src) {
+        console.log("enlarging image: " + image_src);
+        document.getElementById("dimScreen").setAttribute("style", "display: block;");
+        document.getElementById("enlargedImage").setAttribute("src", image_src);
     }
 </script>
 
@@ -1059,7 +1074,7 @@ things2 = something (partially) styled by using shadows
         return !isNaN(s - parseFloat(s));
     }
 
-    var function_to_use_on_every_element = [
+    let function_to_use_on_every_element = [
         function (element_of_essay) { // Ensure classes are read from the width-attribute.
             let potentially_new_class = element_of_essay.getAttribute("width");
             if (potentially_new_class && !isNumeric(potentially_new_class)) {
@@ -1079,22 +1094,24 @@ things2 = something (partially) styled by using shadows
         },
         function (element_of_essay) { // Ensure we enlarge images with class enlargeable-image on click.
             if (element_of_essay.className.toLowerCase() === "enlargeable-image") {
-                element_of_essay.addEventListener("click", function () {
-                    console.log("enlarged image: " + element_of_essay.getAttribute("href"));
-                    document.getElementsByClassName("dimScreen")[0].setAttribute("style", "display: block;");
-                }, false)
+                element_of_essay.addEventListener("click", open_enlarged_image_view, false);
+                element_of_essay.setAttribute("title", "Click to enlarge image.");
+                if (element_of_essay.parent.tagName.toLowerCase() === "a") {
+                    element_of_essay.parent.setAttribute("href", "javascript:open_enlarged_image_view()");
+                }
             }
         }
     ]
 
-    var elements_of_essays
+    let elements_of_essays;
     if (document.getElementById("incest-taboo"))
         elements_of_essays = document.documentElement.querySelectorAll("span#incest-taboo *");
     else
         elements_of_essays = document.documentElement.querySelectorAll(".gist *");
+    let element_of_essay;
     for (let i=0; i<elements_of_essays.length; i++) {
         console.log("!!! element found!")
-        var element_of_essay = elements_of_essays[i];
+        element_of_essay = elements_of_essays[i];
         for (let j=0; j<function_to_use_on_every_element.length; j++) {
             function_to_use_on_every_element[j](element_of_essay);
         }
