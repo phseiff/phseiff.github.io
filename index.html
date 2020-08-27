@@ -741,6 +741,15 @@ things2 = something (partially) styled by using shadows
 <blockquote>
 <p><a href="/phseiff-essays/images/ii.png" target="_blank" rel="noopener noreferrer"><img src="/phseiff-essays/images/ii.png" alt="ii" width="enlargeable-image" height="100px" style="max-width:100%;"></a> Children caused by inbreeding have a heighter chance of carrying genetical deseases.</p>
 </blockquote>
+<p>Using this argument as a mean of defending a general incest-ban is based on up to two wrong assumptions:</p>
+<ol>
+<li>
+<p>that incest leads to any children being born,</p>
+</li>
+<li>
+<p>that children having a high</p>
+</li>
+</ol>
 <p>(show that this boils down to two points, incest causing children and sick children being something to stop from happening, and show why both points are problematic assumptions. Talk about german law and constitution regarding this issue, compare to the chances for people with down syndrome, and show how taking the children as a reason to forbid incest is problematic for people with down syndrome. Additionally, suggest that even if sick children where to be taken as a good to stop from being created, doing so could also be done by sanctionizing their incestuous creation instead in incestuous relationships and intercourse in general.)</p>
 </li>
 <li>
@@ -1060,7 +1069,7 @@ things2 = something (partially) styled by using shadows
 
 <script>
     function close_enlarged_image_view() {
-        document.getElementsByClassName("dimScreen")[0].setAttribute("style", "display: none;");
+        document.getElementById("dimScreen").setAttribute("style", "display: none;");
     }
     function open_enlarged_image_view(image_src) {
         console.log("enlarging image: " + image_src);
@@ -1095,10 +1104,12 @@ things2 = something (partially) styled by using shadows
         },
         function (element_of_essay) { // Ensure we enlarge images with class enlargeable-image on click.
             if (element_of_essay.className.toLowerCase() === "enlargeable-image") {
-                element_of_essay.addEventListener("click", open_enlarged_image_view, false);
+                element_of_essay.addEventListener("click", function() {
+                    open_enlarged_image_view(element_of_essay.getAttribute("src");
+                )}, false);
                 element_of_essay.setAttribute("title", "Click to enlarge image.");
                 if (element_of_essay.parentElement.tagName.toLowerCase() === "a") {
-                    element_of_essay.parentElement.setAttribute("href", "javascript:open_enlarged_image_view()");
+                    element_of_essay.parentElement.setAttribute("href", "javascript:void(0);");
                 }
             }
         }
