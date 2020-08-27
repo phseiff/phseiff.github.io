@@ -1024,6 +1024,7 @@ things2 = something (partially) styled by using shadows
 <style>
     .gist .enlargeable-image {
         all: initial;
+        cursor: zoom-in;
     }
 </style>
 
@@ -1096,8 +1097,8 @@ things2 = something (partially) styled by using shadows
             if (element_of_essay.className.toLowerCase() === "enlargeable-image") {
                 element_of_essay.addEventListener("click", open_enlarged_image_view, false);
                 element_of_essay.setAttribute("title", "Click to enlarge image.");
-                if (element_of_essay.parent.tagName.toLowerCase() === "a") {
-                    element_of_essay.parent.setAttribute("href", "javascript:open_enlarged_image_view()");
+                if (element_of_essay.parentElement.tagName.toLowerCase() === "a") {
+                    element_of_essay.parentElement.setAttribute("href", "javascript:open_enlarged_image_view()");
                 }
             }
         }
