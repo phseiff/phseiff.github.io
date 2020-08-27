@@ -789,7 +789,7 @@ things2 = something (partially) styled by using shadows
 <p>as long as incest is illegal and tabooed, the only people who dare engage in incest are ones who dare break laws and taboos. The same goes people who abuse their children, since listening to laws and taboos is fundamentally incompatible with abusive behavior towards children. This automatically causes an enlarged overlap between people who engage in incest and child abusers, simply because people who take laws in themselves as a reason to refrain from cetain actions will neither do any of both. Once incest is legalized, said overlap will disappear.</p>
 </li>
 </ul>
-<p>On top of that, the reasoning I applyied to this arguments sibling-argument are applyable to this argument as well, making this the weaker sibling.</p>
+<p>On top of that, the reasoning I applied to this arguments sibling-argument are applyable to this argument as well, making this the weaker sibling.</p>
 </li>
 <li>
 <blockquote>
@@ -908,7 +908,6 @@ things2 = something (partially) styled by using shadows
 </ul>
 <h2>
 <a id="user-content-meta-considerations" class="anchor" href="#meta-considerations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Meta considerations</h2>
-<span width="testclass">
 <p>The amount of people in consentual incestuous relationships might certainly be low, even if we take the dark figure into account, so legalizing incest will probably have a minor impact from an utilitarian perspective. However, the way society threats incest has a lot of negative side implications regardless of its implications for people in incestuous relationships. These implications are partly merely symptoms of bigger problems, partly means to legitimize problematic concepts, and partly intertwined with issues on whom legalizing incest might help to shed more light.</p>
 <p>I'm going to take write lines about these issues, most of whom where already mentioned during this essay, to give a brief summary of the negative implications intertwined with the incest-taboo, and show why breaking it is important not only for the victims of incest criminalization, but also for society as a whole:</p>
 <p>Many of the arguments used against incest are passed down from sexual minority to sexual minority, reused on every single one of them and then reused on the next one once the surpressed minority manages to break its chains. These arguments include, but are not limited, to</p>
@@ -970,7 +969,6 @@ things2 = something (partially) styled by using shadows
 </li>
 </ul>
 <p>of whom the later one is our duty and the first three ones are absolutely nessesary for fighting instances of discrimination against upcoming minorities such as furries or polyamourous people, who risk to face the same malicious arguments countless minorities have faced before them.</p>
-</span>
 <h2>
 <a id="user-content-showing-we-have-covered-all-important-arguments-there-are-for-the-taboo" class="anchor" href="#showing-we-have-covered-all-important-arguments-there-are-for-the-taboo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Showing we have covered all important arguments there are for the taboo</h2>
 <h3>
@@ -1029,6 +1027,32 @@ things2 = something (partially) styled by using shadows
     }
 </style>
 
+<!-- code to display images as enlarged versions of themselves. -->
+<div class="dimScreen" style="display: none;" onclick="close_enlarged_image_view()"></div>
+<style>
+    .dimScreen {
+        position:fixed;
+        padding: 0;
+        margin: 0;
+
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        background:rgba(0, 0, 0,0.5);
+
+        filter: blur(4px);
+        z-index: 100001;
+    }
+</style>
+
+<script>
+    function close_enlarged_image_view() {
+        document.getElementsByClassName("dimScreen")[0].setAttribute("style", "display: none;");
+    }
+</script>
+
 <!-- Ensure every child element of .gist-elements (= every element in essays) has its width translated to its class.-->
 <script>
     function isNumeric(s) {
@@ -1046,11 +1070,19 @@ things2 = something (partially) styled by using shadows
         },
         function (element_of_essay) { // Ensure ul-elements, if they are argument lists, have spacing between their li.
             if (element_of_essay.tagName.toLowerCase() === "li") {
-                if (element_of_essay.children) {
+                if (element_of_essay.children.length !== 0) {
                     if (element_of_essay.children[0].tagName.toLowerCase() === "blockquote") {
                         element_of_essay.setAttribute("style", "padding-bottom: 30px");
                     }
                 }
+            }
+        },
+        function (element_of_essay) { // Ensure we enlarge images with class enlargeable-image on click.
+            if (element_of_essay.className.toLowerCase() === "enlargeable-image") {
+                element_of_essay.addEventListener("click", function () {
+                    console.log("enlarged image: " + element_of_essay.getAttribute("href"));
+                    document.getElementsByClassName("dimScreen")[0].setAttribute("style", "display: block;");
+                }, false)
             }
         }
     ]
