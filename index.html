@@ -868,7 +868,7 @@ things2 = something (partially) styled by using shadows
 <p><a href="/phseiff-essays/images/vi.png" target="_blank" rel="noopener noreferrer"><img src="/phseiff-essays/images/vi.png" alt="vi" width="enlargeable-image" height="100px" style="max-width:100%;"></a> Legalizing and/or un-tabooing incest will increase the amount of innerfamilar child abuse.</p>
 </blockquote>
 <p>Child abuse is already illegal, so there is no extra law required to address this issue. If one counts relationships between adults in family-given psychological dependencies with each other as naturally abusive as well, either or both of</p>
-<ul>
+<ul width="scales">
 <li>legally sanctioning sexual or romantic relationships between parents and their children no matter the age of both parties involved</li>
 <li>legally sanctioning inter-generational inner-familar sexual or romantical relationships no matter the age of both parties involved</li>
 </ul>
@@ -962,6 +962,17 @@ things2 = something (partially) styled by using shadows
         return !isNaN(s - parseFloat(s));
     }
 
+    var function_to_use_on_every_element = [
+        function (element_of_essay) { // Ensure classes are read from the width-attribute.
+            let potentially_new_class = element_of_essay.getAttribute("width");
+            if (potentially_new_class && !isNumeric(potentially_new_class)) {
+                element_of_essay.classList.add(potentially_new_class);
+                element_of_essay.setAttribute("width", undefined);
+                console.log("!!! " + potentially_new_class);
+            }
+        },
+    ]
+
     var elements_of_essays
     if (document.getElementById("incest-taboo"))
         elements_of_essays = document.documentElement.querySelectorAll("span#incest-taboo *");
@@ -970,11 +981,8 @@ things2 = something (partially) styled by using shadows
     for (let i=0; i<elements_of_essays.length; i++) {
         console.log("!!! element found!")
         var element_of_essay = elements_of_essays[i];
-        let potentially_new_class = element_of_essay.getAttribute("width");
-        if (potentially_new_class && !isNumeric(potentially_new_class)) {
-            element_of_essay.classList.add(potentially_new_class);
-            element_of_essay.setAttribute("width", undefined);
-            console.log("!!! " + potentially_new_class);
+        for (let j=0; j<function_to_use_on_every_element.length, j++) {
+            function_to_use_on_every_element[j](element_of_essay);
         }
     }
 </script></div>
