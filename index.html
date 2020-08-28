@@ -1097,6 +1097,8 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         background:rgba(0, 0, 0, 0.8);
 
         backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        cursor: zoom-out;
         z-index: 100001;
     }
     #enlargedImage {
@@ -1145,13 +1147,13 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         function (element_of_essay) { // Ensure we enlarge images with class enlargeable-image on click.
             if (element_of_essay.className.toLowerCase() === "enlargeable-image") {
                 element_of_essay.addEventListener("click", function() {
-                    open_enlarged_image_view(element_of_essay.getAttribute("src") + "-full.png");
+                    open_enlarged_image_view(element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/") + "-full.png");
                 }, false);
                 element_of_essay.setAttribute("title", "Click to enlarge image.");
                 if (element_of_essay.parentElement.tagName.toLowerCase() === "a") {
                     element_of_essay.parentElement.setAttribute("href", "javascript:void(0);");
-                    element_of_essay.parentElement.setAttribute("target", undefined);
-                    element_of_essay.parentElement.setAttribute("rel", undefined);
+                    element_of_essay.parentElement.removeAttribute("target");
+                    element_of_essay.parentElement.removeAttribute("rel");
                 }
             }
         }
