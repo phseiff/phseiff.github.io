@@ -891,7 +891,11 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
     }
     function open_enlarged_image_view(image_src) {
         document.getElementById("dimScreen").setAttribute("style", "display: block;");
-        document.getElementById("enlargedImage").setAttribute("src", image_src);
+        if (image_src.slice(image_src.length - "-full.png".length, image_src.length) === "-full.png") {
+            document.getElementById("enlargedImage").setAttribute("src", image_src.slice(0, image_src.length - "-full.png".length));
+        } else {
+            document.getElementById("enlargedImage").setAttribute("src", image_src);
+        }
     }
 </script>
 
