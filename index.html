@@ -961,7 +961,9 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
             if (element_of_essay.tagName.toLowerCase() === "li") {
                 if (element_of_essay.children.length !== 0) {
                     if (element_of_essay.children[0].tagName.toLowerCase() === "blockquote") {
-                        element_of_essay.setAttribute("style", "padding-bottom: 30px");
+                        if (element_of_essay.parent.tagName.toLowerCase() === "article") {
+                            element_of_essay.setAttribute("style", "padding-bottom: 30px");
+                        }
                     }
                 }
             }
@@ -995,7 +997,8 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
             function_to_use_on_every_element[j](element_of_essay);
         }
     }
-</script></div>
+</script>
+</div>
         <!-- div class="gist-meta">
             <a href="https://gist.github.com/jatin-lab49/xyzxyzxyz/raw/xyzxyzxyz/file_name.md" style="float:right">
                 view raw
