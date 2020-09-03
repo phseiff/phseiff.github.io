@@ -961,7 +961,7 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
             if (element_of_essay.tagName.toLowerCase() === "li") {
                 if (element_of_essay.children.length !== 0) {
                     if (element_of_essay.children[0].tagName.toLowerCase() === "blockquote") {
-                        if (element_of_essay.parent.tagName.toLowerCase() === "article") {
+                        if (element_of_essay.parentElement.tagName.toLowerCase() === "article") {
                             element_of_essay.setAttribute("style", "padding-bottom: 30px");
                         }
                     }
