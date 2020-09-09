@@ -188,7 +188,7 @@
 
             <div class="row">
                 
-                <a href="#minimalist-shadows" style="color: #e5e0d8;">
+                <a href="#minimalist-shadows" class="card-to-show-essay" style="color: #e5e0d8;">
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
@@ -210,6 +210,13 @@
                     </div>
                 </a>
             </div>
+
+        <! Set color of text of essay- and project cards to light if we have javascript enabled, to contrast the dark bg of darkreader. >
+        <script>
+            var cards = document.getElementsByClassName("card-to-show-essay");
+            for (i=0; i<cards.length; i++)
+                cards[i].setAttribute("style", "color: #e5e0d8;");
+        </script>
 
         <! Actually Embedded essays>
         <span id="wrapper-for-embedded-essays">
