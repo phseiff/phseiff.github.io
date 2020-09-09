@@ -4,3 +4,10 @@
     background-repeat:no-repeat;
     padding-right:13px
 }
+
+a:not([href|="https://phseiff.com"]):not([href|="/"]):not([href|="#"]) {
+    background-image:url(/external-links/external-link.svg);
+    background-position:center right;
+    background-repeat:no-repeat;
+    padding-right:13px
+}

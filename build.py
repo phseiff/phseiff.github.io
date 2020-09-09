@@ -9,26 +9,6 @@ time.sleep(20)
 
 description = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
 
-with open("index-raw.html", "r") as f:
-    content = f.read()
-    essay_list = requests.get(url="https://phseiff.com/phseiff-essays/essay_list.txt").text.split("\n")
-    essay_content = "\n"
-    for essay in essay_list:
-        essay_content += (
-            " " * 4 * 3
-            # + '<p><p><p><div style="width: 100%; height: 200px"></div>'
-            + '<span style="margin-top: 200px" class="embedded-essay" id="'
-            + essay.replace("/", "_") + '" '
-            # + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)" '
-            + '>'
-            + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
-                'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
-                'href="#LICENSE"'
-            )
-            + '<span style="height: 300px"></span></span>\n'
-        )
-    content = content.replace("<! the essays content >", essay_content).replace("{description}", description)
-
 # Parse RSS feed:
 
 
@@ -39,9 +19,10 @@ def extract_item(tag, text):
     return text, text_within_tags
 
 
-essays = list()
-rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text
-essay_content = str()
+essays = list()  # list of tuples of (title, anchor, content, essay_image)
+essay_anchors = list()  # list of anchors used to access essays on the webpage
+essay_cards = str()  # string describing the cards used for accessing all essays
+rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text  # The RSS feed we will parse into these
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
@@ -50,7 +31,7 @@ while "<item>" in rss_feed:
     _, pubDate = extract_item("pubDate", rss_item)
     _, image = extract_item("image", rss_item)
     _, language = extract_item("language", rss_item)
-    essay_content += """
+    essay_cards += """
                 <a href="{link}" style="color: #e5e0d8;">
                     <div class="col x0.5">
                         <div class="col-content">
@@ -79,19 +60,42 @@ while "<item>" in rss_feed:
                             creation_date=" ".join(pubDate.split(" ")[:4]),
                             language="🇬🇧" if language == "en" else "🇩🇪"
     )
-    essay_name = link.split("#")[-1]
+    essay_anchor = link.split("#")[-1]
     essays.append((
         title,
-        essay_name,
-        requests.get("https://phseiff.com/phseiff-essays/" + essay_name + ".md").text,
+        essay_anchor,
+        requests.get("https://phseiff.com/phseiff-essays/" + essay_anchor + ".md").text,
         image
     ))
-    print("essay content:", essay_content)
-
-content = content.replace("<! essay cards >", essay_content)
+    print("essay card:", essay_cards)
 
 
-# fuse three image files:
+# Build the essays into the website
+
+with open("index-raw.html", "r") as index_raw:
+    content = index_raw.read()
+    essay_list = requests.get(url="https://phseiff.com/phseiff-essays/essay_list.txt").text.split("\n")
+    essay_content = "\n"
+    for essay in essay_list:
+        essay_content += (
+            " " * 4 * 3
+            # + '<p><p><p><div style="width: 100%; height: 200px"></div>'
+            + '<span style="margin-top: 200px" class="embedded-essay" id="'
+            + essay.replace("/", "_") + '" '
+            # + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)" '
+            + '>'
+            + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
+                'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
+                'href="#LICENSE"'
+            )
+            + '<span style="height: 300px"></span></span>\n'
+        )
+    content = content.replace("<! the essays content >", essay_content).replace("{description}", description)
+
+content = content.replace("<! essay cards >", essay_cards)
+
+
+# fuse three image files to create a mastodon image to share:
 
 def frame_image(left, middle, right):
     images = [Image.open(x) for x in [left, middle, right]]
@@ -121,10 +125,10 @@ if "<already_tooted>" in current_website_content:
 else:
     essays_who_where_already_tooted = list()
 
-for (a, essay_name, b, c) in essays:
-    if essay_name not in essays_who_where_already_tooted:
-        new_essays.append((a, essay_name, b, c))
-        essays_who_where_already_tooted.append(essay_name)
+for (a, essay_anchor, b, c) in essays:
+    if essay_anchor not in essays_who_where_already_tooted:
+        new_essays.append((a, essay_anchor, b, c))
+        essays_who_where_already_tooted.append(essay_anchor)
 content = content.replace("</already_tooted>", "\n".join(essays_who_where_already_tooted) + "</already_tooted>")
 
 # Finally write to index.html:
@@ -132,9 +136,9 @@ content = content.replace("</already_tooted>", "\n".join(essays_who_where_alread
 with open("index.html", "w+") as f:
     f.write(content)
 
-# Mastodon:
+# Toot to Mastodon:
 
-for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
+for (essay_title, essay_anchor, essay_content_as_markdown, image) in new_essays:
     mastodon = Mastodon(
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
@@ -145,7 +149,7 @@ for (essay_title, essay_name, essay_content_as_markdown, image) in new_essays:
     frame_image("images/left.png", image_name, "images/right.png")
     mastodon.status_post(
         'Small automated update on my essays: My new essay "' + essay_title
-        + '" is out and you can read it on https://phseiff.com/#' + essay_name + ' !',
+        + '" is out and you can read it on https://phseiff.com/#' + essay_anchor + ' !',
         media_ids=[mastodon.media_post(image_name)]
     )
     os.remove(image_name)
