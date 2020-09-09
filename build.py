@@ -32,7 +32,7 @@ while "<item>" in rss_feed:
     _, image = extract_item("image", rss_item)
     _, language = extract_item("language", rss_item)
     essay_cards += """
-                <a href="{link}" style="color: #e5e0d8;">
+                <a href="{link}" class="card-to-show-essay" style="color: #e5e0d8;">
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
