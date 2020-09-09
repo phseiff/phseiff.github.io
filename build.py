@@ -80,10 +80,16 @@ with open("index-raw.html", "r") as index_raw:
     for essay in essay_list:
         essay_content += (
             " " * 4 * 3
-            + '<span style="margin-top: 200px; ' + ("display: none;" if essay not in essay_anchors else "") + '" '
+            + '<span '
+            # style (invisible by default if the essay is not mentioned in rss feed and not the license):
+            + 'style="margin-top: 200px; '
+            + ("display: none;" if essay not in essay_anchors and essay != "LICENSE" else "") + '" '
+            # class:
             + 'class="embedded-essay"'
+            # id (essay_name):
             + 'id="' + essay.replace("/", "_") + '" '
             + '>'
+            # content:
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
                 'href="#LICENSE"'
