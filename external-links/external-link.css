@@ -5,7 +5,7 @@
     padding-right:13px
 }
 
-a:not([href|="https://phseiff.com"]):not([href|="/"]):not([href|="#"]) {
+article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=",jpeg"]) {
     background-image:url(/external-links/external-link.svg);
     background-position:center right;
     background-repeat:no-repeat;
