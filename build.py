@@ -61,6 +61,7 @@ while "<item>" in rss_feed:
                             language="🇬🇧" if language == "en" else "🇩🇪"
     )
     essay_anchor = link.split("#")[-1]
+    essay_anchors.append(essay_anchor)
     essays.append((
         title,
         essay_anchor,
@@ -79,10 +80,9 @@ with open("index-raw.html", "r") as index_raw:
     for essay in essay_list:
         essay_content += (
             " " * 4 * 3
-            # + '<p><p><p><div style="width: 100%; height: 200px"></div>'
-            + '<span style="margin-top: 200px" class="embedded-essay" id="'
-            + essay.replace("/", "_") + '" '
-            # + 'onload="(function(o){o.style.height=o.contentWindow.document.body.scrollHeight+\'px\';})(this)" '
+            + '<span style="margin-top: 200px; ' + ("display: none;" if essay not in essay_anchors else "") + '" '
+            + 'class="embedded-essay"'
+            + 'id="' + essay.replace("/", "_") + '" '
             + '>'
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
