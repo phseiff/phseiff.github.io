@@ -963,7 +963,9 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         function (element_of_essay) { // Ensure classes are read from the width-attribute.
             let potentially_new_class = element_of_essay.getAttribute("width");
             if (potentially_new_class && !isNumeric(potentially_new_class[0])) {
-                element_of_essay.classList.add(potentially_new_class);
+                let new_classes = potentially_new_class.split(" ");
+                for (let i=0; i<new_classes.length; i++)
+                    element_of_essay.classList.add(new_classes[i]);
                 element_of_essay.setAttribute("width", undefined);
                 console.log("!!! " + potentially_new_class);
             }
