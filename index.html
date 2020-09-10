@@ -959,6 +959,13 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         return !isNaN(s - parseFloat(s));
     }
 
+    function imageExists(image_url){
+        var http = new XMLHttpRequest();
+        http.open('HEAD', image_url, false);
+        http.send();
+        return (http.status !== 404);
+    }
+
     let function_to_use_on_every_element = [
         function (element_of_essay) { // Ensure classes are read from the width-attribute.
             let potentially_new_class = element_of_essay.getAttribute("width");
@@ -987,7 +994,12 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                     open_enlarged_image_view(element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/")); // + "-full.png"); <- for some reason not required?
                 }, false);
                 element_of_essay.setAttribute("title", "Click to enlarge image.");
-                element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/") + "-full.png");
+                if (elements_of_essays.getAttribute("src")) {
+                    element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/") + "-full.png");
+                    element_of_essay.onerror = function() {
+                        element_of_essay.setAttribute(element_of_essay.getAttribute("src").split("-full.png")[0]);
+                    }
+                }
                 if (element_of_essay.parentElement.tagName.toLowerCase() === "a") {
                     element_of_essay.parentElement.setAttribute("href", "javascript:void(0);");
                     element_of_essay.parentElement.removeAttribute("target");
