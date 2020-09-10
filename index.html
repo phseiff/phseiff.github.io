@@ -999,7 +999,7 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                 if (element_of_essay.getAttribute("src")) {
                     element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/") + "-full.png");
                     element_of_essay.onerror = function() {
-                        element_of_essay.setAttribute(element_of_essay.getAttribute("src").split("-full.png")[0]);
+                        element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").split("-full.png")[0]);
                         console.log("loaded: " + element_of_essay.getAttribute("src"));
                     }
                     element_of_essay.onload = function() {
