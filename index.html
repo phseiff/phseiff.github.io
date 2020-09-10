@@ -945,7 +945,8 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         document.getElementById("dimScreen").setAttribute("style", "display: none;");
         document.getElementById("enlargedImage").setAttribute("src", "");
     }
-    function open_enlarged_image_view(image_src) {
+    function open_enlarged_image_view(image) {
+        let image_src = image.getAttribute("src");
         document.getElementById("dimScreen").setAttribute("style", "display: block;");
         if (image_src.slice(image_src.length - "-full.png".length, image_src.length) === "-full.png") {
             document.getElementById("enlargedImage").setAttribute("src", image_src.slice(0, image_src.length - "-full.png".length));
@@ -993,13 +994,14 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         function (element_of_essay) { // Ensure we enlarge images with class enlargeable-image on click.
             if (element_of_essay.classList.contains("enlargeable-image")) {
                 element_of_essay.addEventListener("click", function() {
-                    open_enlarged_image_view(element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/")); // + "-full.png"); <- for some reason not required?
+                    open_enlarged_image_view(element_of_essay); // + "-full.png"); <- for some reason not required?
                 }, false);
                 element_of_essay.setAttribute("title", "Click to enlarge image.");
                 if (element_of_essay.getAttribute("src")) {
                     element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").replace("/images/", "/incest-pictograms/") + "-full.png");
                     element_of_essay.onerror = function() {
                         element_of_essay.setAttribute("src", element_of_essay.getAttribute("src").split("-full.png")[0].replace("/incest-pictograms/", "/images/"));
+                        element_of_essay.onerror = function() {};
                         console.log("loaded: " + element_of_essay.getAttribute("src"));
                     }
                 }
