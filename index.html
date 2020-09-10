@@ -953,6 +953,11 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
         } else {
             document.getElementById("enlargedImage").setAttribute("src", image_src);
         }
+        // style enlarged image:
+        if (image_src.includes("/incest-pictograms/"))
+            document.getElementById("enlargedImage").setAttribute("style", "background-color: #242525; border: 1px solid #dfe2e5; border-radius:5px;");
+        else
+            document.getElementById("enlargedImage").removeAttribute("style");
     }
 </script>
 
