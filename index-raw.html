@@ -303,8 +303,12 @@
             <div class="container">
                 <div class="cookie-bar-flex-box">
                     <script>
-                        var clicky_site_ids = [];
-                        let clicky_script = 0;
+                        // What we track, if user consents.
+                        var _paq = window._paq = window._paq || [];
+                        _paq.push(['trackPageView']);
+                        _paq.push(['enableLinkTracking']);
+
+                        // If user consents
                         var consent_given = false;
 
                         // Allow us to set and unset cookie consent:
@@ -312,20 +316,22 @@
                             document.getElementById("cookie-bar-field").style.display = "block";
                             document.getElementById("privacy-policy").style.display = "initial";
                             document.getElementById("privacy-policy-accepted").style.display = "none";
-                            document.cookie = "cookie-consent=; path=/; sameSite=strict";
+                            document.cookie = "matomo-consent=; path=/; sameSite=strict";
                             consent_given = false;
                         }
                         function give_consent() {
                             document.getElementById("cookie-bar-field").style.display = "none";
                             document.getElementById("privacy-policy").style.display = "none";
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
-                            document.cookie = "cookie-consent=true; path=/; sameSite=strict";
-                            clicky_site_ids.push(101259912);
-                            console.log(clicky_site_ids);
-                            clicky_script = document.createElement('script');
-                            clicky_script.onload = function() {};
-                            clicky_script.src = "//static.getclicky.com/js";
-                            document.head.appendChild(clicky_script);
+                            document.cookie = "matomo-consent=true; path=/; sameSite=strict";
+                            (function() {
+                                var u="//matomo.phseiff.com/";
+                                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                                _paq.push(['setSiteId', '1']);
+                                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                                g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+                            })();
+                            console.log("Started tracking with matomo - thanks for the consent, kind stranger! <3");
                             consent_given = true;
                     }
                         // In case the the user consented to the cookie, we won't show the cookie bar again:
@@ -375,15 +381,15 @@
                 <div class="row">
                     <div class="col l6 s12" id="privacy-policy">
                         <h5 class="white-text">Privacy Policy</h5>
-                        <p class="grey-text text-lighten-4">If you agree to it, I use a service called <a class="external-link" href="https://clicky.com/101259912">clicky</a>, which is completely GDPR-conform (unlike Google Analytics),
-                        to count my visitors. I get to see how many people from which country visited me when and for how long, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
-                        get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
+                        <p class="grey-text text-lighten-4">If you agree to it, I use a software called <a class="external-link" href="https://matomo.org/">matomo</a>, which is completely GDPR-conform (unlike Google Analytics),
+                        to count my visitors. I get to see how many people from which country visited me when and for how long, and what inspired them enough to click it, but <strong>not</strong> who they are or what their ip-address is, and neither does
+                        anyone else get to see, because matomo is free software and I host it on my own servers! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) to store your consent.</p>
                     </div>
                     <div class="col l6 s12" id="privacy-policy-accepted" hidden>
                         <h5 class="white-text">Privacy Policy</h5>
-                        <p class="grey-text text-lighten-4">I use a service called <a class="external-link" href="https://clicky.com/101259912">clicky</a>, which is completely GDPR-conform (unlike Google Analytics),
-                            to count my visitors. I get to see how many people from which country visited me when, but <strong>not</strong> who it is or what their ip-address is, and neither does clicky
-                            get to see that! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) is used to store your consent.</p>
+                        <p class="grey-text text-lighten-4">I use a software called <a class="external-link" href="https://matomo.org/">matomo</a>, which is completely GDPR-conform (unlike Google Analytics),
+                        to count my visitors. I get to see how many people from which country visited me when and for how long, and what inspired them enough to click it, but <strong>not</strong> who they are or what their ip-address is, and neither does
+                        anyone else get to see, because matomo is free software and I host it on my own servers! A small cookie is stored on your device to make sure you aren't counted twice, and an other cookie (made by me) to store your consent.</p>
                         <p class="grey-text text-lighten-4">
                             I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
                             I'd also like to mention that the twitter-follow-button as well as the mastodon-follow-button don't load any data from their respective sites until they are clicked.
@@ -428,7 +434,7 @@
 
     <script>
         // realise we already consented to cookie use!
-        if (getCookie("cookie-consent") === "true") {
+        if (getCookie("matomo-consent") === "true") {
             give_consent()
         }
         else {
