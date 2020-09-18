@@ -325,11 +325,11 @@
                             document.getElementById("privacy-policy-accepted").style.display = "initial";
                             document.cookie = "matomo-consent=true; path=/; sameSite=strict";
                             (function() {
-                                var u="//matomo.phseiff.com/";
-                                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                                var u="//snuffelpaff.phseiff.com/";
+                                _paq.push(['setTrackerUrl', u+'js/index.php']);
                                 _paq.push(['setSiteId', '1']);
                                 var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-                                g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+                                g.type='text/javascript'; g.async=true; g.src=u+'js/'; s.parentNode.insertBefore(g,s);
                             })();
                             console.log("Started tracking with matomo - thanks for the consent, kind stranger! <3");
                             consent_given = true;
