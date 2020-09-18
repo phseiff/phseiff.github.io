@@ -1387,17 +1387,21 @@ you, feel free to hit me up on it and I'll look into it.</p>
                     + window.location.pathname
                     + "#" + location
                 );
+                // if (_paq)
+                //    _paq.push(['trackEvent', 'navigation', 'hash-change', location]);
             }
 
             /* Set location. */
             function set_location(location) {
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
                 console.log("new location: " + location);
-                scroll_to(location);
+                let was_an_essay = scroll_to(location);
                 if (location === "phseiff-header") location = "";
                 if (location === "phseiff-footer") location = "";
                 if (location !== "")
                     set_hash(location);
+                else if (_paq && !was_an_essay)
+                    _paq.push(['trackEvent', 'navigation', 'to-location', location]);
             }
 
             var opened_essay = undefined;
@@ -1407,6 +1411,7 @@ you, feel free to hit me up on it and I'll look into it.</p>
 
                 // Show essay/ hide other essays if this is the hash of an essay:
                 let essay_element_to_open = document.getElementById(id);
+                let was_as_essay = false;
                 if (essay_element_to_open.parentElement.id === "embedded_essays") {
                     console.log("opening essay: " + id);
                     if (opened_essay)
@@ -1415,6 +1420,9 @@ you, feel free to hit me up on it and I'll look into it.</p>
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
                     document.getElementById("forkongithub").style.display = "none";
+                    was_as_essay = true;
+                    if (_paq)
+                        _paq.push(['trackEvent', 'navigation', 'open-essay', id]);
                 }
 
                 // Scroll to the place:
@@ -1427,11 +1435,15 @@ you, feel free to hit me up on it and I'll look into it.</p>
 
                 // maybe close the essay:
                 if (id === "phseiff-header")
-                    close_essay()
+                    close_essay();
+
+                return was_an_essay; // Return whether we just opened an essay.
             }
 
             function close_essay() { // Close the given essay.
                 opened_essay.style.display = "none";
+                if (_paq)
+                    _paq.push(['trackEvent', 'navigation', 'close-essay', opened_essay.getAttribute('id')])
                 document.getElementById("forkongithub").style.display = "block";
                 opened_essay = undefined;
                 document.getElementById("phseiff-close-essay-button").style.display = "none";
@@ -1443,9 +1455,10 @@ you, feel free to hit me up on it and I'll look into it.</p>
             function update_on_hash_change(event) {
                 var hash = window.location.hash.slice(1, window.location.hash.length);
                 console.log("new hash: " + hash);
-                if (event !== undefined)
+                if (event !== undefined) {
                     console.log("blocking standard scroll event:" + event);
                     event.preventDefault();
+                }
             }
             window.addEventListener("hashchange", update_on_hash_change, true);
         </script>
@@ -1674,6 +1687,8 @@ you, feel free to hit me up on it and I'll look into it.</p>
             }
         }
         set_location(window.location.hash.slice(1, window.location.hash.length));
+        if (_paq)
+            _paq.push(['trackEvent', 'navigation']) ToDo
     </script>
 
     <! Ensure dark reader is executed again after we updated the essays using javascript. >
