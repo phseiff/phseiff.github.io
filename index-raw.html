@@ -241,12 +241,12 @@
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
                 console.log("new location: " + location);
                 let was_an_essay = scroll_to(location);
+                else if (_paq && !was_an_essay)
+                    _paq.push(['trackEvent', 'navigation', 'to-location', location]);
                 if (location === "phseiff-header") location = "";
                 if (location === "phseiff-footer") location = "";
                 if (location !== "")
                     set_hash(location);
-                else if (_paq && !was_an_essay)
-                    _paq.push(['trackEvent', 'navigation', 'to-location', location]);
             }
 
             var opened_essay = undefined;
