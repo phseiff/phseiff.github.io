@@ -1441,14 +1441,16 @@ you, feel free to hit me up on it and I'll look into it.</p>
             }
 
             function close_essay() { // Close the given essay.
-                opened_essay.style.display = "none";
-                if (_paq)
-                    _paq.push(['trackEvent', 'navigation', 'close-essay', opened_essay.getAttribute('id')])
-                document.getElementById("forkongithub").style.display = "block";
-                opened_essay = undefined;
-                document.getElementById("phseiff-close-essay-button").style.display = "none";
-                set_hash("");
-                scroll_to("");
+                if (opened_essay) {
+                    opened_essay.style.display = "none";
+                    if (_paq)
+                        _paq.push(['trackEvent', 'navigation', 'close-essay', opened_essay.getAttribute('id')])
+                    document.getElementById("forkongithub").style.display = "block";
+                    opened_essay = undefined;
+                    document.getElementById("phseiff-close-essay-button").style.display = "none";
+                    set_hash("");
+                    scroll_to("");
+                }
             }
 
             // React to hashes added to the url
