@@ -241,7 +241,7 @@
                 /* Scroll to the location if it is already in the hash, and set it to be the hash otherwise. */
                 console.log("new location: " + location);
                 let was_an_essay = scroll_to(location);
-                if (_paq && !was_an_essay)
+                if (_paq && !was_an_essay && location)
                     _paq.push(['trackEvent', 'navigation', 'to-location', location]);
                 if (location === "phseiff-header") location = "";
                 if (location === "phseiff-footer") location = "";
@@ -534,8 +534,6 @@
             }
         }
         set_location(window.location.hash.slice(1, window.location.hash.length));
-        if (_paq)
-            _paq.push(['trackEvent', 'navigation']);
 
         // Generate a user id and ensure every user uses one, which is stored in a cookie
         function generate_user_id() {
