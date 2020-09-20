@@ -1691,6 +1691,39 @@ you, feel free to hit me up on it and I'll look into it.</p>
         set_location(window.location.hash.slice(1, window.location.hash.length));
         if (_paq)
             _paq.push(['trackEvent', 'navigation']);
+
+        // Generate a user id and ensure every user uses one, which is stored in a cookie
+        function generate_user_id() {
+            let id_length = Math.floor(6 + Math.random() * 5);
+            let id = "";
+            let consonants = "qwrtzpsdfghjklxcvbnm";
+            let vocals = "euioay";
+            let starts_with_vocal = (Math.random() <= 0.3);
+            while (id.length < id_length) {
+                let set_to_use = [consonants, vocals][(id.length+starts_with_vocal)%2];
+                id += set_to_use[Math.round(Math.random() * set_to_use.length)];
+            }
+            return id;
+        }
+
+        function set_id(id) {
+            document.cookie = "unique_user_id=" + id + "; path=/; sameSite=strict";
+            console.log("Set user id to " + id + "!");
+        }
+
+        function get_id() {
+            return getCookie("unique_user_id");
+        }
+
+        if (consent_given) {
+            console.log("now pushing user id!");
+            if (!get_id()) {
+                set_id(generate_user_id());
+            }
+            _paq.push(['setUserId', get_id()]);
+        }
+
+
     </script>
 
     <! Ensure dark reader is executed again after we updated the essays using javascript. >
