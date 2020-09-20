@@ -38,7 +38,7 @@ while "<item>" in rss_feed:
                             <div class="zoom">
                                 <div class="card">
                                     <div class="card-image">
-                                        <img src="{image}">
+                                        <img alt="{image}" src="{image}">
                                         <span class="badge">{creation_date} | {language}</span>
                                     </div>
                                     <div class="card-content">
