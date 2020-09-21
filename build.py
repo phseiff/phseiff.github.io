@@ -93,7 +93,7 @@ while "<item>" in rss_feed:
     descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
     title_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
     for directory in ("e", "essay"):
-        with open(directory + "/" + essay_anchor, "w+") as f:
+        with open(directory + "/" + essay_anchor, "w") as f:
             f.write(redirecting_page.format(name=essay_anchor))
     print("essay card:", essay_cards)
 
