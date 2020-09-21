@@ -24,7 +24,7 @@ redirecting_page = """
  
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="0;url=http://phseiff.com/#{name}">
-<link rel="canonical" href="http://phseiff.com/#{name}">
+<link rel="canonical" href="https://phseiff.com/#{name}">
  
 <script>
   window.location.href = "https://phseiff.com/#{name}"
