@@ -1,3 +1,5 @@
 .ignore/*
 load_markdown_files.py
 index.html
+e/*/*
+essay/*/*
