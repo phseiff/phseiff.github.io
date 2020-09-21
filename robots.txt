@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /phseiff-essays/
+# Disallow: /e/
+# Disallow: /essay/
