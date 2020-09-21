@@ -19,8 +19,7 @@ def extract_item(tag, text):
     return text, text_within_tags
 
 
-redirecting_page = """
-<!DOCTYPE HTML>
+redirecting_page = """<!DOCTYPE HTML>
  
 <meta charset="UTF-8">
 <meta http-equiv="refresh" content="0;url=http://phseiff.com/#{name}">
@@ -93,7 +92,8 @@ while "<item>" in rss_feed:
     descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
     title_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
     for directory in ("e", "essay"):
-        with open(directory + "/" + essay_anchor, "w") as f:
+        os.makedirs(directory + "/" + essay_anchor, exist_ok=True)
+        with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
             f.write(redirecting_page.format(name=essay_anchor))
     print("essay card:", essay_cards)
 
