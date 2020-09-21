@@ -7,7 +7,7 @@ from mastodon import Mastodon
 
 time.sleep(20)
 
-description = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
+description_of_myself = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
 
 # Parse RSS feed:
 
@@ -19,10 +19,31 @@ def extract_item(tag, text):
     return text, text_within_tags
 
 
+redirecting_page = """
+<!DOCTYPE HTML>
+ 
+<meta charset="UTF-8">
+<meta http-equiv="refresh" content="1; url=https://phseiff.com/#{name}">
+ 
+<script>
+  window.location.href = "https://phseiff.com/#{name}"
+</script>
+ 
+<title>Redirection page</title>
+
+If you see this page, it means you are being redirected to
+<a href='https://phseiff.com/#{name}'>the article you requested</a>,
+but your browser is too old to do so automatically. You can still follow the link manually. :)"""
+
+
 essays = list()  # list of tuples of (title, anchor, content, essay_image)
 essay_anchors = list()  # list of anchors used to access essays on the webpage
 essay_cards = str()  # string describing the cards used for accessing all essays
 rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text  # The RSS feed we will parse into these
+descriptions_string = ""
+title_string = ""
+os.makedirs("e", exist_ok=True)
+os.makedirs("essay", exist_ok=True)
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
@@ -68,6 +89,11 @@ while "<item>" in rss_feed:
         requests.get("https://phseiff.com/phseiff-essays/" + essay_anchor + ".md").text,
         image
     ))
+    descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
+    title_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
+    for directory in ("e", "essay"):
+        with open(directory + "/" + essay_anchor, "w+") as f:
+            f.write(redirecting_page.format(name=essay_anchor))
     print("essay card:", essay_cards)
 
 
@@ -96,9 +122,12 @@ with open("index-raw.html", "r") as index_raw:
             )
             + '<span style="height: 300px"></span></span>\n'
         )
-    content = content.replace("<! the essays content >", essay_content).replace("{description}", description)
 
+content = content.replace("<! the essays content >", essay_content)
+content = content.replace("{description}", description_of_myself)
 content = content.replace("<! essay cards >", essay_cards)
+content = content.replace("/* other descriptions */", descriptions_string)
+content = content.replace("/* other titles */", title_string)
 
 
 # fuse three image files to create a mastodon image to share:

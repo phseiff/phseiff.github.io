@@ -2,4 +2,3 @@ User-agent: *
 Disallow: /phseiff-essays
 Disallow: /phseiff-essays/*.html
 Disallow: /phseiff-essays/*.md
-
