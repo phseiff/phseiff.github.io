@@ -175,6 +175,15 @@ content = content.replace("</already_tooted>", "\n".join(essays_who_where_alread
 with open("index.html", "w+") as f:
     f.write(content)
 
+# Compress if called on github:
+
+if len(sys.argv) > 2 and sys.argv[1] == "called_from_gh_pages":
+    print("Compressing!")
+    from css_html_js_minify import process_single_html_file, process_single_js_file, process_single_css_file
+    process_single_js_file("darkreader/darkreader.js", overwrite=True)
+    process_single_js_file("materialize-css/materialize.js", overwrite=True)
+    
+
 # Toot to Mastodon:
 
 for (essay_title, essay_anchor, essay_content_as_markdown, image) in new_essays:
