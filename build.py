@@ -183,6 +183,8 @@ if "called_from_gh_pages" in sys.argv:
     process_single_js_file("darkreader/darkreader.js", overwrite=True)
     process_single_js_file("materialize-css/materialize.js", overwrite=True)
     # ToDo: Maybe just compress every non-html-file in the directory, automatically?
+    print(open("darkreader/darkreader.js", "r").read())
+    print(open("materialize-css/materialize.js", "r").read())
     
 
 # Toot to Mastodon:
