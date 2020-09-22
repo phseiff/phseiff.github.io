@@ -124,7 +124,7 @@ while "<item>" in rss_feed:
       <lastmod>{date}}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
-      <xhtml:link rel="alternate" hreflang="{language}}" href="https://phseiff.com/e/{name}"/>
+      <xhtml:link rel="alternate" hreflang="{language}" href="https://phseiff.com/e/{name}"/>
    </url>
    <!-- Further links -->""".format(name=essay_anchor, language=language, date=update_date)
     xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
