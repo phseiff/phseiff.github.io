@@ -4,6 +4,7 @@ import sys
 import os
 from PIL import Image
 from mastodon import Mastodon
+import subprocess
 
 time.sleep(20)
 
@@ -44,6 +45,7 @@ descriptions_string = ""
 title_string = ""
 os.makedirs("e", exist_ok=True)
 os.makedirs("essay", exist_ok=True)
+update_dates = dict()
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
@@ -98,8 +100,21 @@ while "<item>" in rss_feed:
             f.write(redirecting_page.format(name=essay_anchor))
         with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
             f.write(redirecting_page.format(name=essay_anchor))
-    print("essay card:", essay_cards)
 
+    # Save the change date:
+    if "called_from_gh_pages" in sys.argv:
+        last_change_date = str(subprocess.run(
+            ['curl', '-u', "phseiff:OAUTH-TOKEN".replace("OAUTH-TOKEN", sys.argv[3]),
+             '-s', "https://api.github.com/repos/phseiff/phseiff-essays/commits?path="
+             + essay_anchor + ".md&page=1&per_page=1", "|", "jq", ".[0].commit.committer.date"],
+            stdout=subprocess.PIPE
+        ).stdout, encoding="UTF-8").split("T")[0]
+        update_dates[essay_anchor] = last_change_date
+    else:
+        update_dates[essay_anchor] = "example"
+
+    print("essay card:", essay_cards)
+print("Change dates:", update_dates)
 
 # Build the essays into the website
 
