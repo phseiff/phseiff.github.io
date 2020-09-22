@@ -49,7 +49,7 @@ xml_sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http:www.w3.org/1999/xhtml">
    <url>
       <loc>https://phseiff.com</loc>
-      <lastmod>2017-10-06</lastmod>
+      <lastmod>{update_date}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
       <xhtml:link rel="alternate" hreflang="en" href="https://phseiff.com"/>
@@ -141,6 +141,18 @@ while "<item>" in rss_feed:
     xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
 
     print("essay card:", essay_cards)
+
+# Change creation date of central index.html:
+
+command = (
+        "curl -s \"https://api.github.com/repos/phseiff/phseiff.github.io/commits?path=index.html&page=1&per_page=1\""
+        + " | jq \".[0].commit.committer.date\""
+)
+process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
+output, _ = process.communicate()
+last_change_date = str(output, encoding="UTF-8").split("T")[0]
+update_date = last_change_date[1:][:-1]
+xml_sitemap_content.format(update_date=update_date)
 
 # Save xml sitemap:
 
