@@ -45,8 +45,19 @@ descriptions_string = ""
 title_string = ""
 os.makedirs("e", exist_ok=True)
 os.makedirs("essay", exist_ok=True)
-with open("xml-sitemap.xml", "r") as f:
-    xml_sitemap_content = f.read()
+xml_sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http:www.w3.org/1999/xhtml">
+   <url>
+      <loc>https://phseiff.com.com</loc>
+      <lastmod>2017-10-06</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <xhtml:link rel="alternate" hreflang="en" href="https://phseiff.com"/>
+   </url>
+   <!-- Further links -->
+</urlset>
+"""
+
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
