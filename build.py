@@ -58,6 +58,16 @@ xml_sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 """
 
+
+def fix_errors_in_date_format(date):
+    date = date.split("-")
+    for i in range(len(date)):
+        if len(date[i]) < 2:
+            date[i] = "0" + date[i]
+    date = "-".join(date)
+    return date
+
+
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
@@ -137,7 +147,7 @@ while "<item>" in rss_feed:
       <priority>0.5</priority>
       <xhtml:link rel="alternate" hreflang="{language}" href="https://phseiff.com/e/{name}"/>
    </url>
-   <!-- Further links -->""".format(name=essay_anchor, language=language, date=update_date)
+   <!-- Further links -->""".format(name=essay_anchor, language=language, date=fix_errors_in_date_format(update_date))
     xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
 
     print("essay card:", essay_cards)
@@ -152,7 +162,7 @@ process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 output, _ = process.communicate()
 last_change_date = str(output, encoding="UTF-8").split("T")[0]
 update_date = last_change_date[1:][:-1]
-xml_sitemap_content = xml_sitemap_content.format(update_date=update_date)
+xml_sitemap_content = xml_sitemap_content.format(update_date=fix_errors_in_date_format(update_date))
 
 # Save xml sitemap:
 
