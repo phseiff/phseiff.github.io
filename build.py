@@ -45,7 +45,8 @@ descriptions_string = ""
 title_string = ""
 os.makedirs("e", exist_ok=True)
 os.makedirs("essay", exist_ok=True)
-update_dates = dict()
+with open("xml-sitemap.xml", "r") as f:
+    xml_sitemap_content = f.read()
 while "<item>" in rss_feed:
     rss_feed, rss_item = extract_item("item", rss_feed)
     _, description = extract_item("description", rss_item)
@@ -111,16 +112,30 @@ while "<item>" in rss_feed:
         process = subprocess.Popen(
             command, shell=True, stdout=subprocess.PIPE
         )
-        print("Command:", command)
+        print("Essay:", essay_anchor)
         output, error = process.communicate()
-        print("Output:", output)
         last_change_date = str(output, encoding="UTF-8").split("T")[0]
-        update_dates[essay_anchor] = last_change_date
+        update_date = last_change_date[1:][:-1]
+        print("Age:", update_date)
     else:
-        update_dates[essay_anchor] = "example"
+        update_date = "example"
+    xml_sitemap_entry = """<url>
+      <loc>https://phseiff.com.com/e/{name}</loc>
+      <lastmod>{date}}</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.5</priority>
+      <xhtml:link rel="alternate" hreflang="{language}}" href="https://phseiff.com/e/{name}"/>
+   </url>
+   <!-- Further links -->""".format(name=essay_anchor, language=language, date=update_date)
+    xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
 
     print("essay card:", essay_cards)
-print("Change dates:", update_dates)
+
+# Save xml sitemap:
+
+with open("xml-sitemap.xml", "w") as f:
+    f.write(xml_sitemap_content)
+    print("xml sitemap:", xml_sitemap_content)
 
 # Build the essays into the website
 
