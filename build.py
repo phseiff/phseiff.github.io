@@ -48,7 +48,7 @@ os.makedirs("essay", exist_ok=True)
 xml_sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http:www.w3.org/1999/xhtml">
    <url>
-      <loc>https://phseiff.com.com</loc>
+      <loc>https://phseiff.com</loc>
       <lastmod>2017-10-06</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
@@ -131,7 +131,7 @@ while "<item>" in rss_feed:
     else:
         update_date = "example"
     xml_sitemap_entry = """<url>
-      <loc>https://phseiff.com.com/e/{name}</loc>
+      <loc>https://phseiff.co/e/{name}</loc>
       <lastmod>{date}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
