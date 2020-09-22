@@ -103,12 +103,18 @@ while "<item>" in rss_feed:
 
     # Save the change date:
     if "called_from_gh_pages" in sys.argv:
-        last_change_date = str(subprocess.run(
-            ['curl', '-u', "phseiff:OAUTH-TOKEN".replace("OAUTH-TOKEN", sys.argv[3]),
-             '-s', "https://api.github.com/repos/phseiff/phseiff-essays/commits?path="
-             + essay_anchor + ".md&page=1&per_page=1", "|", "jq", ".[0].commit.committer.date"],
-            stdout=subprocess.PIPE
-        ).stdout, encoding="UTF-8").split("T")[0]
+        command = (
+            "curl -u phseiff:" + sys.argv[3]
+            + " -s \"https://api.github.com/repos/phseiff/phseiff-essays/commits?path=" + essay_anchor
+            + ".md&page=1&per_page=1\" | jq \".[0].commit.committer.date\""
+        )
+        process = subprocess.Popen(
+            command, shell=True, stdout=subprocess.PIPE
+        )
+        print("Command:", command)
+        output, error = process.communicate()
+        print("Output:", output)
+        last_change_date = str(output, encoding="UTF-8").split("T")[0]
         update_dates[essay_anchor] = last_change_date
     else:
         update_dates[essay_anchor] = "example"
@@ -198,8 +204,8 @@ if "called_from_gh_pages" in sys.argv:
     process_single_js_file("darkreader/darkreader.js", overwrite=True)
     process_single_js_file("materialize-css/materialize.js", overwrite=True)
     # ToDo: Maybe just compress every non-html-file in the directory, automatically?
-    print(open("darkreader/darkreader.js", "r").read())
-    print(open("materialize-css/materialize.js", "r").read())
+    # print(open("darkreader/darkreader.js", "r").read())
+    # print(open("materialize-css/materialize.js", "r").read())
     
 
 # Toot to Mastodon:
