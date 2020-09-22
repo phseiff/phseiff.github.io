@@ -177,11 +177,12 @@ with open("index.html", "w+") as f:
 
 # Compress if called on github:
 
-if len(sys.argv) > 2 and sys.argv[1] == "called_from_gh_pages":
+if "called_from_gh_pages" in sys.argv:
     print("Compressing!")
     from css_html_js_minify import process_single_html_file, process_single_js_file, process_single_css_file
     process_single_js_file("darkreader/darkreader.js", overwrite=True)
     process_single_js_file("materialize-css/materialize.js", overwrite=True)
+    # ToDo: Maybe just compress every non-html-file in the directory, automatically?
     
 
 # Toot to Mastodon:
