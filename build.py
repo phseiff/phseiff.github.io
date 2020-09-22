@@ -131,7 +131,7 @@ while "<item>" in rss_feed:
     else:
         update_date = "example"
     xml_sitemap_entry = """<url>
-      <loc>https://phseiff.co/e/{name}</loc>
+      <loc>https://phseiff.com/e/{name}</loc>
       <lastmod>{date}</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.5</priority>
