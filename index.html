@@ -1397,20 +1397,24 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
 
             /* Set the hash without scrolling - we now use a url, so search engines can index it seperately. */
             function set_hash(location) {
+                let current_url;
                 if (location !== "")
-                    history.pushState({}, "",
+                    current_url = (
                         window.location.protocol
                         + "//" + window.location.host
                         + "/e/" + location
                     );
                 else
-                    history.pushState({}, "",
+                    current_url = (
                         window.location.protocol + "//" + window.location.host
                     );
+                history.pushState({}, "", current_url);
                 let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
                 let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
+                let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
                 meta_description_tag.setAttribute("content", page_descriptions[location]);
                 meta_title_tag.innerHTML = page_titles[location];
+                canonical_tag.setAttribute("href", current_url);
             }
 
             /* Set location. */
