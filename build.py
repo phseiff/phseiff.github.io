@@ -152,7 +152,7 @@ process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE)
 output, _ = process.communicate()
 last_change_date = str(output, encoding="UTF-8").split("T")[0]
 update_date = last_change_date[1:][:-1]
-xml_sitemap_content.format(update_date=update_date)
+xml_sitemap_content = xml_sitemap_content.format(update_date=update_date)
 
 # Save xml sitemap:
 
