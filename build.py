@@ -92,8 +92,11 @@ while "<item>" in rss_feed:
     descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
     title_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
     for directory in ("e", "essay"):
-        os.makedirs(directory + "/" + essay_anchor, exist_ok=True)
+        if not os.path.exists(directory + "/" + essay_anchor):
+            os.makedirs(directory + "/" + essay_anchor)
         with open(directory + "/" + essay_anchor + "/index.html", "w+") as f:
+            f.write(redirecting_page.format(name=essay_anchor))
+        with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
             f.write(redirecting_page.format(name=essay_anchor))
     print("essay card:", essay_cards)
 
