@@ -1438,16 +1438,16 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                 
                 // get og tags/ twitter tags:
                 let og_description_tags = [
-                    document.documentElement.querySelectorAll("property[name=\"og:description\"]")[0],
+                    document.documentElement.querySelectorAll("meta[property=\"og:description\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
                 ];
                 let og_title_tags = [
-                    document.documentElement.querySelectorAll("property[name=\"og:title\"]")[0],
+                    document.documentElement.querySelectorAll("meta[property=\"og:title\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
                 ];
                 let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
                 let og_image_tags = [
-                    document.documentElement.querySelectorAll("property[name=\"og:image\"]")[0],
+                    document.documentElement.querySelectorAll("meta[property=\"og:image\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
                 ];
                 
