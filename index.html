@@ -1438,21 +1438,21 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                 
                 // get og tags/ twitter tags:
                 let og_description_tags = [
-                    document.documentElement.querySelectorAll("meta[name='og:description']")[0],
-                    document.documentElement.querySelectorAll("meta[name='twitter:description']")[0]
+                    document.documentElement.querySelectorAll("meta[name=\"og:description\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
                 ];
                 let og_title_tags = [
-                    document.documentElement.querySelectorAll("meta[name='og:title']")[0],
-                    document.documentElement.querySelectorAll("meta[name='twitter:title']")[0]
+                    document.documentElement.querySelectorAll("meta[name=\"og:title\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
                 ];
-                let og_url_tag = document.documentElement.querySelectorAll("meta[name='og:url']")[0];
+                let og_url_tag = document.documentElement.querySelectorAll("meta[name=\"og:url\"]")[0];
                 let og_image_tags = [
-                    document.documentElement.querySelectorAll("meta[name='og:image']")[0],
-                    document.documentElement.querySelectorAll("meta[name='twitter:image']")[0]
+                    document.documentElement.querySelectorAll("meta[name=\"og:image\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
                 ];
                 
                 // set twitter card type:
-                let twitter_type_tag = document.documentElement.querySelectorAll("meta[name='twitter:card']")[0];
+                let twitter_type_tag = document.documentElement.querySelectorAll("meta[name=\"twitter:card\"]")[0];
                 if (location === "")
                     twitter_type_tag.setAttribute("content", "summary_large_image");
                 else
