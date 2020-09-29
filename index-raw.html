@@ -19,6 +19,10 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <meta name="twitter:card" content="summary"/>
     <meta name="twitter:site" content="@phseiff"/>
     <meta name="twitter:creator" content="@phseiff"/>
+    <meta name="twitter:image" content="https://phseiff.com/images/icon.jpeg"/>
+    <meta name="twitter:title" content="phseiff - opinions & obscurities"/>
+    <meta name="twitter:description" content="
+Views about politics, social topics, economics, and whatever else I deem worth talking about. Let yourself be enriched by some opinions & obscurities!"/>"/>
 
 
     <link rel="canonical" href="https://phseiff.com"/>
@@ -263,12 +267,47 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                         window.location.protocol + "//" + window.location.host
                     );
                 history.pushState({}, "", current_url);
+                
+                // meta tags:
                 let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
                 let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
-                let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
                 meta_description_tag.setAttribute("content", page_descriptions[location]);
                 meta_title_tag.innerHTML = page_titles[location];
+                
+                // canonical tag:
+                let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
                 canonical_tag.setAttribute("href", current_url);
+                
+                // get og tags/ twitter tags:
+                let og_description_tags = (
+                    document.getElement.querySelectorAll("meta[name='og:description']")[0],
+                    document.getElement.querySelectorAll("meta[name='twitter:description']")[0]
+                );
+                let og_title_tags = (
+                    document.getElement.querySelectorAll("meta[name='og:title']")[0],
+                    document.getElement.querySelectorAll("meta[name='twitter:title']")[0]
+                );
+                let og_url_tag = document.getElement.querySelectorAll("meta[name='og:url']")[0];
+                let og_image_tags = (
+                    document.getElement.querySelectorAll("meta[name='og:image']")[0],
+                    document.getElement.querySelectorAll("meta[name='twitter:image']")[0]
+                );
+                
+                // set twitter card type:
+                let twitter_type_tag = document.getElement.querySelectorAll("meta[name='twitter:card']")[0];
+                if (location === "")
+                    twitter_type_tag.setAttribute("content", "summary_large_image");
+                else
+                    twitter_type_tag.setAttribute("content", "summary");
+                
+                // set og/twitter card tags:
+                for (i=0, i<2, 1++) {
+                    og_description_tags[i].setAttribute("content", page_descriptions[location]);
+                    og_title_tags[i].setAttribute("content", page_titles[location]);
+                    // og_image_tags[i].setAttribute("content", page_images[location]);
+                    // ToDo: Create a dict for that content!
+                }
+                og_url_tag.setAttribute("content", current_url);
             }
 
             /* Set location. */
