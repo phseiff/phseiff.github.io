@@ -280,16 +280,16 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                 
                 // get og tags/ twitter tags:
                 let og_description_tags = [
-                    document.documentElement.querySelectorAll("meta[name=\"og:description\"]")[0],
+                    document.documentElement.querySelectorAll("property[name=\"og:description\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
                 ];
                 let og_title_tags = [
-                    document.documentElement.querySelectorAll("meta[name=\"og:title\"]")[0],
+                    document.documentElement.querySelectorAll("property[name=\"og:title\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
                 ];
-                let og_url_tag = document.documentElement.querySelectorAll("meta[name=\"og:url\"]")[0];
+                let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
                 let og_image_tags = [
-                    document.documentElement.querySelectorAll("meta[name=\"og:image\"]")[0],
+                    document.documentElement.querySelectorAll("property[name=\"og:image\"]")[0],
                     document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
                 ];
                 
