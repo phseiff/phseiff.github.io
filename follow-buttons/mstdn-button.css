@@ -12,6 +12,7 @@
     background-repeat:no-repeat;
     background-position:top 50% left 8px;
     transition:all 0.5s;
+    color: rgb(175,238,238);
 }
 .mstdn:hover{
     background-color:#bf7402;
