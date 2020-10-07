@@ -269,7 +269,7 @@ for (essay_title, essay_anchor, essay_content_as_markdown, image) in new_essays:
     frame_image("images/left.png", image_name, "images/right.png")
     mastodon.status_post(
         'Small automated update on my essays: My new essay "' + essay_title
-        + '" is out and you can read it on https://phseiff.com/#' + essay_anchor + ' !',
+        + '" is out and you can read it on https://phseiff.com/e/' + essay_anchor + ' !',
         media_ids=[mastodon.media_post(image_name)]
     )
     os.remove(image_name)
