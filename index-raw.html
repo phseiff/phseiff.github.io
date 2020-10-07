@@ -103,6 +103,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         .resizable-essay-title h2 {
             /* color: orange; */
         }
+        .margin_when_on_desktop {
+            margin: 15px;
+        }
         @media screen and (max-width: 800px) {
             .resizable-essay-title h2 {
                 font-size: 8vw;
@@ -111,6 +114,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             .resizable-essay-title h1 {
                 font-size: 10vw;
                 /* color: orange; */
+            }
+            .margin_when_on_desktop {
+                all: initial;
             }
         }
 
@@ -166,7 +172,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <div class="container">
             <a href="#">
                 <span id="phseiff-header">
-                    <div style="margin: 15px">
+                    <div class="margin_when_on_desktop">
                             <div class="row valign-wrapper" color="orange">
                             <div class="col s2">
                                 <img src="images/icon.jpeg" alt="me.jpeg" class="circle responsive-img orange desktop_title">
@@ -176,7 +182,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                                 <div class="resizable-essay-title" style="color: orange"><h1> phseiff.com </h1></div> <! #995c00>
                             </div>
                         </div>
-                    </div>
+                    </div><p class="mobile_title"></p>
 
 
 
