@@ -2,12 +2,14 @@
     background-image:url(/external-links/external-link.svg);
     background-position:center right;
     background-repeat:no-repeat;
-    padding-right:15px
+    padding-right:15px;
+    color: rgb(175,238,238);
 }
 
 article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]) {
     background-image:url(/external-links/external-link.svg);
     background-position:center right;
     background-repeat:no-repeat;
-    padding-right:15px
+    padding-right:15px;
+    rgb(175,238,238);
 }
