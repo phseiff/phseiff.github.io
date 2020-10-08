@@ -36,11 +36,23 @@
         <meta name="darkreader" content="104d4afa-2a17-4971-b5af-7914e4f49e72">
     </head>
     <body>
+
         <span style="text-align: center;">
             <h1>404</h1>
-            <h4>Oooops... the essay you wanted to read does not exist. :(</h4>
-            <h5>But you can visit <a href="https://phseiff.com">phseiff.com</a> for more opinions & obscurities!</h5>
+            <h4>Hm.... Looks like the page you wanted to access does not exist here.</h4>
+            <h5>But you can visit <a href="https://phseiff.com">phseiff.com</a> for more opinions & obscurities! :)</h5>
         </span>
+
+        <! dark reader dark mode >
+        <script type="text/javascript" src="darkreader/darkreader.js"></script>
+        <script>
+            DarkReader.setFetchMethod(window.fetch);
+            DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
+                brightness: 100,
+                contrast: 90,
+                sepia: 10
+            });
+        </script>
     </body>
 
 </html>
