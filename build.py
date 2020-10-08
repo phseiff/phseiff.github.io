@@ -41,8 +41,12 @@ essays = list()  # list of tuples of (title, anchor, content, essay_image)
 essay_anchors = list()  # list of anchors used to access essays on the webpage
 essay_cards = str()  # string describing the cards used for accessing all essays
 rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text  # The RSS feed we will parse into these
+
 descriptions_string = ""
-title_string = ""
+titles_string = ""
+images_string = ""
+languages_string = ""
+
 os.makedirs("e", exist_ok=True)
 os.makedirs("essay", exist_ok=True)
 xml_sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
@@ -114,7 +118,10 @@ while "<item>" in rss_feed:
         image
     ))
     descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
-    title_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
+    titles_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
+    images_string += "\"" + essay_anchor + "\": \"" + image.replace("\"", "\\\"") + "\",\n    "
+    languages_string += "\"" + essay_anchor + "\": \"" + language + "\",\n    "
+
     for directory in ("e", "essay"):
         if not os.path.exists(directory + "/" + essay_anchor):
             os.makedirs(directory + "/" + essay_anchor)
@@ -199,8 +206,11 @@ with open("index-raw.html", "r") as index_raw:
 content = content.replace("<! the essays content >", essay_content)
 content = content.replace("{description}", description_of_myself)
 content = content.replace("<! essay cards >", essay_cards)
+
 content = content.replace("/* other descriptions */", descriptions_string)
-content = content.replace("/* other titles */", title_string)
+content = content.replace("/* other titles */", titles_string)
+content = content.replace("/* other images */", images_string)
+content = content.replace("/* other languages */", languages_string)
 
 
 # fuse three image files to create a mastodon image to share:

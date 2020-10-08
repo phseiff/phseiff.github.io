@@ -116,7 +116,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                 /* color: orange; */
             }
             .margin_when_on_desktop {
-                margin: initial;
+                margin: 4px;
             }
         }
 
@@ -173,7 +173,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             <a href="#">
                 <span id="phseiff-header">
                     <div class="margin_when_on_desktop">
-                            <div class="row valign-wrapper" color="orange">
+                        <div class="row valign-wrapper" color="orange">
                             <div class="col s2">
                                 <img src="images/icon.jpeg" alt="me.jpeg" class="circle responsive-img orange desktop_title">
                             </div>
@@ -183,28 +183,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                             </div>
                         </div>
                     </div><p class="mobile_title"></p>
-
-
-
-
-                    <!-- div class="desktop_title"> <! desktop version >
-                        <div class="header" style="margin: 15px">
-                            <div class="row valign-wrapper" color="orange">
-                                <div class="col s2">
-                                    <img src="images/icon.jpeg" alt="me.jpg" class="circle responsive-img orange">
-                                </div>
-                                <div class="col s10" color="orange">
-                                    <div class="header " style="color: orange"><h1> phseiff.com </h1></div> <! #995c00>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="mobile_title"> <! mobile version >
-                        <img src="images/title.png" alt="phseiff.com" width="100%">
-                        <! img src="images/icon.png" alt="" class="circle responsive-img orange">
-                        <! div class=header" style="color: orange">
-                    </div -->
                 </span>
             </a>
 
@@ -224,12 +202,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <! Projects >
 
             <div class="h2class resizable-essay-title"><h2> my projects </h2></div>
-            <!-- div class="desktop_title">
-                <div class="h2class"><h2> my projects </h2></div>
-            </div>
-            <div class="mobile_title">
-                <img src="images/my%20projects.png" alt="my projects" width="100%">
-            </div -->  <hr>
+            <hr>
 
             Nothing here yet!<p>
 
@@ -240,12 +213,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <! Essays>
 
             <div class="h2class resizable-essay-title"><h2> some essays </h2></div>
-            <!-- div class="desktop_title">
-                <div class="h2class"><h2> some essays </h2></div>
-            </div>
-            <div class="mobile_title">
-                <img src="images/some%20essays.png" alt="my essays" width="100%">
-            </div --> <hr><p>
+            <hr><p>
 
             <div class="row">
                 
@@ -1444,8 +1412,18 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                 "minimalist-shadows": "Why we should redeem shadows in minimalist design - by phseiff",
     
             }
+            page_images = {
+                "": "https://phseiff.com/images/icon.jpeg",
+                "minimalist-shadows": "https://phseiff.com/phseiff-essays/shadows.jpeg",
+    
+            }
+            page_languages = {
+                "": "en",
+                "minimalist-shadows": "en",
+    
+            }
 
-            /* Set the hash without scrolling - we now use a url, so search engines can index it seperately. */
+            /* Set the hash without scrolling - we now use a url, so search engines can index it separately. */
             function set_hash(location) {
                 let current_url;
                 if (location !== "")
@@ -1459,47 +1437,52 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                         window.location.protocol + "//" + window.location.host
                     );
                 history.pushState({}, "", current_url);
-                
-                // meta tags:
-                let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
-                let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
-                meta_description_tag.setAttribute("content", page_descriptions[location]);
-                meta_title_tag.innerHTML = page_titles[location];
-                
-                // canonical tag:
-                let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
-                canonical_tag.setAttribute("href", current_url);
-                
-                // get og tags/ twitter tags:
-                let og_description_tags = [
-                    document.documentElement.querySelectorAll("meta[property=\"og:description\"]")[0],
-                    document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
-                ];
-                let og_title_tags = [
-                    document.documentElement.querySelectorAll("meta[property=\"og:title\"]")[0],
-                    document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
-                ];
-                let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
-                let og_image_tags = [
-                    document.documentElement.querySelectorAll("meta[property=\"og:image\"]")[0],
-                    document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
-                ];
-                
-                // set twitter card type:
-                let twitter_type_tag = document.documentElement.querySelectorAll("meta[name=\"twitter:card\"]")[0];
-                if (location === "")
-                    twitter_type_tag.setAttribute("content", "summary_large_image");
-                else
-                    twitter_type_tag.setAttribute("content", "summary");
-                
-                // set og/twitter card tags:
-                for (i=0; i<2; i++) {
-                    og_description_tags[i].setAttribute("content", page_descriptions[location]);
-                    og_title_tags[i].setAttribute("content", page_titles[location]);
-                    // og_image_tags[i].setAttribute("content", page_images[location]);
-                    // ToDo: Create a dict for that content!
+
+                if (location) {
+                    // language tags:
+                    let html_language_tag = document.documentElement.querySelectorAll("html")[0];
+                    html_language_tag.setProperty("lang", page_languages[location]);
+
+                    // meta tags:
+                    let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
+                    let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
+                    meta_description_tag.setAttribute("content", page_descriptions[location]);
+                    meta_title_tag.innerHTML = page_titles[location];
+
+                    // canonical tag:
+                    let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
+                    canonical_tag.setAttribute("href", current_url);
+
+                    // get og tags/ twitter tags:
+                    let og_description_tags = [
+                        document.documentElement.querySelectorAll("meta[property=\"og:description\"]")[0],
+                        document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
+                    ];
+                    let og_title_tags = [
+                        document.documentElement.querySelectorAll("meta[property=\"og:title\"]")[0],
+                        document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
+                    ];
+                    let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
+                    let og_image_tags = [
+                        document.documentElement.querySelectorAll("meta[property=\"og:image\"]")[0],
+                        document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
+                    ];
+
+                    // set twitter card type:
+                    let twitter_type_tag = document.documentElement.querySelectorAll("meta[name=\"twitter:card\"]")[0];
+                    if (location === "")
+                        twitter_type_tag.setAttribute("content", "summary_large_image");
+                    else
+                        twitter_type_tag.setAttribute("content", "summary");
+
+                    // set og/twitter card tags:
+                    for (i = 0; i < 2; i++) {
+                        og_description_tags[i].setAttribute("content", page_descriptions[location]);
+                        og_title_tags[i].setAttribute("content", page_titles[location]);
+                        og_image_tags[i].setAttribute("content", page_images[location]);
+                    }
+                    og_url_tag.setAttribute("content", current_url);
                 }
-                og_url_tag.setAttribute("content", current_url);
             }
 
             /* Set location. */
