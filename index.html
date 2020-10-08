@@ -1441,7 +1441,7 @@ Darauf eingehen, dass die Doppelbelegung von Rollen Kindern in ihrer Entwicklung
                 if (location) {
                     // language tags:
                     let html_language_tag = document.documentElement.querySelectorAll("html")[0];
-                    html_language_tag.setProperty("lang", page_languages[location]);
+                    html_language_tag.setAttribute("lang", page_languages[location]);
 
                     // meta tags:
                     let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
