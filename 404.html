@@ -80,8 +80,7 @@
                                 }
                                 else {
                                     console.log("Redirecting!");
-                                    window.location.pathname = "/";
-                                    window.location.hash = "#" + essay_name;
+                                    window.location.url = window.location.protocol + "//" + window.location.host + "/#" + essay_name;
                                 }
                             }
                         };
