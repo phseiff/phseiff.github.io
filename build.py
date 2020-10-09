@@ -2,11 +2,13 @@ import requests
 import time
 import sys
 import os
+import css_html_js_minify
 from PIL import Image
 from mastodon import Mastodon
 import subprocess
 
-time.sleep(20)
+if "called_from_gh_pages" in sys.argv:
+    time.sleep(20)
 
 description_of_myself = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
 
@@ -254,17 +256,21 @@ content = content.replace("</already_tooted>", "\n".join(essays_who_where_alread
 with open("index.html", "w+") as f:
     f.write(content)
 
-# Compress if called on github:
+# Create minimized assets:
 
-if "called_from_gh_pages" in sys.argv:
-    print("Compressing!")
-    from css_html_js_minify import process_single_html_file, process_single_js_file, process_single_css_file
-    process_single_js_file("darkreader/darkreader.js", overwrite=True)
-    process_single_js_file("materialize-css/materialize.js", overwrite=True)
-    # ToDo: Maybe just compress every non-html-file in the directory, automatically?
-    # print(open("darkreader/darkreader.js", "r").read())
-    # print(open("materialize-css/materialize.js", "r").read())
-    
+for subdir, _, files in os.walk("./"):
+    for file in files:
+        print(subdir, file)
+        if not subdir[2:].startswith("."):
+            file_path = os.path.join(subdir, file)
+            print("Minimizing asset:", subdir + file)
+            if file.endswith(".css") and not file.endswith(".min.css"):
+                css_html_js_minify.process_single_css_file(file_path, comments=True)
+            elif file.endswith(".js") and not file.endswith(".min.js"):
+                css_html_js_minify.process_single_js_file(file_path)
+            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
+                css_html_js_minify.process_single_html_file(file_path, comments=True, overwrite=True)
+
 
 # Toot to Mastodon:
 

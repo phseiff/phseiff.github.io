@@ -3,3 +3,6 @@ load_markdown_files.py
 index.html
 e/*/index.html
 essay/*/index.html
+*.min.js
+*.min.css
+*.htmll
