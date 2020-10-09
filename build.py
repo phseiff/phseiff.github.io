@@ -258,6 +258,15 @@ with open("index.html", "w+") as f:
 
 # Create minimized assets:
 
+
+def minify_js(file_name):
+    url = 'https://javascript-minifier.com/raw'
+    with open(file_name, "rb") as inp_file:
+        data = {'input': inp_file.read()}
+    with open(file_name.replace(".js", ".min.js"), "w+") as out_file:
+        out_file.write(requests.post(url, data=data).text)
+
+
 for subdir, _, files in os.walk("./"):
     for file in files:
         print(subdir, file)
@@ -267,7 +276,7 @@ for subdir, _, files in os.walk("./"):
             if file.endswith(".css") and not file.endswith(".min.css"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
             elif file.endswith(".js") and not file.endswith(".min.js"):
-                css_html_js_minify.process_single_js_file(file_path)
+                minify_js(file_path)
             # Commented out because it doesn't really work and messes up inline js:
             # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
             #     css_html_js_minify.process_single_html_file(file_path, comments=True, overwrite=True)
