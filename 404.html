@@ -64,8 +64,9 @@
                 listed on the page and thus not accessible via /e/ in the URL. If the essay does not exist, but the URL
                 scheme is /e/ anyways, replace "page" in the "apology"-text with "essay".
                  */
-                if (window.location.path.startsWith("/e/")) {
-                    let essay_name = window.location.path.replace("/e/", "");
+                if (window.location.pathname.startsWith("/e/")) {
+                    let essay_name = window.location.pathname.replace("/e/", "");
+                    console.log("Essay name:", essay_name);
                     if (!essay_name.includes("/")) {
                         console.log("Essay requested!");
                         // Send request to determine whether page exists.
