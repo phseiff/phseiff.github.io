@@ -278,51 +278,49 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                     );
                 history.pushState({}, "", current_url);
 
-                if (location) {
-                    // language tags:
-                    let html_language_tag = document.querySelector("html");
-                    html_language_tag.setAttribute("lang", page_languages[location]);
+                // language tags:
+                let html_language_tag = document.querySelector("html");
+                html_language_tag.setAttribute("lang", page_languages[location]);
 
-                    // meta tags:
-                    let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
-                    let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
-                    meta_description_tag.setAttribute("content", page_descriptions[location]);
-                    meta_title_tag.innerHTML = page_titles[location];
+                // meta tags:
+                let meta_description_tag = document.documentElement.querySelectorAll("meta[name=description]")[0];
+                let meta_title_tag = document.documentElement.querySelectorAll("title")[0];
+                meta_description_tag.setAttribute("content", page_descriptions[location]);
+                meta_title_tag.innerHTML = page_titles[location];
 
-                    // canonical tag:
-                    let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
-                    canonical_tag.setAttribute("href", current_url);
+                // canonical tag:
+                let canonical_tag = document.documentElement.querySelectorAll("link[rel=canonical]")[0];
+                canonical_tag.setAttribute("href", current_url);
 
-                    // get og tags/ twitter tags:
-                    let og_description_tags = [
-                        document.documentElement.querySelectorAll("meta[property=\"og:description\"]")[0],
-                        document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
-                    ];
-                    let og_title_tags = [
-                        document.documentElement.querySelectorAll("meta[property=\"og:title\"]")[0],
-                        document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
-                    ];
-                    let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
-                    let og_image_tags = [
-                        document.documentElement.querySelectorAll("meta[property=\"og:image\"]")[0],
-                        document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
-                    ];
+                // get og tags/ twitter tags:
+                let og_description_tags = [
+                    document.documentElement.querySelectorAll("meta[property=\"og:description\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:description\"]")[0]
+                ];
+                let og_title_tags = [
+                    document.documentElement.querySelectorAll("meta[property=\"og:title\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:title\"]")[0]
+                ];
+                let og_url_tag = document.documentElement.querySelectorAll("meta[property=\"og:url\"]")[0];
+                let og_image_tags = [
+                    document.documentElement.querySelectorAll("meta[property=\"og:image\"]")[0],
+                    document.documentElement.querySelectorAll("meta[name=\"twitter:image\"]")[0]
+                ];
 
-                    // set twitter card type:
-                    let twitter_type_tag = document.documentElement.querySelectorAll("meta[name=\"twitter:card\"]")[0];
-                    if (location === "")
-                        twitter_type_tag.setAttribute("content", "summary_large_image");
-                    else
-                        twitter_type_tag.setAttribute("content", "summary");
+                // set twitter card type:
+                let twitter_type_tag = document.documentElement.querySelectorAll("meta[name=\"twitter:card\"]")[0];
+                if (location === "")
+                    twitter_type_tag.setAttribute("content", "summary_large_image");
+                else
+                    twitter_type_tag.setAttribute("content", "summary");
 
-                    // set og/twitter card tags:
-                    for (i = 0; i < 2; i++) {
-                        og_description_tags[i].setAttribute("content", page_descriptions[location]);
-                        og_title_tags[i].setAttribute("content", page_titles[location]);
-                        og_image_tags[i].setAttribute("content", page_images[location]);
-                    }
-                    og_url_tag.setAttribute("content", current_url);
+                // set og/twitter card tags:
+                for (i = 0; i < 2; i++) {
+                    og_description_tags[i].setAttribute("content", page_descriptions[location]);
+                    og_title_tags[i].setAttribute("content", page_titles[location]);
+                    og_image_tags[i].setAttribute("content", page_images[location]);
                 }
+                og_url_tag.setAttribute("content", current_url);
             }
 
             /* Set location. */
