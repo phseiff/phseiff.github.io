@@ -268,8 +268,15 @@ for subdir, _, files in os.walk("./"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
             elif file.endswith(".js") and not file.endswith(".min.js"):
                 css_html_js_minify.process_single_js_file(file_path)
-            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
-                css_html_js_minify.process_single_html_file(file_path, comments=True, overwrite=True)
+            # Commented out because it doesn't really work and messes up inline js:
+            # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
+            #     css_html_js_minify.process_single_html_file(file_path, comments=True, overwrite=True)
+            if file_path == "./images/icon.png":
+                # Convert png to jpeg
+                pass
+            elif file_path == "./images/44.jpeg":
+                # Compress
+                pass
 
 
 # Toot to Mastodon:
