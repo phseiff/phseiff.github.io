@@ -37,28 +37,9 @@
     </head>
     <body>
 
-        <! dark reader dark mode >
-        <script type="text/javascript" src="/darkreader/darkreader.min.js"></script>
-        <script>
-            DarkReader.setFetchMethod(window.fetch);
-            DarkReader.enable({
-                brightness: 100,
-                contrast: 90,
-                sepia: 10
-            });
-        </script>
-
         <span style="text-align: center;">
-            <!-- h1>404</h1 -->
-            <a href="https://phseiff.com">
-                <img src="/images/404.jpeg" alt="404" title="visit phseiff.com!" class="circle"
-                     style="width: 400px; height: 400px; display: block; margin: 0 auto; max-width: 80vw; max-height: 80vw;">
-            </a>
-            <h4 style="color: orange;">Hm.... Looks like the
-                <span id="page-or-essay">page</span>
-            you wanted to access does not exist here.</h4>
-            <h5>But you can visit <a href="https://phseiff.com">phseiff.com</a> for more opinions & obscurities! :)</h5>
 
+            <!--- Redirection -->
             <script>
                 /* This is code to redirect from phseiff.com/e/foo to phseiff.com/#foo in case an essay exists, but is not
                 listed on the page and thus not accessible via /e/ in the URL. If the essay does not exist, but the URL
@@ -88,6 +69,27 @@
                     }
                 }
             </script>
+
+            <!-- Dark Mode -->
+            <script type="text/javascript" src="/darkreader/darkreader.min.js"></script>
+            <script>
+                DarkReader.setFetchMethod(window.fetch);
+                DarkReader.enable({
+                    brightness: 100,
+                    contrast: 90,
+                    sepia: 10
+                });
+            </script>
+
+            <!-- HTML -->
+            <a href="https://phseiff.com">
+                <img src="/images/404.jpeg" alt="404" title="visit phseiff.com!" class="circle"
+                     style="width: 400px; height: 400px; display: block; margin: 0 auto; max-width: 80vw; max-height: 80vw;">
+            </a>
+            <h4 style="color: orange;">Hm.... Looks like the
+                <span id="page-or-essay">page</span>
+            you wanted to access does not exist here.</h4>
+            <h5>But you can visit <a href="https://phseiff.com">phseiff.com</a> for more opinions & obscurities! :)</h5>
         </span>
     </body>
 
