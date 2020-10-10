@@ -275,7 +275,7 @@ for subdir, _, files in os.walk("./"):
             print("Minimizing asset:", subdir + file)
             if file.endswith(".css") and not file.endswith(".min.css"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
-            elif file.endswith(".js") and not file.endswith(".min.js"):
+            elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                 minify_js(file_path)
             # Commented out because it doesn't really work and messes up inline js:
             # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
