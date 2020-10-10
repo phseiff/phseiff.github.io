@@ -272,7 +272,9 @@ def minify_html(file_name):
     with open(file_name, "rb") as inp_file:
         data = {'code': inp_file.read()}
     with open(file_name, "w") as out_file:
-        out_file.write(requests.post(url, data=data).text)
+        result = requests.post(url, data=data).text
+        if result.startswith("<!DOCTYPE html>"):
+            out_file.write(result)
 
 
 for subdir, _, files in os.walk("./"):
