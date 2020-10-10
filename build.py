@@ -168,6 +168,7 @@ while "<item>" in rss_feed:
         )
         print("Essay:", essay_anchor)
         output, error = process.communicate()
+        print("output from asking for last change:", output)
         last_change_date = str(output, encoding="UTF-8").split("T")[0]
         update_date = last_change_date[1:][:-1]
         print("Age:", update_date)
