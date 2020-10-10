@@ -271,10 +271,14 @@ def minify_html(file_name):
     url = "https://htmlcompressor.com/compress"
     with open(file_name, "rb") as inp_file:
         data = {'code': inp_file.read()}
+    with open(file_name, "r") as out_file:
+        old_content = out_file.read()
     with open(file_name, "w") as out_file:
         result = requests.post(url, data=data).text
         if result.startswith("<!DOCTYPE html>"):
             out_file.write(result)
+        else:
+            out_file.write(old_content)
 
 
 for subdir, _, files in os.walk("./"):
