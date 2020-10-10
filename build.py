@@ -267,6 +267,14 @@ def minify_js(file_name):
         out_file.write(requests.post(url, data=data).text)
 
 
+def minify_html(file_name):
+    url = "https://htmlcompressor.com/compress"
+    with open(file_name, "rb") as inp_file:
+        data = {'code': inp_file.read()}
+    with open(file_name, "w") as out_file:
+        out_file.write(requests.post(url, data=data).text)
+
+
 for subdir, _, files in os.walk("./"):
     for file in files:
         print(subdir, file)
@@ -277,9 +285,8 @@ for subdir, _, files in os.walk("./"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
             elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                 minify_js(file_path)
-            # Commented out because it doesn't really work and messes up inline js:
-            # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
-            #     css_html_js_minify.process_single_html_file(file_path, comments=True, overwrite=True)
+            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
+                minify_html(file_path)
             if file_path == "./images/icon.png":
                 # Convert png to jpeg
                 pass
