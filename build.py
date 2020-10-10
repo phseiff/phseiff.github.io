@@ -291,8 +291,8 @@ for subdir, _, files in os.walk("./"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
             elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                 minify_js(file_path)
-            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
-                minify_html(file_path)
+            # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
+            #     minify_html(file_path)
             if file_path == "./images/icon.png":
                 # Convert png to jpeg
                 pass
