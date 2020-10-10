@@ -306,6 +306,24 @@ def minify_html(file_name):
             out_file.write(old_content)
 
 
+def compress_icon(file_name, height, bg_color, quality):
+    thumbnail = Image.open(file_name)
+    size = (int(thumbnail.size[0] * height/thumbnail.size[1]), height)
+    thumbnail.thumbnail(size, Image.ANTIALIAS)
+
+    offset_x = max((size[0] - thumbnail.size[0]) / 2, 0)
+    offset_y = max((size[1] - thumbnail.size[1]) / 2, 0)
+    offset_tuple = (int(offset_x), int(offset_y))
+
+    final_thumb_rgba = Image.new(mode='RGBA', size=size, color=bg_color+(255,))
+    final_thumb_rgba.paste(thumbnail, offset_tuple, thumbnail.convert('RGBA'))
+
+    final_thumb = Image.new(mode='RGB', size=size, color=bg_color)
+    final_thumb.paste(final_thumb_rgba, offset_tuple)
+
+    final_thumb.save(file_name.replace(".png", ".jpeg"), 'JPEG', quality=quality, optimize=True, progressive=True)
+
+
 for subdir, _, files in os.walk("./"):
     for file in files:
         print(subdir, file)
@@ -318,12 +336,8 @@ for subdir, _, files in os.walk("./"):
                 minify_js(file_path)
             elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
                 minify_html(file_path)
-            if file_path == "./images/icon.png":
-                # Convert png to jpeg
-                pass
-            elif file_path == "./images/44.jpeg":
-                # Compress
-                pass
+            if file_path in ("./images/icon.png", "./images/404.png"):
+                compress_icon(file_path, height=400, bg_color=(205, 122, 0),quality=70,)
 
 
 # Toot to Mastodon:
