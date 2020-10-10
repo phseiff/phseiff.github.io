@@ -23,20 +23,40 @@ def extract_item(tag, text):
 
 
 redirecting_page = """<!DOCTYPE HTML>
- 
-<meta charset="UTF-8">
-<meta http-equiv="refresh" content="0;url=http://phseiff.com/#{name}">
-<link rel="canonical" href="https://phseiff.com/#{name}">
- 
-<script>
-  window.location.href = "https://phseiff.com/#{name}"
-</script>
- 
-<title>Redirection page</title>
 
-If you see this page, it means you are being redirected to
-<a href='https://phseiff.com/#{name}'>the article you requested</a>,
-but your browser is too old to do so automatically. You can still follow the link manually. :)"""
+<html lang="{language}">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="refresh" content="0;url=http://phseiff.com/#{name}">
+        <link rel="canonical" href="https://phseiff.com/#{name}">
+        
+        <title>{title} - by phseiff</title>
+        <meta name="description" content="{description}"/>
+        <meta property="og:title" content="{title} - by phseiff"/>
+        <meta property="og:type" content="website"/>
+        <meta property="og:image" content="{image}"/>
+        <meta property="og:url" content="https://phseiff.com/e/{name}"/>
+        <meta property="og:description" content="{description}"/>
+        <meta name="twitter:card" content="summary"/>
+        <meta name="twitter:site" content="@phseiff"/>
+        <meta name="twitter:creator" content="@phseiff"/>
+        <meta name="twitter:image" content="{image}"/>
+        <meta name="twitter:title" content="{title} - by phseiff"/>
+        <meta name="twitter:description" content="{description}"/>
+    </head>
+    <body>
+        <script>
+          window.location.href = "https://phseiff.com/#{name}";
+        </script>
+     
+        <title>Redirection page</title>
+        
+        If you see this page, it means you are being redirected to
+        <a href='https://phseiff.com/#{name}'>the article you requested</a>,
+        but your browser is too old to do so automatically. You can still follow the link manually. :)
+    </body>
+</html>
+"""
 
 
 essays = list()  # list of tuples of (title, anchor, content, essay_image)
@@ -82,6 +102,7 @@ while "<item>" in rss_feed:
     _, pubDate = extract_item("pubDate", rss_item)
     _, image = extract_item("image", rss_item)
     _, language = extract_item("language", rss_item)
+    essay_anchor = link.split("#")[-1]
     essay_cards += """
                 <a href="{link}" class="card-to-show-essay" style="color: #000000;">
                     <div class="col x0.5">
@@ -107,11 +128,10 @@ while "<item>" in rss_feed:
                             image=image,
                             title=title,
                             description=description,
-                            link="#" + link.rsplit("#")[-1],
+                            link="#" + essay_anchor,
                             creation_date=" ".join(pubDate.split(" ")[:4]),
                             language="🇬🇧" if language == "en" else "🇩🇪"
     )
-    essay_anchor = link.split("#")[-1]
     essay_anchors.append(essay_anchor)
     essays.append((
         title,
@@ -127,10 +147,14 @@ while "<item>" in rss_feed:
     for directory in ("e", "essay"):
         if not os.path.exists(directory + "/" + essay_anchor):
             os.makedirs(directory + "/" + essay_anchor)
-        with open(directory + "/" + essay_anchor + "/index.html", "w+") as f:
-            f.write(redirecting_page.format(name=essay_anchor))
         with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
-            f.write(redirecting_page.format(name=essay_anchor))
+            f.write(redirecting_page.format(
+                name=essay_anchor,
+                description=description,
+                image=image,
+                title=title,
+                language=language,
+            ))
 
     # Save the change date:
     if "called_from_gh_pages" in sys.argv:
@@ -144,6 +168,7 @@ while "<item>" in rss_feed:
         )
         print("Essay:", essay_anchor)
         output, error = process.communicate()
+        print("output from asking for last change:", output)
         last_change_date = str(output, encoding="UTF-8").split("T")[0]
         update_date = last_change_date[1:][:-1]
         print("Age:", update_date)
@@ -291,8 +316,8 @@ for subdir, _, files in os.walk("./"):
                 css_html_js_minify.process_single_css_file(file_path, comments=True)
             elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                 minify_js(file_path)
-            # elif file.endswith(".html") and "called_from_gh_pages" in sys.argv:
-            #     minify_html(file_path)
+            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
+                minify_html(file_path)
             if file_path == "./images/icon.png":
                 # Convert png to jpeg
                 pass
