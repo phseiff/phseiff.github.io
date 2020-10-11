@@ -164,9 +164,41 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <main>
 
         <! Visit me on Github - Banner >
-
         <span id="forkongithub"><a href="https://github.com/phseiff">Visit me on GitHub</a></span>
 
+        <! Reading Progress Bar >
+        <div id="outer-progress-bar" style="width:100%; background:black; height:10px; position: -webkit-sticky; position: sticky; top: 0; display: none;">
+            <div id="progress-bar" style="background:#7d4b02; left:0; height:100%; width:0">
+                <script>
+                  let new_scroll_progress = false;
+
+                  function getScrollPercent() {
+                      /* Source: https://stackoverflow.com/a/8028584*/
+                      let h = document.documentElement,
+                          b = document.body,
+                          st = 'scrollTop',
+                          sh = 'scrollHeight';
+                      return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+                  }
+
+
+                  function updateScrollProgressBar() {
+                    document.getElementById("progress-bar").setAttribute("style", "background:red; left:0; height:100%; width:" + Math.round(getScrollPercent()) + "%");
+                    console.log(document.getElementById("progress-bar").getAttribute("style"));
+                  }
+
+                  document.addEventListener('scroll', function(e) {
+                    if (!new_scroll_progress) {
+                      window.requestAnimationFrame(function() {
+                        updateScrollProgressBar();
+                        new_scroll_progress = false;
+                      });
+                      new_scroll_progress = true;
+                    }
+                  }, true);
+                </script>
+            </div>
+        </div>
 
         <! Header >
         <div class="container">
@@ -1513,6 +1545,7 @@ things2 = something (partially) styled by using shadows
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
                     document.getElementById("forkongithub").style.display = "none";
+                    document.getElementById("outer-progress-bar").style.display = "none";
                     was_an_essay = true;
                     if (_paq)
                         _paq.push(['trackEvent', 'navigation', 'open-essay', id]);
@@ -1541,6 +1574,7 @@ things2 = something (partially) styled by using shadows
                     document.getElementById("forkongithub").style.display = "block";
                     opened_essay = undefined;
                     document.getElementById("phseiff-close-essay-button").style.display = "none";
+                    document.getElementById("outer-progress-bar").style.display = "block";
                     set_hash("");
                     scroll_to("");
                 }
