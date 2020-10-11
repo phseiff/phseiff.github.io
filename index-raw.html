@@ -167,22 +167,23 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <span id="forkongithub"><a href="https://github.com/phseiff">Visit me on GitHub</a></span>
 
         <! Reading Progress Bar >
-        <div id="outer-progress-bar" style="width:100%; background:grey;  height:5px; position: -webkit-sticky; position: sticky; top: 0; display: none; box-shadow: 0 2px 3px black;">
+        <div id="outer-progress-bar" style="width:100%; background:transparent;  height:5px; position: -webkit-sticky; position: sticky; top: 0; display: none; /*box-shadow: 0 2px 3px black;*/">
             <div id="progress-bar" style="background:red; left:0; height:100%; width:0">
                 <script>
                   let new_scroll_progress = false;
 
                   function getScrollPercent() {
                       /* Source: https://stackoverflow.com/a/8028584*/
-                      let h = document.documentElement,
+                      let e = document.getElementById("embedded-essays-if-js-is-enabled"),
+                          h = document.documentElement,
                           b = document.body,
                           st = 'scrollTop',
                           sh = 'scrollHeight';
-                      return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+                      return (e[st]||h[st]||b[st]) / ((e[sh]||h[sh]||b[sh]) - (e.clientHeight||h.clientHeight)) * 100;
                   }
 
                   function updateScrollProgressBar() {
-                    document.getElementById("progress-bar").style.width = Math.round(getScrollPercent()) + "%";
+                    document.getElementById("progress-bar").style.width = Math.min(100, Math.max(0, Math.round(getScrollPercent()))) + "%";
                   }
 
                   document.addEventListener('scroll', function(e) {
