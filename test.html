@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<div id="outer-progress-bar" style="width:100%; background:grey; height:10px; position: -webkit-sticky; position: sticky; top: 0; width: 100%;">
+    <div id="progress-bar" style="background:red; left:0; height:100%; width:0%">
+    	<script>
+          let last_known_scroll_position = 0;
+          let ticking = false;
+          
+          function getScrollPercent() {
+              /* Source: https://stackoverflow.com/a/8028584*/
+              var h = document.documentElement, 
+                  b = document.body,
+                  st = 'scrollTop',
+                  sh = 'scrollHeight';
+console.log((h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100);
+              return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
+          }
+
+
+          function updateScrollProgressBar(scroll_pos) {
+            console.log("wuuuu");
+            document.getElementById("progress-bar").setAttribute("style", "background:red; left:0; height:100%; width:" + Math.round(getScrollPercent()) + "%");
+            console.log(document.getElementById("progress-bar").getAttribute("style"));
+          }
+
+          document.addEventListener('scroll', function(e) {
+            last_known_scroll_position = window.scrollY;
+
+            if (!ticking) {
+              window.requestAnimationFrame(function() {
+                updateScrollProgressBar(last_known_scroll_position);
+                ticking = false;
+              });
+
+              ticking = true;
+            }
+          }, true);
+        </script>
+    </div>
+</div>
+
+<p>
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor nisi vitae scelerisque aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at cursus justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eu porttitor ligula, sit amet volutpat ante. Mauris at sapien sit amet dui ultrices finibus. Donec magna nisi, dignissim sed congue ac, lacinia tempor dui. Cras vel ultricies libero, id bibendum velit. Sed placerat arcu quis sapien malesuada, eu lacinia lectus congue. Sed non velit libero. Duis congue diam ligula, et pellentesque purus feugiat ut.
+
+Curabitur fermentum tristique quam nec fermentum. Morbi semper sapien et erat tincidunt, sed cursus nisi sollicitudin. Cras ultrices facilisis arcu id vulputate. In quis eros justo. Vivamus suscipit metus sed tristique sollicitudin. Maecenas nisl sem, aliquet eget porttitor ac, feugiat ut nisl. In dignissim interdum nisi, elementum luctus lacus mollis sollicitudin. Integer accumsan lacus sed interdum ullamcorper. Donec rutrum dignissim auctor. Praesent viverra risus ex, eu pellentesque sapien blandit nec. Donec nec efficitur orci. Aenean ornare metus eu neque tempus pellentesque. Phasellus urna enim, venenatis quis sem non, lacinia lobortis purus.
+
+Sed non finibus tellus, aliquet volutpat velit. Quisque auctor mi risus, in faucibus lectus scelerisque id. Vestibulum quis rhoncus mi. In volutpat nibh velit, id tristique sem sollicitudin eu. Ut eget ex dolor. Nullam volutpat mauris non egestas fermentum. Mauris nec magna quis sem placerat gravida. Suspendisse quis interdum elit, sit amet mattis dolor. Sed ac felis dictum mauris lobortis bibendum semper id leo. In rhoncus pellentesque justo, eu sagittis mi scelerisque ac. Etiam euismod justo ac nisi aliquet, quis fermentum nulla ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque a eleifend urna, quis gravida velit.
+
+Sed vehicula urna sapien, aliquet rhoncus felis fringilla quis. Etiam sit amet nibh ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam at libero porta, tincidunt turpis vel, iaculis ante. Donec accumsan id nibh eu pulvinar. Vivamus neque augue, ultricies vitae lacus nec, aliquet interdum ipsum. Duis posuere ex erat, quis rhoncus quam egestas tincidunt. Vivamus dui dui, faucibus eget lacus in, bibendum gravida leo. Etiam id dignissim ipsum, in imperdiet neque. Donec eu mollis erat. Phasellus quis turpis ut nibh cursus fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse a neque lacinia magna gravida vulputate a eleifend lorem. Sed euismod feugiat leo, sed pulvinar nisl maximus quis. Pellentesque justo quam, sagittis ac vehicula sed, scelerisque non augue. Nam vel metus maximus diam gravida finibus.
+
+Cras porta vulputate iaculis. Maecenas sapien ligula, vestibulum sit amet suscipit vitae, tempor sed neque. Fusce blandit in quam vel semper. Suspendisse varius hendrerit porta. In pretium dictum quam eget commodo. Nam pretium libero ac felis consequat, non aliquam ex pretium. Sed nec pellentesque velit. Morbi elementum massa eu diam feugiat rhoncus. Maecenas pellentesque eu ipsum pretium efficitur. Aliquam imperdiet magna eget mi rhoncus, ut malesuada neque pulvinar. Aenean diam turpis, lacinia nec rhoncus pharetra, malesuada iaculis arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis at ex sit amet nibh mollis semper. Duis id est non enim ultrices pretium. Quisque sed felis dui. Donec venenatis velit leo, eget pretium nibh mattis quis.
+
+
+
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tempor nisi vitae scelerisque aliquam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at cursus justo. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed eu porttitor ligula, sit amet volutpat ante. Mauris at sapien sit amet dui ultrices finibus. Donec magna nisi, dignissim sed congue ac, lacinia tempor dui. Cras vel ultricies libero, id bibendum velit. Sed placerat arcu quis sapien malesuada, eu lacinia lectus congue. Sed non velit libero. Duis congue diam ligula, et pellentesque purus feugiat ut.
+
+Curabitur fermentum tristique quam nec fermentum. Morbi semper sapien et erat tincidunt, sed cursus nisi sollicitudin. Cras ultrices facilisis arcu id vulputate. In quis eros justo. Vivamus suscipit metus sed tristique sollicitudin. Maecenas nisl sem, aliquet eget porttitor ac, feugiat ut nisl. In dignissim interdum nisi, elementum luctus lacus mollis sollicitudin. Integer accumsan lacus sed interdum ullamcorper. Donec rutrum dignissim auctor. Praesent viverra risus ex, eu pellentesque sapien blandit nec. Donec nec efficitur orci. Aenean ornare metus eu neque tempus pellentesque. Phasellus urna enim, venenatis quis sem non, lacinia lobortis purus.
+
+Sed non finibus tellus, aliquet volutpat velit. Quisque auctor mi risus, in faucibus lectus scelerisque id. Vestibulum quis rhoncus mi. In volutpat nibh velit, id tristique sem sollicitudin eu. Ut eget ex dolor. Nullam volutpat mauris non egestas fermentum. Mauris nec magna quis sem placerat gravida. Suspendisse quis interdum elit, sit amet mattis dolor. Sed ac felis dictum mauris lobortis bibendum semper id leo. In rhoncus pellentesque justo, eu sagittis mi scelerisque ac. Etiam euismod justo ac nisi aliquet, quis fermentum nulla ornare. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Quisque a eleifend urna, quis gravida velit.
+
+Sed vehicula urna sapien, aliquet rhoncus felis fringilla quis. Etiam sit amet nibh ipsum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam at libero porta, tincidunt turpis vel, iaculis ante. Donec accumsan id nibh eu pulvinar. Vivamus neque augue, ultricies vitae lacus nec, aliquet interdum ipsum. Duis posuere ex erat, quis rhoncus quam egestas tincidunt. Vivamus dui dui, faucibus eget lacus in, bibendum gravida leo. Etiam id dignissim ipsum, in imperdiet neque. Donec eu mollis erat. Phasellus quis turpis ut nibh cursus fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Suspendisse a neque lacinia magna gravida vulputate a eleifend lorem. Sed euismod feugiat leo, sed pulvinar nisl maximus quis. Pellentesque justo quam, sagittis ac vehicula sed, scelerisque non augue. Nam vel metus maximus diam gravida finibus.
+
+Cras porta vulputate iaculis. Maecenas sapien ligula, vestibulum sit amet suscipit vitae, tempor sed neque. Fusce blandit in quam vel semper. Suspendisse varius hendrerit porta. In pretium dictum quam eget commodo. Nam pretium libero ac felis consequat, non aliquam ex pretium. Sed nec pellentesque velit. Morbi elementum massa eu diam feugiat rhoncus. Maecenas pellentesque eu ipsum pretium efficitur. Aliquam imperdiet magna eget mi rhoncus, ut malesuada neque pulvinar. Aenean diam turpis, lacinia nec rhoncus pharetra, malesuada iaculis arcu. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis at ex sit amet nibh mollis semper. Duis id est non enim ultrices pretium. Quisque sed felis dui. Donec venenatis velit leo, eget pretium nibh mattis quis. 
+</p>
+</body>
+</html>
+
