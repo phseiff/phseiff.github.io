@@ -167,7 +167,8 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <span id="forkongithub"><a href="https://github.com/phseiff">Visit me on GitHub</a></span>
 
         <! Reading Progress Bar >
-        <div id="outer-progress-bar" style="width:100%; background:black; height:10px; position: -webkit-sticky; position: sticky; top: 0; display: none;">
+        <div id="outer-progress-bar" style="width:100%; background:grey;  height:10px; position: -webkit-sticky; position: sticky; top: 0; display: none;
+            box-shadow: 0 -5px 5px black;">
             <div id="progress-bar" style="background:#7d4b02; left:0; height:100%; width:0">
                 <script>
                   let new_scroll_progress = false;
@@ -181,10 +182,8 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                       return (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
                   }
 
-
                   function updateScrollProgressBar() {
-                    document.getElementById("progress-bar").setAttribute("style", "background:red; left:0; height:100%; width:" + Math.round(getScrollPercent()) + "%");
-                    console.log(document.getElementById("progress-bar").getAttribute("style"));
+                    document.getElementById("progress-bar").style.width = Math.round(getScrollPercent()) + "%";
                   }
 
                   document.addEventListener('scroll', function(e) {
@@ -1545,7 +1544,7 @@ things2 = something (partially) styled by using shadows
                     opened_essay.style.display = "inline";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
                     document.getElementById("forkongithub").style.display = "none";
-                    document.getElementById("outer-progress-bar").style.display = "none";
+                    document.getElementById("outer-progress-bar").style.display = "block";
                     was_an_essay = true;
                     if (_paq)
                         _paq.push(['trackEvent', 'navigation', 'open-essay', id]);
@@ -1574,7 +1573,7 @@ things2 = something (partially) styled by using shadows
                     document.getElementById("forkongithub").style.display = "block";
                     opened_essay = undefined;
                     document.getElementById("phseiff-close-essay-button").style.display = "none";
-                    document.getElementById("outer-progress-bar").style.display = "block";
+                    document.getElementById("outer-progress-bar").style.display = "none";
                     set_hash("");
                     scroll_to("");
                 }
