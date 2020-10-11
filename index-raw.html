@@ -179,9 +179,11 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                           b = document.body,
                           st = 'scrollTop',
                           sh = 'offsetHeight';
-                      console.log("----");
-                      console.log("zähler:", h[st]||b[st], "-", e.offsetTop, "=", (h[st]||b[st]) - e.offsetTop);
-                      console.log("nenner:", (e[sh]||h[sh]||b[sh]), "+", e.offsetTop, "-", h.clientHeight, "=", ((e[sh]||h[sh]||b[sh]) + e.offsetTop - h.clientHeight));
+                      /*
+                          console.log("----");
+                          console.log("zähler:", h[st]||b[st], "-", e.offsetTop, "=", (h[st]||b[st]) - e.offsetTop);
+                          console.log("nenner:", (e[sh]||h[sh]||b[sh]), "+", e.offsetTop, "-", h.clientHeight, "=", ((e[sh]||h[sh]||b[sh]) + e.offsetTop - h.clientHeight));
+                      */
                       return ((h[st]||b[st]) - e.offsetTop) / ((e[sh]||h[sh]||b[sh]) - h.clientHeight) * 100;
                   }
 
