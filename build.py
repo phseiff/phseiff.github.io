@@ -6,6 +6,7 @@ import css_html_js_minify
 from PIL import Image
 from mastodon import Mastodon
 import subprocess
+import bs4
 
 if "called_from_gh_pages" in sys.argv:
     time.sleep(20)
@@ -58,11 +59,7 @@ redirecting_page = """<!DOCTYPE HTML>
 </html>
 """
 
-
-essays = list()  # list of tuples of (title, anchor, content, essay_image)
-essay_anchors = list()  # list of anchors used to access essays on the webpage
-essay_cards = str()  # string describing the cards used for accessing all essays
-rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed.rss").text  # The RSS feed we will parse into these
+# Initialize items for sitemap and redirection pages:
 
 descriptions_string = ""
 titles_string = ""
@@ -94,14 +91,27 @@ def fix_errors_in_date_format(date):
     return date
 
 
-while "<item>" in rss_feed:
-    rss_feed, rss_item = extract_item("item", rss_feed)
-    _, description = extract_item("description", rss_item)
-    _, title = extract_item("title", rss_item)
-    _, link = extract_item("link", rss_item)
-    _, pubDate = extract_item("pubDate", rss_item)
-    _, image = extract_item("image", rss_item)
-    _, language = extract_item("language", rss_item)
+# Initialize items for RSS feed parsing:
+
+essays = list()  # list of tuples of (title, anchor, content, essay_image)
+essay_anchors = list()  # list of anchors used to access essays on the webpage
+essay_cards = str()  # string describing the cards used for accessing all essays
+
+# RSS feed parsing:
+
+rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed-original.rss").text  # The RSS feed we will parse into these
+rss_feed_soup = bs4.BeautifulSoup(rss_feed, "xml")
+for rss_item_soup in rss_feed_soup.find_all("item"):
+    description = str(rss_item_soup.find("description").string)
+    title = str(rss_item_soup.find("title").string)
+    link = str(rss_item_soup.find("link").string)
+    pubDate = str(rss_item_soup.find("pubDate").string)
+    image = str(rss_item_soup.find("image").string)
+    language = str(rss_item_soup.find("language").string)
+    announcement = " ".join(str(rss_item_soup.find("phseiff:announcement").string).split())
+    effort = float(str(rss_item_soup.find("phseiff:effort").string).split("/")[0].strip())
+    rss_item_soup.find("phseiff:announcement").decompose()
+    rss_item_soup.find("phseiff:effort").decompose()
     essay_anchor = link.split("#")[-1]
     essay_cards += """
                 <a href="{link}" class="card-to-show-essay" style="color: #000000;">
@@ -137,7 +147,8 @@ while "<item>" in rss_feed:
         title,
         essay_anchor,
         requests.get("https://phseiff.com/phseiff-essays/" + essay_anchor + ".md").text,
-        image
+        image,
+        announcement
     ))
     descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
     titles_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
@@ -270,9 +281,9 @@ if "<already_tooted>" in current_website_content:
 else:
     essays_who_where_already_tooted = list()
 
-for (a, essay_anchor, b, c) in essays:
+for (a, essay_anchor, b, c, d) in essays:
     if essay_anchor not in essays_who_where_already_tooted:
-        new_essays.append((a, essay_anchor, b, c))
+        new_essays.append((a, essay_anchor, b, c, d))
         essays_who_where_already_tooted.append(essay_anchor)
 content = content.replace("</already_tooted>", "\n".join(essays_who_where_already_tooted) + "</already_tooted>")
 
@@ -337,26 +348,27 @@ for subdir, _, files in os.walk("./"):
             elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
                 minify_html(file_path)
             if file_path in ("./images/icon.png", "./images/404.png"):
-                compress_icon(file_path, height=400, bg_color=(205, 122, 0),quality=70,)
+                compress_icon(file_path, height=400, bg_color=(205, 122, 0), quality=70)
 
 
 # Toot to Mastodon:
 
-for (essay_title, essay_anchor, essay_content_as_markdown, image) in new_essays:
+for (essay_title, essay_anchor, essay_content_as_markdown, image, announcement) in new_essays:
     mastodon = Mastodon(
         access_token=sys.argv[1],
         api_base_url='https://toot.phseiff.com'
     )
-    image_name = "throw_away_image." + image.rsplit(".", 1)[-1]
-    with open(image_name, "wb") as image_file:
-        image_file.write(requests.get(image).content)
-    frame_image("images/left.png", image_name, "images/right.png")
+    # image_name = "throw_away_image." + image.rsplit(".", 1)[-1]
+    # with open(image_name, "wb") as image_file:
+    #     image_file.write(requests.get(image).content)
+    # frame_image("images/left.png", image_name, "images/right.png")
     mastodon.status_post(
-        'Small automated update on my essays: My new essay "' + essay_title
-        + '" is out and you can read it on https://phseiff.com/e/' + essay_anchor + ' !',
+        announcement + "\n\n -> https://phseiff.com/e/" + essay_anchor + " <-"
+        # 'Small automated update on my essays: My new essay "' + essay_title
+        # + '" is out and you can read it on https://phseiff.com/e/' + essay_anchor + ' !',
         # media_ids=[mastodon.media_post(image_name)]  # <-- No need to add an image, when the preview already has one.
     )
-    os.remove(image_name)
+    # os.remove(image_name)
     """
     essay_content_as_markdown,
     spoiler_text='Small automated update using #mastodonpy: My new essay "' + essay_title
