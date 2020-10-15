@@ -99,7 +99,7 @@ essay_cards = str()  # string describing the cards used for accessing all essays
 
 # RSS feed parsing:
 
-rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed-original.rss").text  # The RSS feed we will parse into these
+rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed-original.rss").text
 rss_feed_soup = bs4.BeautifulSoup(rss_feed, "xml")
 for rss_item_soup in rss_feed_soup.find_all("item"):
     description = str(rss_item_soup.find("description").string)
@@ -108,10 +108,10 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     pubDate = str(rss_item_soup.find("pubDate").string)
     image = str(rss_item_soup.find("image").string)
     language = str(rss_item_soup.find("language").string)
-    announcement = " ".join(str(rss_item_soup.find("phseiff:announcement").string).split())
-    effort = float(str(rss_item_soup.find("phseiff:effort").string).split("/")[0].strip())
-    rss_item_soup.find("phseiff:announcement").decompose()
-    rss_item_soup.find("phseiff:effort").decompose()
+    announcement = " ".join(str(rss_item_soup.find("announcement").string).split())
+    effort = float(str(rss_item_soup.find("effort").string).split("/")[0].strip())
+    rss_item_soup.find("announcement").decompose()
+    rss_item_soup.find("effort").decompose()
     essay_anchor = link.split("#")[-1]
     essay_cards += """
                 <a href="{link}" class="card-to-show-essay" style="color: #000000;">
