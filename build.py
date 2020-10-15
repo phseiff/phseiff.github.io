@@ -135,7 +135,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                         </div>
                     </div>
                 </a>""".format(
-                            image=image,
+                            image=image.rsplit(".", 1)[0] + ".jpeg",
                             title=title,
                             description=description,
                             link="#" + essay_anchor,
