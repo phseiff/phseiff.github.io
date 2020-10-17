@@ -1729,8 +1729,8 @@ things2 = something (partially) styled by using shadows
             padding: 0;
             margin: 0;
 
-            top: 50%;
-            left: 50%;
+            top: 0;
+            left: 0;
             bottom: 0;
             right: 0;
 
@@ -1744,15 +1744,25 @@ things2 = something (partially) styled by using shadows
             z-index: 100001;
         }
         #enlargedImage {
+            position: fixed;
+            z-index: 100002;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
             max-width:100%;
             max-height:100%;
             display: block;
             /* background-color: #242525; */
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: auto;
-            margin-bottom: auto;
-            vertical-align:middle;
+            /*
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: auto;
+                margin-bottom: auto;
+                vertical-align:middle;
+            */
+
+            transform: translate(-50%, -50%);
         }
     </style>
 
