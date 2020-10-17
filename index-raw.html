@@ -730,9 +730,18 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <!-- images with borders. -->
 
     <style>
-        .gist img:not([height]):not([weidth]):not(.frameless) {
+        .gist img:not([height]):not([width]):not(.frameless) {
             border: 1px solid #dfe2e5;
             border-radius:5px;
+        }
+    </style>
+
+    <!-- enlargeable images. -->
+
+    <style>
+        .gist img {
+            all: initial;
+            cursor: zoom-in;
         }
     </style>
 
