@@ -242,13 +242,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                   document.addEventListener('scroll', function(e) {
                     new_scroll_progress = true;
                   }, true);
-
-                  window.setInterval(function() {
-                      if (new_scroll_progress) {
-                          new_scroll_progress = false;
-                          updateScrollProgressBar();
-                      }
-                  }, 400);
                 </script>
             </div>
         </div>
@@ -1839,6 +1832,13 @@ things2 = something (partially) styled by using shadows
                 elements_of_gists[i].setAttribute("title", "Click to enlarge Image!");
             }
         }
+        /* Set the interval for execution of the scroll-progress-bar-updater at the end, to not burden the rest of the script. */
+        window.setInterval(function() {
+            if (new_scroll_progress) {
+                new_scroll_progress = false;
+                updateScrollProgressBar();
+            }
+        }, 400);
     </script>
 
 </body>
