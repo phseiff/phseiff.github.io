@@ -1892,6 +1892,7 @@ things2 = something (partially) styled by using shadows
         }
         function open_enlarged_image_view(image) {
             let image_src = image.getAttribute("data-canonical-src");
+            document.getElementById("dimScreen").setAttribute("style", "display: block;");
             document.getElementById("enlargedImage").setAttribute("src", image_src);
             // ensure that images with a set height attribute (pictograms) are shown on a transparent bg:
             if (image.getAttribute("height"))
