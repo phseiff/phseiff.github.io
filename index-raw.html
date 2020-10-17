@@ -807,9 +807,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
 
         let elements_of_gists = document.documentElement.querySelectorAll(".gist img");
-        let element_of_gist;
         for (let i=0; i<elements_of_gists.length; i++) {
             elements_of_gists[i].setAttribute("onclick", "open_enlarged_image_view(this);");
+            elements_of_gists[i].setAttribute("title", "Click to enlarge Image!");
         }
     </script>
 
