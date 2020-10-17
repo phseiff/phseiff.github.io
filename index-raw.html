@@ -804,6 +804,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         for (let i=0; i<elements_of_gists.length; i++) {
             element_of_gist = elements_of_gists[i];
             if (element_of_gist.tagName === "img") {
+                console.log(element_of_gist.getAttribute("src"));
                 element_of_gist.addEventListener("click", function() {
                     open_enlarged_image_view(elements_of_gists[i]);
                 }, false);

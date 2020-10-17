@@ -1907,6 +1907,7 @@ things2 = something (partially) styled by using shadows
         for (let i=0; i<elements_of_gists.length; i++) {
             element_of_gist = elements_of_gists[i];
             if (element_of_gist.tagName === "img") {
+                console.log(element_of_gist.getAttribute("src"));
                 element_of_gist.addEventListener("click", function() {
                     open_enlarged_image_view(elements_of_gists[i]);
                 }, false);
