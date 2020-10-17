@@ -1904,10 +1904,7 @@ things2 = something (partially) styled by using shadows
         let elements_of_gists = document.documentElement.querySelectorAll(".gist img");
         let element_of_gist;
         for (let i=0; i<elements_of_gists.length; i++) {
-            element_of_gist = elements_of_gists[i];
-            element_of_gist.addEventListener("click", function() {
-                open_enlarged_image_view(elements_of_gists[i]);
-            }, false);
+            elements_of_gists[i].setAttribute("onclick", "open_enlarged_image_view(this);");
         }
     </script>
 
