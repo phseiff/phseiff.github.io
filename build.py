@@ -114,7 +114,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     rss_item_soup.find("effort").decompose()
     essay_anchor = link.split("#")[-1]
     essay_cards += """
-                <a href="{link}" class="card-to-show-essay" style="color: #000000;">
+                <a href="{link}" class="card-to-show-essay standard-text-color">
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
