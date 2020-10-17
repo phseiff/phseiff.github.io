@@ -189,6 +189,22 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             min-width: 120px;
         }
 
+        /* Activate-js-reminder */
+        .reminder-red {
+            color: #990000;
+        }
+
+        /* consent button background color & revoke consent button background & rss color */
+        .bg-color-consent-button {
+            background-color: #be601a;
+        }
+        .bg-color-orange {
+            background-color: orange;
+        }
+        .rss-color {
+            background-color: #f26522;
+        }
+
     </style>
     <main>
 
@@ -244,8 +260,8 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                                 <img src="images/icon.jpeg" alt="me.jpeg" class="circle responsive-img orange desktop_title">
                             </div>
                             <img src="images/icon.jpeg" alt="me.jpeg" height="14vw" width="14vw" class="circle orange mobile_title" style="size: 14vw; height: 14vw; width: 14vw">
-                            <div class="col s10" color="orange">
-                                <div class="resizable-essay-title" style="color: orange"><h1> phseiff.com </h1></div> <! #995c00>
+                            <div class="col s10 h2class">
+                                <div class="resizable-essay-title h2class"><h1> phseiff.com </h1></div>
                             </div>
                         </div>
                     </div><p class="mobile_title"></p>
@@ -261,7 +277,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <!-- span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span -->
 
             <! A small motivational text for people who don't use javascript>
-            <p style="color: #990000;" id="reminder-for-people-without-javascript">Oh, and by the way: I see you have javascript deactivated for this site. If you activate javascript, this site will be displayed in a beautiful darkmode.
+            <p class="reminder-red" id="reminder-for-people-without-javascript">Oh, and by the way: I see you have javascript deactivated for this site. If you activate javascript, this site will be displayed in a beautiful darkmode.
             I don't collect any of your data without your explicit permission, so you might wish to give it a go ;)</p>
             <script> document.getElementById("reminder-for-people-without-javascript").setAttribute("style", "display: none;"); </script>
 
@@ -1524,7 +1540,7 @@ things2 = something (partially) styled by using shadows
                         </a></small>
                     </div>
                     <div class="cookie-bar-right">
-                        <a class="waves-effect waves-light btn no-uppercase" style="background-color: #be601a" href="javascript:give_consent()"> That's fine!</a>
+                        <a class="waves-effect waves-light btn no-uppercase bg-color-consent-button" href="javascript:give_consent()"> That's fine!</a>
                     </div>
                 </div>
             </div>
@@ -1552,7 +1568,7 @@ things2 = something (partially) styled by using shadows
                             I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
                             I'd also like to mention that the twitter-follow-button as well as the mastodon-follow-button don't load any data from their respective sites until they are clicked.
                             And I really appreciate you let me count (on) your visits :D</p>
-                        <a class="waves-effect waves-light btn-small no-uppercase" style="background-color: orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
+                        <a class="waves-effect waves-light btn-small no-uppercase bg-color-orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
                     <div class="col l6 s12">
                         <h5 class="white-text">Impressum & Contact</h5>
@@ -1623,7 +1639,7 @@ things2 = something (partially) styled by using shadows
     <div style="position: fixed; bottom: 5px; right: 5px" id="phseiff-back-to-bottom-button">
         <ul>
             <li style="list-style-type: none; margin:0 0 5px 0; vertical-align:top">
-                <a class="btn-floating" style="background-color: #f26522" type="application/rss+xml" href="https://phseiff.com/phseiff-essays/feed.rss">
+                <a class="btn-floating rss-color" type="application/rss+xml" href="https://phseiff.com/phseiff-essays/feed.rss">
                     <i class="material-icons">rss_feed</i>
                 </a>
             </li>
@@ -1784,14 +1800,6 @@ things2 = something (partially) styled by using shadows
             display: block;
 
             margin: 3px;
-            /* background-color: #242525; */
-            /*
-                margin-left: auto;
-                margin-right: auto;
-                margin-top: auto;
-                margin-bottom: auto;
-                vertical-align:middle;
-            */
         }
     </style>
 
