@@ -727,5 +727,79 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
     </style>
 
+    <!-- images with borders. -->
+
+    <style>
+        .gist img:not([height]):not([weidth]):not(.frameless) {
+            border: 1px solid #dfe2e5;
+            border-radius:5px;
+        }
+    </style>
+
+    <!-- code to display images as enlarged versions of themselves. -->
+    <div id="dimScreen" style="display: none;" onclick="close_enlarged_image_view()" title="Click to read on.">
+        <img aria-hidden="true" id="enlargedImage" src="" alt="">
+    </div>
+    <style>
+        #dimScreen {
+            position: fixed;
+            padding: 0;
+            margin: 0;
+
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+
+            width: 100%;
+            height: 100%;
+            background:rgba(0, 0, 0, 0.8);
+
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            cursor: zoom-out;
+            z-index: 100001;
+        }
+        #enlargedImage {
+            max-width:100%;
+            max-height:100%;
+            display: block;
+            /* background-color: #242525; */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: auto;
+            margin-bottom: auto;
+            vertical-align:middle;
+        }
+    </style>
+
+    <script>
+        function close_enlarged_image_view() {
+            document.getElementById("dimScreen").setAttribute("style", "display: none;");
+            document.getElementById("enlargedImage").setAttribute("src", "");
+        }
+        function open_enlarged_image_view(image) {
+            let image_src = image.getAttribute("data-canonical-src");
+            document.getElementById("enlargedImage").setAttribute("src", image_src);
+            // ensure that images with a set height attribute (pictograms) are shown on a transparent bg:
+            if (image.getAttribute("height"))
+                document.getElementById("enlargedImage").removeAttribute("style");
+            else
+                document.getElementById("enlargedImage").setAttribute("style", "background-color: #242525; border: 1px solid #dfe2e5; border-radius:5px;");
+        }
+
+
+        let elements_of_essay = document.documentElement.querySelectorAll(".gist img");
+        let element_of_essay;
+        for (let i=0; i<elements_of_essay.length; i++) {
+            element_of_essay = elements_of_essay[i];
+            if (element_of_essay.tagName === "img") {
+                element_of_essay.addEventListener("click", function() {
+                    open_enlarged_image_view(elements_of_essay[i]);
+                }, false);
+            }
+        }
+    </script>
+
 </body>
 </html>
