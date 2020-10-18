@@ -238,7 +238,7 @@ with open("index-raw.html", "r") as index_raw:
             + requests.get('https://phseiff.com/phseiff-essays/' + essay + '.html').text.replace(
                 'href="https://phseiff.com/phseiff-essays/LICENSE.html"',
                 'href="#LICENSE"'
-            )
+            ).replace('<link href="/phseiff-essays/css/github-css.css" rel="stylesheet"/>', '')
             + '<span style="height: 300px"></span></span>\n'
         )
 

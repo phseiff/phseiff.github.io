@@ -1,6 +1,7 @@
 from selenium import webdriver
 import geckodriver_autoinstaller
 import subprocess
+from selenium.webdriver.firefox.options import Options
 
 
 geckodriver_autoinstaller.install()
@@ -9,7 +10,9 @@ geckodriver_autoinstaller.install()
 def main():
     p = subprocess.Popen(["darkreader/start_flask.sh"])
 
-    driver = webdriver.Firefox()
+    options = Options()
+    options.set_headless(headless=True)
+    driver = webdriver.Firefox(firefox_options=options)
     js = """
     var callback = arguments[0];
     DarkReader.exportGeneratedCSS().then(function(result){callback(result);});
@@ -65,9 +68,28 @@ def main():
     with open("github-card/response.modified.html", "w") as f:
         f.write(content)
 
-    driver.get("http://127.0.0.1:5000/404.html")
+    # Generate css for 404 error page:
+    driver.get("http://127.0.0.1:5000//404-raw.html")
     darkreader_generated_css = driver.execute_async_script(js).replace("http://127.0.0.1:5000", "https://phseiff.com")
-
+    with open("404.html.darkreader.css", "w") as f:
+        f.write(darkreader_generated_css)
+    with open("404-raw.html", "r") as f:
+        with open("404.html", "w") as f2:
+            f2.write(f.read().replace(
+                """
+            <script type="text/javascript" src="/darkreader/darkreader.min.js"></script>
+            <script>
+                DarkReader.setFetchMethod(window.fetch);
+                DarkReader.enable({
+                    brightness: 100,
+                    contrast: 90,
+                    sepia: 10
+                });
+            </script>""",
+                (
+                    """<link type="text/css" rel="stylesheet" href="/404.html.darkreader.min.css">"""
+                    if False else """<link type="text/css" rel="stylesheet" href="/index.html.darkreader.min.css">"""
+                )))
 
     p.kill()
     driver.close()
