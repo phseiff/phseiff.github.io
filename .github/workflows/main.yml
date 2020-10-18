@@ -23,6 +23,7 @@ jobs:
           pip3 install selenium
           pip3 install geckodriver-autoinstaller
           pip3 install Flask
+          chmod +x darkreader/start_flask.sh
           python3 build.py ${{ secrets.MASTODON_ACCESS_TOKEN }} called_from_gh_pages ${{ secrets.OAUTH_TOKEN }}
 
       - name: Deploy 🚀
