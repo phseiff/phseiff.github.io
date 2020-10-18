@@ -229,3 +229,13 @@ JavaScript error: http://127.0.0.1:5000/share-buttons/mastodon.min.js, line 1: R
 JavaScript error: http://127.0.0.1:5000/github-card/response.modified.html, line 500: ReferenceError: ga is not defined
 JavaScript error: http://127.0.0.1:5000///github-card/response.html, line 500: ReferenceError: ga is not defined
 1603040991345	Marionette	INFO	Stopped listening on port 39337
+1603041284237	geckodriver	INFO	Listening on 127.0.0.1:37513
+1603041285245	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileqanM31"
+*** You are running in headless mode.
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603041291399	Marionette	INFO	Listening on port 37567
+1603041291508	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:5687/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: http://127.0.0.1:5687/github-card/response.modified.html, line 500: ReferenceError: ga is not defined
+JavaScript error: http://127.0.0.1:5687///github-card/response.html, line 500: ReferenceError: ga is not defined
+1603041314793	Marionette	INFO	Stopped listening on port 37567

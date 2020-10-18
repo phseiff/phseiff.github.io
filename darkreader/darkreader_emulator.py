@@ -16,7 +16,7 @@ def main():
     #     if "* Running on http://" in stdout:
     #         break
     # url = "http://" + stdout.split("http://")[1].split("/")[0]
-    url = "http://127.0.0.1:5000/"
+    url = "http://127.0.0.1:5687/"
     # print(stdout, url)
     time.sleep(3)
 
