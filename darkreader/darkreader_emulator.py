@@ -2,13 +2,23 @@ from selenium import webdriver
 import geckodriver_autoinstaller
 import subprocess
 from selenium.webdriver.firefox.options import Options
+import time
 
 
 geckodriver_autoinstaller.install()
 
 
 def main():
-    p = subprocess.Popen(["darkreader/start_flask.sh"])
+    p = subprocess.Popen(["darkreader/start_flask.sh"], stdout=subprocess.PIPE)
+    # while True:
+    #     stdout = str(p.stdout.readline(), encoding="UTF-8")
+    #     print("stdout:", stdout)
+    #     if "* Running on http://" in stdout:
+    #         break
+    # url = "http://" + stdout.split("http://")[1].split("/")[0]
+    url = "http://127.0.0.1:5000/"
+    # print(stdout, url)
+    time.sleep(3)
 
     options = Options()
     options.set_headless(headless=True)
@@ -19,8 +29,8 @@ def main():
     """
 
     # Generate darkreader css for index.html:
-    driver.get("http://127.0.0.1:5000/")
-    darkreader_generated_css = driver.execute_async_script(js).replace("http://127.0.0.1:5000", "https://phseiff.com")
+    driver.get(url + "/")
+    darkreader_generated_css = driver.execute_async_script(js).replace(url, "https://phseiff.com")
     with open("index.html.darkreader.css", "w") as f:
         f.write(darkreader_generated_css)
     with open("index.html", "r") as f:
@@ -49,8 +59,8 @@ def main():
         f.write(content)
 
     # Generate darkreader css for github card:
-    driver.get("http://127.0.0.1:5000//github-card/response.html")
-    darkreader_generated_css = driver.execute_async_script(js).replace("http://127.0.0.1:5000", "https://phseiff.com")
+    driver.get(url + "//github-card/response.html")
+    darkreader_generated_css = driver.execute_async_script(js).replace(url, "https://phseiff.com")
     with open("github-card/response.html.darkreader.css", "w") as f:
         f.write(darkreader_generated_css.split("/* Modified CSS */")[1])
     with open("github-card/response.html", "r+") as f:
@@ -68,9 +78,10 @@ def main():
     with open("github-card/response.modified.html", "w") as f:
         f.write(content)
 
+    print("got all but error page!")
     # Generate css for 404 error page:
-    driver.get("http://127.0.0.1:5000//404-raw.html")
-    darkreader_generated_css = driver.execute_async_script(js).replace("http://127.0.0.1:5000", "https://phseiff.com")
+    driver.get(url + "//404-raw.html")
+    darkreader_generated_css = driver.execute_async_script(js).replace(url, "https://phseiff.com")
     with open("404.html.darkreader.css", "w") as f:
         f.write(darkreader_generated_css)
     with open("404-raw.html", "r") as f:
