@@ -7,6 +7,7 @@ from PIL import Image
 from mastodon import Mastodon
 import subprocess
 import bs4
+from darkreader import darkreader_emulator
 
 if "called_from_gh_pages" in sys.argv:
     time.sleep(20)
@@ -291,6 +292,10 @@ content = content.replace("</already_tooted>", "\n".join(essays_who_where_alread
 
 with open("index.html", "w+") as f:
     f.write(content)
+
+# Bake darkreader:
+
+darkreader_emulator.main()
 
 # Create minimized assets:
 

@@ -1,0 +1,168 @@
+1602976364114	geckodriver	INFO	Listening on 127.0.0.1:35781
+1602976364163	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilev99nwx"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602976369382	Marionette	INFO	Listening on port 34769
+1602976369391	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602976642799	geckodriver	INFO	Listening on 127.0.0.1:33683
+1602976643813	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile5wLPrj"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602976647275	Marionette	INFO	Listening on port 35409
+1602976647324	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602976650132	Marionette	INFO	Stopped listening on port 34769
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1602976967535	geckodriver	INFO	Listening on 127.0.0.1:35887
+1602976967541	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilezCuSlJ"
+Exception ignored in: <_io.TextIOWrapper name='<stdout>' mode='w' encoding='UTF-8'>
+BrokenPipeError: [Errno 32] Broken pipe
+1602976968668	geckodriver	INFO	Listening on 127.0.0.1:42903
+1602976968673	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileihd8ps"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602976972578	Marionette	INFO	Listening on port 34037
+1602976972589	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602977072268	geckodriver	INFO	Listening on 127.0.0.1:46289
+1602977073277	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiled3GSEe"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602977076866	Marionette	INFO	Listening on port 33649
+1602977076889	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602977077303	Marionette	INFO	Stopped listening on port 34037
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602977169347	geckodriver	INFO	Listening on 127.0.0.1:44147
+1602977169359	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFnQraw"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602977173173	Marionette	INFO	Listening on port 43367
+1602977173271	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602977173591	Marionette	INFO	Stopped listening on port 33649
+1602977427941	geckodriver	INFO	Listening on 127.0.0.1:42119
+1602977427945	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileU21TDu"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602977431352	Marionette	INFO	Listening on port 34519
+1602977431360	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602977431948	Marionette	INFO	Stopped listening on port 43367
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1602977686732	geckodriver	INFO	Listening on 127.0.0.1:52639
+1602977686736	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile0cu3uk"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602977690199	Marionette	INFO	Listening on port 40779
+1602977690247	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Receive IPC close with reason=AbnormalShutdown
+Exiting due to channel error.
+1602978052391	geckodriver	INFO	Listening on 127.0.0.1:54037
+1602978052395	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFxlMRW"
+1602978053909	geckodriver	INFO	Listening on 127.0.0.1:35605
+1602978053914	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyiRYSW"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602978057400	Marionette	INFO	Listening on port 34135
+1602978057424	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602978180453	geckodriver	INFO	Listening on 127.0.0.1:36817
+1602978180459	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6gq8SV"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602978183971	Marionette	INFO	Listening on port 43191
+1602978183994	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602978184565	Marionette	INFO	Stopped listening on port 34135
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602978902028	geckodriver	INFO	Listening on 127.0.0.1:41533
+1602978903092	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFBYJk9"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602978908145	Marionette	INFO	Listening on port 35321
+1602978908210	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602978910325	Marionette	INFO	Stopped listening on port 43191
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602978994503	geckodriver	INFO	Listening on 127.0.0.1:49433
+1602978994507	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile10PCNT"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602978998295	Marionette	INFO	Listening on port 34073
+1602978998321	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602978999114	Marionette	INFO	Stopped listening on port 35321
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1602979158580	geckodriver	INFO	Listening on 127.0.0.1:44455
+1602979158584	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePK8tkC"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1602979162831	Marionette	INFO	Listening on port 36917
+1602979162915	Marionette	WARN	TLS certificate errors will be ignored for this session
+1602979171737	Marionette	INFO	Stopped listening on port 34073
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1603016398446	geckodriver	INFO	Listening on 127.0.0.1:58521
+1603016399450	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletzymki"
+1603016399991	Marionette	INFO	Stopped listening on port 36917
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603016403857	Marionette	INFO	Listening on port 44511
+1603016403873	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1603016807428	geckodriver	INFO	Listening on 127.0.0.1:52585
+1603016808449	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileF7xro1"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603016812583	Marionette	INFO	Listening on port 45753
+1603016812663	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603016849586	geckodriver	INFO	Listening on 127.0.0.1:44395
+1603016850610	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile91yYbJ"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603016854155	Marionette	INFO	Listening on port 45145
+1603016854247	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603016863515	Marionette	INFO	Stopped listening on port 45753
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+JavaScript error: https://phseiff.com/, line 3: ReferenceError: callback is not defined
+1603016986674	Marionette	INFO	Stopped listening on port 45145
+1603016989625	geckodriver	INFO	Listening on 127.0.0.1:51957
+1603016989629	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexop7rn"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603016993599	Marionette	INFO	Listening on port 36547
+1603016993663	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+JavaScript error: https://phseiff.com/, line 3: ReferenceError: callback is not defined
+1603017253340	Marionette	INFO	Stopped listening on port 36547
+1603017265885	geckodriver	INFO	Listening on 127.0.0.1:50111
+1603017266894	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofiletmK1DP"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603017270060	Marionette	INFO	Listening on port 43289
+1603017270104	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1603018140967	geckodriver	INFO	Listening on 127.0.0.1:56153
+1603018140999	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileG6Qy8P"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603018144395	Marionette	INFO	Listening on port 42105
+1603018144413	Marionette	WARN	TLS certificate errors will be ignored for this session
+1603018147366	Marionette	INFO	Stopped listening on port 43289
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+JavaScript error: https://phseiff.com/, line 3: ReferenceError: done is not defined
+1603018764000	Marionette	INFO	Stopped listening on port 42105
+1603018769946	geckodriver	INFO	Listening on 127.0.0.1:49753
+1603018769955	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehFM0ZB"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1603018773620	Marionette	INFO	Listening on port 36085
+1603018773668	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://phseiff.com/share-buttons/mastodon.min.js, line 1: ReferenceError: msbConfig is not defined
+JavaScript error: https://phseiff.com/github-card/response.html, line 511: ReferenceError: ga is not defined
+1603018838858	Marionette	INFO	Stopped listening on port 36085
