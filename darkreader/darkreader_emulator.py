@@ -3,13 +3,14 @@ import geckodriver_autoinstaller
 import subprocess
 from selenium.webdriver.firefox.options import Options
 import time
+import sys
 
 
 geckodriver_autoinstaller.install()
 
 
 def main():
-    p = subprocess.Popen(["darkreader/start_flask.sh"], stdout=subprocess.PIPE)
+    p = subprocess.Popen(["darkreader/start_flask.sh"], stdout=sys.stdout, stderr=sys.stderr)
     # while True:
     #     stdout = str(p.stdout.readline(), encoding="UTF-8")
     #     print("stdout:", stdout)
@@ -18,7 +19,7 @@ def main():
     # url = "http://" + stdout.split("http://")[1].split("/")[0]
     url = "http://127.0.0.1:5687/"
     # print(stdout, url)
-    time.sleep(3)
+    time.sleep(4)
 
     options = Options()
     options.set_headless(headless=True)
