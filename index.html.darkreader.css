@@ -3377,20 +3377,20 @@ input[type="range"]:-moz-focusring {
 #revoke-consent-button:hover {
     background-color: rgb(195, 134, 24);
     background-image: linear-gradient(0deg,
-    rgba(13, 13, 13, 0.5) 0%,
-    rgba(13, 13, 13, 0.5) 100%);
+    rgba(13, 13, 13, 0.2) 0%,
+    rgba(13, 13, 13, 0.2) 100%);
 }
 #consent-button:hover {
     background-color: rgb(147, 85, 37);
     background-image: linear-gradient(0deg,
-    rgba(13, 13, 13, 0.5) 0%,
-    rgba(13, 13, 13, 0.5) 100%);
+    rgba(13, 13, 13, 0.2) 0%,
+    rgba(13, 13, 13, 0.2) 100%);
 }
 .rss-color:hover {
     background-color: rgb(171, 76, 29);
     background-image: linear-gradient(0deg,
-    rgba(13, 13, 13, 0.5) 0%,
-    rgba(13, 13, 13, 0.5) 100%);
+    rgba(13, 13, 13, 0.2) 0%,
+    rgba(13, 13, 13, 0.2) 100%);
 }
 .gist #article-incest-taboo ul.scales {
     list-style-image: none;
