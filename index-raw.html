@@ -195,8 +195,11 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             color: #990000;
         }
 
+        /* REMEMBER: If you change a color, search for all other occurrences of the color to
+        keep the color scheme consistent! */
+
         /* consent button background color & revoke consent button background & rss color */
-        .bg-color-consent-button {
+        .consent-button {
             background-color: #be601a;
         }
         .bg-color-orange {
@@ -210,6 +213,31 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
         .reading-progress-bar {
             background-color: red;
+        }
+        /* Make buttons with wrongly specified hover color darker when hovering over them: */
+        #revoke-consent-button:hover {
+            background-color: orange;
+            background-image: linear-gradient(
+                0deg,
+                rgba(0,0,0,0.5) 0%,
+                rgba(0,0,0,0.5) 100%
+            );
+        }
+        #consent-button:hover {
+            background-color: #be601a;
+            background-image: linear-gradient(
+                0deg,
+                rgba(0,0,0,0.5) 0%,
+                rgba(0,0,0,0.5) 100%
+            );
+        }
+        .rss-color:hover {
+            background-color: #f26522;
+            background-image: linear-gradient(
+                0deg,
+                rgba(0,0,0,0.5) 0%,
+                rgba(0,0,0,0.5) 100%
+            );
         }
 
     </style>
@@ -560,7 +588,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                         </a></small>
                     </div>
                     <div class="cookie-bar-right">
-                        <a class="waves-effect waves-light btn no-uppercase bg-color-consent-button" href="javascript:give_consent()"> That's fine!</a>
+                        <a class="waves-effect waves-light btn no-uppercase consent-button" id="consent-button" href="javascript:give_consent()"> That's fine!</a>
                     </div>
                 </div>
             </div>
@@ -588,7 +616,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                             I generally care a lot about privacy, which is why I don't load any resources from google or other resources using google analytics into my page, and why I don't collect your private data.
                             I'd also like to mention that the twitter-follow-button as well as the mastodon-follow-button don't load any data from their respective sites until they are clicked.
                             And I really appreciate you let me count (on) your visits :D</p>
-                        <a class="waves-effect waves-light btn-small no-uppercase bg-color-orange" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
+                        <a class="waves-effect waves-light btn-small no-uppercase bg-color-orange" id="revoke-consent-button" href="javascript:revoke_consent(); window.location.reload(false);">revoke my cookie-consent 💔</a>
                     </div>
                     <div class="col l6 s12">
                         <h5 class="white-text">Impressum & Contact</h5>

@@ -3359,7 +3359,7 @@ input[type="range"]:-moz-focusring {
 .reminder-red {
     color: rgb(237, 107, 103);
 }
-.bg-color-consent-button {
+.consent-button {
     background-color: rgb(147, 85, 37);
 }
 .bg-color-orange {
@@ -3373,6 +3373,24 @@ input[type="range"]:-moz-focusring {
 }
 .reading-progress-bar {
     background-color: rgb(186, 19, 18);
+}
+#revoke-consent-button:hover {
+    background-color: rgb(195, 134, 24);
+    background-image: linear-gradient(0deg,
+    rgba(13, 13, 13, 0.5) 0%,
+    rgba(13, 13, 13, 0.5) 100%);
+}
+#consent-button:hover {
+    background-color: rgb(147, 85, 37);
+    background-image: linear-gradient(0deg,
+    rgba(13, 13, 13, 0.5) 0%,
+    rgba(13, 13, 13, 0.5) 100%);
+}
+.rss-color:hover {
+    background-color: rgb(171, 76, 29);
+    background-image: linear-gradient(0deg,
+    rgba(13, 13, 13, 0.5) 0%,
+    rgba(13, 13, 13, 0.5) 100%);
 }
 .gist #article-incest-taboo ul.scales {
     list-style-image: none;
