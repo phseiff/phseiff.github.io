@@ -9,7 +9,7 @@ import mimetypes
 app = Flask(__name__)
 print("starting to host flask app!")
 with open("test.test", "w") as f:
-    f.write(os.)
+    f.write("os.")
 
 
 @app.route('/')
