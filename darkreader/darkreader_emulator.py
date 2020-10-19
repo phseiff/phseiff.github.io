@@ -10,7 +10,7 @@ geckodriver_autoinstaller.install()
 
 
 def main():
-    p = subprocess.Popen(["darkreader/start_flask.sh"], stdout=sys.stdout, stderr=sys.stderr)
+    p = subprocess.Popen(["darkreader/host_with_flask.py"], stdout=sys.stdout, stderr=sys.stderr)
     # while True:
     #     stdout = str(p.stdout.readline(), encoding="UTF-8")
     #     print("stdout:", stdout)
