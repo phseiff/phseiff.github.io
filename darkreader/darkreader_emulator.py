@@ -33,7 +33,7 @@ def main():
 
     # Generate darkreader css for index.html:
     driver.get(url + "/")
-    darkreader_generated_css = driver.execute_async_script(js).replace(url, "https://phseiff.com")
+    darkreader_generated_css = driver.execute_async_script(js).replace(url, "https://phseiff.com/")
     with open("index.html.darkreader.css", "w") as f:
         f.write(darkreader_generated_css)
     with open("index.html", "r") as f:
