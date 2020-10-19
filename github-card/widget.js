@@ -1,5 +1,5 @@
 (function(e) {
-    var t = "github-card/response.html";
+    var t = "github-card/response.modified.html";
     // var t = "//cdn.jsdelivr.net/github-card/1.0.2/";
     var r, i = 0;
     var a = e.getElementsByTagName("meta");
@@ -78,6 +78,7 @@
         var p = g(r, "client-secret") || l; */
         var A = "ghcard-" + f + "-" + i;
         var y = e.createElement("iframe");
+        y.setAttribute("title", "embedded GitHub visitor card");
         y.setAttribute("id", A);
         y.setAttribute("frameborder", 0);
         y.setAttribute("scrolling", 0);
@@ -95,7 +96,7 @@
             E += "&client_id=" + w + "&client_secret=" + p
         }
         console.log("E:", E); */
-        var E = "github-card/response.html";
+        var E = "github-card/response.modified.html";
         y.src = E;
         y.width = o || Math.min(r.parentNode.clientWidth || 400, 400);
         if (m) {

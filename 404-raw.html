@@ -86,7 +86,16 @@
                 }
             </script>
 
-            <!-- Dark Mode --><link type="text/css" rel="stylesheet" href="/index.html.darkreader.min.css">
+            <!-- Dark Mode -->
+            <script type="text/javascript" src="/darkreader/darkreader.min.js"></script>
+            <script>
+                DarkReader.setFetchMethod(window.fetch);
+                DarkReader.enable({
+                    brightness: 100,
+                    contrast: 90,
+                    sepia: 10
+                });
+            </script>
         </span>
     </body>
 

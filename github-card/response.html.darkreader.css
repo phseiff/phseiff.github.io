@@ -1,0 +1,90 @@
+
+body.ready {
+    border-color: rgb(63, 65, 65) rgb(68, 70, 70) rgb(76, 80, 80);
+    box-shadow: rgba(13, 13, 13, 0.14) 0px 1px 3px;
+}
+.github-card {
+    background-color: rgb(36, 37, 37);
+    background-image: none;
+    color: rgb(178, 171, 158);
+}
+.github-card a {
+    text-decoration-color: currentcolor;
+    color: rgb(97, 149, 188);
+    outline-color: currentcolor;
+}
+.github-card a:hover {
+    text-decoration-color: currentcolor;
+}
+.github-card .button {
+    color: rgb(178, 171, 158);
+    text-shadow: rgb(36, 37, 37) 0px 1px 0px;
+    border-color: rgb(70, 73, 73);
+    background-color: rgb(49, 51, 51);
+    background-image: linear-gradient(rgb(39, 40, 39),
+    rgb(47, 49, 48));
+}
+.github-card .button:hover {
+    color: rgb(229, 224, 216);
+    text-decoration-color: currentcolor;
+    background-color: rgb(54, 96, 135);
+    background-image: linear-gradient(rgb(47, 91, 134),
+    rgb(54, 96, 135));
+    border-color: rgb(57, 91, 124) rgb(57, 91, 124) rgb(56, 101, 145);
+    text-shadow: rgba(13, 13, 13, 0.25) 0px -1px 0px;
+}
+.user-card .header a {
+    color: rgb(162, 154, 140);
+    text-decoration-color: currentcolor;
+}
+.user-card .header a:hover strong {
+    text-decoration-color: currentcolor;
+}
+.user-card img {
+    background-color: rgb(36, 37, 37);
+    background-image: none;
+}
+.user-card strong {
+    color: rgb(202, 195, 185);
+}
+.user-card ul {
+    color: rgb(162, 154, 140);
+    border-top-color: rgb(63, 65, 65);
+    border-bottom-color: rgb(63, 65, 65);
+}
+.user-card .status a {
+    color: rgb(162, 154, 140);
+    text-decoration-color: currentcolor;
+}
+.user-card .status a:hover {
+    color: rgb(97, 149, 188);
+}
+.user-card .status li {
+    border-left-color: rgb(63, 65, 65);
+}
+.user-card .status li:first-child {
+    border-left-color: currentcolor;
+}
+.user-card .footer {
+    color: rgb(170, 161, 148);
+}
+.user-card .footer a {
+    color: rgb(170, 161, 148);
+}
+.repo-card .avatar,
+.repo-card .avatar img {
+    background-color: rgb(36, 37, 37);
+    background-image: none;
+}
+.repo-card .header a {
+    color: rgb(162, 154, 140);
+}
+.repo-card .header strong a {
+    color: rgb(202, 195, 185);
+}
+.repo-card .header sup {
+    color: rgb(158, 148, 134);
+}
+.repo-card .footer {
+    border-top-color: rgb(63, 65, 65);
+}
