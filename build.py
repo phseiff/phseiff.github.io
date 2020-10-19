@@ -293,10 +293,6 @@ content = content.replace("</already_tooted>", "\n".join(essays_who_where_alread
 with open("index.html", "w+") as f:
     f.write(content)
 
-# Bake darkreader:
-
-darkreader_emulator.main()
-
 # Create minimized assets:
 
 
@@ -340,20 +336,30 @@ def compress_icon(file_name, height, bg_color, quality):
     final_thumb.save(file_name.replace(".png", ".jpeg"), 'JPEG', quality=quality, optimize=True, progressive=True)
 
 
-for subdir, _, files in os.walk("./"):
-    for file in files:
-        print(subdir, file)
-        if not subdir[2:].startswith("."):
-            file_path = os.path.join(subdir, file)
-            print("Minimizing asset:", subdir + file)
-            if file.endswith(".css") and not file.endswith(".min.css"):
-                css_html_js_minify.process_single_css_file(file_path, comments=True)
-            elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
-                minify_js(file_path)
-            elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
-                minify_html(file_path)
-            if file_path in ("./images/icon.png", "./images/404.png"):
-                compress_icon(file_path, height=400, bg_color=(205, 122, 0), quality=70)
+def compress_all_files():
+    """This will be called twice, once before the darkreader js is baked (to provide the nessesary files), and once
+    afterwars (to compress the newly compressed files)"""
+    for subdir, _, files in os.walk("./"):
+        for file in files:
+            print(subdir, file)
+            if not subdir[2:].startswith("."):
+                file_path = os.path.join(subdir, file)
+                print("Minimizing asset:", subdir + file)
+                if file.endswith(".css") and not file.endswith(".min.css"):
+                    css_html_js_minify.process_single_css_file(file_path, comments=True)
+                elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
+                    minify_js(file_path)
+                elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
+                    minify_html(file_path)
+                if file_path in ("./images/icon.png", "./images/404.png"):
+                    compress_icon(file_path, height=400, bg_color=(205, 122, 0), quality=70)
+
+# Bake darkreader & compress files:
+
+
+compress_all_files()
+darkreader_emulator.main()
+compress_all_files()
 
 
 # Toot to Mastodon:
