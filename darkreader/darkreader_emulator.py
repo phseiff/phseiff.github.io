@@ -4,6 +4,7 @@ import subprocess
 from selenium.webdriver.firefox.options import Options
 import time
 import sys
+import requests
 
 
 geckodriver_autoinstaller.install()
@@ -20,6 +21,7 @@ def main():
     url = "http://127.0.0.1:5687/"
     # print(stdout, url)
     time.sleep(4)
+    print("received:", requests.get(url).text)
 
     options = Options()
     options.set_headless(headless=True)

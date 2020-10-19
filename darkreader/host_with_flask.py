@@ -1,5 +1,6 @@
 #!//usr/bin/python3
 
+import os
 from flask import Flask
 from flask import Response
 import requests
@@ -8,7 +9,7 @@ import mimetypes
 app = Flask(__name__)
 print("starting to host flask app!")
 with open("test.test", "w") as f:
-    f.write("test")
+    f.write(os.)
 
 
 @app.route('/')
