@@ -3408,7 +3408,7 @@ input[type="range"]:-moz-focusring {
     color: rgb(231, 44, 42);
 }
 .gist img:not([height]):not([width]):not(.frameless) {
-    border-color: rgb(70, 73, 72);
+    border-color: rgb(66, 69, 69);
 }
 .gist :not(a) > img {
     border-block-color: initial;
