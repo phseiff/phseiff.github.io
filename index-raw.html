@@ -776,16 +776,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
     </script>
 
-    <! Ensure dark reader is executed again after we updated the essays using javascript. >
-    <script>
-        DarkReader.disable();
-        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
-            brightness: 100,
-            contrast: 90,
-            sepia: 10
-        });
-    </script>
-
     <! Make inline code in essays wrap! >
     <style>
         .gist :not(pre)>code {
@@ -798,10 +788,20 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
     <style>
         .gist img:not([height]):not([width]):not(.frameless) {
-            border: 1px solid #d1d5da;
+            border: 1px solid #dfe2e5;
             border-radius:5px;
         }
     </style>
+
+    <! Ensure dark reader is executed again after we updated the essays using javascript. >
+    <script>
+        DarkReader.disable();
+        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+    </script>
 
     <!-- enlargeable images. -->
 
