@@ -3407,41 +3407,13 @@ input[type="range"]:-moz-focusring {
 .disclaimer-incest-essay {
     color: rgb(231, 44, 42);
 }
-#article-incest-taboo table,
-#article-incest-taboo tr,
-#article-incest-taboo th,
-#article-incest-taboo td {
-    border-block-color: initial;
-    border-inline-color: initial;
-    background-color: initial;
-    background-image: initial;
-    border-color: initial;
-    column-rule-color: initial;
-    box-shadow: initial;
-    color-adjust: initial;
-    color-interpolation: initial;
-    color-interpolation-filters: initial;
-    fill: initial;
-    stroke: initial;
-    color: initial;
-    text-shadow: initial;
-    text-emphasis-color: initial;
-    -webkit-text-fill-color: initial;
-    -webkit-text-stroke-color: initial;
-    caret-color: initial;
-    scrollbar-color: initial;
-    list-style-image: initial;
-    outline-color: initial;
-    stop-color: initial;
-    flood-color: initial;
-    lighting-color: initial;
-    text-decoration-color: initial;
-}
-#article-incest-taboo table {
-    border-color: rgb(70, 73, 72);
-}
-#article-incest-taboo th {
-    border-bottom-color: rgb(70, 73, 72);
+@media screen and (min-width: 800px) {
+    #article-incest-taboo table {
+        border-color: rgb(70, 73, 72);
+    }
+    #article-incest-taboo th {
+        border-bottom-color: rgb(70, 73, 72);
+    }
 }
 @media screen and (max-width: 800px) {
     #article-incest-taboo table,

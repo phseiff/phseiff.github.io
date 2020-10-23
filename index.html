@@ -935,36 +935,42 @@ sex between men is a sin punnisheable only by death. <span class="normal-black-f
   .disclaimer-incest-essay {
       color: red;
   }
-  #article-incest-taboo table,
+  /* #article-incest-taboo table,
   #article-incest-taboo tr,
   #article-incest-taboo th,
   #article-incest-taboo td {
       all: initial;
-  }
+  } */
   /* Style for tables */
-    #article-incest-taboo table {
-      border: 1px solid #d1d5da;
-      border-radius:5px;
-      font-size: 8pt;
-    }
-    #article-incest-taboo th {
-      text-align: left;
-      border-bottom: 1px solid #d1d5da;
-      padding-bottom: 7px;
-    }
-    #article-incest-taboo tr:first-child td {
-      padding-top: 4px
-    }
-    #article-incest-taboo td:first-child,
-    #article-incest-taboo th:first-child {
-        width:1%;
-        white-space:nowrap;
-        padding-right: 8px;
-    }
-    #article-incest-taboo td:last-child,
-    #article-incest-taboo th:last-child {
-        width: 60%;
-    }
+  @media screen and (min-width:800px) {
+      #article-incest-taboo table {
+          border: 1px solid #d1d5da;
+          border-radius: 5px;
+          font-size: 8pt;
+      }
+
+      #article-incest-taboo th {
+          text-align: left;
+          border-bottom: 1px solid #d1d5da;
+          padding-bottom: 7px;
+      }
+
+      #article-incest-taboo tr:first-child td {
+          padding-top: 4px
+      }
+
+      #article-incest-taboo td:first-child,
+      #article-incest-taboo th:first-child {
+          width: 1%;
+          white-space: nowrap;
+          padding-right: 8px;
+      }
+
+      #article-incest-taboo td:last-child,
+      #article-incest-taboo th:last-child {
+          width: 60%;
+      }
+  }
 
     @media screen and (max-width:800px) {
       #article-incest-taboo table,
@@ -975,7 +981,7 @@ sex between men is a sin punnisheable only by death. <span class="normal-black-f
       #article-incest-taboo tr {padding-left: 4px; padding-right: 4px}
 
       #article-incest-taboo th:nth-child(1),
-      #article-incest-taboo td:nth-child(1) {padding-left: 0px; padding-bottom: 3px}
+      #article-incest-taboo td:nth-child(1) {padding-left: 0; padding-bottom: 3px}
       #article-incest-taboo th:nth-child(2),
       #article-incest-taboo td:nth-child(2) {padding-left: 40px; padding-bottom: 3px}
       #article-incest-taboo th:nth-child(3),
@@ -989,6 +995,26 @@ sex between men is a sin punnisheable only by death. <span class="normal-black-f
     }
 
 </style>
+<!--
+<div id="article-incest-taboo">
+ <table style="width:100%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill </td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+ </table>
+</div> -->
 <script>
 
     let function_to_use_on_every_element = [
