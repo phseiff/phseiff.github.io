@@ -3462,7 +3462,7 @@ input[type="range"]:-moz-focusring {
 .gist img:not([height]):not([width]):not(.frameless):not([src*="-icon."]) {
     border-color: rgb(66, 69, 69);
 }
-.gist :not(a) > img {
+.gist :not(a) > img:not([src*="-icon."]) {
     border-block-color: initial;
     border-inline-color: initial;
     background-color: initial;

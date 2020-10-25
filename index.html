@@ -1905,7 +1905,7 @@ things2 = something (partially) styled by using shadows
     <!-- enlargeable images. -->
 
     <style>
-        .gist :not(a)>img {
+        .gist :not(a)>img:not([src*="-icon."]) {
             all: initial;
             cursor: zoom-in;
         }
@@ -1966,7 +1966,7 @@ things2 = something (partially) styled by using shadows
                 document.getElementById("enlargedImage").setAttribute("style", "background-color: #242525; border: 1px solid #dfe2e5; border-radius:5px;");
         }
 
-        let elements_of_gists = document.documentElement.querySelectorAll(".gist img");
+        let elements_of_gists = document.documentElement.querySelectorAll('.gist img:not([src*="-icon."])');
         for (let i=0; i<elements_of_gists.length; i++) {
             if (elements_of_gists[i].parentElement.tagName.toLowerCase() !== "a") {
                 elements_of_gists[i].setAttribute("onclick", "open_enlarged_image_view(this);");
