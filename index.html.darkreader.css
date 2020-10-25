@@ -3459,7 +3459,7 @@ input[type="range"]:-moz-focusring {
 #article-incest-taboo table {
     border-color: rgb(70, 73, 72);
 }
-.gist img:not([height]):not([width]):not(.frameless) {
+.gist img:not([height]):not([width]):not(.frameless):not([src*="-icon."]) {
     border-color: rgb(66, 69, 69);
 }
 .gist :not(a) > img {
