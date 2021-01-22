@@ -1,7 +1,13 @@
-1611330070320	geckodriver	INFO	Listening on 127.0.0.1:58229
-1611330071325	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileigp7eF"
+1611331343843	geckodriver	INFO	Listening on 127.0.0.1:34659
+1611331344849	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilev3MVPa"
 *** You are running in headless mode.
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1611330102555	Marionette	INFO	Listening on port 37333
-1611330102887	Marionette	WARN	TLS certificate errors will be ignored for this session
-1611330112683	Marionette	INFO	Stopped listening on port 37333
+1611331353559	Marionette	INFO	Listening on port 35745
+1611331353615	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611331362331	Marionette	INFO	Stopped listening on port 35745
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+

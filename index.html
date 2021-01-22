@@ -80,7 +80,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
 <body>
 
-    <! dark reader dark mode ><link type="text/css" rel="stylesheet" href="/index.html.darkreader.min.css">
+    <! dark reader dark mode ><style>@charset "utf-8"; html{background-color:#242525 !important}html,body,input,textarea,select,button{background-color:#242525}html,body,input,textarea,select,button{border-color:#776f62;color:#e5e0d8}a{color:#4791e6}table{border-color:#5c6060}::placeholder{color:#b2aa9e}input:-webkit-autofill,textarea:-webkit-autofill,select:-webkit-autofill{background-color:#5b5f13 !important;color:#e5e0d8 !important}::-webkit-scrollbar{background-color:#2b2d2d;color:#aca496}::-webkit-scrollbar-thumb{background-color:#4e5151}::-webkit-scrollbar-thumb:hover{background-color:#5f6364}::-webkit-scrollbar-thumb:active{background-color:#515455}::-webkit-scrollbar-corner{background-color:#242525}*{scrollbar-color:#2b2d2d #4e5151}::selection{background-color:#15539c !important;color:#e5e0d8 !important}::-moz-selection{background-color:#15539c !important;color:#e5e0d8 !important}:root{--darkreader-neutral-background:#181a1b;--darkreader-neutral-text:#e8e6e3;--darkreader-selection-background:#15539c;--darkreader-selection-text:#e5e0d8}</style>
 
     <! style definitions>
 
@@ -98,9 +98,11 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             padding-right: 10px;
         }
 
-        .zoom:hover {
-            transform: scale(1.1); /* Not working yet */
-            /* position: absolute; */
+        @media screen and (min-width:800px) {
+            .zoom:hover {
+                /* Zoom into desktop cards, but only on mobile. */
+                transform: scale(1.1);
+            }
         }
 
         /* Hide the desktop title/show the mobile title on mobile. */
