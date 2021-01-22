@@ -113,13 +113,23 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
         /* Reduce space to the left and right when we are on mobile. */
         @media screen and (max-width: 599px) {
-            .container {
+            /*.container {
                 width: 100%;
-            }
+            }*/
             #file-docker-image-pull-md-readme {
                 width: 97%;
-                margin-left: 10%;
-                margin-right: 10%;
+                margin-left: 0;
+                margin-right: 0;
+                padding-right: 30px;
+                padding-left: 0;
+            }
+            .js-gist-file-update-container,
+            .gist, .gist-data, .gist-file, .file, article, .gist div {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                padding-right: 0;
+                padding-left: 0;
             }
         }
 
@@ -303,10 +313,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
         <span id="embedded-essays-if-js-is-enabled"></span>
 
-            <!-- ![Website Banner](https://phseiff.com/images/final-banner-blurred-edges.png) -->
-
-Hello! My name is phseiff, and I'm an avid hobby developer, manga-binge-reader, vegetarian, programmer, writer and denglish-speaker.
- This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
+            Hello! My name is phseiff, and I'm an avid non-commercial developer, manga-binge-reader, vegetarian, programmer, writer and denglish-speaker. This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
         Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <!-- span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span -->
 
             <! A small motivational text for people who don't use javascript>
