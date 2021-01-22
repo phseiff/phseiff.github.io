@@ -5,6 +5,7 @@ from selenium.webdriver.firefox.options import Options
 import time
 import sys
 import requests
+import css_html_js_minify
 
 
 geckodriver_autoinstaller.install()
@@ -39,7 +40,8 @@ def main():
         f.write(darkreader_generated_css)
     with open("index.html", "r") as f:
         content = f.read()
-        content = content.replace("""
+        content = content.replace(
+            """
     <script type="text/javascript" src="darkreader/darkreader.min.js"></script>
     <script>
         DarkReader.setFetchMethod(window.fetch);
@@ -48,7 +50,11 @@ def main():
             contrast: 90,
             sepia: 10
         });
-    </script>""", """<link type="text/css" rel="stylesheet" href="/index.html.darkreader.min.css">""")
+    </script>""",
+            "<style>" + css_html_js_minify.css_minify(
+                darkreader_generated_css.split("/* Modified CSS */")[0]
+            ) + "</style>"
+        )
         content = content.replace("""
     <! Ensure dark reader is executed again after we updated the essays using javascript. >
     <script>

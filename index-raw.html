@@ -107,9 +107,11 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             padding-right: 10px;
         }
 
-        .zoom:hover {
-            transform: scale(1.1); /* Not working yet */
-            /* position: absolute; */
+        @media screen and (min-width:800px) {
+            .zoom:hover {
+                /* Zoom into desktop cards, but only on mobile. */
+                transform: scale(1.1);
+            }
         }
 
         /* Hide the desktop title/show the mobile title on mobile. */
