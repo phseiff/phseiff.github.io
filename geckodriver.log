@@ -1,7 +1,7 @@
-1611355063009	geckodriver	INFO	Listening on 127.0.0.1:58715
-1611355064014	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilesAcRFH"
+1611355367503	geckodriver	INFO	Listening on 127.0.0.1:58557
+1611355368509	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilef8kVyo"
 *** You are running in headless mode.
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1611355073925	Marionette	INFO	Listening on port 35341
-1611355073989	Marionette	WARN	TLS certificate errors will be ignored for this session
-1611355083386	Marionette	INFO	Stopped listening on port 35341
+1611355378133	Marionette	INFO	Listening on port 43933
+1611355378274	Marionette	WARN	TLS certificate errors will be ignored for this session
+1611355388308	Marionette	INFO	Stopped listening on port 43933
