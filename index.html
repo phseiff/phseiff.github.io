@@ -111,6 +111,18 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             }
         }
 
+        /* Reduce space to the left and right when we are on mobile. */
+        @media screen and (max-width: 599px) {
+            .container {
+                width: 100%;
+            }
+            #file-docker-image-pull-md-readme {
+                width: 97%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
+
         /* Hide the desktop title/show the mobile title on mobile. */
         .desktop_title {
             display: none;
