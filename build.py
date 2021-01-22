@@ -12,7 +12,10 @@ from darkreader import darkreader_emulator
 if "called_from_gh_pages" in sys.argv:
     time.sleep(20)
 
-description_of_myself = requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
+description_of_myself = "Hello! My name is phseiff, and I'm an avid non-commercial developer, manga-binge-reader, \
+vegetarian, programmer, writer and denglish-speaker."
+
+#requests.get("https://raw.githubusercontent.com/phseiff/phseiff/master/README.md").text
 
 # Parse RSS feed:
 
