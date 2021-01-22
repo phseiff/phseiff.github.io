@@ -830,9 +830,24 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <!-- enlargeable images. -->
 
     <style>
+        /* style for enlargeable images: */
         .gist :not(a)>img:not([src*="-icon."]) {
             all: initial;
             cursor: zoom-in;
+        }
+
+        /* style for non-enlargeable images: */
+        .gist img[src*="-icon."] {
+            vertical-align: middle;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
     </style>
 
