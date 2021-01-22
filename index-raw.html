@@ -107,10 +107,14 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             padding-right: 10px;
         }
 
-        @media screen and (min-width:800px) {
+        @media screen and (min-width:600px) {
             .zoom:hover {
                 /* Zoom into desktop cards, but only on mobile. */
                 transform: scale(1.1);
+            }
+            /* Make essay cards full screen width on mobile. */
+            .card-to-show-essay, .zoom, .card-to-show-essay *, .zoom * {
+                width: 100%;
             }
         }
 
