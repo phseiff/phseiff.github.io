@@ -1,18 +1,16 @@
-1617901707434	geckodriver	INFO	Listening on 127.0.0.1:58853
-1617901708442	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilehSV0Xi"
+1617912492862	geckodriver	INFO	Listening on 127.0.0.1:41141
+1617912493867	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileLicvSU"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1855): GLib-GObject-CRITICAL **: 17:08:36.315: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1767): GLib-GObject-CRITICAL **: 20:08:14.889: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1878): GLib-GObject-CRITICAL **: 17:08:36.673: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1787): GLib-GObject-CRITICAL **: 20:08:14.994: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1617912495954	Marionette	INFO	Listening on port 40579
 
-(/usr/lib/firefox/firefox:1946): GLib-GObject-CRITICAL **: 17:08:38.389: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-
-(/usr/lib/firefox/firefox:1944): GLib-GObject-CRITICAL **: 17:08:38.389: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1617901719009	Marionette	INFO	Listening on port 44407
-1617901719116	Marionette	WARN	TLS certificate errors will be ignored for this session
-1617901728216	Marionette	INFO	Stopped listening on port 44407
+(/usr/lib/firefox/firefox:1850): GLib-GObject-CRITICAL **: 20:08:15.971: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1617912495996	Marionette	WARN	TLS certificate errors will be ignored for this session
+1617912504473	Marionette	INFO	Stopped listening on port 40579
