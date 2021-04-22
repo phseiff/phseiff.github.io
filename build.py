@@ -128,7 +128,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
 
     # render the new essay card:
     new_card = """
-                <a href="{link}" class="card-to-show-essay standard-text-color">
+                <a {link_data} class="card-to-show-essay standard-text-color">
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
@@ -142,7 +142,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                                         {description}
                                     </div>
                                     <div class="card-action">
-                                        <a href="{link}">{invitation}</a>
+                                        <a {link_data}>{invitation}</a>
                                     </div>
                                 </div>
                             </div>
@@ -152,7 +152,11 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                             image=image.rsplit(".", 1)[0] + ".jpeg",
                             title=title,
                             description=description,
-                            link=("#" + essay_anchor) if is_project else link,
+                            link_data=(
+                                ('href="%s"' % essay_anchor)
+                                if not is_project
+                                else ('href="%s" target="_blank" rel="noopener noreferrer"' % link)
+                            ),
                             creation_date=" ".join(pubDate.split(" ")[:4]),
                             language=(
                                 ("🇬🇧" if language == "en" else "🇩🇪")
