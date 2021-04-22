@@ -11,5 +11,6 @@ article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):n
     background-position:center right;
     background-repeat:no-repeat;
     padding-right:15px;
-    rgb(175,238,238);
+    color: rgb(175,238,238);
+    text-decoration: underline;
 }
