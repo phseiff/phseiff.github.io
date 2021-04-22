@@ -153,7 +153,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                             title=title,
                             description=description,
                             link_data=(
-                                ('href="%s"' % essay_anchor)
+                                ('href="#%s"' % essay_anchor)
                                 if not is_project
                                 else ('href="%s" target="_blank" rel="noopener noreferrer"' % link)
                             ),
