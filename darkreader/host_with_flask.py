@@ -8,8 +8,6 @@ import mimetypes
 
 app = Flask(__name__)
 print("starting to host flask app!")
-with open("test.test", "w") as f:
-    f.write("os.")
 
 
 @app.route('/')
@@ -19,7 +17,7 @@ def hello_world():
 
 @app.route('/<path:file_name>')
 def run_flask(file_name: str):
-    if file_name.startswith("phseiff-essays_to_toot_about"):
+    if file_name.startswith("phseiff-essays"):
         return_value = requests.get("https://phseiff.com/" + file_name).text
     else:
         return_value = open(file_name, "r").read()

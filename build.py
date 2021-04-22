@@ -98,8 +98,8 @@ def fix_errors_in_date_format(date):
 # Initialize items for RSS feed parsing:
 
 essays_to_toot_about = list()  # list of tuples of (title, anchor, content, essay_image)
-visible_essay_anchors = list()  # list of anchors used to access essays_to_toot_about on the webpage
-essay_cards = ""  # string describing the cards used for accessing all essays_to_toot_about
+visible_essay_anchors = list()  # list of anchors used to access essays on the webpage
+essay_cards = ""  # string describing the cards used for accessing all essays
 project_cards = ""  # the same thing, but for projects
 
 # RSS feed parsing:
@@ -231,7 +231,8 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
        <!-- Further links -->""".format(name=essay_anchor, language=language, date=fix_errors_in_date_format(update_date))
         xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
 
-    print("essay card:", essay_cards)
+print("essay cards:", essay_cards)
+print("project cards:", project_cards)
 
 # Change creation date of central index.html:
 
