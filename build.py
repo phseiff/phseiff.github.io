@@ -118,10 +118,11 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     if not is_project:
         language = str(rss_item_soup.find("language").string)
         announcement = " ".join(str(rss_item_soup.find("announcement").string).split())
+        effort = float(str(rss_item_soup.find("effort").string).split("/")[0].strip())
     else:
         language = "en"
         announcement = "None"
-    effort = float(str(rss_item_soup.find("effort").string).split("/")[0].strip())
+        effort = 5.0  # because why not, it isn't needed anyway :)
     rss_item_soup.find("announcement").decompose()
     rss_item_soup.find("effort").decompose()
     essay_anchor = link.split("#")[-1]
