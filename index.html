@@ -73,7 +73,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <meta name="application-name" content="phseiff's Blog">
 
 
-    <!-- Which essays we already tooted about - don't change this, it is automatically parsed!
+    <!-- Which essays_to_toot_about we already tooted about - don't change this, it is automatically parsed!
     <already_tooted>minimalist-shadows</already_tooted>
     -->
 </head>
@@ -339,7 +339,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
             <div class="row">
                 
-                <a href="#minimalist-shadows" class="card-to-show-essay standard-text-color">
+                <a href="https://phseiff.com/#minimalist-shadows" class="card-to-show-essay standard-text-color">
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
@@ -353,7 +353,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                                         A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of shadows in this blog's design and as an introduction to my blog.
                                     </div>
                                     <div class="card-action">
-                                        <a href="#minimalist-shadows">Read here!</a>
+                                        <a href="https://phseiff.com/#minimalist-shadows">Read here!</a>
                                     </div>
                                 </div>
                             </div>
@@ -1495,7 +1495,7 @@ wawawa <img src="incest-essay-relatives-icons/green-icon.svg" alt="blublublu"> w
             function scroll_to(id) {
                 if (id === "") id = "phseiff-header"; // <- ensure we have a valid point to scroll to
 
-                // Show essay/ hide other essays if this is the hash of an essay:
+                // Show essay/ hide other essays_to_toot_about if this is the hash of an essay:
                 let essay_element_to_open = document.getElementById(id);
                 let was_an_essay = false;
                 if (essay_element_to_open.parentElement.id === "embedded_essays") {
@@ -1693,7 +1693,7 @@ wawawa <img src="incest-essay-relatives-icons/green-icon.svg" alt="blublublu"> w
             </div>
             <div class="footer-copyright" width="100%">
                 <div class="container">
-                    © 2020 Copyright phseiff. All Rights Reserved <! 🇯🇵 🇰🇷 🇩🇪 🇨🇳 🇺🇸 🇫🇷 🇪🇸 🇮🇹 🇷🇺 🇬🇧 >
+                    © 2020, 2021 Copyright phseiff. All Rights Reserved <! 🇯🇵 🇰🇷 🇩🇪 🇨🇳 🇺🇸 🇫🇷 🇪🇸 🇮🇹 🇷🇺 🇬🇧 >
                 </div>
             </div>
         </div>
@@ -1844,7 +1844,16 @@ wawawa <img src="incest-essay-relatives-icons/green-icon.svg" alt="blublublu"> w
             border-radius:5px;
         }
     </style>
-<link type="text/css" rel="stylesheet" href="/index.html.darkreader.min.css">
+
+    <! Ensure dark reader is executed again after we updated the essays using javascript. >
+    <script>
+        DarkReader.disable();
+        DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
+            brightness: 100,
+            contrast: 90,
+            sepia: 10
+        });
+    </script>
 
     <!-- enlargeable images. -->
 
@@ -1934,6 +1943,7 @@ wawawa <img src="incest-essay-relatives-icons/green-icon.svg" alt="blublublu"> w
             }
         }
         /* Set the interval for execution of the scroll-progress-bar-updater at the end, to not burden the rest of the script. */
+        let new_scroll_progress = false;
         window.setInterval(function() {
             if (new_scroll_progress) {
                 new_scroll_progress = false;

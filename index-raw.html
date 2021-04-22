@@ -73,7 +73,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <meta name="application-name" content="phseiff's Blog">
 
 
-    <!-- Which essays we already tooted about - don't change this, it is automatically parsed!
+    <!-- Which essays_to_toot_about we already tooted about - don't change this, it is automatically parsed!
     <already_tooted></already_tooted>
     -->
 </head>
@@ -467,7 +467,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             function scroll_to(id) {
                 if (id === "") id = "phseiff-header"; // <- ensure we have a valid point to scroll to
 
-                // Show essay/ hide other essays if this is the hash of an essay:
+                // Show essay/ hide other essays_to_toot_about if this is the hash of an essay:
                 let essay_element_to_open = document.getElementById(id);
                 let was_an_essay = false;
                 if (essay_element_to_open.parentElement.id === "embedded_essays") {
@@ -665,7 +665,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             </div>
             <div class="footer-copyright" width="100%">
                 <div class="container">
-                    © 2020 Copyright phseiff. All Rights Reserved <! 🇯🇵 🇰🇷 🇩🇪 🇨🇳 🇺🇸 🇫🇷 🇪🇸 🇮🇹 🇷🇺 🇬🇧 >
+                    © 2020, 2021 Copyright phseiff. All Rights Reserved <! 🇯🇵 🇰🇷 🇩🇪 🇨🇳 🇺🇸 🇫🇷 🇪🇸 🇮🇹 🇷🇺 🇬🇧 >
                 </div>
             </div>
         </div>
@@ -915,6 +915,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             }
         }
         /* Set the interval for execution of the scroll-progress-bar-updater at the end, to not burden the rest of the script. */
+        let new_scroll_progress = false;
         window.setInterval(function() {
             if (new_scroll_progress) {
                 new_scroll_progress = false;

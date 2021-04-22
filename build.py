@@ -97,27 +97,37 @@ def fix_errors_in_date_format(date):
 
 # Initialize items for RSS feed parsing:
 
-essays = list()  # list of tuples of (title, anchor, content, essay_image)
-essay_anchors = list()  # list of anchors used to access essays on the webpage
-essay_cards = str()  # string describing the cards used for accessing all essays
+essays_to_toot_about = list()  # list of tuples of (title, anchor, content, essay_image)
+visible_essay_anchors = list()  # list of anchors used to access essays_to_toot_about on the webpage
+essay_cards = ""  # string describing the cards used for accessing all essays_to_toot_about
+project_cards = ""  # the same thing, but for projects
 
 # RSS feed parsing:
 
 rss_feed = requests.get(url="https://phseiff.com/phseiff-essays/feed-original.rss").text
 rss_feed_soup = bs4.BeautifulSoup(rss_feed, "xml")
 for rss_item_soup in rss_feed_soup.find_all("item"):
+
+    # iterate over all data fields of the item and extract their data:
     description = str(rss_item_soup.find("description").string)
     title = str(rss_item_soup.find("title").string)
     link = str(rss_item_soup.find("link").string)
     pubDate = str(rss_item_soup.find("pubDate").string)
     image = str(rss_item_soup.find("image").string)
-    language = str(rss_item_soup.find("language").string)
-    announcement = " ".join(str(rss_item_soup.find("announcement").string).split())
+    is_project = True if rss_item_soup.has_attr("project") else False
+    if not is_project:
+        language = str(rss_item_soup.find("language").string)
+        announcement = " ".join(str(rss_item_soup.find("announcement").string).split())
+    else:
+        language = "en"
+        announcement = "None"
     effort = float(str(rss_item_soup.find("effort").string).split("/")[0].strip())
     rss_item_soup.find("announcement").decompose()
     rss_item_soup.find("effort").decompose()
     essay_anchor = link.split("#")[-1]
-    essay_cards += """
+
+    # render the new essay card:
+    new_card = """
                 <a href="{link}" class="card-to-show-essay standard-text-color">
                     <div class="col x0.5">
                         <div class="col-content">
@@ -132,7 +142,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                                         {description}
                                     </div>
                                     <div class="card-action">
-                                        <a href="{link}">Read here!</a>
+                                        <a href="{link}">{invitation}</a>
                                     </div>
                                 </div>
                             </div>
@@ -142,62 +152,84 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                             image=image.rsplit(".", 1)[0] + ".jpeg",
                             title=title,
                             description=description,
-                            link="#" + essay_anchor,
+                            link=("#" + essay_anchor) if is_project else link,
                             creation_date=" ".join(pubDate.split(" ")[:4]),
-                            language="🇬🇧" if language == "en" else "🇩🇪"
+                            language=(
+                                ("🇬🇧" if language == "en" else "🇩🇪")
+                                if not is_project
+                                else "<img style=\"height: 1em;\" src=\"/external-links/external-link-black.svg\">"
+                            ),
+                            invitation="View on GitHub" if is_project else "Read here!"
     )
-    essay_anchors.append(essay_anchor)
-    essays.append((
-        title,
-        essay_anchor,
-        requests.get("https://phseiff.com/phseiff-essays/" + essay_anchor + ".md").text,
-        image,
-        announcement
-    ))
-    descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
-    titles_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
-    images_string += "\"" + essay_anchor + "\": \"" + image.replace("\"", "\\\"") + "\",\n    "
-    languages_string += "\"" + essay_anchor + "\": \"" + language + "\",\n    "
 
-    for directory in ("e", "essay"):
-        if not os.path.exists(directory + "/" + essay_anchor):
-            os.makedirs(directory + "/" + essay_anchor)
-        with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
-            f.write(redirecting_page.format(
-                name=essay_anchor,
-                description=description,
-                image=image,
-                title=title,
-                language=language,
-            ))
-
-    # Save the change date:
-    if "called_from_gh_pages" in sys.argv:
-        command = (
-            "curl -u phseiff:" + sys.argv[3]
-            + " -s \"https://api.github.com/repos/phseiff/phseiff-essays/commits?path=" + essay_anchor
-            + ".md&page=1&per_page=1\" | jq \".[0].commit.committer.date\""
-        )
-        process = subprocess.Popen(
-            command, shell=True, stdout=subprocess.PIPE
-        )
-        print("Essay:", essay_anchor)
-        output, error = process.communicate()
-        print("output from asking for last change:", output)
-        last_change_date = str(output, encoding="UTF-8").split("T")[0]
-        update_date = last_change_date[1:][:-1]
-        print("Age:", update_date)
+    # add the nw card to the proper set of cards:
+    if is_project:
+        project_cards += new_card
     else:
-        update_date = "example"
-    xml_sitemap_entry = """<url>
-      <loc>https://phseiff.com/e/{name}</loc>
-      <lastmod>{date}</lastmod>
-      <changefreq>weekly</changefreq>
-      <priority>0.5</priority>
-      <xhtml:link rel="alternate" hreflang="{language}" href="https://phseiff.com/e/{name}"/>
-   </url>
-   <!-- Further links -->""".format(name=essay_anchor, language=language, date=fix_errors_in_date_format(update_date))
-    xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
+        essay_cards += new_card
+
+    # do things related to the essay sub-page if it's an essay rather than a project:
+    if not is_project:
+
+        # accumulate data for later:
+        visible_essay_anchors.append(essay_anchor)
+        essays_to_toot_about.append((
+            title,
+            essay_anchor,
+            requests.get("https://phseiff.com/phseiff-essays/" + essay_anchor + ".md").text,
+            image,
+            announcement
+        ))
+
+        # accumulate descriptions, titles and images for individual essay pages,
+        #  so they can be changed via javascript when someone navigates to a subpage:
+        descriptions_string += "\"" + essay_anchor + "\": \"" + description.replace("\"", "\\\"") + "\",\n    "
+        titles_string += "\"" + essay_anchor + "\": \"" + title.replace("\"", "\\\"") + " - by phseiff\",\n    "
+        images_string += "\"" + essay_anchor + "\": \"" + image.replace("\"", "\\\"") + "\",\n    "
+        languages_string += "\"" + essay_anchor + "\": \"" + language + "\",\n    "
+
+        # build redirection pages for essays:
+        for directory in ("e", "essay"):
+            if not os.path.exists(directory + "/" + essay_anchor):
+                os.makedirs(directory + "/" + essay_anchor)
+            with open(directory + "/" + essay_anchor + "/index.html", "w") as f:
+                f.write(redirecting_page.format(
+                    name=essay_anchor,
+                    description=description,
+                    image=image,
+                    title=title,
+                    language=language,
+                ))
+
+        # Save the change date of the essay, so we can build our sitemap from it:
+        if "called_from_gh_pages" in sys.argv:
+            command = (
+                "curl -u phseiff:" + sys.argv[3]
+                + " -s \"https://api.github.com/repos/phseiff/phseiff-essays/commits?path=" + essay_anchor
+                + ".md&page=1&per_page=1\" | jq \".[0].commit.committer.date\""
+            )
+            process = subprocess.Popen(
+                command, shell=True, stdout=subprocess.PIPE
+            )
+            print("Essay:", essay_anchor)
+            output, error = process.communicate()
+            print("output from asking for last change:", output)
+            last_change_date = str(output, encoding="UTF-8").split("T")[0]
+            update_date = last_change_date[1:][:-1]
+            print("Age:", update_date)
+        else:
+            update_date = "example"
+
+        # accumulate data for our sitemap into a string that we will later save:
+        xml_sitemap_entry = """<url>
+          <loc>https://phseiff.com/e/{name}</loc>
+          <lastmod>{date}</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+          <xhtml:link rel="alternate" hreflang="{language}" href="https://phseiff.com/e/{name}"/>
+       </url>
+       <!-- Further links -->""".format(name=essay_anchor, language=language, date=fix_errors_in_date_format(update_date))
+        xml_sitemap_content = xml_sitemap_content.replace("<!-- Further links -->", xml_sitemap_entry)
 
     print("essay card:", essay_cards)
 
@@ -231,7 +263,7 @@ with open("index-raw.html", "r") as index_raw:
             + '<span '
             # style (invisible by default if the essay is not mentioned in rss feed and not the license):
             + 'style="margin-top: 200px; '
-            + ("display: none;" if essay not in essay_anchors and essay != "LICENSE" else "") + '" '
+            + ("display: none;" if essay not in visible_essay_anchors and essay != "LICENSE" else "") + '" '
             # class:
             + 'class="embedded-essay"'
             # id (essay_name):
@@ -277,7 +309,6 @@ def frame_image(left, middle, right):
 
 # Determine what essays are new and store the new essays in a file to see that they are not new the next time:
 
-new_essays = list()
 current_website_content = requests.get("https://phseiff.com/index.html").text
 if "<already_tooted>" in current_website_content:
     essays_who_where_already_tooted = current_website_content.split("<already_tooted>", 1)[1].split(
@@ -285,7 +316,8 @@ if "<already_tooted>" in current_website_content:
 else:
     essays_who_where_already_tooted = list()
 
-for (a, essay_anchor, b, c, d) in essays:
+new_essays = list()
+for (a, essay_anchor, b, c, d) in essays_to_toot_about:
     if essay_anchor not in essays_who_where_already_tooted:
         new_essays.append((a, essay_anchor, b, c, d))
         essays_who_where_already_tooted.append(essay_anchor)

@@ -19,7 +19,7 @@ def hello_world():
 
 @app.route('/<path:file_name>')
 def run_flask(file_name: str):
-    if file_name.startswith("phseiff-essays"):
+    if file_name.startswith("phseiff-essays_to_toot_about"):
         return_value = requests.get("https://phseiff.com/" + file_name).text
     else:
         return_value = open(file_name, "r").read()
