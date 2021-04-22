@@ -1,16 +1,17 @@
-1619126001606	geckodriver	INFO	Listening on 127.0.0.1:60009
-1619126002616	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile99ThBy"
+1619127853591	geckodriver	INFO	Listening on 127.0.0.1:54721
+1619127854596	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekOJG9J"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1836): GLib-GObject-CRITICAL **: 21:13:28.834: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1800): GLib-GObject-CRITICAL **: 21:44:19.651: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1859): GLib-GObject-CRITICAL **: 21:13:29.094: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1824): GLib-GObject-CRITICAL **: 21:44:19.910: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:1945): GLib-GObject-CRITICAL **: 21:13:30.835: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619126010854	Marionette	INFO	Listening on port 33081
-1619126011004	Marionette	WARN	TLS certificate errors will be ignored for this session
-1619126015392	Marionette	INFO	Stopped listening on port 33081
+(/usr/lib/firefox/firefox:1901): GLib-GObject-CRITICAL **: 21:44:21.716: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619127861723	Marionette	INFO	Listening on port 42171
+1619127861863	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:5687/, line 1931: SyntaxError: redeclaration of let new_scroll_progress
+1619127871415	Marionette	INFO	Stopped listening on port 42171
