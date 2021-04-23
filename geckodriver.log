@@ -1,17 +1,17 @@
-1619139844911	geckodriver	INFO	Listening on 127.0.0.1:33301
-1619139845916	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHwRwpB"
+1619140097357	geckodriver	INFO	Listening on 127.0.0.1:57707
+1619140098362	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileOyul0C"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1952): GLib-GObject-CRITICAL **: 01:04:10.718: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1976): GLib-GObject-CRITICAL **: 01:08:27.185: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1976): GLib-GObject-CRITICAL **: 01:04:10.951: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1998): GLib-GObject-CRITICAL **: 01:08:27.611: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:2059): GLib-GObject-CRITICAL **: 01:04:12.477: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619139852507	Marionette	INFO	Listening on port 40983
-1619139852573	Marionette	WARN	TLS certificate errors will be ignored for this session
+(/usr/lib/firefox/firefox:2060): GLib-GObject-CRITICAL **: 01:08:29.435: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619140110213	Marionette	INFO	Listening on port 33353
+1619140110355	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: http://127.0.0.1:5687/, line 2128: SyntaxError: redeclaration of let new_scroll_progress
-1619139861722	Marionette	INFO	Stopped listening on port 40983
+1619140119554	Marionette	INFO	Stopped listening on port 33353
