@@ -285,6 +285,7 @@ with open("index-raw.html", "r") as index_raw:
 content = content.replace("<! the essays content >", essay_content)
 content = content.replace("{description}", description_of_myself)
 content = content.replace("<! essay cards >", essay_cards)
+content = content.replace("<! project cards >", project_cards)
 
 content = content.replace("/* other descriptions */", descriptions_string)
 content = content.replace("/* other titles */", titles_string)
