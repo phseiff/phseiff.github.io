@@ -3405,6 +3405,19 @@ span.badge {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
+span.left-badge {
+  min-width: 3rem;
+  padding: 0 6px;
+  margin-right: 14px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 22px;
+  height: 22px;
+  color: #757575;
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 span.badge.new {
   font-weight: 300;
