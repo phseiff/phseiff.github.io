@@ -1,17 +1,17 @@
-1619142846575	geckodriver	INFO	Listening on 127.0.0.1:51153
-1619142847580	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileBBokqO"
+1619143478540	geckodriver	INFO	Listening on 127.0.0.1:32933
+1619143479544	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileI2vum6"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1809): GLib-GObject-CRITICAL **: 01:54:08.528: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1984): GLib-GObject-CRITICAL **: 02:04:47.528: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1829): GLib-GObject-CRITICAL **: 01:54:08.642: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2008): GLib-GObject-CRITICAL **: 02:04:47.878: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1619142849587	Marionette	INFO	Listening on port 32771
 
-(/usr/lib/firefox/firefox:1892): GLib-GObject-CRITICAL **: 01:54:09.636: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619142849702	Marionette	WARN	TLS certificate errors will be ignored for this session
+(/usr/lib/firefox/firefox:2086): GLib-GObject-CRITICAL **: 02:04:49.592: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619143489606	Marionette	INFO	Listening on port 39009
+1619143489716	Marionette	WARN	TLS certificate errors will be ignored for this session
 JavaScript error: http://127.0.0.1:5687/, line 2149: SyntaxError: redeclaration of let new_scroll_progress
-1619142857828	Marionette	INFO	Stopped listening on port 32771
+1619143497945	Marionette	INFO	Stopped listening on port 39009
