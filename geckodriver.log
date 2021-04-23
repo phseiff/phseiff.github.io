@@ -1,16 +1,22 @@
-1619212156361	geckodriver	INFO	Listening on 127.0.0.1:59989
-1619212157366	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilekc39TM"
+1619215644826	geckodriver	INFO	Listening on 127.0.0.1:55219
+1619215645831	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileEtkyzT"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:2035): GLib-GObject-CRITICAL **: 21:09:23.258: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1970): GLib-GObject-CRITICAL **: 22:07:30.870: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2059): GLib-GObject-CRITICAL **: 21:09:23.538: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1994): GLib-GObject-CRITICAL **: 22:07:31.110: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619215652682	Marionette	INFO	Listening on port 40855
 
-(/usr/lib/firefox/firefox:2130): GLib-GObject-CRITICAL **: 21:09:25.151: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619212165154	Marionette	INFO	Listening on port 34209
-1619212165233	Marionette	WARN	TLS certificate errors will be ignored for this session
-1619212174575	Marionette	INFO	Stopped listening on port 34209
+(/usr/lib/firefox/firefox:2072): GLib-GObject-CRITICAL **: 22:07:32.685: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619215652814	Marionette	WARN	TLS certificate errors will be ignored for this session
+1619215661908	Marionette	INFO	Stopped listening on port 40855
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
