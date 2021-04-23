@@ -1,19 +1,20 @@
-1619146021319	geckodriver	INFO	Listening on 127.0.0.1:53821
-1619146022324	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileMd0QkD"
+1619146650652	geckodriver	INFO	Listening on 127.0.0.1:41247
+1619146651657	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSbLsdR"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:2126): GLib-GObject-CRITICAL **: 02:47:09.533: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1894): GLib-GObject-CRITICAL **: 02:57:33.019: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2156): GLib-GObject-CRITICAL **: 02:47:09.839: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1914): GLib-GObject-CRITICAL **: 02:57:33.147: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:2222): GLib-GObject-CRITICAL **: 02:47:11.852: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1996): GLib-GObject-CRITICAL **: 02:57:34.456: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619146654513	Marionette	INFO	Listening on port 33951
+1619146654592	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:5687/, line 2194: SyntaxError: redeclaration of let new_scroll_progress
+1619146664559	Marionette	INFO	Stopped listening on port 33951
 
-(/usr/lib/firefox/firefox:2221): GLib-GObject-CRITICAL **: 02:47:11.873: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619146031927	Marionette	INFO	Listening on port 40449
-1619146031997	Marionette	WARN	TLS certificate errors will be ignored for this session
-JavaScript error: http://127.0.0.1:5687/, line 2172: SyntaxError: redeclaration of let new_scroll_progress
-1619146041468	Marionette	INFO	Stopped listening on port 40449
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
