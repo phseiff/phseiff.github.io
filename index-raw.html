@@ -115,7 +115,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
         @media screen and (max-width:599px) {
             /* Make essay cards full screen width on mobile. */
-            .card-to-show-essay, .zoom, .card-to-show-essay *, .zoom * {
+            .card-to-show-essay, .zoom, .card-to-show-essay *:not(.badge):not(.left-badge), .zoom *:not(.badge):not(.left-badge) {
                 width: 100%;
             }
         }
@@ -274,7 +274,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             /*color:grey;
             filter: grayscale(100%);*/
             color: transparent;
-            text-shadow: 0 0 0 #9f9788;
+            text-shadow: 0 0 0 #757575;
         }
         .yellow-emoji {
             color: transparent;
@@ -288,7 +288,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         <div id="outer-progress-bar" style="width:100%; background:transparent;  height:5px; position: -webkit-sticky; position: sticky; top: 0; display: none; z-index: 10002">
             <div class="reading-progress-bar" id="progress-bar" style="left:0; height:100%; width:0; transition:width 400ms;">
                 <script>
-                  let new_scroll_progress = false;
 
                   function getScrollPercent() {
                       /* Source: https://stackoverflow.com/a/8028584*/
@@ -304,6 +303,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                     document.getElementById("progress-bar").style.width = Math.min(100, Math.max(0, Math.round(getScrollPercent()))) + "%";
                   }
 
+                  let new_scroll_progress = false;
                   document.addEventListener('scroll', function(e) {
                     new_scroll_progress = true;
                   }, true);
@@ -936,7 +936,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             }
         }
         /* Set the interval for execution of the scroll-progress-bar-updater at the end, to not burden the rest of the script. */
-        let new_scroll_progress = false;
         window.setInterval(function() {
             if (new_scroll_progress) {
                 new_scroll_progress = false;

@@ -122,6 +122,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     else:
         language = "en"
         announcement = "None"
+        effort = 5.0  # because why not, it isn't needed anyway :)
         # get stars:
         repo_name = image.split("/")[-1].split(".jpeg")[0]
         effort_string = ""
@@ -131,9 +132,6 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
             effort_string = str(star_count) + " <span class=\"yellow-emoji\">⭐</span> on GitHub"
         except:
             pass
-
-        effort = 5.0  # because why not, it isn't needed anyway :)
-
 
     essay_anchor = link.split("#")[-1]
 

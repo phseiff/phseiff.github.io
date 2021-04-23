@@ -3399,7 +3399,7 @@ input[type="range"]:focus-visible {
 }
 .gray-emoji {
     color: transparent;
-    text-shadow: rgb(93, 97, 97) 0px 0px 0px;
+    text-shadow: rgb(96, 100, 101) 0px 0px 0px;
 }
 .yellow-emoji {
     color: transparent;
