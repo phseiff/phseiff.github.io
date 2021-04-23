@@ -123,8 +123,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
         language = "en"
         announcement = "None"
         effort = 5.0  # because why not, it isn't needed anyway :)
-    rss_item_soup.find("announcement").decompose()
-    rss_item_soup.find("effort").decompose()
+
     essay_anchor = link.split("#")[-1]
 
     # render the new essay card:

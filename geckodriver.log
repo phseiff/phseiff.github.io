@@ -1,17 +1,17 @@
-1619135790594	geckodriver	INFO	Listening on 127.0.0.1:38459
-1619135791602	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileyqwfIc"
+1619139844911	geckodriver	INFO	Listening on 127.0.0.1:33301
+1619139845916	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileHwRwpB"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1933): GLib-GObject-CRITICAL **: 23:56:35.485: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1952): GLib-GObject-CRITICAL **: 01:04:10.718: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1956): GLib-GObject-CRITICAL **: 23:56:35.689: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1976): GLib-GObject-CRITICAL **: 01:04:10.951: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:2021): GLib-GObject-CRITICAL **: 23:56:37.126: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619135797164	Marionette	INFO	Listening on port 41703
-1619135797251	Marionette	WARN	TLS certificate errors will be ignored for this session
-JavaScript error: http://127.0.0.1:5687/, line 1931: SyntaxError: redeclaration of let new_scroll_progress
-1619135805922	Marionette	INFO	Stopped listening on port 41703
+(/usr/lib/firefox/firefox:2059): GLib-GObject-CRITICAL **: 01:04:12.477: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619139852507	Marionette	INFO	Listening on port 40983
+1619139852573	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:5687/, line 2128: SyntaxError: redeclaration of let new_scroll_progress
+1619139861722	Marionette	INFO	Stopped listening on port 40983
