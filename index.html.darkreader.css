@@ -118,7 +118,7 @@ select:-webkit-autofill {
     background-image: url("https://phseiff.com/external-links/external-link.svg");
     color: rgb(166, 225, 220);
 }
-article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]) {
+article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]):not(.card-to-show-essay) {
     background-image: url("/external-links/external-link.svg");
     color: rgb(166, 225, 220);
     text-decoration-color: currentcolor;
@@ -1913,6 +1913,9 @@ tr {
 span.badge {
     color: rgb(159, 151, 136);
 }
+span.left-badge {
+    color: rgb(159, 151, 136);
+}
 span.badge.new {
     color: rgb(229, 224, 216);
     background-color: rgb(50, 132, 121);
@@ -3393,6 +3396,14 @@ input[type="range"]:focus-visible {
     background-image: linear-gradient(0deg,
     rgba(13, 13, 13, 0.2) 0%,
     rgba(13, 13, 13, 0.2) 100%);
+}
+.gray-emoji {
+    color: transparent;
+    text-shadow: rgb(93, 97, 97) 0px 0px 0px;
+}
+.yellow-emoji {
+    color: transparent;
+    text-shadow: rgb(166, 119, 32) 0px 0px 0px;
 }
 svg.gh-md-to-html-formula {
     fill: rgb(229, 224, 216);

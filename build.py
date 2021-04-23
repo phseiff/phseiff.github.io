@@ -118,11 +118,22 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     if not is_project:
         language = str(rss_item_soup.find("language").string)
         announcement = " ".join(str(rss_item_soup.find("announcement").string).split())
-        effort = float(str(rss_item_soup.find("effort").string).split("/")[0].strip())
+        effort = int(str(rss_item_soup.find("effort").string).split("/")[0].strip())
     else:
         language = "en"
         announcement = "None"
+        # get stars:
+        repo_name = image.split("/")[-1].split(".jpeg")[0]
+        effort_string = ""
+        try:
+            repo_data = requests.get("https://api.github.com/repos/phseiff/" + repo_name).json()
+            star_count = repo_data['stargazers_count']
+            effort_string = str(star_count) + " <span class=\"yellow-emoji\">⭐</span> on GitHub"
+        except:
+            pass
+
         effort = 5.0  # because why not, it isn't needed anyway :)
+
 
     essay_anchor = link.split("#")[-1]
 
@@ -135,7 +146,8 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                                 <div class="card">
                                     <div class="card-image">
                                         <img alt="{image}" src="{image}">
-                                        <span class="badge">{creation_date} | {language}</span>
+                                        <span class="left-badge">{stars}</span>
+                                        <span class="badge">{creation_date} {language}</span>
                                     </div>
                                     <div class="card-content">
                                         <span class="card-title">{title}</span>
@@ -159,11 +171,19 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                             ),
                             creation_date=" ".join(pubDate.split(" ")[:4]),
                             language=(
-                                ("🇬🇧" if language == "en" else "🇩🇪")
+                                ("| 🇬🇧" if language == "en" else "| 🇩🇪")
                                 if not is_project
-                                else "<img style=\"height: 1em;\" src=\"/external-links/external-link-black.svg\">"
+                                else ""
                             ),
-                            invitation="View on GitHub" if is_project else "Read here!"
+                            invitation=("View on GitHub! "
+                                        + "<img style=\"height: 1em;\" src=\"/external-links/external-link-yellow.svg\">"
+                                        if is_project else "Read here!"),
+                            stars=(
+                                ("<span class=\"yellow-emoji\">" + "".join(["✨"] * effort) + "</span>"
+                                + "<span class=\"gray-emoji\">" + "".join(["✨"] * (5 - effort)) + "</span>")
+                                if not is_project
+                                else effort_string
+                            )
     )
 
     # add the nw card to the proper set of cards:
