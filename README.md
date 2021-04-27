@@ -115,14 +115,14 @@ It worth noting for all of these topics that my website is a static website, so 
     
     ```xml
      <item>
-      <image>https://phseiff.com/phseiff-essays/shadows.jpeg</image>
-      <title>Why we should redeem shadows in minimalist design</title>
-      <description>A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of
+      <image>❶ https://phseiff.com/phseiff-essays/shadows.jpeg</image>
+      <title>❷ Why we should redeem shadows in minimalist design</title>
+      <description>❸ A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of
     shadows in this blog's design and as an introduction to my blog.</description>
       <link>https://phseiff.com/#minimalist-shadows</link>
-      <pubDate>Fr, 21 Aug 2020 18:00:00 +0200</pubDate>
-      <language>en</language>
-      <phseiff:effort>2/5</phseiff:effort>
+      <pubDate>❹ Fr, 21 Aug 2020 18:00:00 +0200</pubDate>
+      <language>❺ en</language>
+      <phseiff:effort>❻ 2/5</phseiff:effort>
       <phseiff:announcement>
         Here's a short essay (or should I call it a rant?) I wrote about my aversion to the idea that minimalist design
         requires the absence of shadows, or really that there is anything that context-independently contradicts minimalism.
