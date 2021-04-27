@@ -49,7 +49,7 @@ It worth noting for all of these topics that my website is a static website, so 
   You might have guessed that this is done using javascript, which is executed every time an essay card is clicked;
   however, there are some things worth noting here:
   
-  * **The content of the essays is hidden until it is unhidden by javascript, but it is not *loaded* by the javascript.**
+  * <strong>The content of the essays is hidden until it is unhidden by javascript, but it is not *loaded* by the javascript.</strong>
     
     This is relevant because it means that my website is indeed a single-page-website, and loaded all at once.
     This means that you can open my website, disable your internet, and still access all of its contents, without having to manually cache every single page of it.
@@ -111,7 +111,11 @@ It worth noting for all of these topics that my website is a static website, so 
   * **Maintaining the website's cards and RSS feed:**
     
     As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
-    If I add, for example, an entry like the following (
+    If I add, for example, an entry like the following
+    
+    <table><tr><td>
+    
+    (
     
     ```xml
      <item>
@@ -130,6 +134,12 @@ It worth noting for all of these topics that my website is a static website, so 
       </phseiff:announcement>
      </item>
     ```
+    
+    </td><td>
+    
+    ![An image of a corresponding essay card, with a fitting description, title and image](https://phseiff.com/images/writeup-illustration-essay-card.png)
+  
+    </td></table>
     
     ), it adds an essay card to my website with the appropriate title, description and sparkle-rating, as follows:
   

@@ -851,6 +851,12 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <!-- enlargeable images. -->
 
     <style>
+        /* make sure bold text in essays is properly bolded (this is invalidated by materialize.css at the moment) */
+        .gist strong {
+            /* Added to make sure that bold text is properly bolded. */
+           font-weight: bolder;
+        }
+
         /* style for enlargeable images: */
         .gist :not(a)>img:not([src*="-icon."]) {
             all: initial;
