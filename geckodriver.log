@@ -1,18 +1,18 @@
-1619563926145	geckodriver	INFO	Listening on 127.0.0.1:51903
-1619563927151	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile54bfpi"
+1619567160565	geckodriver	INFO	Listening on 127.0.0.1:39687
+1619567161571	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWFG0PU"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1820): GLib-GObject-CRITICAL **: 22:52:21.051: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2117): GLib-GObject-CRITICAL **: 23:46:08.814: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1848): GLib-GObject-CRITICAL **: 22:52:21.820: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2141): GLib-GObject-CRITICAL **: 23:46:09.064: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:1938): GLib-GObject-CRITICAL **: 22:52:24.219: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2210): GLib-GObject-CRITICAL **: 23:46:11.464: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619567171531	Marionette	INFO	Listening on port 34145
 
-(/usr/lib/firefox/firefox:1936): GLib-GObject-CRITICAL **: 22:52:24.251: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619563944597	Marionette	INFO	Listening on port 38509
-1619563944760	Marionette	WARN	TLS certificate errors will be ignored for this session
-1619563957149	Marionette	INFO	Stopped listening on port 38509
+(/usr/lib/firefox/firefox:2211): GLib-GObject-CRITICAL **: 23:46:11.530: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619567171649	Marionette	WARN	TLS certificate errors will be ignored for this session
+1619567182871	Marionette	INFO	Stopped listening on port 34145
