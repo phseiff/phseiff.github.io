@@ -538,7 +538,7 @@ Entering a subpage link like <code>phseiff.com/e/name-of-the-essay</code> into y
 however, there are some things worth noting here:</p>
 <ul>
 <li>
-<p>**The content of the essays is hidden until it is unhidden by javascript, but it is not <em>loaded</em> by the javascript.**</p>
+<p><strong>The content of the essays is hidden until it is unhidden by javascript, but it is not <em>loaded</em> by the javascript.</strong></p>
 <p>This is relevant because it means that my website is indeed a single-page-website, and loaded all at once.
 This means that you can open my website, disable your internet, and still access all of its contents, without having to manually cache every single page of it.
 It also implies better performance, since having the small overhead of loading some extra kilobyte of essay text (and a bunch of images, whom I might change to javascript-loaden if this becomes too much of a burden later) is much preferable over making separate server requests for every single subpage, each of whom varies only in parts of its content rather than relevant heavy boilerplate code.
@@ -597,8 +597,9 @@ The public repository also re-builds the website when I push any changes, of cou
 </li>
 <li>
 <p><strong>Maintaining the website's cards and RSS feed:</strong></p>
-<p>As mentioned above, I maintain a file called <code>feed-original.rss</code> within my website contents repository.
-If I add, for example, an entry like the following (</p>
+<p>As mentioned above, I maintain a file called <code>feed-original.rss</code> within my website contents repository.</p>
+<table><tr><td>
+<p>If I add, for example, an entry like the following (</p>
 <div class="highlight highlight-source-xml"><pre><span></span><span class="pl-nt">&lt;item&gt;</span>
   <span class="pl-nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/shadows.jpeg<span class="pl-nt">&lt;/image&gt;</span>
   <span class="pl-nt">&lt;title&gt;</span>❷ Why we should redeem shadows in minimalist design<span class="pl-nt">&lt;/title&gt;</span>
@@ -615,8 +616,25 @@ shadows in this blog's design and as an introduction to my blog.<span class="pl-
   <span class="pl-nt">&lt;/phseiff:announcement&gt;</span>
  <span class="pl-nt">&lt;/item&gt;</span>
 </pre></div>
-<p>), it adds an essay card to my website with the appropriate title, description and sparkle-rating, as follows:</p>
-<p><img alt="An image of a corresponding essay card, with a fitting description, title and image" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-card.png" src="/phseiff-essays/images/writeup-illustration-essay-card.png" srcset="/phseiff-essays/images/writeup-illustration-essay-card.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-card.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-card.389px.jpeg 389w, " style="max-width:100%; max-height: 653px;"/></p>
+<p>), where (skip this if the details don't exactly interest you):</p>
+<ul>
+<li>
+❶ is the image (I just save <code>shadows.png</code>, and it is automatically compressed and resized to <code>shadows.jpeg</code>.</li>
+<li>
+❷ is the title of the essay card</li>
+<li>
+❸ is the description on the essay card</li>
+<li>
+❹ is the creation date of the content</li>
+<li>
+❺ is the language of the content (displayed as a flag)</li>
+<li>
+❻ describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating,</li>
+</ul>
+<p>then I get an essay card as shown on the right into my website.</p>
+</td><td>
+<p><img alt="An image of a corresponding essay card, with a fitting description, title and image" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-card-icon.png" src="/phseiff-essays/images/writeup-illustration-essay-card-icon.png" srcset="/phseiff-essays/images/writeup-illustration-essay-card-icon.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-card-icon.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-card-icon.389px.jpeg 389w, " style="max-width:100%; max-height: 653px;"/></p>
+</td></tr></table>
 </li>
 <li>
 <p><strong>Converting markdown-files to html:</strong></p>
