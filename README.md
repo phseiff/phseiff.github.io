@@ -111,11 +111,10 @@ It worth noting for all of these topics that my website is a static website, so 
   * **Maintaining the website's cards and RSS feed:**
     
     As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
-    If I add, for example, an entry like the following
     
     <table><tr><td>
     
-    (
+    If I add, for example, an entry like the following (
     
     ```xml
      <item>
@@ -134,6 +133,8 @@ It worth noting for all of these topics that my website is a static website, so 
       </phseiff:announcement>
      </item>
     ```
+    
+    ), where (skip this if the details don't exactly interest you):
     
     </td><td>
     
