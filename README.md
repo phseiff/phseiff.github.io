@@ -135,18 +135,20 @@ It worth noting for all of these topics that my website is a static website, so 
     ```
     
     ), where (skip this if the details don't exactly interest you):
+    * ❶ is the image (I just save `shadows.png`, and it is automatically compressed and resized to `shadows.jpeg`.
+    * ❷ is the title of the essay card
+    * ❸ is the description on the essay card
+    * ❹ is the creation date of the content
+    * ❺ is the language of the content (displayed as a flag)
+    * ❻ describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating,
+  
+    then I get an essay card as shown on the right into my website.
     
     </td><td>
     
-    ![An image of a corresponding essay card, with a fitting description, title and image](https://phseiff.com/images/writeup-illustration-essay-card.png)
+    ![An image of a corresponding essay card, with a fitting description, title and image](https://phseiff.com/images/writeup-illustration-essay-card-icon.png)
   
     </td></table>
-    
-    ), it adds an essay card to my website with the appropriate title, description and sparkle-rating, as follows:
-  
-    ![An image of a corresponding essay card, with a fitting description, title and image](https://phseiff.com/images/writeup-illustration-essay-card.png)
-  
-    
     
   * **Converting markdown-files to html:**
 
