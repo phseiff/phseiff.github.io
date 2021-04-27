@@ -854,7 +854,16 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         /* make sure bold text in essays is properly bolded (this is invalidated by materialize.css at the moment) */
         .gist strong {
             /* Added to make sure that bold text is properly bolded. */
-           font-weight: bolder;
+           font-weight: bolder !important;
+        }
+
+        /* Stop multiline code boxes from scrolling if the text si to long, and get them to use soft wrap instead. */
+        .gist pre {
+             white-space: pre-wrap;       /* css-3 */
+             white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+             white-space: -pre-wrap;      /* Opera 4-6 */
+             white-space: -o-pre-wrap;    /* Opera 7 */
+             word-wrap: break-word;       /* Internet Explorer 5.5+ */
         }
 
         /* style for enlargeable images: */
