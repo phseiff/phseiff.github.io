@@ -8,8 +8,8 @@ The following essay can also be read [as an essay on my website](https://phseiff
 
 ---
 
-# Why I am proud of my Website
-## even though it gets no visitors and I don't have the time to make a lot of content for it.
+# Why I am proud of my website
+even though it gets no visitors and I don't have the time to make a lot of content for it.
 
 ![The preview image of the repository I have my website's code in](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/repo-preview-card.png)
 
@@ -92,7 +92,7 @@ It worth noting for all of these topics that my website is a static website, so 
   My website builder does essentially do two things:
   1. Maintain the RSS feed and the essay- and project cards on my website.
      
-     Both of these things are handled by manually editing an RSS file called `feed-raw.rss`, which is used for building the essay cards, and a subset of which is used for the actual RSS feed of my website, based on meta-tags that indicate whether an item is intended to be part of the final RSS feed or just a card on my website.
+     Both of these things are handled by manually editing an RSS file called `feed-original.rss`, which is used for building the essay cards, and a subset of which is used for the actual RSS feed of my website, based on meta-tags that indicate whether an item is intended to be part of the final RSS feed or just a card on my website.
      
   2. Maintain the subpages of my website (which is done by manually managing a folder full of markdown files, where `foo.md` describes the contents of the `phseiff.com/e/foo` subpage, with no additional action required to be done to add them to my website other than creating them).
     
@@ -109,6 +109,33 @@ It worth noting for all of these topics that my website is a static website, so 
     The public repository also re-builds the website when I push any changes, of course.
     
   * **Maintaining the website's cards and RSS feed:**
+    
+    As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
+    If I add, for example, an entry like the following (
+    
+    ```xml
+     <item>
+      <image>https://phseiff.com/phseiff-essays/shadows.jpeg</image>
+      <title>Why we should redeem shadows in minimalist design</title>
+      <description>A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of
+    shadows in this blog's design and as an introduction to my blog.</description>
+      <link>https://phseiff.com/#minimalist-shadows</link>
+      <pubDate>Fr, 21 Aug 2020 18:00:00 +0200</pubDate>
+      <language>en</language>
+      <phseiff:effort>2/5</phseiff:effort>
+      <phseiff:announcement>
+        Here's a short essay (or should I call it a rant?) I wrote about my aversion to the idea that minimalist design
+        requires the absence of shadows, or really that there is anything that context-independently contradicts minimalism.
+        Check it out if you're interested!
+      </phseiff:announcement>
+     </item>
+    ```
+    
+    ), it adds an essay card to my website with the appropriate title, description and sparkle-rating, as follows:
+  
+    ![An image of a corresponding essay card, with a fitting description, title and image](https://phseiff.com/images/writeup-illustration-essay-card.png)
+  
+    
     
   * **Converting markdown-files to html:**
 
