@@ -3490,7 +3490,7 @@ svg.gh-md-to-html-formula {
 svg.gh-md-to-html-formula {
     fill: rgb(229, 224, 216);
 }
-.gist img:not([height]):not([width]):not(.frameless):not([src*="-icon."]) {
+.gist img:not([height]):not([width]):not(.frameless):not([src*="-icon."]):not([src*="-noborder."]) {
     border-color: rgb(66, 69, 69);
 }
 .gist :not(a) > img:not([src*="-icon."]) {
