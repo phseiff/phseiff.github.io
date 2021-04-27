@@ -134,19 +134,21 @@ It worth noting for all of these topics that my website is a static website, so 
      </item>
     ```
     
-    ), where (skip this if the details don't exactly interest you):
+    ), then I get an essay card as shown on the right into my website.
+    
+    In this format (skip this if the details don't exactly interest you):
     * <span class="reminder-red">❶</span> is the image (I just save `shadows.png`, and it is automatically compressed and resized to `shadows.jpeg`.
     * <span class="reminder-red">❷</span> is the title of the essay card
     * <span class="reminder-red">❸</span> is the description on the essay card
     * <span class="reminder-red">❹</span> is the creation date of the content
     * <span class="reminder-red">❺</span> is the language of the content (displayed as a flag)
     * <span class="reminder-red">❻</span> describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating,
-  
-    then I get an essay card as shown on the right into my website.
     
     </td><td>
     
     ![An image of a corresponding essay card, with a fitting description, title and image](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-card-noborder.png)
+  
+    <img alt="An image of a toot on mastodon with the corresponding content" style="max-height: 309px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-toot-noborder.png">
   
     </td></table>
     
