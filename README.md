@@ -80,7 +80,7 @@ It worth noting for all of these topics that my website is a static website, so 
     The redirection dummy pages also work with javascript disabled, so even entering the domain of a subpage directly into the browser works as expected with javascript disabled.
     
     If javascript is enabled, on the other hand, all of these elements are changed directly when the page loads;
-  subpages are hidden, `#subpage`-links are changed to something along the lines of `javascript:set_location("subpage");`, `#top`-links (and similar ones) are changed to something along the lines of `javascript:smooth_scroll("top");`, the to-the-top and to-the-bottom buttons are hidden unless one is far away from their intended destination, and so on.
+    subpages are hidden, `#subpage`-links are changed to something along the lines of `javascript:set_location("subpage");`, `#top`-links (and similar ones) are changed to something along the lines of `javascript:smooth_scroll("top");`, the to-the-top and to-the-bottom buttons are hidden unless one is far away from their intended destination, and so on.
     
     The non-javascript version of the page is also not exactly optimized for SEO, but that's okay because the biggest relevant search engines all use headless browsers with activated javascript to analyse web pages.
 
@@ -111,6 +111,11 @@ It worth noting for all of these topics that my website is a static website, so 
   * **Maintaining the website's cards and RSS feed:**
     
     As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
+    This RSS feed contains information describing the different types of cards on my website, both these that link to subpages ("essay cards") as well as those that link to external pages ("project cards").
+    The feed, littered with non-standard meta-tags that describe additional contents of the cards, is then parsed into the cards, and a subset (with some items and non-standard tags removed) of the feed is parsed into an actual RSS feed that can be accessed from my website.
+    New subpages also result in a post in [my personal mastodon instance](https://toot.phseiff.com/).
+    
+    The following table offers some additional details, if you are interested in the exact way I orchestrate my website.
     
     <table><tr><td>
     
@@ -126,7 +131,7 @@ It worth noting for all of these topics that my website is a static website, so 
       <pubDate>❹ Fr, 21 Aug 2020 18:00:00 +0200</pubDate>
       <language>❺ en</language>
       <phseiff:effort>❻ 2/5</phseiff:effort>
-      <phseiff:announcement>
+      <phseiff:announcement> ❼
         Here's a short essay (or should I call it a rant?) I wrote about my aversion to the idea that minimalist design
         requires the absence of shadows, or really that there is anything that context-independently contradicts minimalism.
         Check it out if you're interested!
@@ -142,15 +147,46 @@ It worth noting for all of these topics that my website is a static website, so 
     * <span class="reminder-red">❸</span> is the description on the essay card
     * <span class="reminder-red">❹</span> is the creation date of the content
     * <span class="reminder-red">❺</span> is the language of the content (displayed as a flag)
-    * <span class="reminder-red">❻</span> describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating,
+    * <span class="reminder-red">❻</span> describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating
+    * <span class="reminder-red">❼</span> is a text for announcements and for my RSS feed.
     
     </td><td>
     
     ![An image of a corresponding essay card, with a fitting description, title and image](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-card-noborder.png)
   
-    <img alt="An image of a toot on mastodon with the corresponding content" style="max-height: 309px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-toot-noborder.png">
+    </tr><tr><td>
   
-    </td></table>
+    Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), which looks like the post displayed on the bottom right.
+  
+    </td><td>
+     
+    <img alt="An image of a toot on mastodon with the corresponding content" style="max-height: 260px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-toot-noborder.png">
+  
+    </tr><tr><td>
+  
+    I can also add a `project="true"` attribute to any item, in which case the resulting card is added to the project list in my website rather than the essay list, receives a (regularly updated) star count if it links to a GitHub repository rather than language information and a sparkle count, and gets its image build from the repository's preview image, with a fancy orange overlay.
+  
+    The code for this looks, examplary, pretty much like this:
+  
+    ```xml
+     <item project="true">
+       <image>❶ https://phseiff.com/phseiff-essays/gh-images/github-flavored-markdown-to-html.jpeg</image>
+       <title>❷ gh-md-to-html</title>
+       <description>❸ My very own (and very handy) markdown conversion tool, which I also use for this website. It comes with a set of unusual and handy features optimized for customizability and ease of use.</description>
+       <link>https://github.com/phseiff/github-flavored-markdown-to-html</link>
+       <pubDate>❹ ~July 2020</pubDate>
+     </item>
+     ```
+    , where:
+    * <span class="reminder-red">❶</span> the image is build from the repository preview image of the repository the card links to;
+      the rule being that the contents of `https://phseiff.com/phseiff-essays/gh-images/foo.jpeg` are a compressed JPEG of `github.com/phseiff/foo`'s preview image with an added orange overlay to fit int my website's color scheme.
+    * pretty much everything else is like in every other essay card.
+  
+    </td><td>
+  
+    <img alt="An image of a project card on my website" style="max-height: 260px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-project-card-noborder.png">
+  
+    </td></tr></table>
     
   * **Converting markdown-files to html:**
 
