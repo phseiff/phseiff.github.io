@@ -1,22 +1,16 @@
-1619573761767	geckodriver	INFO	Listening on 127.0.0.1:57113
-1619573762773	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileFhZoJ6"
+1619573969106	geckodriver	INFO	Listening on 127.0.0.1:36599
+1619573970110	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilexPOOPn"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:2011): GLib-GObject-CRITICAL **: 01:36:09.820: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2049): GLib-GObject-CRITICAL **: 01:39:31.309: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2035): GLib-GObject-CRITICAL **: 01:36:10.251: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2069): GLib-GObject-CRITICAL **: 01:39:31.448: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1619573972580	Marionette	INFO	Listening on port 37885
+1619573972652	Marionette	WARN	TLS certificate errors will be ignored for this session
 
-(/usr/lib/firefox/firefox:2090): GLib-GObject-CRITICAL **: 01:36:12.161: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1619573772230	Marionette	INFO	Listening on port 39479
-1619573772354	Marionette	WARN	TLS certificate errors will be ignored for this session
-1619573784006	Marionette	INFO	Stopped listening on port 39479
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(/usr/lib/firefox/firefox:2131): GLib-GObject-CRITICAL **: 01:39:32.661: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1619573985263	Marionette	INFO	Stopped listening on port 37885

@@ -564,11 +564,11 @@ for example, one essay card might link to <code>#foo</code>, where <code>#foo</c
 There are also two arrows, one scrolling to the top and one scrolling to the footer of the page if one clicks them, permanently displayed when javascript is disabled.
 All of this is obviously not the best user experience, but it allows easy navigation and accessing all the contents of the page even without js.
 The redirection dummy pages also work with javascript disabled, so even entering the domain of a subpage directly into the browser works as expected with javascript disabled.</p>
-<p>If javascript is enabled, on the other hand, all of these elements are changed directly when the page loads;</p>
+<p>If javascript is enabled, on the other hand, all of these elements are changed directly when the page loads;
+subpages are hidden, <code>#subpage</code>-links are changed to something along the lines of <code>javascript:set_location("subpage");</code>, <code>#top</code>-links (and similar ones) are changed to something along the lines of <code>javascript:smooth_scroll("top");</code>, the to-the-top and to-the-bottom buttons are hidden unless one is far away from their intended destination, and so on.</p>
+<p>The non-javascript version of the page is also not exactly optimized for SEO, but that's okay because the biggest relevant search engines all use headless browsers with activated javascript to analyse web pages.</p>
 </li>
 </ul>
-<p>subpages are hidden, <code>#subpage</code>-links are changed to something along the lines of <code>javascript:set_location("subpage");</code>, <code>#top</code>-links (and similar ones) are changed to something along the lines of <code>javascript:smooth_scroll("top");</code>, the to-the-top and to-the-bottom buttons are hidden unless one is far away from their intended destination, and so on.</p>
-<p>The non-javascript version of the page is also not exactly optimized for SEO, but that's okay because the biggest relevant search engines all use headless browsers with activated javascript to analyse web pages.</p>
 </li>
 <li>
 <p><strong>Writing my own website-builder</strong>:</p>
@@ -597,24 +597,28 @@ The public repository also re-builds the website when I push any changes, of cou
 </li>
 <li>
 <p><strong>Maintaining the website's cards and RSS feed:</strong></p>
-<p>As mentioned above, I maintain a file called <code>feed-original.rss</code> within my website contents repository.</p>
+<p>As mentioned above, I maintain a file called <code>feed-original.rss</code> within my website contents repository.
+This RSS feed contains information describing the different types of cards on my website, both these that link to subpages ("essay cards") as well as those that link to external pages ("project cards").
+The feed, littered with non-standard meta-tags that describe additional contents of the cards, is then parsed into the cards, and a subset (with some items and non-standard tags removed) of the feed is parsed into an actual RSS feed that can be accessed from my website.
+New subpages also result in a post in <a href="https://toot.phseiff.com/">my personal mastodon instance</a>.</p>
+<p>The following table offers some additional details, if you are interested in the exact way I orchestrate my website.</p>
 <table><tr><td>
 <p>If I add, for example, an entry like the following (</p>
-<div class="highlight highlight-source-xml"><pre><span></span><span class="pl-nt">&lt;item&gt;</span>
-  <span class="pl-nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/shadows.jpeg<span class="pl-nt">&lt;/image&gt;</span>
-  <span class="pl-nt">&lt;title&gt;</span>❷ Why we should redeem shadows in minimalist design<span class="pl-nt">&lt;/title&gt;</span>
-  <span class="pl-nt">&lt;description&gt;</span>❸ A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of
-shadows in this blog's design and as an introduction to my blog.<span class="pl-nt">&lt;/description&gt;</span>
-  <span class="pl-nt">&lt;link&gt;</span>https://phseiff.com/#minimalist-shadows<span class="pl-nt">&lt;/link&gt;</span>
-  <span class="pl-nt">&lt;pubDate&gt;</span>❹ Fr, 21 Aug 2020 18:00:00 +0200<span class="pl-nt">&lt;/pubDate&gt;</span>
-  <span class="pl-nt">&lt;language&gt;</span>❺ en<span class="pl-nt">&lt;/language&gt;</span>
-  <span class="pl-nt">&lt;phseiff:effort&gt;</span>❻ 2/5<span class="pl-nt">&lt;/phseiff:effort&gt;</span>
-  <span class="pl-nt">&lt;phseiff:announcement&gt;</span>
+<div class="highlight"><pre><span></span><span class="nt">&lt;item&gt;</span>
+  <span class="nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/shadows.jpeg<span class="nt">&lt;/image&gt;</span>
+  <span class="nt">&lt;title&gt;</span>❷ Why we should redeem shadows in minimalist design<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;description&gt;</span>❸ A rant about people who rant about shadow in minimalistic design, mainly written to defend my use of
+shadows in this blog's design and as an introduction to my blog.<span class="nt">&lt;/description&gt;</span>
+  <span class="nt">&lt;link&gt;</span>https://phseiff.com/#minimalist-shadows<span class="nt">&lt;/link&gt;</span>
+  <span class="nt">&lt;pubDate&gt;</span>❹ Fr, 21 Aug 2020 18:00:00 +0200<span class="nt">&lt;/pubDate&gt;</span>
+  <span class="nt">&lt;language&gt;</span>❺ en<span class="nt">&lt;/language&gt;</span>
+  <span class="nt">&lt;phseiff:effort&gt;</span>❻ 2/5<span class="nt">&lt;/phseiff:effort&gt;</span>
+  <span class="nt">&lt;phseiff:announcement&gt;</span> ❼
     Here's a short essay (or should I call it a rant?) I wrote about my aversion to the idea that minimalist design
     requires the absence of shadows, or really that there is anything that context-independently contradicts minimalism.
     Check it out if you're interested!
-  <span class="pl-nt">&lt;/phseiff:announcement&gt;</span>
- <span class="pl-nt">&lt;/item&gt;</span>
+  <span class="nt">&lt;/phseiff:announcement&gt;</span>
+ <span class="nt">&lt;/item&gt;</span>
 </pre></div>
 <p>), then I get an essay card as shown on the right into my website.</p>
 <p>In this format (skip this if the details don't exactly interest you):</p>
@@ -630,11 +634,37 @@ shadows in this blog's design and as an introduction to my blog.<span class="pl-
 <li>
 <span class="reminder-red">❺</span> is the language of the content (displayed as a flag)</li>
 <li>
-<span class="reminder-red">❻</span> describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating,</li>
+<span class="reminder-red">❻</span> describes how much effort/ confidence I put into/ have in the content, to generate my fancy sparkle rating</li>
+<li>
+<span class="reminder-red">❼</span> is a text for announcements and for my RSS feed.</li>
 </ul>
 </td><td>
 <p><img alt="An image of a corresponding essay card, with a fitting description, title and image" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-card-noborder.png" src="/phseiff-essays/images/writeup-illustration-essay-card-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-essay-card-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-card-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-card-noborder.389px.jpeg 389w, " style="max-width:100%; max-height: 653px;"/></p>
-<img alt="An image of a toot on mastodon with the corresponding content" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.400px.jpeg 400w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.500px.jpeg 500w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.600px.jpeg 600w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.647px.jpeg 647w, " style="max-height: 309px; max-height: 514px;"/>
+</td></tr><tr><td>
+<p>Adding something to the RSS feed also creates a post in <a href="https://toot.phseiff.com/">my personal Mastodon instance</a>, which looks like the post displayed on the bottom right.</p>
+</td><td>
+<img alt="An image of a toot on mastodon with the corresponding content" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.400px.jpeg 400w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.500px.jpeg 500w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.600px.jpeg 600w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.647px.jpeg 647w, " style="max-height: 260px; max-height: 514px;"/>
+</td></tr><tr><td>
+<p>I can also add a <code>project="true"</code> attribute to any item, in which case the resulting card is added to the project list in my website rather than the essay list, receives a (regularly updated) star count if it links to a GitHub repository rather than language information and a sparkle count, and gets its image build from the repository's preview image, with a fancy orange overlay.</p>
+<p>The code for this looks, examplary, pretty much like this:</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;item</span> <span class="na">project=</span><span class="s">"true"</span><span class="nt">&gt;</span>
+   <span class="nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/gh-images/github-flavored-markdown-to-html.jpeg<span class="nt">&lt;/image&gt;</span>
+   <span class="nt">&lt;title&gt;</span>❷ gh-md-to-html<span class="nt">&lt;/title&gt;</span>
+   <span class="nt">&lt;description&gt;</span>❸ My very own (and very handy) markdown conversion tool, which I also use for this website. It comes with a set of unusual and handy features optimized for customizability and ease of use.<span class="nt">&lt;/description&gt;</span>
+   <span class="nt">&lt;link&gt;</span>https://github.com/phseiff/github-flavored-markdown-to-html<span class="nt">&lt;/link&gt;</span>
+   <span class="nt">&lt;pubDate&gt;</span>❹ ~July 2020<span class="nt">&lt;/pubDate&gt;</span>
+ <span class="nt">&lt;/item&gt;</span>
+</pre></div>
+<p>, where:</p>
+<ul>
+<li>
+<span class="reminder-red">❶</span> the image is build from the repository preview image of the repository the card links to;
+the rule being that the contents of <code>https://phseiff.com/phseiff-essays/gh-images/foo.jpeg</code> are a compressed JPEG of <code>github.com/phseiff/foo</code>'s preview image with an added orange overlay to fit int my website's color scheme.</li>
+<li>
+pretty much everything else is like in every other essay card.</li>
+</ul>
+</td><td>
+<img alt="An image of a project card on my website" data-canonical-src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-project-card-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-project-card-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-project-card-noborder.340px.jpeg 340w, " style="max-height: 260px; max-height: 454px;"/>
 </td></tr></table>
 </li>
 <li>
