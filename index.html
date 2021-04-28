@@ -603,7 +603,7 @@ The feed, littered with non-standard meta-tags that describe additional contents
 New subpages also result in a post in <a href="https://toot.phseiff.com/">my personal mastodon instance</a>.</p>
 <p>The following table offers some additional details, if you are interested in the exact way I orchestrate my website.</p>
 <table><tr><td>
-<p>If I add, for example, an entry like the following (</p>
+<p>If I add, for example, an entry like the following to <code>feed-original.rss</code> (</p>
 <div class="highlight"><pre><span></span><span class="nt">&lt;item&gt;</span>
   <span class="nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/shadows.jpeg<span class="nt">&lt;/image&gt;</span>
   <span class="nt">&lt;title&gt;</span>❷ Why we should redeem shadows in minimalist design<span class="nt">&lt;/title&gt;</span>
@@ -641,12 +641,12 @@ shadows in this blog's design and as an introduction to my blog.<span class="nt"
 </td><td>
 <p><img alt="An image of a corresponding essay card, with a fitting description, title and image" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-card-noborder.png" src="/phseiff-essays/images/writeup-illustration-essay-card-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-essay-card-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-card-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-card-noborder.389px.jpeg 389w, " style="max-width:100%; max-height: 653px;"/></p>
 </td></tr><tr></tr><tr><td>
-<p>Adding something to the RSS feed also creates a post in <a href="https://toot.phseiff.com/">my personal Mastodon instance</a>, which looks like the post displayed on the bottom right.</p>
+<p>Adding something to the RSS feed also creates a post in <a href="https://toot.phseiff.com/">my personal Mastodon instance</a>, as can be seen on the right.</p>
 </td><td>
 <img alt="An image of a toot on mastodon with the corresponding content" data-canonical-src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" src="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-essay-toot-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.400px.jpeg 400w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.500px.jpeg 500w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.600px.jpeg 600w, /phseiff-essays/images/writeup-illustration-essay-toot-noborder.647px.jpeg 647w, " style="max-height: 260px;"/>
 </td></tr><tr></tr><tr><td>
 <p>I can also add a <code>project="true"</code> attribute to any item, in which case the resulting card is added to the project list in my website rather than the essay list, receives a (regularly updated) star count if it links to a GitHub repository rather than language information and a sparkle count, and gets its image build from the repository's preview image, with a fancy orange overlay.</p>
-<p>The code for this looks, examplary, pretty much like this:</p>
+<p>The code for this looks, examplary, pretty much like this (</p>
 <div class="highlight"><pre><span></span><span class="nt">&lt;item</span> <span class="na">project=</span><span class="s">"true"</span><span class="nt">&gt;</span>
    <span class="nt">&lt;image&gt;</span>❶ https://phseiff.com/phseiff-essays/gh-images/github-flavored-markdown-to-html.jpeg<span class="nt">&lt;/image&gt;</span>
    <span class="nt">&lt;title&gt;</span>❷ gh-md-to-html<span class="nt">&lt;/title&gt;</span>
@@ -655,7 +655,7 @@ shadows in this blog's design and as an introduction to my blog.<span class="nt"
    <span class="nt">&lt;pubDate&gt;</span>❹ ~July 2020<span class="nt">&lt;/pubDate&gt;</span>
  <span class="nt">&lt;/item&gt;</span>
 </pre></div>
-<p>, where:</p>
+<p>), where:</p>
 <ul>
 <li>
 <span class="reminder-red">❶</span> the image is build from the repository preview image of the repository the card links to;
@@ -664,11 +664,21 @@ the rule being that the contents of <code>https://phseiff.com/phseiff-essays/gh-
 pretty much everything else is like in every other essay card.</li>
 </ul>
 </td><td>
-<img alt="An image of a project card on my website" data-canonical-src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-project-card-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-project-card-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-project-card-noborder.340px.jpeg 340w, " style="max-height: 260px;"/>
+<img alt="An image of a project card on my website" data-canonical-src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" src="/phseiff-essays/images/writeup-illustration-project-card-noborder.png" srcset="/phseiff-essays/images/writeup-illustration-project-card-noborder.200px.jpeg 200w, /phseiff-essays/images/writeup-illustration-project-card-noborder.300px.jpeg 300w, /phseiff-essays/images/writeup-illustration-project-card-noborder.340px.jpeg 340w, " style="max-height: 454px;"/>
 </td></tr></table>
 </li>
 <li>
 <p><strong>Converting markdown-files to html:</strong></p>
+<p>I also wrote a custom markdown-to-html conversion tool for my website, because I wanted to have GitHub README styled subpages whilst still having formula support, which later grow from a tool to inject umlauts into multiline code blocks in GitHub's online markdown API (which GitHub doesn't natively support due to an unfortunate chain of technical limitations) to a tool into which pretty much every markdown converter can be plugged, and which results in GitHub-styled html- and pdf files with some added tweaks and sparkles.
+This quickly became my so-far biggest tool (🥲), and you can visit it <a href="https://github.com/phseiff/github-flavored-markdown-to-html">on GitHub</a> if you wanna leave some stardust or, like, actually use it.</p>
+<p>Anyways, what I want to talk about here is how it integrates with my building pipeline.</p>
+<p>Essentially, every markdown file in my content-repository is thrown into the converter and a html file is generated for each one.
+ All of these have host-ready relative links to all images they reference (a feature of <code>gh-md-to-html</code>), and all of them share a single css file.
+ In addition, every image any markdown file references is automatically downloaded, stored in a separate folder, converted to progressive JPEG if it isn't one already, receives a mono-colored background, and some compression with some losses.
+ The image is then stored in 10 different resolutions, and all of them are put into the image's <code>srcset</code> attribute, ensuring that the browser loads the minimal resolution that is needed for the given screen size.</p>
+<p>This allows me to just reference whatever image I use, as a PNG with 3000x2000px, or even images that some ominous source hosts on the web with integrated visitor tracking, without needing to worry about saving the file, compressing it, making different resolutions from that, or having a slow and unsave webpage as an alternative.</p>
+<p>I think this is a pretty neat feature to have in a markdown converter (I'm not aware of any others with <code>srcset</code> support), and it makes sure that all these images stay within reasonable bandwidth boundaries.</p>
+<p>The html pages are then added to a list, which my website builder in my public repo then reads (its pipelines are triggered every time the pipelines of my private repo finish running), to then proceed to embed every single file into my one-page website as a subpage.</p>
 </li>
 </ul>
 </li>
@@ -682,9 +692,26 @@ pretty much everything else is like in every other essay card.</li>
 <p>404 Error page:</p>
 </li>
 <li>
-<p>SEO optimization &amp; image compression</p>
+<p>SEO optimization:</p>
+</li>
+<li>
+<p>image compression of images outside the subpages:</p>
+</li>
+<li>
+<p>fancy image zooming:</p>
+</li>
+<li>
+<p>ethical tracking:</p>
 </li>
 </ul>
+</li>
+<li>
+<p><strong>The backside &amp; domain price bragging:</strong></p>
+<p>The whole ting is, of course, not always as smooth as I depict it here.
+Almost every time I write an essay for this website, something turns out not to work like I intended it to work, and every time, I end up tweaking something just to fit that little essay.
+There are also lots of dirty other things, like generally chaos when it comes to ordering everything into different files, and using whacky push pipelines that automate <code>git add</code>, <code>git commit</code> and <code>git push</code> alongside other things that should be done by GitHub actions, probably (in my defense, at least it's all properly documented, named and throughoutly commented).
+It's also not the prettiest thing imaginable that I end up putting things like intro texts straight into my website's main template, but hey, that's how it is.</p>
+<p>On a more positive note, my domain name is quite easy to remember, grippy and handy, and costs me only $18 per year :)</p>
 </li>
 </ul>
 <h3 id="user-content-wrapping-it-up">
