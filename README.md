@@ -4,7 +4,7 @@ Feedback is greatly appreciated, though I can't guarantee I'll find time to chan
 
 ![Website Banner](https://phseiff.com/images/final-banner-blurred-edges.png)
 
-The following essay can also be read [as an essay on my website](https://phseiff.com/e/why-i-like-my-website), where it is automatically embedded from this README.
+The following essay can also be read [as an essay on my website](https://phseiff.com/e/why-i-like-my-website), where it is automatically embedded from this README - and you probably should read it there, because you want to see my website, and there is a table in the README that GitHub doesn't manage to fit into a page somehow ;)
 
 ---
 
@@ -154,7 +154,7 @@ It worth noting for all of these topics that my website is a static website, so 
     
     ![An image of a corresponding essay card, with a fitting description, title and image](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-card-noborder.png)
   
-    </tr><tr><td>
+    </tr><tr></tr><tr><td>
   
     Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), which looks like the post displayed on the bottom right.
   
@@ -162,7 +162,7 @@ It worth noting for all of these topics that my website is a static website, so 
      
     <img alt="An image of a toot on mastodon with the corresponding content" style="max-height: 260px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-essay-toot-noborder.png">
   
-    </tr><tr><td>
+    </tr><tr></tr><tr><td>
   
     I can also add a `project="true"` attribute to any item, in which case the resulting card is added to the project list in my website rather than the essay list, receives a (regularly updated) star count if it links to a GitHub repository rather than language information and a sparkle count, and gets its image build from the repository's preview image, with a fancy orange overlay.
   
