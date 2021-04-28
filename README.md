@@ -119,7 +119,7 @@ It worth noting for all of these topics that my website is a static website, so 
     
     <table><tr><td>
     
-    If I add, for example, an entry like the following (
+    If I add, for example, an entry like the following to `feed-original.rss` (
     
     ```xml
      <item>
@@ -156,7 +156,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
     </tr><tr></tr><tr><td>
   
-    Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), which looks like the post displayed on the bottom right.
+    Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), as can be seen on the right.
   
     </td><td>
      
@@ -166,7 +166,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
     I can also add a `project="true"` attribute to any item, in which case the resulting card is added to the project list in my website rather than the essay list, receives a (regularly updated) star count if it links to a GitHub repository rather than language information and a sparkle count, and gets its image build from the repository's preview image, with a fancy orange overlay.
   
-    The code for this looks, examplary, pretty much like this:
+    The code for this looks, examplary, pretty much like this (
   
     ```xml
      <item project="true">
@@ -177,18 +177,34 @@ It worth noting for all of these topics that my website is a static website, so 
        <pubDate>❹ ~July 2020</pubDate>
      </item>
      ```
-    , where:
+    ), where:
     * <span class="reminder-red">❶</span> the image is build from the repository preview image of the repository the card links to;
       the rule being that the contents of `https://phseiff.com/phseiff-essays/gh-images/foo.jpeg` are a compressed JPEG of `github.com/phseiff/foo`'s preview image with an added orange overlay to fit int my website's color scheme.
     * pretty much everything else is like in every other essay card.
   
     </td><td>
   
-    <img alt="An image of a project card on my website" style="max-height: 260px;" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-project-card-noborder.png">
+    <img alt="An image of a project card on my website" src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-project-card-noborder.png">
   
     </td></tr></table>
     
   * **Converting markdown-files to html:**
+  
+    I also wrote a custom markdown-to-html conversion tool for my website, because I wanted to have GitHub README styled subpages whilst still having formula support, which later grow from a tool to inject umlauts into multiline code blocks in GitHub's online markdown API (which GitHub doesn't natively support due to an unfortunate chain of technical limitations) to a tool into which pretty much every markdown converter can be plugged, and which results in GitHub-styled html- and pdf files with some added tweaks and sparkles.
+    This quickly became my so-far biggest tool (🥲), and you can visit it [on GitHub](https://github.com/phseiff/github-flavored-markdown-to-html) if you wanna leave some stardust or, like, actually use it.
+    
+     Anyways, what I want to talk about here is how it integrates with my building pipeline.
+    
+     Essentially, every markdown file in my content-repository is thrown into the converter and a html file is generated for each one.
+     All of these have host-ready relative links to all images they reference (a feature of `gh-md-to-html`), and all of them share a single css file.
+     In addition, every image any markdown file references is automatically downloaded, stored in a separate folder, converted to progressive JPEG if it isn't one already, receives a mono-colored background, and some compression with some losses.
+     The image is then stored in 10 different resolutions, and all of them are put into the image's `srcset` attribute, ensuring that the browser loads the minimal resolution that is needed for the given screen size.
+    
+     This allows me to just reference whatever image I use, as a PNG with 3000x2000px, or even images that some ominous source hosts on the web with integrated visitor tracking, without needing to worry about saving the file, compressing it, making different resolutions from that, or having a slow and unsave webpage as an alternative.
+  
+     I think this is a pretty neat feature to have in a markdown converter (I'm not aware of any others with `srcset` support), and it makes sure that all these images stay within reasonable bandwidth boundaries.
+  
+     The html pages are then added to a list, which my website builder in my public repo then reads (its pipelines are triggered every time the pipelines of my private repo finish running), to then proceed to embed every single file into my one-page website as a subpage.
 
 * **Auto-generating darkmode with a headless browser**:
 
@@ -196,7 +212,22 @@ It worth noting for all of these topics that my website is a static website, so 
 
   * 404 Error page:
     
-  * SEO optimization & image compression
+  * SEO optimization:
+    
+  * image compression of images outside the subpages:
+  
+  * fancy image zooming:
+  
+  * ethical tracking:
+  
+* **The backside & domain price bragging:**
+
+  The whole ting is, of course, not always as smooth as I depict it here.
+  Almost every time I write an essay for this website, something turns out not to work like I intended it to work, and every time, I end up tweaking something just to fit that little essay.
+  There are also lots of dirty other things, like generally chaos when it comes to ordering everything into different files, and using whacky push pipelines that automate `git add`, `git commit` and `git push` alongside other things that should be done by GitHub actions, probably (in my defense, at least it's all properly documented, named and throughoutly commented).
+  It's also not the prettiest thing imaginable that I end up putting things like intro texts straight into my website's main template, but hey, that's how it is.
+  
+  On a more positive note, my domain name is quite easy to remember, grippy and handy, and costs me only $18 per year :)
 
 ### wrapping it up
 
