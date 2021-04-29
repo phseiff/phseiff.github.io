@@ -232,25 +232,25 @@ It worth noting for all of these topics that my website is a static website, so 
 
 * **Other optimizations & Gadgets I spent way more time on than I probably should have**:
 
-  * 404 Error page:
+  * *404 Error page*:
   
     I have a neat-looking error page that you might not have seen so far, if you don't happen to manually freestyle-type the address of my so-far only essay into your browser bar on a daily basis (which I wouldn't recommend since it is not the greatest essay).
     
-    You can find it at [https://phseiff.com/fofobarbar](https://phseiff.com/fofobarbar)!
+    You can find it at [https://phseiff.com/fofobarbar](https://phseiff.com/fofobarbar) (or any other non-existent URL on my domain, of course).
     
-  * SEO optimization:
+  * *SEO optimization*:
   
     I also spent a long time (much, much longer than I probably should have) on optimizing my website for SEO using the Chromium Light House tool, a variety of website speed tests, and some other SEO analysis tools that I won't mention since they decided to become subscription-only tools completely unanticipated.
     I managed to get into each one's respective "green area" mainly by adding things like title, description, language, OpenGraph-protocol meta tags and TwitterCard meta tags to each one, and by optimizing the page's loading speed by adding automated compression to all images and moving darkmode creation from the website to the website builder.
     
     The results where quite well, although the underlying optimization where extremely premature considering my website's audience (noone who stumbles across it through the web) and its amount of content so far.
     
-  * image compression of images outside the subpages:
+  * *image compression of images outside the subpages*:
   
     All images within my essays are compressed automatically to reduce loading time, as described above.
     Raster images that aren't part of any essay, but still part of my website, are referenced as JPEG images by the source code, but maintained as full-scale PNG images, and converted to JPEG automatically by my website builder, in case you wondered about the size of this profile image on the top left of my website.
   
-  * fancy image zooming:
+  * *fancy image zooming*:
   
     Many people like to see images in their full resolution, especially if they intend to save them, which is a problem since all images are by default compressed.
     Also, many images in my essays are displayed in an image size too small to make out all of their details.
@@ -258,7 +258,7 @@ It worth noting for all of these topics that my website is a static website, so 
     
     I can also add a `-icon.` to the image's file name if I want it to be un-zoomeable, and a `-noborder.` if I want it to be displayed without the pretty border that surrounds each image.
   
-  * ethical tracking:
+  * *ethical tracking*:
   
     Since I don't host my webpage myself, but rather, host it on GitHub pages, I can't do server-side visitor counting or anything to see the numbers of my visitors evolve over time.
     And even if I could, it wouldn't help me much, since I would not be able to see how many people visited which subpage due to the one-page nature of my website.
