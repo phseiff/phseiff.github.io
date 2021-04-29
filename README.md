@@ -24,7 +24,7 @@ Expect this essay to be a little technical, since I am a programmer type of Pers
 
 With that being said and the introduction out if our way, let's dive right in into the juicy details! I will go over them using a nestled bullet point list, but that's because these things are easier to navigate than classic paragraphs, so be prepared to read full paragraphs of text within them!
 
-### into the rabbit hole of self-congratulation
+### Into the rabbit hole of self-congratulation
 
 It worth noting for all of these topics that my website is a static website, so there is no server side magic available for any of this.
 
@@ -111,7 +111,7 @@ It worth noting for all of these topics that my website is a static website, so 
   * **Maintaining the website's cards and RSS feed:**
     
     As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
-    This RSS feed contains information describing the different types of cards on my website, both these that link to subpages ("essay cards") as well as those that link to external pages ("project cards").
+    This RSS feed contains information describing the different types of cards on my website, both those that link to subpages ("essay cards") as well as those that link to external pages ("project cards").
     The feed, littered with non-standard meta-tags that describe additional contents of the cards, is then parsed into the cards, and a subset (with some items and non-standard tags removed) of the feed is parsed into an actual RSS feed that can be accessed from my website.
     New subpages also result in a post in [my personal mastodon instance](https://toot.phseiff.com/).
     
@@ -201,24 +201,80 @@ It worth noting for all of these topics that my website is a static website, so 
      The image is then stored in 10 different resolutions, and all of them are put into the image's `srcset` attribute, ensuring that the browser loads the minimal resolution that is needed for the given screen size.
     
      This allows me to just reference whatever image I use, as a PNG with 3000x2000px, or even images that some ominous source hosts on the web with integrated visitor tracking, without needing to worry about saving the file, compressing it, making different resolutions from that, or having a slow and unsave webpage as an alternative.
+    Another thing worth noting is that since the images are loaded using the `srcset` attribute, the `src` attribute remains free for any use case, so I use it to store the full-size image URL in - this causes Google Images to show the images from my website in their full resolution (including transparency) rather than in their compressed and pixelated form.
   
      I think this is a pretty neat feature to have in a markdown converter (I'm not aware of any others with `srcset` support), and it makes sure that all these images stay within reasonable bandwidth boundaries.
   
-     The html pages are then added to a list, which my website builder in my public repo then reads (its pipelines are triggered every time the pipelines of my private repo finish running), to then proceed to embed every single file into my one-page website as a subpage.
+     The html pages are then added to a list, which my website builder in my public repo then reads to then proceed to embed every single file into my one-page website as a subpage.
 
 * **Auto-generating darkmode with a headless browser**:
+
+  When I first started working on my website, I intended it to have a dark- as well as a light mode, which adapted to the user's system preference, since I was really big on darkmode back then.
+  I implemented this using [DarkReader](https://github.com/darkreader/darkreader#using-for-a-website), which is mainly a browser extension for injecting darkmode into websites using javascript, but also comes with a js-module for use in websites.
+  DarkReader, with the settings I used it with, detects someone's system-wide darkmode-settings and adapts to it by either applying darkmode or not applying darkmode.
+  
+  However, I quickly noticed that darkreader didn't properly detect darkmode on Chromium on Linux, which sucked because some of my friends used Chromium on Linux, and that I actually don't like how my website looked in lightmode.
+  Plus, the slightly dusty orange that darkreader generated was a nice contrast to the muddy grey it spilled across my website's background, so why not embrace that and make it my brand identity?
+  
+  I thus changed my website to always use darkmode, no matter the system settings.
+  This left my site with lots of javascript that generated a darkmode *on runtime* once the site was loaded, resulting in a white flash at the beginning of the loading time and a lot of js execution overhead (around two second, if I recall it correctly).
+  
+  I ended up building an extra step into my website building pipeline, which emulates the website using a headless browser, and then extracts the css generated by DarkReader from the website with [a functionality I specifically asked the maintainer of DarkReader for](https://github.com/darkreader/darkreader/issues/604#issuecomment-711052527).
+  The resulting css is then stored in a css file, and all calls to DarkReader that the website contains are replaced with simple links to the generated stylesheet.
+  
+  This does, admittedly, slow down the pipeline quite a lot (not really problematic, since GitHub action minutes are pretty much free), and it means I can't precisely pick a color because it'll always be shifted by DarkReader, which is problematic if I want a color in my texts to fit a color in an image;
+  but on the other hand, it makes designing color schemes much easier since I can just pick the brightest color available, and it'll always be shifted into a tasteful shady muddy look that goes quite well with all the other colors.
+  For elements I really want to keep their color, I can also just use the HTML `style`-attribute, since DarkReader can't create CSS to change them (after all, how should it address the element if there is no query to describe the element?).
+  
+  But let's be honest, the whole thing is a pretty hacky solution, and it's one that adds a lot of technical debt to the whole website and accumulates a lot of hassle when it comes to fine-tuning colors in an essay.
+  Had I anticipated that there wouldn't be a lighmode on the site before I wrote it, I might habe done things differently;
+  but then again, I might not even have this cool harmonic colorscheme I have right now if I had tried to do a darkmode color scheme from scratch.
 
 * **Other optimizations & Gadgets I spent way more time on than I probably should have**:
 
   * 404 Error page:
+  
+    I have a neat-looking error page that you might not have seen so far, if you don't happen to manually freestyle-type the address of my so-far only essay into your browser bar on a daily basis (which I wouldn't recommend since it is not the greatest essay).
+    
+    You can find it at [https://phseiff.com/fofobarbar](https://phseiff.com/fofobarbar)!
     
   * SEO optimization:
+  
+    I also spent a long time (much, much longer than I probably should have) on optimizing my website for SEO using the Chromium Light House tool, a variety of website speed tests, and some other SEO analysis tools that I won't mention since they decided to become subscription-only tools completely unanticipated.
+    I managed to get into each one's respective "green area" mainly by adding things like title, description, language, OpenGraph-protocol meta tags and TwitterCard meta tags to each one, and by optimizing the page's loading speed by adding automated compression to all images and moving darkmode creation from the website to the website builder.
+    
+    The results where quite well, although the underlying optimization where extremely premature considering my website's audience (noone who stumbles across it through the web) and its amount of content so far.
     
   * image compression of images outside the subpages:
   
+    All images within my essays are compressed automatically to reduce loading time, as described above.
+    Raster images that aren't part of any essay, but still part of my website, are referenced as JPEG images by the source code, but maintained as full-scale PNG images, and converted to JPEG automatically by my website builder, in case you wondered about the size of this profile image on the top left of my website.
+  
   * fancy image zooming:
   
+    Many people like to see images in their full resolution, especially if they intend to save them, which is a problem since all images are by default compressed.
+    Also, many images in my essays are displayed in an image size too small to make out all of their details.
+    Therefore, it is possible to click on any image (you might have noticed the zoom cursor icon when hovering over them), which loads the original uncompressed PNG-image in its full size (potentially not displayed in full size, though, if the display is too small) into the view port, from where it can be copied like any other image (the image is loaded on-demand as to not take any unrequired bandwidth, obviously.
+    
+    I can also add a `-icon.` to the image's file name if I want it to be un-zoomeable, and a `-noborder.` if I want it to be displayed without the pretty border that surrounds each image.
+  
   * ethical tracking:
+  
+    Since I don't host my webpage myself, but rather, host it on GitHub pages, I can't do server-side visitor counting or anything to see the numbers of my visitors evolve over time.
+    And even if I could, it wouldn't help me much, since I would not be able to see how many people visited which subpage due to the one-page nature of my website.
+    
+    My solution to this was using a self-hosted tracking service (in my case, [Matomo](https://matomo.org/), due to its open source and ethical nature), and make it opt-in on my website - there's a cookie banner that you can remove by opting in, and a detailed explanation of why I use cookies and what I use them for that you can read and reach from the cookie banner.
+  
+    I originally thought that making the cookie banner stick until one opted in to the tracking was pretty reasonable, since the data is collected anonymously and in reasonable amounts, and nudging people into the direction of being helpful -as an individual, not as a company, mind you- by giving them a better experience if they opt in by removing the cookie banner seemed somewhat logical to me.
+    After all, if I was running an Ice cream parlor, I could also count my visitors without asking for consent, and refusing to let me know one visited me even though I only need it for my own statistics and for improving the things I am working on in itself stroke me as rude enough to plant an unremoveable cookie banner into the visitor's face.
+    
+    But after some reconsidering and getting exclusively negative feedback from my friends, I realised that people who don't really know me other than from seeing my website have no real reason to trust me, and that even if they could trust me and still decided to not be helpful, paying unhelpfulnes back by being unhelpful oneself is not the best approach as someone who offers something and want people to be convinced of and like that thing.
+  
+    For this reason, I decided to add a "Nope"-option to my cookie banner, which you can either see in action on my website already or will see in action as soon as I find time to implement it.
+  
+    That being said, hosting a frickly website analysis tool on one's own infrastructure at home is probably not the most efficient thing to do, especially since it results in large downtimes whenever I carry infrastructure around with me, and matomo is not really optimized for one-page websites, so the way I do it is probably not quite ideal.
+    
+    But hey, I ask for consent, and I have an option to revoke it, so other from being a nuisance for my visitors, there isn't really anything to criticize here.
   
 * **The backside & domain price bragging:**
 
@@ -229,7 +285,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
   On a more positive note, my domain name is quite easy to remember, grippy and handy, and costs me only $18 per year :)
 
-### wrapping it up
+### Wrapping it up
 
 I guess in a way, you could say this essay is me making peace with the fact that I didn't create as much content for my website as I would've liked to in the past 8 months, but it is also, at least partially, me realizing how much I've grown over the past year, both personally and professionally, and how much this website illustrates that and how much there's yet to come.
 
