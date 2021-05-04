@@ -7,6 +7,7 @@ from PIL import Image
 from mastodon import Mastodon
 import subprocess
 import bs4
+import minify_html as minify_html_module
 from darkreader import darkreader_emulator
 
 if "called_from_gh_pages" in sys.argv:
@@ -288,7 +289,7 @@ with open("index-raw.html", "r") as index_raw:
             + 'style="margin-top: 200px; '
             + ("display: none;" if essay not in visible_essay_anchors and essay != "LICENSE" else "") + '" '
             # class:
-            + 'class="embedded-essay"'
+            + 'class="embedded-essay" '
             # id (essay_name):
             + 'id="' + essay.replace("/", "_") + '" '
             + '>'
@@ -300,10 +301,10 @@ with open("index-raw.html", "r") as index_raw:
             + '<span style="height: 300px"></span></span>\n'
         )
 
-content = content.replace("<! the essays content >", essay_content)
+content = content.replace("<!-- the essays content -->", essay_content)
 content = content.replace("{description}", description_of_myself)
-content = content.replace("<! essay cards >", essay_cards)
-content = content.replace("<! project cards >", project_cards)
+content = content.replace("<!-- essay cards -->", essay_cards)
+content = content.replace("<!-- project cards -->", project_cards)
 
 content = content.replace("/* other descriptions */", descriptions_string)
 content = content.replace("/* other titles */", titles_string)
@@ -335,17 +336,22 @@ def frame_image(left, middle, right):
 
 current_website_content = requests.get("https://phseiff.com/index.html").text
 if "<already_tooted>" in current_website_content:
-    essays_who_where_already_tooted = current_website_content.split("<already_tooted>", 1)[1].split(
-        "</already_tooted>")[0].splitlines()
+    tag_name = "already_tooted"
+elif "<already-tooted>" in current_website_content:
+    tag_name = "already-tooted"
 else:
-    essays_who_where_already_tooted = list()
+    raise Exception()
 
 new_essays = list()
+essays_who_where_already_tooted = current_website_content.split("<" + tag_name + ">", 1)[1].split(
+    "</" + tag_name + ">")[0].split()
+
 for (a, essay_anchor, b, c, d) in essays_to_toot_about:
     if essay_anchor not in essays_who_where_already_tooted:
         new_essays.append((a, essay_anchor, b, c, d))
         essays_who_where_already_tooted.append(essay_anchor)
-content = content.replace("</already_tooted>", "\n".join(essays_who_where_already_tooted) + "</already_tooted>")
+content = content.replace("</" + tag_name + ">", "\n".join(essays_who_where_already_tooted) + "</already-tooted>")
+content = content.replace("<" + tag_name + ">", "<already-tooted>")
 
 # Finally write to index.html:
 
@@ -364,7 +370,15 @@ def minify_js(file_name):
 
 
 def minify_html(file_name):
-    url = "https://htmlcompressor.com/compress"
+    with open(file_name, "r") as in_file:
+        content = in_file.read()
+    print(file_name, "size:", len(content))
+    minified_content = minify_html_module.minify(content, minify_js=False, minify_css=True)
+    print(file_name, "new size:", len(minified_content))
+    print(file_name, "gain:", str((len(minified_content)/len(content)*100).__round__(2)) + "%")
+    with open(file_name, "w") as out_file:
+        out_file.write(minified_content)
+    """url = "https://htmlcompressor.com/compress"
     with open(file_name, "rb") as inp_file:
         data = {'code': inp_file.read()}
     with open(file_name, "r") as out_file:
@@ -374,7 +388,7 @@ def minify_html(file_name):
         if result.startswith("<!DOCTYPE html>"):
             out_file.write(result)
         else:
-            out_file.write(old_content)
+            out_file.write(old_content)"""
 
 
 def compress_icon(file_name, height, bg_color, quality):
@@ -395,7 +409,7 @@ def compress_icon(file_name, height, bg_color, quality):
     final_thumb.save(file_name.replace(".png", ".jpeg"), 'JPEG', quality=quality, optimize=True, progressive=True)
 
 
-def compress_all_files():
+def compress_all_files(with_html=True):
     """This will be called twice, once before the darkreader js is baked (to provide the nessesary files), and once
     afterwars (to compress the newly compressed files)"""
     for subdir, _, files in os.walk("./"):
@@ -408,7 +422,9 @@ def compress_all_files():
                     css_html_js_minify.process_single_css_file(file_path, comments=True)
                 elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                     minify_js(file_path)
-                elif file.endswith(".html") and "called_from_gh_pages" in sys.argv and file_path != "./index.html":
+                elif (file.endswith(".html") and not file.endswith("-raw.html") and with_html
+                      and os.path.exists(file.rsplit(".html", 1)[0] + "-raw.html")
+                      and os.path.isfile(file.rsplit(".html", 1)[0] + "-raw.html")):
                     minify_html(file_path)
                 if file_path in ("./images/icon.png", "./images/404.png"):
                     compress_icon(file_path, height=400, bg_color=(205, 122, 0), quality=70)
@@ -416,7 +432,7 @@ def compress_all_files():
 # Bake darkreader & compress files:
 
 
-compress_all_files()
+compress_all_files(with_html=False)  # <- to make sure darkreader.min.js exists for the darkreader emulator
 darkreader_emulator.main()
 compress_all_files()
 

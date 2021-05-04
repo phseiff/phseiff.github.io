@@ -120,6 +120,9 @@ select:-webkit-autofill {
 }
 article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]):not(.card-to-show-essay) {
     background-image: url("/external-links/external-link.svg");
+    color: rgb(166, 225, 220); text-decoration-color: currentcolor; 
+}
+article a[href^="https://phseiff.com"]:not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]):not(.card-to-show-essay) {
     color: rgb(166, 225, 220);
     text-decoration-color: currentcolor;
 }

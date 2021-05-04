@@ -1,2 +1,16 @@
 requests>=2.20.0
 Mastodon.py
+pillow
+css-html-js-minify
+beautifulsoup4
+lxml
+selenium
+geckodriver-autoinstaller
+Flask
+minify-html
+
+gh-md-to-html
+# ^ We don't actually use this one directly in the website builder,
+#   but through a private repository from which we load our essays,
+#   which is why we included it here anyways to add it to the dependency graph
+#   and make our implicit dependencies more transparent.
