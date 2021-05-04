@@ -15,14 +15,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          pip3 install Mastodon.py
-          pip3 install pillow
-          pip3 install css-html-js-minify
-          pip3 install beautifulsoup4
-          pip3 install lxml
-          pip3 install selenium
-          pip3 install geckodriver-autoinstaller
-          pip3 install Flask
+          pip3 install -r requirements.txt
           chmod +x ./darkreader/host_with_flask.py
           python3 build.py ${{ secrets.MASTODON_ACCESS_TOKEN }} called_from_gh_pages ${{ secrets.OAUTH_TOKEN }}
 
