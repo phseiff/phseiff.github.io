@@ -409,7 +409,7 @@ def compress_icon(file_name, height, bg_color, quality):
     final_thumb.save(file_name.replace(".png", ".jpeg"), 'JPEG', quality=quality, optimize=True, progressive=True)
 
 
-def compress_all_files():
+def compress_all_files(with_html=True):
     """This will be called twice, once before the darkreader js is baked (to provide the nessesary files), and once
     afterwars (to compress the newly compressed files)"""
     for subdir, _, files in os.walk("./"):
@@ -422,7 +422,7 @@ def compress_all_files():
                     css_html_js_minify.process_single_css_file(file_path, comments=True)
                 elif file.endswith(".js") and not file.endswith(".min.js") and file != "materialize.js":
                     minify_js(file_path)
-                elif (file.endswith(".html") and not file.endswith("-raw.html")
+                elif (file.endswith(".html") and not file.endswith("-raw.html") and with_html
                       and os.path.exists(file.rsplit(".html", 1)[0] + "-raw.html")
                       and os.path.isfile(file.rsplit(".html", 1)[0] + "-raw.html")):
                     minify_html(file_path)
@@ -432,6 +432,7 @@ def compress_all_files():
 # Bake darkreader & compress files:
 
 
+compress_all_files(with_html=False)  # <- to make sure darkreader.min.js exists for the darkreader emulator
 darkreader_emulator.main()
 compress_all_files()
 
