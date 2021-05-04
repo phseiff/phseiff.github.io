@@ -1,3 +1,4 @@
+/* explicitely marked as external links */
 .external-link{
     background-image:url(/external-links/external-link.svg);
     background-position:center right;
@@ -6,11 +7,18 @@
     color: rgb(175,238,238);
 }
 
+/* external links in articles */
 article a:not([href^="https://phseiff.com"]):not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]):not(.card-to-show-essay) {
     background-image:url(/external-links/external-link.svg);
     background-position:center right;
     background-repeat:no-repeat;
     padding-right:15px;
+    color: rgb(175,238,238);
+    text-decoration: underline;
+}
+
+/* internal links in articles */
+article a[href^="https://phseiff.com"]:not([href^="/"]):not([href^="#"]):not([href$=".png"]):not([href$=".jpeg"]):not([href$=".jpg"]):not([href^="javascript:"]):not(.card-to-show-essay) {
     color: rgb(175,238,238);
     text-decoration: underline;
 }

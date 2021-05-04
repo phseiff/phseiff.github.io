@@ -49,14 +49,14 @@ It worth noting for all of these topics that my website is a static website, so 
   You might have guessed that this is done using javascript, which is executed every time an essay card is clicked;
   however, there are some things worth noting here:
   
-  * <strong>The content of the essays is hidden until it is unhidden by javascript, but it is not *loaded* by the javascript.</strong>
+  * *The content of the essays is hidden until it is unhidden by javascript, but it is not <strong>loaded</strong> by the javascript.*
     
     This is relevant because it means that my website is indeed a single-page-website, and loaded all at once.
     This means that you can open my website, disable your internet, and still access all of its contents, without having to manually cache every single page of it.
     It also implies better performance, since having the small overhead of loading some extra kilobyte of essay text (and a bunch of images, whom I might change to javascript-loaden if this becomes too much of a burden later) is much preferable over making separate server requests for every single subpage, each of whom varies only in parts of its content rather than relevant heavy boilerplate code.
     Having everything within the page at loading time is also relevant for supporting people who disabled javascript, but we will talk some more about that later.
     
-  * **Advanced as well as simple crawlers and applications find all subpages, including their metadata.**
+  * *Advanced as well as simple crawlers and applications find all subpages, including their metadata.*
     
     Advanced crawlers like the ones used by Google for page indexing emulate pages in a headless browser.
     This allows them to identify javascript-generated subpages, so every subpage (`phseiff.com/e/foo`, `phseiff.com/e/bar`, et cetera) is correctly recognized as its own page, including its title, description, language and contents, as indicated by the javascript-modified meta tags.
@@ -66,7 +66,7 @@ It worth noting for all of these topics that my website is a static website, so 
     There are also many applications for which a lookup of the page is performed by simply loading the HTML from the page and parsing it, rather than loading the page with a headless browser, which means that these applications will receive the dummy page at `phseiff.com/e/foo` rather than the contents of the actual subpage.
     For applications like these, be it crawlers of primitive search engines or a social media platform looking up the OpenGraph protocol metadata of the page, each dummy page contain the metadata of its respective subpage, too.
     
-  * **The page is fully operational even if javascript is disabled.**
+  * *The page is fully operational even if javascript is disabled.*
     
     It might come as a surprise that all of this works if one has javascript disabled as well.
     This is implemented by serving the page as a page that works without any javascript at all, and then executing some javascript that modifies it into a page that works based on javascript.
@@ -98,7 +98,7 @@ It worth noting for all of these topics that my website is a static website, so 
     
   There are, of course, some details here, in which I'd like to further dive:
   
-  * **Splitting the input of the website builder and the actual website code into separate repositories:**
+  * *Splitting the input of the website builder and the actual website code into separate repositories*:
     
     I really want people to see my website's code and potentially profit from it, as well as get attention for it wherever possible (hehe), so my website's code and parts of its website builder are in a public GitHub repository.
     The markdown files that describe my essays, as well as the html-files immediately generated from them, as well as my RSS feed, are of course also accessible by anyone, because (a) they are embedded into my website, and (b) they are completely hosted, including every bit of code;
@@ -108,7 +108,7 @@ It worth noting for all of these topics that my website is a static website, so 
     Pushing changes to this repo, as well as seeing (or not seeing) the clock hit 00:00, causes the repo to run an action which builds its RSS feed, converts all markdown files to HTML, and then triggers an action in my public website repo which embeds the subpage's HTML files into the website and builds the essay- and project cards.
     The public repository also re-builds the website when I push any changes, of course.
     
-  * **Maintaining the website's cards and RSS feed:**
+  * *Maintaining the website's cards and RSS feed*:
     
     As mentioned above, I maintain a file called `feed-original.rss` within my website contents repository.
     This RSS feed contains information describing the different types of cards on my website, both those that link to subpages ("essay cards") as well as those that link to external pages ("project cards").
@@ -188,7 +188,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
     </td></tr></table>
     
-  * **Converting markdown-files to html:**
+  * *Converting markdown-files to html:*
   
     I also wrote a custom markdown-to-html conversion tool for my website, because I wanted to have GitHub README styled subpages whilst still having formula support, which later grow from a tool to inject umlauts into multiline code blocks in GitHub's online markdown API (which GitHub doesn't natively support due to an unfortunate chain of technical limitations) to a tool into which pretty much every markdown converter can be plugged, and which results in GitHub-styled html- and pdf files with some added tweaks and sparkles.
     This quickly became my so-far biggest tool (🥲), and you can visit it [on GitHub](https://github.com/phseiff/github-flavored-markdown-to-html) if you wanna leave some stardust or, like, actually use it.
@@ -229,6 +229,8 @@ It worth noting for all of these topics that my website is a static website, so 
   But let's be honest, the whole thing is a pretty hacky solution, and it's one that adds a lot of technical debt to the whole website and accumulates a lot of hassle when it comes to fine-tuning colors in an essay.
   Had I anticipated that there wouldn't be a lighmode on the site before I wrote it, I might habe done things differently;
   but then again, I might not even have this cool harmonic colorscheme I have right now if I had tried to do a darkmode color scheme from scratch.
+  
+* **Mobile-friendly tables aka the fanciest tables in the west**:
 
 * **Other optimizations & Gadgets I spent way more time on than I probably should have**:
 
@@ -278,7 +280,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
 * **The backside & domain price bragging:**
 
-  The whole ting is, of course, not always as smooth as I depict it here.
+  The whole thing is, of course, not always as smooth as I depict it here.
   Almost every time I write an essay for this website, something turns out not to work like I intended it to work, and every time, I end up tweaking something just to fit that little essay.
   There are also lots of dirty other things, like generally chaos when it comes to ordering everything into different files, and using whacky push pipelines that automate `git add`, `git commit` and `git push` alongside other things that should be done by GitHub actions, probably (in my defense, at least it's all properly documented, named and throughoutly commented).
   It's also not the prettiest thing imaginable that I end up putting things like intro texts straight into my website's main template, but hey, that's how it is.
@@ -290,3 +292,9 @@ It worth noting for all of these topics that my website is a static website, so 
 I guess in a way, you could say this essay is me making peace with the fact that I didn't create as much content for my website as I would've liked to in the past 8 months, but it is also, at least partially, me realizing how much I've grown over the past year, both personally and professionally, and how much this website illustrates that and how much there's yet to come.
 
 Anyways, I hope you had fun reading this, and that there were at least a handful of solutions you found interesting, be it positive or negative. :)
+
+# ToDo:
+
+* Make 2nd-grade bullet points cursive rather than bold
+* Add section about table
+* Add (1)-mark to 3rd image in table

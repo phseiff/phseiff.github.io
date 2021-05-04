@@ -56,7 +56,7 @@ def main():
             ) + "</style>"
         )
         content = content.replace("""
-    <! Ensure dark reader is executed again after we updated the essays using javascript. >
+    <!-- Ensure dark reader is executed again after we updated the essays using javascript. -->
     <script>
         DarkReader.disable();
         DarkReader.enable({ // <-- always use darkmode instead of, like previously, adapting to the system.
