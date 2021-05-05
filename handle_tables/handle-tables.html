@@ -1,0 +1,168 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
+<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css">
+
+<meta content="text/html" charset="UTF-8">
+
+
+<div class="gist">
+    <div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+        <div class="gist-data">
+            <div class="js-gist-file-update-container js-task-list-container file-box">
+                <div class="file">
+                    <div id="file-docker-image-pull-md-readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6"
+                         style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+                        <article class="markdown-body entry-content container-lg" itemprop="text">
+                            <table style="width:100%">
+                              <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                              </tr>
+                              <tr>
+                                <td>Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill </td>
+                                <td>Smith</td>
+                                <td>50</td>
+                              </tr>
+                              <tr>
+                                <td>Eve</td>
+                                <td>Jackson</td>
+                                <td>94</td>
+                              </tr>
+                             </table>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>
+
+<script>
+
+    /* All tables */
+    let allTablesInArticles = document.querySelectorAll("article table");
+
+    /* Check whether an element is overflown */
+    function isOverflown(element) {
+        return element.scrollWidth > element.clientWidth;
+    }
+
+    /* The basis CSS for every table's min css. */
+    let tableColumnWidthDescriptionCSS = "\n" +
+        "      .gist table.{stcn} th:nth-child({n})\n" +
+        "      .gist table.{stcn} td:nth-child({n}) {padding-left: {px}px; padding-bottom: 3px;}\n"
+    let tableSmallCSS = "" +
+        "      .gist table.{stcn},\n" +
+        "      .gist table.{stcn} th,\n" +
+        "      .gist table.{stcn} td,\n" +
+        "      .gist table.{stcn} tr {\n" +
+        "          all: initial;\n" +
+        "          display: block;\n" +
+        "          word-wrap: normal;\n" +
+        "          font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;\n" +
+        "          color: rgba(0, 0, 0, 0.87);\n" +
+        "      }\n" +
+        "\n" +
+        "      .gist table.{stcn} tr {border-bottom: 1px solid #d1d5da}\n" +
+        "      .gist table.{stcn} {border-left: 1px solid #d1d5da; border-right: 1px solid #d1d5da;\n" +
+        "                          border-top: 1px solid #d1d5da}\n" +
+        "\n" +
+        "      .gist table.{stcn} img {max-width: 100% !important}\n" +
+        "      .gist table.{stcn} td,\n" +
+        "      .gist table.{stcn} th,\n" +
+        "      .gist table.{stcn} tr {padding-bottom: 4px}\n\n" +
+        "\n" +
+        "      #article-incest-taboo thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
+        "      #article-incest-taboo tr:first-child th {font-weight: bold;}" +
+        "\n" +
+        "      .gist table.{stcn} {max-width: 100%;}\n" +
+        "      .gist table.{stcn} tr {padding-left: 4px; padding-right: 4px}\n" +
+        "\n" +
+        "{tableColumnsWidthInformation}" +
+        "\n" +
+        "      .gist table.{stcn} thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
+        "      .gist table.{stcn} tr:first-child th {font-weight: bold;}"
+
+    /* Create initial css for every table. */
+    function createInitialCSSForEveryTable() {
+        let css = "";
+        for (let i=0; i<allTablesInArticles.length; i++) {
+            let table = allTablesInArticles[i];
+            let table_small_class_name = "table-" + i + "-small"
+
+            let thisTablesCSS = tableSmallCSS;
+            let firstRowOfTheTable = table.getElementsByTagName("tr")[0];
+            let columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("th");
+            if (!columnsOfFirstRowOfTable)
+                columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("td");
+            let amountOfColumns =
+            let tableColumnsWidthInformation = "";
+            let cumulatesWidth = 0;
+            let widthOfEveryElement = {};
+            for (let j=0; j<columnsOfFirstRowOfTable.length; j++) {
+                let widthOfThisColumn = columnsOfFirstRowOfTable[j].offsetWidth;
+            }
+            thisTablesCSS = thisTablesCSS.replaceAll("{stcn}", table_small_class_name)
+
+            css += thisTablesCSS;
+        }
+
+        /* Add the generated css to a style tag - source: https://stackoverflow.com/a/524721/9816158 */
+        head = document.head || document.getElementsByTagName('head')[0];
+        style = document.createElement('style');
+        style.type = 'text/css';
+        head.appendChild(style);
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+    }
+
+    /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
+    function resizeAllTablesIfWindowBecameToSmall() {
+        console.log("resizing tables...")
+        for (let i=0; i<allTablesInArticles.length; i++) {
+            let table = allTablesInArticles[i];
+            let table_small_class_name = "table-" + i + "-small"
+            if (isOverflown(table)) {
+                if (!table.classList.contains(table_small_class_name)) {
+                    console.log("Added small style to table-" + i);
+                    table.classList.add(table_small_class_name);
+                }
+            } else {
+                if (table.classList.contains(table_small_class_name)) {
+                    table.classList.remove(table_small_class_name);
+                    if (isOverflown(table)) {
+                        /* We have to re-add the element because it overflows again. */
+                        table.classList.add(table_small_class_name);
+                    } else {
+                        console.log("Removed small style from table-" + i);
+                    }
+                }
+            }
+        }
+        console.log("done.")
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        createInitialCSSForEveryTable();
+        resizeAllTablesIfWindowBecameToSmall();
+    }, false);
+    window.addEventListener('resize', resizeAllTablesIfWindowBecameToSmall);
+
+</script>
+
+
+
+<div class="gist">
+
+</div>
+
+</style>
+
+<script>
+
+
+</script>
