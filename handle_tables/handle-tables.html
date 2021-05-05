@@ -38,8 +38,116 @@
      </div>
  </div>
 
-<script>
 
+<!-- do not remove or separate this line - it separates tests from actual code: -->
+<!-- ~~~separator~~~ -->
+
+
+<style id="table-small-style-remove-if-js-activated">
+    @media screen and (max-width: 599px) {
+        .gist table,
+        .gist table th,
+        .gist table td,
+        .gist table tr {
+            all: initial;
+            display: block;
+            word-wrap: normal;
+            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .gist table tr {
+            border-bottom: 1px solid #d1d5da
+        }
+
+        .gist table {
+            border-left: 1px solid #d1d5da;
+            border-right: 1px solid #d1d5da;
+            border-top: 1px solid #d1d5da
+        }
+
+        .gist table img {
+            max-width: 100% !important
+        }
+
+        .gist table td,
+        .gist table th,
+        .gist table tr {
+            padding-bottom: 4px
+        }
+
+        #article-incest-taboo thead tr:first-child {
+            border-bottom: 1px solid #d1d5da;
+            border-radius: 0;
+        }
+
+        #article-incest-taboo tr:first-child th {
+            font-weight: bold;
+        }
+
+        .gist table {
+            max-width: 100%;
+        }
+
+        .gist table tr {
+            padding-left: 4px;
+            padding-right: 4px
+        }
+
+        .gist table th:nth-child(1),
+        .gist table td:nth-child(1) {
+            padding-left: 0;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(2),
+        .gist table td:nth-child(2) {
+            padding-left: 40px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(3),
+        .gist table td:nth-child(3) {
+            padding-left: 80px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(4),
+        .gist table td:nth-child(4) {
+            padding-left: 120px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(5),
+        .gist table td:nth-child(5) {
+            padding-left: 160px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(6),
+        .gist table td:nth-child(6) {
+            padding-left: 200px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(7),
+        .gist table td:nth-child(7) {
+            padding-left: 220px;
+            padding-bottom: 3px;
+        }
+
+        .gist table thead tr:first-child {
+            border-bottom: 1px solid #d1d5da;
+            border-radius: 0;
+        }
+
+        .gist table tr:first-child th {
+            font-weight: bold;
+        }
+    }
+</style>
+
+<script>
     /* All tables */
     let allTablesInArticles = document.querySelectorAll("article table");
 
@@ -50,8 +158,23 @@
 
     /* The basis CSS for every table's min css. */
     let tableColumnWidthDescriptionCSS = "\n" +
-        "      .gist table.{stcn} th:nth-child({n})\n" +
-        "      .gist table.{stcn} td:nth-child({n}) {padding-left: {px}px; padding-bottom: 3px;}\n"
+        "      .gist table.{stcn} th:nth-child({n}),\n" +
+        "      .gist table.{stcn} td:nth-child({n}) {padding-left: {px}px; padding-bottom: 3px;}\n";
+    let basisTableColumnWidthDescriptionCSS = "\n" +
+        "      .gist table.{stcn} th:nth-child(1),\n" +
+        "      .gist table.{stcn} td:nth-child(1) {padding-left: 0; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(2),\n" +
+        "      .gist table.{stcn} td:nth-child(2) {padding-left: 40px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(3),\n" +
+        "      .gist table.{stcn} td:nth-child(3) {padding-left: 80px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(4),\n" +
+        "      .gist table.{stcn} td:nth-child(4) {padding-left: 120px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(5),\n" +
+        "      .gist table.{stcn} td:nth-child(5) {padding-left: 160px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(6),\n" +
+        "      .gist table.{stcn} td:nth-child(6) {padding-left: 200px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(7),\n" +
+        "      .gist table.{stcn} td:nth-child(7) {padding-left: 220px; padding-bottom: 3px;}\n";
     let tableSmallCSS = "" +
         "      .gist table.{stcn},\n" +
         "      .gist table.{stcn} th,\n" +
@@ -96,17 +219,26 @@
             let columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("th");
             if (!columnsOfFirstRowOfTable)
                 columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("td");
-            let amountOfColumns =
-            let tableColumnsWidthInformation = "";
-            let cumulatesWidth = 0;
-            let widthOfEveryElement = {};
-            for (let j=0; j<columnsOfFirstRowOfTable.length; j++) {
-                let widthOfThisColumn = columnsOfFirstRowOfTable[j].offsetWidth;
+            let amountOfColumns = columnsOfFirstRowOfTable.length;
+            let tableColumnsWidthInformation;
+            if (amountOfColumns <= 4)
+                tableColumnsWidthInformation = basisTableColumnWidthDescriptionCSS;
+            else {
+                tableColumnsWidthInformation = "";
+                let maxIndention = 90;
+                for (let j=0; j<amountOfColumns; j++) {
+                    tableColumnsWidthInformation += tableColumnWidthDescriptionCSS
+                        .replaceAll("{n}", (j + 1).toString())
+                        .replaceAll("{px}", (j * maxIndention / amountOfColumns).floor().toString())
+                }
             }
-            thisTablesCSS = thisTablesCSS.replaceAll("{stcn}", table_small_class_name)
+            thisTablesCSS = thisTablesCSS
+                .replaceAll("{tableColumnsWidthInformation}", tableColumnsWidthInformation)
+                .replaceAll("{stcn}", table_small_class_name);
 
             css += thisTablesCSS;
         }
+        /* console.log("Finished creating css:\n" + css); */
 
         /* Add the generated css to a style tag - source: https://stackoverflow.com/a/524721/9816158 */
         head = document.head || document.getElementsByTagName('head')[0];
@@ -118,11 +250,14 @@
         } else {
             style.appendChild(document.createTextNode(css));
         }
+
+        /* Remove the offline style */
+        document.getElementById("table-small-style-remove-if-js-activated").remove();
     }
 
     /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
     function resizeAllTablesIfWindowBecameToSmall() {
-        console.log("resizing tables...")
+        /* console.log("resizing tables...") */
         for (let i=0; i<allTablesInArticles.length; i++) {
             let table = allTablesInArticles[i];
             let table_small_class_name = "table-" + i + "-small"
@@ -143,26 +278,14 @@
                 }
             }
         }
-        console.log("done.")
+        /* console.log("done.") */
     }
+
+    /* Add event listeners to be executed once DOM has loaded: */
 
     document.addEventListener('DOMContentLoaded', function() {
         createInitialCSSForEveryTable();
         resizeAllTablesIfWindowBecameToSmall();
     }, false);
     window.addEventListener('resize', resizeAllTablesIfWindowBecameToSmall);
-
-</script>
-
-
-
-<div class="gist">
-
-</div>
-
-</style>
-
-<script>
-
-
 </script>
