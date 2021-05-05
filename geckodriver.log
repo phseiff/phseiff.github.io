@@ -1,16 +1,21 @@
-1620253834980	geckodriver	INFO	Listening on 127.0.0.1:54123
-1620253835985	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileePUZfd"
+1620254796837	geckodriver	INFO	Listening on 127.0.0.1:45579
+1620254797842	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileVb5oyU"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
 
-(/usr/lib/firefox/firefox:1825): GLib-GObject-CRITICAL **: 22:30:40.318: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1747): GLib-GObject-CRITICAL **: 22:46:42.070: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:1849): GLib-GObject-CRITICAL **: 22:30:40.519: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:1780): GLib-GObject-CRITICAL **: 22:46:42.399: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:1909): GLib-GObject-CRITICAL **: 22:30:41.985: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620253842024	Marionette	INFO	Listening on port 37645
-1620253842142	Marionette	WARN	TLS certificate errors will be ignored for this session
-1620253854423	Marionette	INFO	Stopped listening on port 37645
+(/usr/lib/firefox/firefox:1861): GLib-GObject-CRITICAL **: 22:46:43.938: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:1860): GLib-GObject-CRITICAL **: 22:46:43.961: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620254803980	Marionette	INFO	Listening on port 45409
+1620254804097	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620254815126	Marionette	INFO	Stopped listening on port 45409
+
+###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
