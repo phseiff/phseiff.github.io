@@ -1,0 +1,291 @@
+<!-- ?xml version='1.0' encoding='UTF-8'? -->
+<link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
+<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css">
+
+<meta content="text/html" charset="UTF-8">
+
+
+<div class="gist">
+    <div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
+        <div class="gist-data">
+            <div class="js-gist-file-update-container js-task-list-container file-box">
+                <div class="file">
+                    <div id="file-docker-image-pull-md-readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6"
+                         style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
+                        <article class="markdown-body entry-content container-lg" itemprop="text">
+                            <table style="width:100%">
+                              <tr>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Age</th>
+                              </tr>
+                              <tr>
+                                <td>Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill Jill </td>
+                                <td>Smith</td>
+                                <td>50</td>
+                              </tr>
+                              <tr>
+                                <td>Eve</td>
+                                <td>Jackson</td>
+                                <td>94</td>
+                              </tr>
+                             </table>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+ </div>
+
+
+<!-- do not remove or separate this line - it separates tests from actual code: -->
+<!-- ~~~separator~~~ -->
+
+
+<style id="table-small-style-remove-if-js-activated">
+    @media screen and (max-width: 599px) {
+        .gist table,
+        .gist table th,
+        .gist table td,
+        .gist table tr {
+            all: initial;
+            display: block;
+            word-wrap: normal;
+            font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;
+            color: rgba(0, 0, 0, 0.87);
+        }
+
+        .gist table tr {
+            border-bottom: 1px solid #d1d5da
+        }
+
+        .gist table {
+            border-left: 1px solid #d1d5da;
+            border-right: 1px solid #d1d5da;
+            border-top: 1px solid #d1d5da
+        }
+
+        .gist table img {
+            max-width: 100% !important
+        }
+
+        .gist table td,
+        .gist table th,
+        .gist table tr {
+            padding-bottom: 4px
+        }
+
+        #article-incest-taboo thead tr:first-child {
+            border-bottom: 1px solid #d1d5da;
+            border-radius: 0;
+        }
+
+        #article-incest-taboo tr:first-child th {
+            font-weight: bold;
+        }
+
+        .gist table {
+            max-width: 100%;
+        }
+
+        .gist table tr {
+            padding-left: 4px;
+            padding-right: 4px
+        }
+
+        .gist table th:nth-child(1),
+        .gist table td:nth-child(1) {
+            padding-left: 0;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(2),
+        .gist table td:nth-child(2) {
+            padding-left: 40px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(3),
+        .gist table td:nth-child(3) {
+            padding-left: 80px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(4),
+        .gist table td:nth-child(4) {
+            padding-left: 120px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(5),
+        .gist table td:nth-child(5) {
+            padding-left: 160px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(6),
+        .gist table td:nth-child(6) {
+            padding-left: 200px;
+            padding-bottom: 3px;
+        }
+
+        .gist table th:nth-child(7),
+        .gist table td:nth-child(7) {
+            padding-left: 220px;
+            padding-bottom: 3px;
+        }
+
+        .gist table thead tr:first-child {
+            border-bottom: 1px solid #d1d5da;
+            border-radius: 0;
+        }
+
+        .gist table tr:first-child th {
+            font-weight: bold;
+        }
+    }
+</style>
+
+<script>
+    /* All tables */
+    let allTablesInArticles = document.querySelectorAll("article table");
+
+    /* Check whether an element is overflown */
+    function isOverflown(element) {
+        return element.scrollWidth > element.clientWidth;
+    }
+
+    /* The basis CSS for every table's min css. */
+    let tableColumnWidthDescriptionCSS = "\n" +
+        "      .gist table.{stcn} th:nth-child({n}),\n" +
+        "      .gist table.{stcn} td:nth-child({n}) {padding-left: {px}px; padding-bottom: 3px;}\n";
+    let basisTableColumnWidthDescriptionCSS = "\n" +
+        "      .gist table.{stcn} th:nth-child(1),\n" +
+        "      .gist table.{stcn} td:nth-child(1) {padding-left: 0; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(2),\n" +
+        "      .gist table.{stcn} td:nth-child(2) {padding-left: 40px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(3),\n" +
+        "      .gist table.{stcn} td:nth-child(3) {padding-left: 80px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(4),\n" +
+        "      .gist table.{stcn} td:nth-child(4) {padding-left: 120px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(5),\n" +
+        "      .gist table.{stcn} td:nth-child(5) {padding-left: 160px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(6),\n" +
+        "      .gist table.{stcn} td:nth-child(6) {padding-left: 200px; padding-bottom: 3px;}\n" +
+        "      .gist table.{stcn} th:nth-child(7),\n" +
+        "      .gist table.{stcn} td:nth-child(7) {padding-left: 220px; padding-bottom: 3px;}\n";
+    let tableSmallCSS = "" +
+        "      .gist table.{stcn},\n" +
+        "      .gist table.{stcn} th,\n" +
+        "      .gist table.{stcn} td,\n" +
+        "      .gist table.{stcn} tr {\n" +
+        "          all: initial;\n" +
+        "          display: block;\n" +
+        "          word-wrap: normal;\n" +
+        "          font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;\n" +
+        "          color: rgba(0, 0, 0, 0.87);\n" +
+        "      }\n" +
+        "\n" +
+        "      .gist table.{stcn} tr {border-bottom: 1px solid #d1d5da}\n" +
+        "      .gist table.{stcn} {border-left: 1px solid #d1d5da; border-right: 1px solid #d1d5da;\n" +
+        "                          border-top: 1px solid #d1d5da}\n" +
+        "\n" +
+        "      .gist table.{stcn} img {max-width: 100% !important}\n" +
+        "      .gist table.{stcn} td,\n" +
+        "      .gist table.{stcn} th,\n" +
+        "      .gist table.{stcn} tr {padding-bottom: 4px}\n\n" +
+        "\n" +
+        "      #article-incest-taboo thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
+        "      #article-incest-taboo tr:first-child th {font-weight: bold;}" +
+        "\n" +
+        "      .gist table.{stcn} {max-width: 100%;}\n" +
+        "      .gist table.{stcn} tr {padding-left: 4px; padding-right: 4px}\n" +
+        "\n" +
+        "{tableColumnsWidthInformation}" +
+        "\n" +
+        "      .gist table.{stcn} thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
+        "      .gist table.{stcn} tr:first-child th {font-weight: bold;}"
+
+    /* Create initial css for every table. */
+    function createInitialCSSForEveryTable() {
+        let css = "";
+        for (let i=0; i<allTablesInArticles.length; i++) {
+            let table = allTablesInArticles[i];
+            let table_small_class_name = "table-" + i + "-small"
+
+            let thisTablesCSS = tableSmallCSS;
+            let firstRowOfTheTable = table.getElementsByTagName("tr")[0];
+            let columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("th");
+            if (!columnsOfFirstRowOfTable)
+                columnsOfFirstRowOfTable = firstRowOfTheTable.getElementsByTagName("td");
+            let amountOfColumns = columnsOfFirstRowOfTable.length;
+            let tableColumnsWidthInformation;
+            if (amountOfColumns <= 4)
+                tableColumnsWidthInformation = basisTableColumnWidthDescriptionCSS;
+            else {
+                tableColumnsWidthInformation = "";
+                let maxIndention = 90;
+                for (let j=0; j<amountOfColumns; j++) {
+                    tableColumnsWidthInformation += tableColumnWidthDescriptionCSS
+                        .replaceAll("{n}", (j + 1).toString())
+                        .replaceAll("{px}", (j * maxIndention / amountOfColumns).floor().toString())
+                }
+            }
+            thisTablesCSS = thisTablesCSS
+                .replaceAll("{tableColumnsWidthInformation}", tableColumnsWidthInformation)
+                .replaceAll("{stcn}", table_small_class_name);
+
+            css += thisTablesCSS;
+        }
+        /* console.log("Finished creating css:\n" + css); */
+
+        /* Add the generated css to a style tag - source: https://stackoverflow.com/a/524721/9816158 */
+        head = document.head || document.getElementsByTagName('head')[0];
+        style = document.createElement('style');
+        style.type = 'text/css';
+        head.appendChild(style);
+        if (style.styleSheet) {
+            style.styleSheet.cssText = css;
+        } else {
+            style.appendChild(document.createTextNode(css));
+        }
+
+        /* Remove the offline style */
+        document.getElementById("table-small-style-remove-if-js-activated").remove();
+    }
+
+    /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
+    function resizeAllTablesIfWindowBecameToSmall() {
+        /* console.log("resizing tables...") */
+        for (let i=0; i<allTablesInArticles.length; i++) {
+            let table = allTablesInArticles[i];
+            let table_small_class_name = "table-" + i + "-small"
+            if (isOverflown(table)) {
+                if (!table.classList.contains(table_small_class_name)) {
+                    console.log("Added small style to table-" + i);
+                    table.classList.add(table_small_class_name);
+                }
+            } else {
+                if (table.classList.contains(table_small_class_name)) {
+                    table.classList.remove(table_small_class_name);
+                    if (isOverflown(table)) {
+                        /* We have to re-add the element because it overflows again. */
+                        table.classList.add(table_small_class_name);
+                    } else {
+                        console.log("Removed small style from table-" + i);
+                    }
+                }
+            }
+        }
+        /* console.log("done.") */
+    }
+
+    /* Add event listeners to be executed once DOM has loaded: */
+
+    document.addEventListener('DOMContentLoaded', function() {
+        createInitialCSSForEveryTable();
+        resizeAllTablesIfWindowBecameToSmall();
+    }, false);
+    window.addEventListener('resize', resizeAllTablesIfWindowBecameToSmall);
+</script>

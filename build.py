@@ -305,6 +305,8 @@ content = content.replace("<!-- the essays content -->", essay_content)
 content = content.replace("{description}", description_of_myself)
 content = content.replace("<!-- essay cards -->", essay_cards)
 content = content.replace("<!-- project cards -->", project_cards)
+with open("handle_tables/handle-tables.html", "r") as f:
+    content = content.replace("<!-- small table content -->", f.read().split("<!-- ~~~separator~~~ -->")[1])
 
 content = content.replace("/* other descriptions */", descriptions_string)
 content = content.replace("/* other titles */", titles_string)
@@ -341,17 +343,33 @@ elif "<already-tooted>" in current_website_content:
     tag_name = "already-tooted"
 else:
     raise Exception()
+if "<already_tooted>" in content:
+    current_tag_name = "already_tooted"
+elif "<already-tooted>" in content:
+    current_tag_name = "already-tooted"
+else:
+    raise Exception()
 
 new_essays = list()
+
+assert "<" + tag_name + ">" in current_website_content
+assert "</" + tag_name + ">" in current_website_content.split("<" + tag_name + ">")[1]
+assert "<" + current_tag_name + ">" in content
+assert "</" + current_tag_name + ">" in content.split("<" + current_tag_name + ">")[1]
+
 essays_who_where_already_tooted = current_website_content.split("<" + tag_name + ">", 1)[1].split(
     "</" + tag_name + ">")[0].split()
+print("already tooted:\n" + "\n".join(essays_who_where_already_tooted))
 
 for (a, essay_anchor, b, c, d) in essays_to_toot_about:
     if essay_anchor not in essays_who_where_already_tooted:
         new_essays.append((a, essay_anchor, b, c, d))
         essays_who_where_already_tooted.append(essay_anchor)
-content = content.replace("</" + tag_name + ">", "\n".join(essays_who_where_already_tooted) + "</already-tooted>")
-content = content.replace("<" + tag_name + ">", "<already-tooted>")
+
+content = content.replace("</" + current_tag_name + ">",
+                          "\n".join(essays_who_where_already_tooted) + "</already-tooted>")
+content = content.replace("<" + current_tag_name + ">",
+                          "<already-tooted>")
 
 # Finally write to index.html:
 
