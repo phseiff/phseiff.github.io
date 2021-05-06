@@ -532,7 +532,7 @@ things2 = something (partially) styled by using shadows
         /* Display every essay: */
         let hiddenEssays = document.querySelectorAll("span.embedded-essay[display=none]");
         for (let i=0; i<hiddenEssays.length; i++)
-            hiddenEssays[i].style.display = "block";
+            hiddenEssays[i].style.display = "inline";
 
         /* Actually change style for tables where needed: */
         for (let i=0; i<allTablesInArticles.length; i++) {
@@ -565,6 +565,10 @@ things2 = something (partially) styled by using shadows
 
     document.addEventListener('DOMContentLoaded', function() {
         createInitialCSSForEveryTable();
+        resizeAllTablesIfWindowBecameToSmall();
+    });
+    window.addEventListener("load", function(){
+        /* For when a table contains images that make it overflow after our first check after DOMContentLoaded said it fits. */
         resizeAllTablesIfWindowBecameToSmall();
     });
     window.addEventListener('resize', resizeAllTablesIfWindowBecameToSmall);
