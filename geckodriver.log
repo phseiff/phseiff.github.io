@@ -1,20 +1,22 @@
-1620336894409	geckodriver	INFO	Listening on 127.0.0.1:49947
-1620336895414	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileq6vcv7"
+1620338062819	geckodriver	INFO	Listening on 127.0.0.1:49445
+1620338063825	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilePVkrY0"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1620336900347	Marionette	INFO	Marionette enabled
+1620338069573	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2315): GLib-GObject-CRITICAL **: 21:35:02.374: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2380): GLib-GObject-CRITICAL **: 21:54:31.738: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2340): GLib-GObject-CRITICAL **: 21:35:02.569: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2403): GLib-GObject-CRITICAL **: 21:54:31.962: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1620336904555	Marionette	INFO	Listening on port 33501
 
-(/usr/lib/firefox/firefox:2414): GLib-GObject-CRITICAL **: 21:35:04.571: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620336904680	Marionette	WARN	TLS certificate errors will be ignored for this session
-1620336916013	Marionette	INFO	Stopped listening on port 33501
+(/usr/lib/firefox/firefox:2499): GLib-GObject-CRITICAL **: 21:54:34.102: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+
+(/usr/lib/firefox/firefox:2500): GLib-GObject-CRITICAL **: 21:54:34.127: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620338074146	Marionette	INFO	Listening on port 35669
+1620338074296	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620338087783	Marionette	INFO	Stopped listening on port 35669
 
 ###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
