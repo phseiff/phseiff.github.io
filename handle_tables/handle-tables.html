@@ -30,6 +30,22 @@
                                 <td>94</td>
                               </tr>
                              </table>
+
+                            <table style="width:100%">
+                              <tr>
+                                  <td style="padding-left: 13px !important; border: none !important;">
+
+                                  <img src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png">
+
+                                  </td>
+                                  <td style="padding-left: 13px !important; border: none !important;">
+                                  ), the visitors get a table like the following on my website:
+                                  </td>
+                                  <td style="padding-left: 13px !important; border: none !important;">
+
+                                  <img src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png">
+                              </tr>
+                             </table>
                         </article>
                     </div>
                 </div>
@@ -150,6 +166,7 @@
     }
 </style>
 
+<style id="remove-max-width-from-images-in-tables"></style>
 <script>
     /* All tables */
     let allTablesInArticles = document.querySelectorAll("article table");
@@ -266,6 +283,10 @@
         for (let i=0; i<hiddenEssays.length; i++)
             hiddenEssays[i].style.display = "inline";
 
+        /* Make sure tables with nothing but images don't get max-width=100% ruin them: */
+        document.getElementById("remove-max-width-from-images-in-tables").innerText = "table img {" +
+            "max-width: none !important;}";
+
         /* Actually change style for tables where needed: */
         for (let i=0; i<allTablesInArticles.length; i++) {
             let table = allTablesInArticles[i];
@@ -291,6 +312,9 @@
         /* Hide articles again: */
         for (let i=0; i<hiddenEssays.length; i++)
             hiddenEssays[i].style.display = "none";
+
+        /* Make sure tables with nothing but images don't get their max width again: */
+        document.getElementById("remove-max-width-from-images-in-tables").innerText = "t";
     }
 
     /* Add event listeners to be executed once DOM has loaded: */
