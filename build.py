@@ -174,12 +174,15 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                                 if not is_project
                                 else ""
                             ),
-                            invitation=("View on GitHub! "
-                                        + "<img style=\"height: 1em;\" src=\"/external-links/external-link-yellow.svg\">"
+                            invitation=(("View on GitHub! "
+                                         + "<img"
+                                         + " style=\"height: 1em;\""
+                                         + " src=\"/external-links/external-link-yellow.svg\""
+                                         + " alt=\"external link symbol\">")
                                         if is_project else "Read here!"),
                             stars=(
                                 ("<span class=\"yellow-emoji\">" + "".join(["✨"] * effort) + "</span>"
-                                + "<span class=\"gray-emoji\">" + "".join(["✨"] * (5 - effort)) + "</span>")
+                                 + "<span class=\"gray-emoji\">" + "".join(["✨"] * (5 - effort)) + "</span>")
                                 if not is_project
                                 else effort_string
                             )
@@ -370,6 +373,13 @@ content = content.replace("</" + current_tag_name + ">",
                           "\n".join(essays_who_where_already_tooted) + "</already-tooted>")
 content = content.replace("<" + current_tag_name + ">",
                           "<already-tooted>")
+
+# Make sure all images have an alt text:
+
+content_soup = bs4.BeautifulSoup(content, "html.parser")
+imgs_without_alt_text = content_soup.find_all("img", alt=False)
+if imgs_without_alt_text:
+    raise Exception("Found images without alt text:\n" + "\n".join([str(img) for img in imgs_without_alt_text]))
 
 # Finally write to index.html:
 
