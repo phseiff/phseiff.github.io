@@ -139,7 +139,7 @@ It worth noting for all of these topics that my website is a static website, so 
      </item>
     ```
     
-    ), then I get an essay card as shown on the right into my website.
+    ), then I get an essay card as shown on this image into my website.
     
     In this format (skip this if the details don't exactly interest you):
     * <span class="reminder-red">❶</span> is the image (I just save `shadows.png`, and it is automatically compressed and resized to `shadows.jpeg`.
@@ -156,7 +156,7 @@ It worth noting for all of these topics that my website is a static website, so 
   
     </tr><tr></tr><tr><td>
   
-    Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), as can be seen on the right.
+    Adding something to the RSS feed also creates a post in [my personal Mastodon instance](https://toot.phseiff.com/), as can be seen on this image:
   
     </td><td>
      
@@ -231,6 +231,28 @@ It worth noting for all of these topics that my website is a static website, so 
   but then again, I might not even have this cool harmonic colorscheme I have right now if I had tried to do a darkmode color scheme from scratch.
   
 * **Mobile-friendly tables aka the fanciest tables in the west**:
+
+  It's a pretty minor thing with quite a minor impact, but it's a pretty special thing and I have never seen another website do this, so here I go including it within my blog post.
+
+  When you see a table on a website (w.g. Wikipedia) on desktop, it usually looks somewhat like the following:
+
+  ![A long table with some exemplary data which isn't really relevant](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-large.png)
+
+  If you are on mobile, however, and your screen is small, the table often doesn't fit into the viewport, and ends up overflowing with a nasty horizontal scrollbar, hurting usability and SEO alike.
+
+  My website circumvents this problem by adding a special layout for tables that would otherwise overflow, depending on the table's content and the current viewport width, so rather than a crammed table like this (
+
+  <table style="border: none !important;"><tr>
+  <td style="padding-left: 13px !important; border: none !important;">
+  ![A table with a horizontal scrollbar since it is too wide to fit into its viewport](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png)
+  </td>
+  <td style="padding-left: 13px !important; border: none !important;">
+  ), the visitors get a table like the following on my website:
+  </td>
+  <td style="padding-left: 13px !important; border: none !important;">
+  ![A table with no horizontal scrollbar, because the individual fields of every row are displayed stacked underneath each other (with increasing indention) rather than horizontally next to each other](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-uncrammed.png)
+  </td>
+  </tr></table>
 
 * **Other optimizations & Gadgets I spent way more time on than I probably should have**:
 

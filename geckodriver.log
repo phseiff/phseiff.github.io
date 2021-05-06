@@ -1,17 +1,17 @@
-1620320793236	geckodriver	INFO	Listening on 127.0.0.1:37681
-1620320794241	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile06sTTl"
+1620327172407	geckodriver	INFO	Listening on 127.0.0.1:37273
+1620327173413	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileCK7cW4"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1620320801227	Marionette	INFO	Marionette enabled
+1620327179248	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2396): GLib-GObject-CRITICAL **: 17:06:43.869: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2323): GLib-GObject-CRITICAL **: 18:53:01.319: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2420): GLib-GObject-CRITICAL **: 17:06:44.496: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2343): GLib-GObject-CRITICAL **: 18:53:01.540: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
 
-(/usr/lib/firefox/firefox:2465): GLib-GObject-CRITICAL **: 17:06:46.553: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620320806932	Marionette	INFO	Listening on port 42511
-1620320807067	Marionette	WARN	TLS certificate errors will be ignored for this session
-1620320818460	Marionette	INFO	Stopped listening on port 42511
+(/usr/lib/firefox/firefox:2400): GLib-GObject-CRITICAL **: 18:53:03.271: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620327183585	Marionette	INFO	Listening on port 42543
+1620327183676	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620327195881	Marionette	INFO	Stopped listening on port 42543
