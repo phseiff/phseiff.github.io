@@ -242,15 +242,19 @@ It worth noting for all of these topics that my website is a static website, so 
 
   My website circumvents this problem by adding a special layout for tables that would otherwise overflow, depending on the table's content and the current viewport width, so rather than a crammed table like this (
 
-  <table style="border: none !important;"><tr>
+  <table style="border: none !important;"><tr style="border: none !important;">
   <td style="padding-left: 13px !important; border: none !important;">
+  
   ![A table with a horizontal scrollbar since it is too wide to fit into its viewport](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png)
+  
   </td>
   <td style="padding-left: 13px !important; border: none !important;">
   ), the visitors get a table like the following on my website:
   </td>
   <td style="padding-left: 13px !important; border: none !important;">
+  
   ![A table with no horizontal scrollbar, because the individual fields of every row are displayed stacked underneath each other (with increasing indention) rather than horizontally next to each other](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-uncrammed.png)
+  
   </td>
   </tr></table>
 
