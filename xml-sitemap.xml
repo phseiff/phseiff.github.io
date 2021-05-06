@@ -14,5 +14,12 @@
           <priority>0.5</priority>
           <xhtml:link rel="alternate" hreflang="en" href="https://phseiff.com/e/minimalist-shadows"/>
        </url>
+       <url>
+          <loc>https://phseiff.com/e/https://phseiff.com/e/why-i-like-my-website</loc>
+          <lastmod>0</lastmod>
+          <changefreq>weekly</changefreq>
+          <priority>0.5</priority>
+          <xhtml:link rel="alternate" hreflang="en" href="https://phseiff.com/e/https://phseiff.com/e/why-i-like-my-website"/>
+       </url>
        <!-- Further links -->
 </urlset>
