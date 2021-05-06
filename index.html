@@ -526,7 +526,12 @@ things2 = something (partially) styled by using shadows
 
     /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
     function resizeAllTablesIfWindowBecameToSmall() {
-        /* console.log("resizing tables...") */
+        /* Display every essay: */
+        let hiddenEssays = document.querySelectorAll("span.embedded-essay[display=none]");
+        for (let i=0; i<hiddenEssays.length; i++)
+            hiddenEssays[i].style.display = "block";
+
+        /* Actually change style for tables where needed: */
         for (let i=0; i<allTablesInArticles.length; i++) {
             let table = allTablesInArticles[i];
             let table_small_class_name = "table-" + i + "-small"
@@ -547,7 +552,10 @@ things2 = something (partially) styled by using shadows
                 }
             }
         }
-        /* console.log("done.") */
+
+        /* Hide articles again: */
+        for (let i=0; i<hiddenEssays.length; i++)
+            hiddenEssays[i].style.display = "none";
     }
 
     /* Add event listeners to be executed once DOM has loaded: */
@@ -555,6 +563,6 @@ things2 = something (partially) styled by using shadows
     document.addEventListener('DOMContentLoaded', function() {
         createInitialCSSForEveryTable();
         resizeAllTablesIfWindowBecameToSmall();
-    }, false);
+    });
     window.addEventListener('resize', resizeAllTablesIfWindowBecameToSmall);
 </script>
