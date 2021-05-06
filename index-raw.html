@@ -342,8 +342,10 @@ Views about politics, social topics, economics, and whatever else I deem worth t
 
         <span id="embedded-essays-if-js-is-enabled"></span>
 
-            {description} This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to! <p>
+            <span id="small-about-text">
+            {description} This is my blog, and I'll be uploading my thoughts on various random topics and links to my programming projects here over the next months/years. You can also visit me on github if you'd like to!<br/>
         Criticism of everything I'm saying, as well as issues with any of my programming projects are always welcome, as long as you don't mind me fixing them ;) <!-- span style="color:white"> Oh, and by the way: If you can read this sentence, it means you're having your browser in darkmode; congrats for your great taste!</span -->
+            </span>
 
             <!-- A small motivational text for people who don't use javascript -->
             <p class="reminder-red" id="reminder-for-people-without-javascript">Oh, and by the way: I see you have javascript deactivated for this site.
@@ -506,6 +508,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                         opened_essay.style.display = "none";
                     opened_essay = document.getElementById(id);
                     opened_essay.style.display = "inline";
+                    document.getElementById("small-about-text").style.display = "none";
                     document.getElementById("phseiff-close-essay-button").style.display = "block";
                     document.getElementById("forkongithub").style.display = "none";
                     document.getElementById("outer-progress-bar").style.display = "block";
@@ -538,6 +541,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                     opened_essay = undefined;
                     document.getElementById("phseiff-close-essay-button").style.display = "none";
                     document.getElementById("outer-progress-bar").style.display = "none";
+                    document.getElementById("small-about-text").style.display = "inline";
                     set_hash("");
                     scroll_to("");
                 }
