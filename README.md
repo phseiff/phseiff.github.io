@@ -258,6 +258,35 @@ It worth noting for all of these topics that my website is a static website, so 
   </td>
   </tr></table>
 
+  If you don't mind me nerding about the way I implemented this for a while, you can skip to the next section, or look at [the relevant file](https://github.com/phseiff/phseiff.github.io/blob/master/handle_tables/handle-tables.html) in this website's GitHub repository directly.
+
+  Essentially, I wrote two solutions, one with javascript and CSS, and one in pure CSS.
+  As is the case with pretty much everything on my website, the CSS solution is somewhat limited, whilst the javascript solution deactivates the CSS solution (only if javascript is enabled, of course) and replaces it with its own way of doing things.
+  
+  I will look at both solutions separately in the following:
+  
+  * *The pure CSS solution*:
+    
+    This uses some pretty simple CSS that re-styles all tables within a query that ensures it's only applied if `screen-size<600px`.
+    This comes with the two disadvantages that (1) some tables might be large enough to overflow even if `screen-size>599px`, and (2) all column indents are hard-coded, which means that every field past the 7<sup>th</sup> field (or so) of a row is not indented at all, and that tables with more than 4 columns (or so) will overflow even with the extra style applied.
+    
+    Both of these issues are fixed by the javascript-implementation.
+  
+  * *The javascript+CSS solution*:
+  
+    This comes in two steps:
+  
+    1. As soon as the entire DOM is loaded (even before css and images finished loading), a custom CSS class is created for every table (not yet assigned to it, though).
+       This CSS class describes how the table should look like on a screen on which it'd otherwise overflow, and it contains enough indention levels for all columns, and the indention widths are adjusted to the amount of columns the table has, to make sure no field is indented more than 90px.
+       
+       This solves issue (2) of the CSS-only solution.
+  
+    2. Every time the viewport is resized (and one time each after the DOM and the assets of the website are loaded), a function is called (by binding to `DOMContentLoaded`, `loaded` and `resize` events) that iterates over all tables of the document and assigns each one its minify-class (in case it overflows), and un-assigns it again (if doing so is possible without causing an overflow).
+  
+       This solves issue (1) of the CSS-only solution, and it does so pretty efficiently since it adds no overhead other than a function call *on resize* and two on page load (the call on `DOMContentLoaded`, in case you wondered, isn't really necessary, but it reduces the time until layout shift is finished for subpages without text-only tables).
+  
+  I feel like this way of handling tables should be way more popular than it apparently is (please tell me if you know of any website that does somewhat similar, I'd love to see it!), and I hope you might've found it useful - feel free to use its code, which is mostly MIT licensed.
+
 * **Other optimizations & Gadgets I spent way more time on than I probably should have**:
 
   * *404 Error page*:
