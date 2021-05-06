@@ -1,6 +1,7 @@
 {
-    "name": "phseiff's Blog",
-    "short_name": "phseiff's Blog",
+    "start_url": "https://phseiff.com",
+    "name": "phseiff - opinions & obscurities",
+    "short_name": "phseiff.com",
     "icons": [
         {
             "src": "/icons/android-chrome-192x192.png",
