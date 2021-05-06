@@ -1,20 +1,19 @@
-1620331896808	geckodriver	INFO	Listening on 127.0.0.1:53623
-1620331897813	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileksnEJy"
+1620336175698	geckodriver	INFO	Listening on 127.0.0.1:33999
+1620336176705	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileWKKSqX"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1620331903031	Marionette	INFO	Marionette enabled
+1620336181438	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2482): GLib-GObject-CRITICAL **: 20:11:44.896: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2316): GLib-GObject-CRITICAL **: 21:23:03.728: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2506): GLib-GObject-CRITICAL **: 20:11:45.166: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2338): GLib-GObject-CRITICAL **: 21:23:04.080: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1620331907096	Marionette	INFO	Listening on port 45497
 
-(/usr/lib/firefox/firefox:2595): GLib-GObject-CRITICAL **: 20:11:47.135: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620331907185	Marionette	WARN	TLS certificate errors will be ignored for this session
-1620331920404	Marionette	INFO	Stopped listening on port 45497
+(/usr/lib/firefox/firefox:2391): GLib-GObject-CRITICAL **: 21:23:05.961: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620336186004	Marionette	INFO	Listening on port 39107
 
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(/usr/lib/firefox/firefox:2393): GLib-GObject-CRITICAL **: 21:23:06.017: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620336186099	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620336198643	Marionette	INFO	Stopped listening on port 39107
