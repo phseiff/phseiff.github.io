@@ -347,9 +347,3 @@ It worth noting for all of these topics that my website is a static website, so 
 I guess in a way, you could say this essay is me making peace with the fact that I didn't create as much content for my website as I would've liked to in the past 8 months, but it is also, at least partially, me realizing how much I've grown over the past year, both personally and professionally, and how much this website illustrates that and how much there's yet to come.
 
 Anyways, I hope you had fun reading this, and that there were at least a handful of solutions you found interesting, be it positive or negative. :)
-
-# ToDo:
-
-* Make 2nd-grade bullet points cursive rather than bold
-* Add section about table
-* Add (1)-mark to 3rd image in table
