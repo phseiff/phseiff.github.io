@@ -89,14 +89,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             color: rgba(0, 0, 0, 0.87);
         }
 
-        .gist table tr {
+        .gist table tr:not(:last-child) {
             border-bottom: 1px solid #d1d5da
         }
 
         .gist table {
-            border-left: 1px solid #d1d5da;
-            border-right: 1px solid #d1d5da;
-            border-top: 1px solid #d1d5da
+            border: 1px solid #d1d5da;
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 4px;
         }
 
         .gist table img {
@@ -109,20 +110,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             padding-bottom: 4px;
             padding-top: 4px;
             border-collapse: collapse;
-        }
-
-        #article-incest-taboo thead tr:first-child {
-            border-bottom: 1px solid #d1d5da;
-            border-radius: 0;
-        }
-
-        #article-incest-taboo tr:first-child th {
-            font-weight: bold;
-        }
-
-        .gist table {
-            max-width: 100%;
-            border-radius: 5px;
         }
 
         .gist table tr {
@@ -172,12 +159,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
             padding-bottom: 3px;
         }
 
-        .gist table thead tr:first-child {
-            border-bottom: 1px solid #d1d5da;
-            border-radius: 0;
-        }
-
-        .gist table tr:first-child th {
+        .gist table th {
             font-weight: bold;
         }
     }
@@ -224,26 +206,19 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         "          color: rgba(0, 0, 0, 0.87);\n" +
         "      }\n" +
         "\n" +
-        "      .gist table.{stcn} tr {border-bottom: 1px solid #d1d5da}\n" +
-        "      .gist table.{stcn} {border-left: 1px solid #d1d5da; border-right: 1px solid #d1d5da;\n" +
-        "                          border-top: 1px solid #d1d5da; border-radius: 5px}\n" +
+        "      .gist table.{stcn} tr:not(:last-child) {border-bottom: 1px solid #d1d5da}\n" +
+        "      .gist table.{stcn} {border: 1px solid #d1d5da; border-radius: 5px; margin-bottom: 4px}\n" +
         "\n" +
         "      .gist table.{stcn} img {max-width: 100% !important}\n" +
         "      .gist table.{stcn} td,\n" +
         "      .gist table.{stcn} th,\n" +
         "      .gist table.{stcn} tr {padding-bottom: 4px}\n\n" +
-        "      .gist table.{stcn} tr {padding-top: 4px}\n\n" +
-        "\n" +
-        "      .gist table.{stcn} thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
-        "      .gist table.{stcn} tr:first-child th {font-weight: bold;}" +
+        "      .gist table.{stcn} tr {padding-top: 4px; padding-left: 4px; padding-right: 4px}\n" +
         "\n" +
         "      .gist table.{stcn} {max-width: 100%;}\n" +
-        "      .gist table.{stcn} tr {padding-left: 4px; padding-right: 4px}\n" +
         "\n" +
         "{tableColumnsWidthInformation}" +
-        "\n" +
-        "      .gist table.{stcn} thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
-        "      .gist table.{stcn} tr:first-child th {font-weight: bold;}"
+        "      .gist table.{stcn} th {font-weight: bold;}"
 
     /* Create initial css for every table. */
     function createInitialCSSForEveryTable() {
