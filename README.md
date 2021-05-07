@@ -282,6 +282,7 @@ It worth noting for all of these topics that my website is a static website, so 
        This solves issue (2) of the CSS-only solution.
   
     2. Every time the viewport is resized (and one time each after the DOM and the assets of the website are loaded), a function is called (by binding to `DOMContentLoaded`, `loaded` and `resize` events) that iterates over all tables of the document and assigns each one its minify-class (in case it overflows), and un-assigns it again (if doing so is possible without causing an overflow).
+       The pure CSS solution is kept as an intermediate solution through all of this until all images are loaded (triggering the `load` event), to ensure that tables with images in them don't require horizontal scrolling until all images are loaded.
   
        This solves issue (1) of the CSS-only solution, and it does so pretty efficiently since it adds no overhead other than a function call *on resize* and two on page load (the call on `DOMContentLoaded`, in case you wondered, isn't really necessary, but it reduces the time until layout shift is finished for subpages without text-only tables).
   
