@@ -234,7 +234,7 @@ It worth noting for all of these topics that my website is a static website, so 
 
   It's a pretty minor thing with quite a minor impact, but it's a pretty special thing and I have never seen another website do this, so here I go including it within my blog post.
 
-  When you see a table on a website (w.g. Wikipedia) on desktop, it usually looks somewhat like the following:
+  When you see a table on a website (e.g. Wikipedia) on desktop, it usually looks somewhat like the following:
 
   ![A long table with some exemplary data which isn't really relevant](https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-large.png)
 
@@ -258,7 +258,7 @@ It worth noting for all of these topics that my website is a static website, so 
   </td>
   </tr></table>
 
-  If you don't mind me nerding about the way I implemented this for a while, you can skip to the next section, or look at [the relevant file](https://github.com/phseiff/phseiff.github.io/blob/master/handle_tables/handle-tables.html) in this website's GitHub repository directly.
+  In case you mind me nerding about the way I implemented this for a while, you can skip to the next section, or look at [the relevant file](https://github.com/phseiff/phseiff.github.io/blob/master/handle_tables/handle-tables.html) in this website's GitHub repository directly.
 
   Essentially, I wrote two solutions, one with javascript and CSS, and one in pure CSS.
   As is the case with pretty much everything on my website, the CSS solution is somewhat limited, whilst the javascript solution deactivates the CSS solution (only if javascript is enabled, of course) and replaces it with its own way of doing things.
