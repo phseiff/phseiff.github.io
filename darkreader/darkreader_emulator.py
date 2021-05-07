@@ -22,7 +22,7 @@ def main():
     url = "http://127.0.0.1:5687/"
     # print(stdout, url)
     time.sleep(4)
-    print("received:", requests.get(url).text)
+    # print("received:", requests.get(url).text)
 
     options = Options()
     options.set_headless(headless=True)

@@ -368,6 +368,7 @@ for (a, essay_anchor, b, c, d) in essays_to_toot_about:
     if essay_anchor not in essays_who_where_already_tooted:
         new_essays.append((a, essay_anchor, b, c, d))
         essays_who_where_already_tooted.append(essay_anchor)
+        print("new essay:", essay_anchor)
 
 content = content.replace("</" + current_tag_name + ">",
                           "\n".join(essays_who_where_already_tooted) + "</already-tooted>")
@@ -477,7 +478,7 @@ for (essay_title, essay_anchor, essay_content_as_markdown, image, announcement) 
     #     image_file.write(requests.get(image).content)
     # frame_image("images/left.png", image_name, "images/right.png")
     mastodon.status_post(
-        announcement + "\n\n -> https://phseiff.com/e/" + essay_anchor + " <-"
+        announcement + "\n\n -> https://phseiff.com/e/" + essay_anchor + "/ <-"
         # 'Small automated update on my essays: My new essay "' + essay_title
         # + '" is out and you can read it on https://phseiff.com/e/' + essay_anchor + ' !',
         # media_ids=[mastodon.media_post(image_name)]  # <-- No need to add an image, when the preview already has one.
