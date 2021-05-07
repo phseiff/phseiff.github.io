@@ -472,8 +472,8 @@ things2 = something (partially) styled by using shadows
         "      .gist table.{stcn} tr {padding-bottom: 4px}\n\n" +
         "      .gist table.{stcn} tr {padding-top: 4px}\n\n" +
         "\n" +
-        "      #article-incest-taboo thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
-        "      #article-incest-taboo tr:first-child th {font-weight: bold;}" +
+        "      .gist table.{stcn} thead tr:first-child {border-bottom: 1px solid #d1d5da; border-radius: 0;}\n" +
+        "      .gist table.{stcn} tr:first-child th {font-weight: bold;}" +
         "\n" +
         "      .gist table.{stcn} {max-width: 100%;}\n" +
         "      .gist table.{stcn} tr {padding-left: 4px; padding-right: 4px}\n" +
@@ -539,6 +539,8 @@ things2 = something (partially) styled by using shadows
             hiddenEssays[i].style.display = "inline";
 
         /* Make sure tables with nothing but images don't get max-width=100% ruin them: */
+        /* (You might need to remove this or find another solution for this if you use max-width with different values
+        than 100% often.) */
         document.getElementById("remove-max-width-from-images-in-tables").innerText = "table img {" +
             "max-width: none !important;}";
 
@@ -569,7 +571,7 @@ things2 = something (partially) styled by using shadows
             hiddenEssays[i].style.display = "none";
 
         /* Make sure tables with nothing but images don't get their max width again: */
-        document.getElementById("remove-max-width-from-images-in-tables").innerText = "t";
+        document.getElementById("remove-max-width-from-images-in-tables").innerText = "";
     }
 
     /* Add event listeners to be executed once DOM has loaded: */
