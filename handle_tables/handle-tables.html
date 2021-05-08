@@ -1,12 +1,93 @@
 <!-- The following blob of code consists of tests and demonstration code - skip ahead to the license information, after which the actual code starts, if you're here for looking at the code -->
 
+<!--
+  Here we have some exemplary css for tables, which corresponds to the css for the minified tables we defined later.
+  You can also use any other table css, but make sure to properly modify the small-table-css to work well with your
+  large-table-css.
+ -->
+<!-- link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
+<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css" -->
+<style>
+table {
+    display: block;
+    width: 100%;
+    overflow: auto;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+table, table tr, table tr td, table tr th {
+    word-wrap: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    color: rgba(0, 0, 0, 0.87);
+    border-collapse: collapse;
+}
+table {
+    margin-top: 0;
+    margin-bottom: 16px;
+    display: block;
+    width: 100%;
+    overflow: auto;
+}
+html * {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    font-size: 16px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+html * {
+    word-wrap: normal;
+}
+.gist .gist-file {
+    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
+}
+html * {
+    font-size: 16px;
+    color: #333;
+    text-align: left;
+    direction: ltr;
+}
 
-<link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
-<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css">
-
-<meta content="text/html" charset="UTF-8">
 
 
+
+
+    /*table {
+        margin-top: 0;
+        margin-bottom: 16px;
+        display: block;
+        width: 100%;
+        overflow: auto
+    }
+    table th {
+        font-weight: 600
+    }
+    table td,
+    table th {
+        padding: 6px 13px;
+        border: 1px solid #dfe2e5
+    }
+    table tr {
+        background-color: #fff;
+        border-top: 1px solid #c6cbd1
+    }
+    table tr:nth-child(2n) {
+        background-color: #f6f8fa
+    }
+    table img {
+        background-color: initial
+    }
+    table,
+    table tr,
+    table tr td,
+    table tr th {
+        word-wrap: normal;
+        font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;
+        color: rgba(0, 0, 0, 0.87);
+        border-collapse: collapse;
+    } */
+</style>
+
+<html>
 <div class="gist">
     <div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
         <div class="gist-data">
@@ -33,19 +114,19 @@
                               </tr>
                              </table>
 
-                            <table style="width:100%">
+                            <table>
                               <tr>
-                                  <td style="padding-left: 13px !important; border: none !important;">
+                                  <td>
 
-                                  <img src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png">
+                                  <img width="300px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Image-Omnidirectional_image_computer_lab.jpg/800px-Image-Omnidirectional_image_computer_lab.jpg">
 
                                   </td>
-                                  <td style="padding-left: 13px !important; border: none !important;">
-                                  ), the visitors get a table like the following on my website:
+                                  <td>
+                                  foo bar
                                   </td>
-                                  <td style="padding-left: 13px !important; border: none !important;">
+                                  <td>
 
-                                  <img src="https://raw.githubusercontent.com/phseiff/phseiff.github.io/master/images/writeup-illustration-table-clean-small-crammed.png">
+                                  <img width="200px" src="https://c.pxhere.com/images/38/b3/1131303fe23a144034881294fa34-1566387.jpg!d">
                               </tr>
                              </table>
                         </article>
@@ -55,7 +136,7 @@
         </div>
      </div>
  </div>
-
+</html>
 <!--
 
 Everything below this line is licensed under the following license:
@@ -160,7 +241,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         }
 
         .gist table th {
-            font-weight: bold;
+            font-weight: 600;
         }
     }
 </style>
@@ -218,7 +299,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         "      .gist table.{stcn} {max-width: 100%;}\n" +
         "\n" +
         "{tableColumnsWidthInformation}" +
-        "      .gist table.{stcn} th {font-weight: bold;}"
+        "      .gist table.{stcn} th {font-weight: 600;}"
 
     /* Create initial css for every table. */
     function createInitialCSSForEveryTable() {
