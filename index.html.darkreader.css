@@ -3840,6 +3840,10 @@ span.linenos.special {
 .consent-button {
     background-color: rgb(147, 85, 37);
 }
+.no-consent-button,
+.no-consent-button:hover {
+    background-color: rgb(183, 128, 26);
+}
 .bg-color-orange {
     background-color: rgb(195, 134, 24);
 }

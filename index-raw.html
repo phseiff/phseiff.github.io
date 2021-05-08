@@ -204,7 +204,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             align-items: center;
             padding: 10px;
         }
-        @media all and (max-width: 500px) {
+        @media all and (max-width: 700px) {
             .cookie-bar-flex-box {
                 flex-direction: column;
                 flex-wrap: wrap;
@@ -230,6 +230,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         /* consent button background color & revoke consent button background & rss color */
         .consent-button {
             background-color: #be601a;
+        }
+        .no-consent-button, .no-consent-button:hover {
+            background-color: #ef9c04;
         }
         .bg-color-orange {
             background-color: orange;
@@ -584,16 +587,19 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                         _paq.push(['trackPageView']);
                         _paq.push(['enableLinkTracking']);
 
-                        // If user consents
+                        // If user consents/ does not consent
                         var consent_given = false;
+                        var not_consent_given = false;
 
                         // Allow us to set and unset cookie consent:
                         function revoke_consent () {
                             document.getElementById("cookie-bar-field").style.display = "block";
                             document.getElementById("privacy-policy").style.display = "initial";
                             document.getElementById("privacy-policy-accepted").style.display = "none";
-                            document.cookie = "matomo-consent=; path=/; sameSite=strict";
+                            if (consent_given === true)  // <- only call if we previously had consent
+                                document.cookie = "matomo-consent=; path=/; sameSite=strict";
                             consent_given = false;
+                            update_scroll_buttons(); // <- to hide the scroll-down-button
                         }
                         function give_consent() {
                             document.getElementById("cookie-bar-field").style.display = "none";
@@ -609,7 +615,19 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                             })();
                             console.log("Started tracking with matomo - thanks for the consent, kind stranger! <3");
                             consent_given = true;
-                    }
+                            update_scroll_buttons(); // <- to show the scroll-down-button
+                        }
+                        function give_no_consent() {
+                            // Unsticky the cookie bar:
+                            document.getElementById("no-consent-button").style.display = "none";
+                            document.getElementById("cookie-bar-field").style.position = "static";
+                            document.getElementById("cookie-bar-field").style.bottom = "";
+                            // Set a cookie to remember the decision:
+                            document.cookie = "matomo-no-consent=true; path=/; sameSite=strict";
+                            // explicitely say so:
+                            not_consent_given = true;
+                            update_scroll_buttons(); // <- to show the scroll-down-button
+                        }
                         // In case the the user consented to the cookie, we won't show the cookie bar again:
                         function getCookie(cname) {
                             // Taken from https://www.w3schools.com/js/js_cookies.asp.
@@ -641,8 +659,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                             <!-- Maybe use feature discovery instead of the pages bottom for this? -->
                         </a></small>
                     </div>
-                    <div class="cookie-bar-right">
-                        <a class="waves-effect waves-light btn no-uppercase consent-button" id="consent-button" href="javascript:give_consent()"> That's fine!</a>
+                    <div class="cookie-bar-right" style="min-width: fit-content; max-width: max-content; width: 100%">
+                        <a class="waves-effect waves-light btn no-uppercase consent-button horizontally-arranged-buttons" style="margin-right: 5px; float: left" id="consent-button" href="javascript:give_consent()"> That's fine!</a>
+                        <a class="waves-effect waves-light btn no-uppercase no-consent-button horizontally-arranged-buttons" style="float: right" id="no-consent-button" href="javascript:give_no_consent()"> Not now</a>
                     </div>
                 </div>
             </div>
@@ -719,6 +738,9 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
         else {
             revoke_consent()
+            // realise we already said we didn't want to consent for now.
+            if (getCookie("matomo-no-consent") === "true")
+                give_no_consent()
         }
     </script>
 
@@ -761,7 +783,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
        the cookie bar is shown. -->
     <script>
         document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
-        if (consent_given === false)
+        if (consent_given === false && not_consent_given === false)
             document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
         function update_scroll_buttons()
         {
@@ -774,7 +796,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                 document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
             }
             if (document.documentElement.scrollHeight - document.documentElement.scrollTop
-                >= document.documentElement.clientHeight + 1000 && consent_given)
+                >= document.documentElement.clientHeight + 1000 && (consent_given || not_consent_given))
             {
                 document.getElementById('phseiff-back-to-bottom-button').style.visibility="visible";
             }else
@@ -823,7 +845,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             return getCookie("unique_user_id");
         }
 
-        if (consent_given) {
+        if (consent_given === true) {
             console.log("now pushing user id!");
             if (!get_id()) {
                 set_id(generate_user_id());

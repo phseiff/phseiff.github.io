@@ -1,20 +1,18 @@
-1620435426080	geckodriver	INFO	Listening on 127.0.0.1:58043
-1620435426084	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileuolhRw"
+1620483512614	geckodriver	INFO	Listening on 127.0.0.1:35895
+1620483512619	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileSmTxzp"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1620435430329	Marionette	INFO	Marionette enabled
+1620483516448	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2317): GLib-GObject-CRITICAL **: 00:57:12.279: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2318): GLib-GObject-CRITICAL **: 14:18:38.119: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2337): GLib-GObject-CRITICAL **: 00:57:12.467: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2342): GLib-GObject-CRITICAL **: 14:18:38.350: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1620435434347	Marionette	INFO	Listening on port 38397
+1620483520131	Marionette	INFO	Listening on port 35517
 
-(/usr/lib/firefox/firefox:2427): GLib-GObject-CRITICAL **: 00:57:14.358: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620435434452	Marionette	WARN	TLS certificate errors will be ignored for this session
-1620435447036	Marionette	INFO	Stopped listening on port 38397
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(/usr/lib/firefox/firefox:2436): GLib-GObject-CRITICAL **: 14:18:40.162: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620483520188	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: http://127.0.0.1:5687/, line 2431: ReferenceError: update_scroll_buttons is not defined
+1620483532443	Marionette	INFO	Stopped listening on port 35517
