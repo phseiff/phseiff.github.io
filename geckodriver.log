@@ -1,26 +1,17 @@
-1620486021051	geckodriver	INFO	Listening on 127.0.0.1:43599
-1620486021055	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileoKLwM7"
+1620486406681	geckodriver	INFO	Listening on 127.0.0.1:59555
+1620486406685	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile6kyJ5Y"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1620486027416	Marionette	INFO	Marionette enabled
+1620486407258	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2463): GLib-GObject-CRITICAL **: 15:00:29.534: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2289): GLib-GObject-CRITICAL **: 15:06:47.782: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2487): GLib-GObject-CRITICAL **: 15:00:29.841: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2309): GLib-GObject-CRITICAL **: 15:06:47.877: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
+1620486409117	Marionette	INFO	Listening on port 41535
 
-(/usr/lib/firefox/firefox:2554): GLib-GObject-CRITICAL **: 15:00:31.933: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-
-(/usr/lib/firefox/firefox:2556): GLib-GObject-CRITICAL **: 15:00:31.936: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1620486031957	Marionette	INFO	Listening on port 37711
-1620486032069	Marionette	WARN	TLS certificate errors will be ignored for this session
-JavaScript error: http://127.0.0.1:5687/, line 2431: ReferenceError: update_scroll_buttons is not defined
-1620486043298	Marionette	INFO	Stopped listening on port 37711
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(/usr/lib/firefox/firefox:2380): GLib-GObject-CRITICAL **: 15:06:49.135: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1620486409212	Marionette	WARN	TLS certificate errors will be ignored for this session
+1620486421246	Marionette	INFO	Stopped listening on port 41535
