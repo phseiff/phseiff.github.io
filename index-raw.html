@@ -634,7 +634,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
                             const name = cname + "=";
                             const decodedCookie = decodeURIComponent(document.cookie);
                             const ca = decodedCookie.split(';');
-                            for(let i = 0; i <ca.length; i++) {
+                            for (let i = 0; i <ca.length; i++) {
                                 let c = ca[i];
                                 while (c.charAt(0) === ' ') {
                                     c = c.substring(1);
@@ -737,7 +737,7 @@ Views about politics, social topics, economics, and whatever else I deem worth t
             give_consent()
         }
         else {
-            revoke_consent()
+            revoke_consent();
             // realise we already said we didn't want to consent for now.
             if (getCookie("matomo-no-consent") === "true")
                 give_no_consent()

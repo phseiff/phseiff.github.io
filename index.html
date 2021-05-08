@@ -318,7 +318,7 @@ things2 = something (partially) styled by using shadows
                             const name = cname + "=";
                             const decodedCookie = decodeURIComponent(document.cookie);
                             const ca = decodedCookie.split(';');
-                            for(let i = 0; i <ca.length; i++) {
+                            for (let i = 0; i <ca.length; i++) {
                                 let c = ca[i];
                                 while (c.charAt(0) === ' ') {
                                     c = c.substring(1);
@@ -335,7 +335,7 @@ things2 = something (partially) styled by using shadows
             give_consent()
         }
         else {
-            revoke_consent()
+            revoke_consent();
             // realise we already said we didn't want to consent for now.
             if (getCookie("matomo-no-consent") === "true")
                 give_no_consent()
