@@ -519,9 +519,6 @@ things2 = something (partially) styled by using shadows
         } else {
             style.appendChild(document.createTextNode(css));
         }
-
-        /* Remove the offline style */
-        document.getElementById("table-small-style-remove-if-js-activated").remove();
     }
 
     /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
@@ -574,6 +571,8 @@ things2 = something (partially) styled by using shadows
         resizeAllTablesIfWindowBecameToSmall();
     });
     window.addEventListener("load", function(){
+        /* Remove the offline style - but only after all images are loaded and we can use the more sophisticated method */
+        document.getElementById("table-small-style-remove-if-js-activated").remove();
         /* For when a table contains images that make it overflow after our first check after DOMContentLoaded said it fits. */
         resizeAllTablesIfWindowBecameToSmall();
     });

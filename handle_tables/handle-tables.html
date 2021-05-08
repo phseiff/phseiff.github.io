@@ -263,9 +263,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         } else {
             style.appendChild(document.createTextNode(css));
         }
-
-        /* Remove the offline style */
-        document.getElementById("table-small-style-remove-if-js-activated").remove();
     }
 
     /* Iterate over all tables and give each of them their "small"-css if they need scrolling. */
@@ -318,6 +315,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         resizeAllTablesIfWindowBecameToSmall();
     });
     window.addEventListener("load", function(){
+        /* Remove the offline style - but only after all images are loaded and we can use the more sophisticated method */
+        document.getElementById("table-small-style-remove-if-js-activated").remove();
         /* For when a table contains images that make it overflow after our first check after DOMContentLoaded said it fits. */
         resizeAllTablesIfWindowBecameToSmall();
     });
