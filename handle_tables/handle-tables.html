@@ -3,91 +3,12 @@
 <!--
   Here we have some exemplary css for tables, which corresponds to the css for the minified tables we defined later.
   You can also use any other table css, but make sure to properly modify the small-table-css to work well with your
-  large-table-css.
+  large-table-css:
  -->
-<!-- link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
-<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css" -->
-<style>
-table {
-    display: block;
-    width: 100%;
-    overflow: auto;
-    margin-top: 0;
-    margin-bottom: 16px;
-}
-table, table tr, table tr td, table tr th {
-    word-wrap: normal;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    color: rgba(0, 0, 0, 0.87);
-    border-collapse: collapse;
-}
-table {
-    margin-top: 0;
-    margin-bottom: 16px;
-    display: block;
-    width: 100%;
-    overflow: auto;
-}
-html * {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-    font-size: 16px;
-    line-height: 1.5;
-    word-wrap: break-word;
-}
-html * {
-    word-wrap: normal;
-}
-.gist .gist-file {
-    font-family: SFMono-Regular,Consolas,Liberation Mono,Menlo,monospace;
-}
-html * {
-    font-size: 16px;
-    color: #333;
-    text-align: left;
-    direction: ltr;
-}
+<link rel="stylesheet" href="https://phseiff.com/phseiff-essays/css/github-css.css">
+<link rel="stylesheet" href="https://phseiff.com/materialize-css/materialize.css">
 
-
-
-
-
-    /*table {
-        margin-top: 0;
-        margin-bottom: 16px;
-        display: block;
-        width: 100%;
-        overflow: auto
-    }
-    table th {
-        font-weight: 600
-    }
-    table td,
-    table th {
-        padding: 6px 13px;
-        border: 1px solid #dfe2e5
-    }
-    table tr {
-        background-color: #fff;
-        border-top: 1px solid #c6cbd1
-    }
-    table tr:nth-child(2n) {
-        background-color: #f6f8fa
-    }
-    table img {
-        background-color: initial
-    }
-    table,
-    table tr,
-    table tr td,
-    table tr th {
-        word-wrap: normal;
-        font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif;
-        color: rgba(0, 0, 0, 0.87);
-        border-collapse: collapse;
-    } */
-</style>
-
-<html>
+<!-- Here we have some html for demonstration purposes: -->
 <div class="gist">
     <div class="gist-file"> <!-- This is the class that is responsible for the boxing! -->
         <div class="gist-data">
@@ -96,6 +17,8 @@ html * {
                     <div id="file-docker-image-pull-md-readme" class="Box-body readme blob js-code-block-container p-5 p-xl-6"
                          style="margin-left: 40px; margin-right: 40px; margin-top: 20px; margin-bottom: 20px">
                         <article class="markdown-body entry-content container-lg" itemprop="text">
+
+                            <!-- Demonstration table 1 (lots of text): -->
                             <table style="width:100%">
                               <tr>
                                 <th>Firstname</th>
@@ -114,21 +37,21 @@ html * {
                               </tr>
                              </table>
 
+                            <!-- Demonstration table 2 (some images): -->
                             <table>
                               <tr>
                                   <td>
-
-                                  <img width="300px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Image-Omnidirectional_image_computer_lab.jpg/800px-Image-Omnidirectional_image_computer_lab.jpg">
-
+                                    <img width="300px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Image-Omnidirectional_image_computer_lab.jpg/800px-Image-Omnidirectional_image_computer_lab.jpg">
                                   </td>
                                   <td>
-                                  foo bar
+                                      foo bar
                                   </td>
                                   <td>
-
-                                  <img width="200px" src="https://c.pxhere.com/images/38/b3/1131303fe23a144034881294fa34-1566387.jpg!d">
+                                      <img width="200px" src="https://c.pxhere.com/images/38/b3/1131303fe23a144034881294fa34-1566387.jpg!d">
+                                  </td>
                               </tr>
                              </table>
+
                         </article>
                     </div>
                 </div>
@@ -136,7 +59,6 @@ html * {
         </div>
      </div>
  </div>
-</html>
 <!--
 
 Everything below this line is licensed under the following license:
