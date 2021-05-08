@@ -731,20 +731,6 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <script type="text/javascript" src="materialize-css/materialize.min.js"></script -->
     <!-- [unneeded and throws error:] script type="text/javascript" src="share-buttons/mastodon.min.js"></script -->
 
-    <script>
-        // realise we already consented to cookie use!
-        if (getCookie("matomo-consent") === "true") {
-            give_consent()
-        }
-        else {
-            revoke_consent();
-            // realise we already said we didn't want to consent for now.
-            if (getCookie("matomo-no-consent") === "true")
-                give_no_consent()
-        }
-    </script>
-
-
     <!-- Action Buttons -->
     <div style="position: fixed; top: 5px; right: 5px; z-index: 100000">
         <ul>
@@ -782,9 +768,12 @@ Views about politics, social topics, economics, and whatever else I deem worth t
     <!-- Hide scroll up/down buttons when to close to top/bottom, and hide down-button when near footer or when
        the cookie bar is shown. -->
     <script>
+        // Get started under the assumption that we're on top of the page:
         document.getElementById('phseiff-back-to-top-button').style.visibility="hidden";
         if (consent_given === false && not_consent_given === false)
             document.getElementById('phseiff-back-to-bottom-button').style.visibility="hidden";
+
+        // Function to hide and unhide scroll-to-top/bottom buttons when necessary
         function update_scroll_buttons()
         {
             let pageOffset = document.documentElement.scrollTop || document.body.scrollTop;
@@ -806,6 +795,17 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         }
         window.onscroll = update_scroll_buttons;
         window.onload = update_scroll_buttons;
+
+        // realise we already consented to cookie use!
+        if (getCookie("matomo-consent") === "true") {
+            give_consent();
+        }
+        else {
+            revoke_consent();
+            // realise we already said we didn't want to consent for now:
+            if (getCookie("matomo-no-consent") === "true")
+                give_no_consent();
+        }
     </script>
 
     <!-- Scroll smoothly -->
