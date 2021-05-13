@@ -3840,9 +3840,11 @@ span.linenos.special {
 .consent-button {
     background-color: rgb(147, 85, 37);
 }
-.no-consent-button,
-.no-consent-button:hover {
+.no-consent-button {
     background-color: rgb(183, 128, 26);
+}
+.no-consent-button:not(:hover) {
+    box-shadow: none;
 }
 .bg-color-orange {
     background-color: rgb(195, 134, 24);
@@ -3881,6 +3883,11 @@ span.linenos.special {
 .yellow-emoji {
     color: transparent;
     text-shadow: rgb(166, 119, 32) 0px 0px 0px;
+}
+.orange-backdrop {
+    box-shadow: rgb(195, 134, 24) 0px 2px 2px 0px,
+    rgb(195, 134, 24) 0px 3px 1px -2px,
+    rgb(195, 134, 24) 0px 1px 5px 0px;
 }
 svg.gh-md-to-html-formula {
     fill: rgb(229, 224, 216);
