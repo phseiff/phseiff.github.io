@@ -231,9 +231,17 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         .consent-button {
             background-color: #be601a;
         }
-        .no-consent-button, .no-consent-button:hover {
+        /*.consent-button:not(:hover) {
+            box-shadow: none; ToDo: Maybe re-add this?
+                               Gimme your opinion in an issue if you're reading this.
+        }*/
+        .no-consent-button {
             background-color: #ef9c04;
         }
+        .no-consent-button:not(:hover) {
+            box-shadow: none;
+        }
+        /* For headers and the scroll-down-rss-button  */
         .bg-color-orange {
             background-color: orange;
         }
@@ -291,6 +299,13 @@ Views about politics, social topics, economics, and whatever else I deem worth t
         /* Make sure that empty table rows are hidden. */
         .gist table tr:empty {
             display: none;
+        }
+
+        /* orange backdrop for essay/project cards: */
+        .orange-backdrop {
+            box-shadow: orange 0 2px 2px 0,
+                        orange 0 3px 1px -2px,
+                        orange 0 1px 5px 0;;
         }
 
     </style>

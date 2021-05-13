@@ -142,7 +142,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
                     <div class="col x0.5">
                         <div class="col-content">
                             <div class="zoom">
-                                <div class="card">
+                                <div class="card orange-backdrop">
                                     <div class="card-image">
                                         <img alt="{image}" src="{image}">
                                         <span class="left-badge">{stars}</span>
