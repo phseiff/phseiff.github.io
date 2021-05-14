@@ -3611,42 +3611,6 @@ span.linenos.special {
 .gist table.table-1-small {
     border-color: rgb(70, 73, 72);
 }
-.gist table.table-2-small,
-.gist table.table-2-small th,
-.gist table.table-2-small td,
-.gist table.table-2-small tr {
-    border-block-color: initial;
-    border-inline-color: initial;
-    background-color: initial;
-    background-image: initial;
-    border-color: initial;
-    column-rule-color: initial;
-    box-shadow: initial;
-    color-adjust: initial;
-    color-interpolation: initial;
-    color-interpolation-filters: initial;
-    fill: initial;
-    stroke: initial;
-    text-shadow: initial;
-    text-emphasis-color: initial;
-    -webkit-text-fill-color: initial;
-    -webkit-text-stroke-color: initial;
-    caret-color: initial;
-    scrollbar-color: initial;
-    list-style-image: initial;
-    outline-color: initial;
-    stop-color: initial;
-    flood-color: initial;
-    lighting-color: initial;
-    text-decoration-color: initial;
-    color: rgba(229, 224, 216, 0.87);
-}
-.gist table.table-2-small tr:not(:last-child) {
-    border-bottom-color: rgb(70, 73, 72);
-}
-.gist table.table-2-small {
-    border-color: rgb(70, 73, 72);
-}
 #forkongithub a {
     color: rgb(241, 173, 49);
     text-decoration-color: currentcolor;
@@ -3744,9 +3708,6 @@ span.linenos.special {
     box-shadow: rgb(195, 134, 24) 0px 2px 2px 0px,
     rgb(195, 134, 24) 0px 3px 1px -2px,
     rgb(195, 134, 24) 0px 1px 5px 0px;
-}
-svg.gh-md-to-html-formula {
-    fill: rgb(229, 224, 216);
 }
 svg.gh-md-to-html-formula {
     fill: rgb(229, 224, 216);
