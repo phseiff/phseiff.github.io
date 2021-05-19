@@ -1,20 +1,17 @@
-1621387693339	geckodriver	INFO	Listening on 127.0.0.1:38577
-1621387693343	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileu0xct7"
+1621388248906	geckodriver	INFO	Listening on 127.0.0.1:50747
+1621388248910	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofileTLEVpN"
 *** You are running in headless mode.
 [GFX1-]: glxtest: libEGL missing
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1621387693983	Marionette	INFO	Marionette enabled
+1621388249699	Marionette	INFO	Marionette enabled
 
-(/usr/lib/firefox/firefox:2222): GLib-GObject-CRITICAL **: 01:28:14.549: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2191): GLib-GObject-CRITICAL **: 01:37:30.153: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 
-(/usr/lib/firefox/firefox:2242): GLib-GObject-CRITICAL **: 01:28:14.665: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+(/usr/lib/firefox/firefox:2211): GLib-GObject-CRITICAL **: 01:37:30.266: g_object_set: assertion 'G_IS_OBJECT (object)' failed
 console.warn: SearchSettings: "get: No settings file exists, new profile?" (new Error("", "(unknown module)"))
-1621387695741	Marionette	INFO	Listening on port 35627
-1621387695779	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621388251254	Marionette	INFO	Listening on port 39897
 
-(/usr/lib/firefox/firefox:2301): GLib-GObject-CRITICAL **: 01:28:15.817: g_object_set: assertion 'G_IS_OBJECT (object)' failed
-1621387703145	Marionette	INFO	Stopped listening on port 35627
-
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
-
+(/usr/lib/firefox/firefox:2286): GLib-GObject-CRITICAL **: 01:37:31.259: g_object_set: assertion 'G_IS_OBJECT (object)' failed
+1621388251335	Marionette	WARN	TLS certificate errors will be ignored for this session
+1621388259221	Marionette	INFO	Stopped listening on port 39897
