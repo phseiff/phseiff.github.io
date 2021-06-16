@@ -1,0 +1,14 @@
+/* Define Twemoji Font Face: */
+@font-face {
+  font-family: 'Twemoji';
+  src: url('TwemojiMozilla.ttf') format('truetype');
+}
+
+/* Overwrite font definitions in materialize.css: */
+html {
+  font-family: 'Twemoji',-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+/* Overwrite font definitions in GitHub CSS: */
+.gist .markdown-body {
+  font-family: 'Twemoji',-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
