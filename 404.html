@@ -13,22 +13,16 @@
                         console.log("Essay requested!");
                         // Send request to determine whether page exists.
                         let request = new XMLHttpRequest();
-                        request.open('GET', 'https://phseiff.com/phseiff-essays/essay_list.txt', true);
+                        request.open('GET', 'https://phseiff.com/phseiff-essays/' + essay_name + '.md', true);
                         request.onreadystatechange = function(){
                             if (request.readyState === 4){
                                 if (request.status === 404) {
-                                    console.log("Hm... Couldn't find the essay list :/");
+                                    console.log("The essay does not exist!");
                                     document.getElementById("page-or-essay").innerText = "essay";
                                 }
                                 else {
-                                    let essay_list = request.responseText.split("\n");
-                                    if (essay_list.includes(essay_name)) {
-                                        console.log("Redirecting!");
-                                        window.location.href = window.location.protocol + "//" + window.location.host + "/#" + essay_name;
-                                    } else {
-                                        console.log("The essay does not exist!");
-                                    document.getElementById("page-or-essay").innerText = "essay";
-                                    }
+                                    console.log("Redirecting!");
+                                    window.location.href = window.location.protocol + "//" + window.location.host + "/#" + essay_name;
                                 }
                             }
                         };
