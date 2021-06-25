@@ -139,7 +139,7 @@ for rss_item_soup in rss_feed_soup.find_all("item"):
     # render the new essay card:
     new_card = """
                 <a {link_data} class="card-to-show-essay standard-text-color">
-                    <div class="col x0.5">
+                    <div class="essay-card">
                         <div class="col-content">
                             <div class="zoom">
                                 <div class="card orange-backdrop">
