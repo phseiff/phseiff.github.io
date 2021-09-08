@@ -1,12 +1,15 @@
-1630976298211	geckodriver	INFO	Listening on 127.0.0.1:52177
-1630976298215	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile4ONfta"
+1631062675029	geckodriver	INFO	Listening on 127.0.0.1:55515
+1631062676037	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofilebf4VSt"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1630976301442	Marionette	INFO	Marionette enabled
+1631062681836	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile4ONfta/search.json.mozlz4", (void 0)))
-1630976304782	Marionette	INFO	Listening on port 43739
-1630976304880	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1630976312398	Marionette	INFO	Stopped listening on port 43739
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebf4VSt/search.json.mozlz4", (void 0)))
+1631062686599	Marionette	INFO	Listening on port 40809
+1631062686732	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1631062693732	Marionette	INFO	Stopped listening on port 40809
+console.error: PushServiceWebSocket: 
+  _beginWSSetup: Not in shutdown state! Current state
+  3
 JavaScript error: resource:///modules/Interactions.jsm, line 209: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
