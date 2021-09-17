@@ -3560,6 +3560,7 @@ span.linenos.special {
     -webkit-text-fill-color: initial;
     -webkit-text-stroke-color: initial;
     caret-color: initial;
+    accent-color: initial;
     scrollbar-color: initial;
     list-style-image: initial;
     outline-color: initial;
@@ -3596,6 +3597,7 @@ span.linenos.special {
     -webkit-text-fill-color: initial;
     -webkit-text-stroke-color: initial;
     caret-color: initial;
+    accent-color: initial;
     scrollbar-color: initial;
     list-style-image: initial;
     outline-color: initial;
@@ -3740,6 +3742,7 @@ svg.gh-md-to-html-formula {
     -webkit-text-fill-color: initial;
     -webkit-text-stroke-color: initial;
     caret-color: initial;
+    accent-color: initial;
     scrollbar-color: initial;
     list-style-image: initial;
     outline-color: initial;
