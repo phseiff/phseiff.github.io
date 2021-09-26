@@ -1,12 +1,12 @@
-1632531505025	geckodriver	INFO	Listening on 127.0.0.1:46491
-1632531505030	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileVseGjT"
+1632618044182	geckodriver	INFO	Listening on 127.0.0.1:60807
+1632618044187	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofilec2CAJy"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1632531516196	Marionette	INFO	Marionette enabled
+1632618047560	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileVseGjT/search.json.mozlz4", (void 0)))
-1632531524658	Marionette	INFO	Listening on port 37999
-1632531524924	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1632531532337	Marionette	INFO	Stopped listening on port 37999
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilec2CAJy/search.json.mozlz4", (void 0)))
+1632618050765	Marionette	INFO	Listening on port 37019
+1632618050869	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1632618058369	Marionette	INFO	Stopped listening on port 37019
 JavaScript error: resource:///modules/Interactions.jsm, line 230: NS_ERROR_FAILURE: Component returned failure code: 0x80004005 (NS_ERROR_FAILURE) [nsIUserIdleService.removeIdleObserver]
