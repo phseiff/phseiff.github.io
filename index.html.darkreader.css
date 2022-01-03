@@ -3345,7 +3345,7 @@ span.linenos.special {
     background-image: none !important;
 }
 .highlight .c {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .err {
     border-color: rgb(165, 19, 17) !important;
@@ -3357,37 +3357,37 @@ span.linenos.special {
     color: rgb(169, 160, 147) !important;
 }
 .highlight .ch {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .cm {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .cp {
-    color: rgb(243, 189, 87) !important;
+    color: rgb(244, 196, 107) !important;
 }
 .highlight .cpf {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .c1 {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .cs {
-    color: rgb(141, 188, 184) !important;
+    color: rgb(144, 190, 186) !important;
 }
 .highlight .gd {
     color: rgb(237, 103, 99) !important;
 }
 .highlight .gr {
-    color: rgb(231, 44, 42) !important;
+    color: rgb(233, 60, 57) !important;
 }
 .highlight .gh {
     color: rgb(137, 173, 234) !important;
 }
 .highlight .gi {
-    color: rgb(110, 240, 103) !important;
+    color: rgb(127, 241, 120) !important;
 }
 .highlight .go {
-    color: rgb(158, 149, 135) !important;
+    color: rgb(162, 153, 139) !important;
 }
 .highlight .gp {
     color: rgb(137, 173, 234) !important;
@@ -3423,7 +3423,7 @@ span.linenos.special {
     color: rgb(210, 92, 89) !important;
 }
 .highlight .na {
-    color: rgb(196, 208, 122) !important;
+    color: rgb(202, 213, 136) !important;
 }
 .highlight .nb {
     color: rgb(129, 241, 121) !important;
@@ -3438,16 +3438,16 @@ span.linenos.special {
     color: rgb(170, 65, 229) !important;
 }
 .highlight .ni {
-    color: rgb(169, 160, 147) !important;
+    color: rgb(162, 153, 139) !important;
 }
 .highlight .ne {
-    color: rgb(201, 92, 84) !important;
+    color: rgb(196, 92, 83) !important;
 }
 .highlight .nf {
     color: rgb(69, 127, 229) !important;
 }
 .highlight .nl {
-    color: rgb(248, 245, 107) !important;
+    color: rgb(248, 245, 131) !important;
 }
 .highlight .nn {
     color: rgb(69, 127, 229) !important;
@@ -3498,19 +3498,19 @@ span.linenos.special {
     color: rgb(210, 92, 89) !important;
 }
 .highlight .se {
-    color: rgb(213, 147, 92) !important;
+    color: rgb(216, 154, 102) !important;
 }
 .highlight .sh {
     color: rgb(210, 92, 89) !important;
 }
 .highlight .si {
-    color: rgb(186, 120, 141) !important;
+    color: rgb(170, 114, 131) !important;
 }
 .highlight .sx {
     color: rgb(129, 241, 121) !important;
 }
 .highlight .sr {
-    color: rgb(186, 120, 141) !important;
+    color: rgb(170, 114, 131) !important;
 }
 .highlight .s1 {
     color: rgb(210, 92, 89) !important;
