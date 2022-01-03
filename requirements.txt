@@ -4,7 +4,7 @@ pillow
 css-html-js-minify
 beautifulsoup4
 lxml
-selenium
+selenium==3.141.0
 geckodriver-autoinstaller
 Flask
 minify-html
