@@ -1,14 +1,17 @@
-1641258355142	geckodriver	INFO	Listening on 127.0.0.1:44357
-1641258355147	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofilewhXgUt"
+1641344890944	geckodriver	INFO	Listening on 127.0.0.1:33503
+1641344890949	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileMgkw4C"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1641258358734	Marionette	INFO	Marionette enabled
+1641344898156	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilewhXgUt/search.json.mozlz4", (void 0)))
-1641258362262	Marionette	INFO	Listening on port 33861
-1641258362340	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1641258369493	Marionette	INFO	Stopped listening on port 33861
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileMgkw4C/search.json.mozlz4", (void 0)))
+1641344904394	Marionette	INFO	Listening on port 43367
+1641344904546	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1641344912127	Marionette	INFO	Stopped listening on port 43367
 
-###!!! [Parent][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
