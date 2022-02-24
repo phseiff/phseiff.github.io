@@ -3550,7 +3550,7 @@ span.linenos.special {
     border-color: initial;
     column-rule-color: initial;
     box-shadow: initial;
-    color-adjust: initial;
+    print-color-adjust: initial;
     color-interpolation: initial;
     color-interpolation-filters: initial;
     fill: initial;
@@ -3588,7 +3588,7 @@ span.linenos.special {
     border-color: initial;
     column-rule-color: initial;
     box-shadow: initial;
-    color-adjust: initial;
+    print-color-adjust: initial;
     color-interpolation: initial;
     color-interpolation-filters: initial;
     fill: initial;
@@ -3733,7 +3733,7 @@ svg.gh-md-to-html-formula {
     border-color: initial;
     column-rule-color: initial;
     box-shadow: initial;
-    color-adjust: initial;
+    print-color-adjust: initial;
     color-interpolation: initial;
     color-interpolation-filters: initial;
     fill: initial;
