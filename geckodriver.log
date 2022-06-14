@@ -1,12 +1,24 @@
-1655085631903	geckodriver	INFO	Listening on 127.0.0.1:42243
-1655085631917	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileuZduPo"
+1655172209243	geckodriver	INFO	Listening on 127.0.0.1:51169
+1655172209247	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile35A59k"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1655085637879	Marionette	INFO	Marionette enabled
+1655172209694	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileuZduPo/search.json.mozlz4", (void 0)))
-1655085642829	Marionette	INFO	Listening on port 42109
-Read port: 42109
-1655085642960	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1655085649761	Marionette	INFO	Stopped listening on port 42109
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile35A59k/search.json.mozlz4", (void 0)))
+1655172211009	Marionette	INFO	Listening on port 33581
+Read port: 33581
+1655172211110	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1655172217949	Marionette	INFO	Stopped listening on port 33581
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
