@@ -1,24 +1,15 @@
-1655172209243	geckodriver	INFO	Listening on 127.0.0.1:51169
-1655172209247	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile35A59k"
+1655258101428	geckodriver	INFO	Listening on 127.0.0.1:42611
+1655258101451	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile0WXSj8"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1655172209694	Marionette	INFO	Marionette enabled
+1655258105509	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile35A59k/search.json.mozlz4", (void 0)))
-1655172211009	Marionette	INFO	Listening on port 33581
-Read port: 33581
-1655172211110	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1655172217949	Marionette	INFO	Stopped listening on port 33581
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile0WXSj8/search.json.mozlz4", (void 0)))
+1655258109027	Marionette	INFO	Listening on port 42387
+Read port: 42387
+1655258109127	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1655258116141	Marionette	INFO	Stopped listening on port 42387
 
-###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
-
-
-###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
-
-
-###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
-
-
-###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
