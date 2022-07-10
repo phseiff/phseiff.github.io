@@ -1,18 +1,15 @@
-1657331417178	geckodriver	INFO	Listening on 127.0.0.1:34537
-1657331417184	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileW5rV90"
+1657418921215	geckodriver	INFO	Listening on 127.0.0.1:50457
+1657418921221	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileer6etG"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1657331420317	Marionette	INFO	Marionette enabled
+1657418921871	Marionette	INFO	Marionette enabled
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileW5rV90/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileer6etG/search.json.mozlz4", (void 0)))
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
-1657331423923	Marionette	INFO	Listening on port 37975
-Read port: 37975
-1657331424068	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-1657331431660	Marionette	INFO	Stopped listening on port 37975
+1657418923640	Marionette	INFO	Listening on port 39939
+Read port: 39939
+1657418923774	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657418931692	Marionette	INFO	Stopped listening on port 39939
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
-
-###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
-
