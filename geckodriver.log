@@ -1,17 +1,17 @@
-1660960958442	geckodriver	INFO	Listening on 127.0.0.1:47023
-1660960958447	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofilelzPntB"
+1661047124058	geckodriver	INFO	Listening on 127.0.0.1:44861
+1661047124063	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile5F15CZ"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1660960958966	Marionette	INFO	Marionette enabled
-1660960958972	Marionette	INFO	Listening on port 44183
-Read port: 44183
-1660960959119	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1661047129240	Marionette	INFO	Marionette enabled
+1661047129251	Marionette	INFO	Listening on port 39985
+Read port: 39985
+1661047130168	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilelzPntB/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile5F15CZ/search.json.mozlz4", (void 0)))
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
-1660960967416	Marionette	INFO	Stopped listening on port 44183
+1661047139860	Marionette	INFO	Stopped listening on port 39985
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 2006\"  data: no]"
