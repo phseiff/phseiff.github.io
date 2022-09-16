@@ -1,15 +1,15 @@
-1663208895601	geckodriver	INFO	Listening on 127.0.0.1:59545
-1663208895620	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileK7N4Zq"
+1663295385101	geckodriver	INFO	Listening on 127.0.0.1:53239
+1663295385107	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileYLhVYw"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1663208899053	Marionette	INFO	Marionette enabled
-1663208899075	Marionette	INFO	Listening on port 36301
-Read port: 36301
-1663208899851	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1663295385951	Marionette	INFO	Marionette enabled
+1663295385958	Marionette	INFO	Listening on port 36911
+Read port: 36911
+1663295386169	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileK7N4Zq/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileYLhVYw/search.json.mozlz4", (void 0)))
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
-1663208909149	Marionette	INFO	Stopped listening on port 36301
+1663295395302	Marionette	INFO	Stopped listening on port 36911
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 2013\"  data: no]"
