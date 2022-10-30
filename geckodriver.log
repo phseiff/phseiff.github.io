@@ -1,17 +1,16 @@
-1667008609260	geckodriver	INFO	Listening on 127.0.0.1:49675
-1667008610280	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileaFfuN7"
+1667096186411	geckodriver	INFO	Listening on 127.0.0.1:53949
+1667096187418	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileDB97Kq"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
 [GFX1-]: glxtest: libEGL missing
-1667008616909	Marionette	INFO	Marionette enabled
-1667008616945	Marionette	INFO	Listening on port 32941
-Read port: 32941
-Read port: 32941
-1667008618427	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1667096187873	Marionette	INFO	Marionette enabled
+1667096187878	Marionette	INFO	Listening on port 37433
+Read port: 37433
+1667096188006	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileaFfuN7/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileDB97Kq/search.json.mozlz4", (void 0)))
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
-1667008629705	Marionette	INFO	Stopped listening on port 32941
+1667096196120	Marionette	INFO	Stopped listening on port 37433
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.sys.mjs
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 2009\"  data: no]"
 console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
