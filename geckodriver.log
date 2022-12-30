@@ -1,14 +1,14 @@
-1672277159212	geckodriver	INFO	Listening on 127.0.0.1:54815
-1672277160273	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileZNmvMM"
+1672363454372	geckodriver	INFO	Listening on 127.0.0.1:36637
+1672363455442	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileiHtbPI"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
-1672277168585	Marionette	INFO	Marionette enabled
-1672277168598	Marionette	INFO	Listening on port 37771
-Read port: 37771
-1672277169768	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1672363461549	Marionette	INFO	Marionette enabled
+1672363461578	Marionette	INFO	Listening on port 45325
+Read port: 45325
+1672363462737	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileZNmvMM/search.json.mozlz4", (void 0)))
-1672277181103	Marionette	INFO	Stopped listening on port 37771
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileiHtbPI/search.json.mozlz4", (void 0)))
+1672363475690	Marionette	INFO	Stopped listening on port 45325
 WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task
           Phase: TelemetryController: Waiting for pending ping activity
