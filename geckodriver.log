@@ -1,14 +1,16 @@
-1674523683473	geckodriver	INFO	Listening on 127.0.0.1:43963
-1674523684496	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileLnvMcC"
+1674609880168	geckodriver	INFO	Listening on 127.0.0.1:37017
+1674609881207	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile4riBuS"
 *** You are running in headless mode.
 [GFX1-]: glxtest: Unable to open a connection to the X server
-1674523687283	Marionette	INFO	Marionette enabled
-1674523687292	Marionette	INFO	Listening on port 35727
-Read port: 35727
-1674523687867	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1674609888051	Marionette	INFO	Marionette enabled
+1674609888063	Marionette	INFO	Listening on port 37483
+Read port: 37483
+Read port: 37483
+1674609889650	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
-console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLnvMcC/search.json.mozlz4", (void 0)))
-1674523697704	Marionette	INFO	Stopped listening on port 35727
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile4riBuS/search.json.mozlz4", (void 0)))
+JavaScript error: http://127.0.0.1:5687///github-card/response.html, line 487: TypeError: e is undefined
+1674609901458	Marionette	INFO	Stopped listening on port 37483
 WARNING: A blocker encountered an error while we were waiting.
           Blocker:  Waiting for ping task
           Phase: TelemetryController: Waiting for pending ping activity
