@@ -321,7 +321,7 @@ content = content.replace("/* other languages */", languages_string)
 
 def frame_image(left, middle, right):
     images = [Image.open(x) for x in [left, middle, right]]
-    images[1].thumbnail((images[0].size[1], images[0].size[1]), Image.ANTIALIAS)
+    images[1].thumbnail((images[0].size[1], images[0].size[1]), Image.LANCZOS)
     widths, heights = zip(*(i.size for i in images))
 
     total_width = sum(widths)
@@ -423,7 +423,7 @@ def minify_html(file_name):
 def compress_icon(file_name, height, bg_color, quality):
     thumbnail = Image.open(file_name)
     size = (int(thumbnail.size[0] * height/thumbnail.size[1]), height)
-    thumbnail.thumbnail(size, Image.ANTIALIAS)
+    thumbnail.thumbnail(size, Image.LANCZOS)
 
     offset_x = max((size[0] - thumbnail.size[0]) / 2, 0)
     offset_y = max((size[1] - thumbnail.size[1]) / 2, 0)
