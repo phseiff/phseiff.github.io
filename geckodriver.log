@@ -1,13 +1,14 @@
-1720746966014	geckodriver	INFO	Listening on 127.0.0.1:56007
-1720746967020	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileIJPrsZ"
+1720833437482	geckodriver	INFO	Listening on 127.0.0.1:53009
+1720833438495	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileWMKTxi"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 [GFX1-]: glxtest: Unable to open a connection to the X server
-1720746967467	Marionette	INFO	Marionette enabled
-1720746967600	Marionette	INFO	Listening on port 40039
-Read port: 40039
-1720746967823	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1720833464420	Marionette	INFO	Marionette enabled
+1720833469867	Marionette	INFO	Listening on port 33575
+Read port: 33575
+1720833470731	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.error: ({})
-1720746974748	Marionette	INFO	Stopped listening on port 40039
+JavaScript error: http://127.0.0.1:5687///github-card/response.html, line 487: TypeError: e is undefined
+1720833489119	Marionette	INFO	Stopped listening on port 33575
