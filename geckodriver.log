@@ -1,13 +1,13 @@
-1721006340917	geckodriver	INFO	Listening on 127.0.0.1:33155
-1721006341924	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofile0E7DTm"
+1721092722132	geckodriver	INFO	Listening on 127.0.0.1:51701
+1721092723165	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-headless" "-no-remote" "-profile" "/tmp/rust_mozprofileywITxM"
 *** You are running in headless mode.
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
 [GFX1-]: glxtest: Unable to open a connection to the X server
-1721006345020	Marionette	INFO	Marionette enabled
-1721006345877	Marionette	INFO	Listening on port 42131
-Read port: 42131
-1721006346037	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1721092727228	Marionette	INFO	Marionette enabled
+1721092728226	Marionette	INFO	Listening on port 46597
+Read port: 46597
+1721092728421	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 [GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
 console.error: ({})
-1721006354294	Marionette	INFO	Stopped listening on port 42131
+1721092737096	Marionette	INFO	Stopped listening on port 46597
